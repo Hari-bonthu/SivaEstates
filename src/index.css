@@ -4,41 +4,77 @@
 
 @layer base {
   body {
-    @apply bg-navy-950 text-slate-100 font-sans selection:bg-gold-500 selection:text-navy-950 overflow-x-hidden;
+    background-color: #0F1115;
+    color: #F8FAFC;
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  code, pre, .font-mono-tag {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 
-/* Custom Utilities & Glassmorphism */
-.glass-card {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(245, 158, 11, 0.18);
+/* Custom Design System Utilities */
+.brand-card {
+  background: #1A1D23;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.glass-card-hover {
+.brand-card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.glass-card-hover:hover {
-  background: rgba(30, 41, 59, 0.85);
-  border-color: rgba(245, 158, 11, 0.45);
+.brand-card-hover:hover {
+  background: #20242C;
+  border-color: rgba(245, 166, 35, 0.4);
   transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(245, 158, 11, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(245, 166, 35, 0.15);
 }
 
-.gold-glow {
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+.brand-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(26, 29, 35, 0.8);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  color: #F5A623;
+  padding: 4px 12px;
+  border-radius: 9999px;
 }
 
-.gold-text-gradient {
-  background: linear-gradient(135deg, #FFF 0%, #F59E0B 50%, #D97706 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.primary-btn {
+  background-color: #F5A623;
+  color: #0F1115;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.primary-btn:hover {
+  background-color: #E0951C;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(245, 166, 35, 0.3);
+}
+
+.secondary-btn {
+  background-color: #1A1D23;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.secondary-btn:hover {
+  background-color: #262A33;
+  border-color: #F5A623;
+  color: #F5A623;
 }
 
 /* Custom Scrollbar */
@@ -47,15 +83,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F19;
+  background: #0F1115;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: #1A1D23;
   border-radius: 4px;
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 166, 35, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D97706;
+  background: #F5A623;
 }
