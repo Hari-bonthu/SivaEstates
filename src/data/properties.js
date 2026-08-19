@@ -1,6 +1,7 @@
 export const properties = [
   {
     id: "jetty-mayfair",
+    category: "current",
     title: "Jetty Mayfair Luxury Villa Layout",
     location: "Rajahmundry",
     area: "Morampudi - Lalacheruvu Highway Corridor",
@@ -22,29 +23,8 @@ export const properties = [
     featured: true
   },
   {
-    id: "godavari-riverview",
-    title: "Godavari Riverview Enclave",
-    location: "Rajahmundry",
-    area: "Dowleswaram - Diwancheruvu Belt",
-    type: "Residential Open Plots",
-    approval: "DTCP Approved",
-    plotSizes: "180 - 400 Sq. Yards",
-    facing: "East / North",
-    roadWidth: "40ft BT Roads",
-    pricePerSqYd: "₹14,200 / Sq.Yd",
-    status: "80% Booked",
-    highlights: [
-      "5 Minutes from Dowleswaram Barrage",
-      "Fastest Growing Residential Belt",
-      "Immediate House Construction Zone",
-      "Spot Registration & Bank Loan Facility",
-      "Streetlights & Overhead Water Tank"
-    ],
-    image: "./images/open_plot_layout_1786442637690.jpg",
-    featured: true
-  },
-  {
     id: "kakinada-smart-city",
+    category: "current",
     title: "Kakinada Port & Smart City Layout",
     location: "Kakinada",
     area: "Ramanayyapeta - ADB Road Corridor",
@@ -67,6 +47,7 @@ export const properties = [
   },
   {
     id: "samalkot-highway-plots",
+    category: "current",
     title: "Samalkot ADB Highway Enclave",
     location: "Kakinada",
     area: "Samalkot - Kakinada Highway",
@@ -88,7 +69,31 @@ export const properties = [
     featured: false
   },
   {
+    id: "godavari-riverview",
+    category: "completed",
+    title: "Godavari Riverview Enclave Phase 1",
+    location: "Rajahmundry",
+    area: "Dowleswaram - Diwancheruvu Belt",
+    type: "Residential Open Plots",
+    approval: "DTCP Approved",
+    plotSizes: "180 - 400 Sq. Yards",
+    facing: "East / North",
+    roadWidth: "40ft BT Roads",
+    pricePerSqYd: "₹14,200 / Sq.Yd",
+    status: "100% Sold Out",
+    highlights: [
+      "5 Minutes from Dowleswaram Barrage",
+      "Fastest Growing Residential Belt",
+      "Completed House Constructions",
+      "100% Registered & Handed Over",
+      "Streetlights & Overhead Water Tank"
+    ],
+    image: "./images/open_plot_layout_1786442637690.jpg",
+    featured: true
+  },
+  {
     id: "diwancheruvu-expressway",
+    category: "completed",
     title: "Diwancheruvu NH-16 Express Layout",
     location: "Rajahmundry",
     area: "NH-16 Diwancheruvu Junction",
@@ -98,13 +103,13 @@ export const properties = [
     facing: "East / Commercial Highway Front",
     roadWidth: "80ft & 40ft Internal Roads",
     pricePerSqYd: "₹26,500 / Sq.Yd",
-    status: "Limited Plots Left",
+    status: "100% Sold Out",
     highlights: [
       "Direct NH-16 Highway Frontage",
       "High Growth Commercial Corridor",
       "Surrounded by Gated Villa Ventures",
       "100% Vasthu & Clear Title Deed",
-      "3-Year Guaranteed Value Doubling"
+      "Guaranteed Double Value Delivered"
     ],
     image: "./images/luxury_villa_venture_1786442598108.jpg",
     featured: false

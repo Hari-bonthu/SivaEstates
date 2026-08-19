@@ -1,39 +1,39 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import HeroSlider from './components/HeroSlider';
 import FourPillars from './components/FourPillars';
 import BranchSpotlight from './components/BranchSpotlight';
-import PropertyCatalog from './components/PropertyCatalog';
+import ProjectTabsCatalog from './components/ProjectTabsCatalog';
 import PlotVisualizer from './components/PlotVisualizer';
 import YouTubeHub from './components/YouTubeHub';
 import EmiCalculator from './components/EmiCalculator';
 import TrustSection from './components/TrustSection';
 import Testimonials from './components/Testimonials';
-import ContactForm from './components/ContactForm';
+import ContactFormServerless from './components/ContactFormServerless';
 import Footer from './components/Footer';
 import { MessageCircle } from 'lucide-react';
 
 export default function App() {
-  const [lang, setLang] = useState('en'); // 'en' or 'te'
+  const [lang, setLang] = useState('en');
 
   return (
-    <div className="min-h-screen flex flex-col bg-navy-950 text-slate-100 selection:bg-gold-500 selection:text-navy-950">
+    <div className="min-h-screen flex flex-col bg-[#0F1115] text-slate-100 selection:bg-[#F5A623] selection:text-[#0F1115]">
       
-      {/* Navbar Header */}
+      {/* Header Navbar */}
       <Navbar lang={lang} setLang={setLang} />
 
       {/* Main Page Sections */}
       <main className="flex-grow">
-        <Hero lang={lang} />
+        <HeroSlider lang={lang} />
         <FourPillars lang={lang} />
         <BranchSpotlight lang={lang} />
-        <PropertyCatalog lang={lang} />
+        <ProjectTabsCatalog lang={lang} />
         <PlotVisualizer lang={lang} />
         <YouTubeHub lang={lang} />
         <EmiCalculator lang={lang} />
         <TrustSection lang={lang} />
         <Testimonials lang={lang} />
-        <ContactForm lang={lang} />
+        <ContactFormServerless lang={lang} />
       </main>
 
       {/* Footer */}
@@ -44,7 +44,7 @@ export default function App() {
         href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20am%20visiting%20your%20website%20and%20want%20information%20on%20plots."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-emerald-500 text-white shadow-2xl hover:scale-110 hover:bg-emerald-400 transition-all flex items-center justify-center gold-glow"
+        className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-[#10B981] text-white shadow-2xl hover:scale-110 hover:bg-[#0D9668] transition-all flex items-center justify-center"
         title="Chat on WhatsApp (+91 98516 33333)"
         aria-label="WhatsApp Chat"
       >
