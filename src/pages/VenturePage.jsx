@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { properties } from '../data/properties';
-import { MapPin, Phone, ShieldCheck, CheckCircle2, ArrowLeft, LayoutGrid, Compass, Ruler, IndianRupee, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, ShieldCheck, CheckCircle2, ArrowLeft, LayoutGrid, Compass, Ruler, IndianRupee, MessageCircle, Eye } from 'lucide-react';
 import MagneticCarousel from '../components/MagneticCarousel';
 
 export default function VenturePage() {
@@ -40,7 +40,7 @@ export default function VenturePage() {
     <div className="min-h-screen bg-[#F9F7F2] font-sans">
 
       {/* Sub-Header Navigation Bar matching screenshot */}
-      <div className="bg-white border-b border-[#E5E0D5] px-4 sm:px-8 py-3.5">
+      <div className="bg-white border-b border-[#E5E0D5] px-4 sm:px-8 py-3.5 sticky top-20 z-30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
@@ -59,7 +59,7 @@ export default function VenturePage() {
         </div>
       </div>
 
-      {/* Hero Header Section matching screenshot */}
+      {/* Hero Header Section */}
       <div className="relative min-h-[380px] sm:min-h-[460px] flex items-end overflow-hidden bg-[#1B1C1C]">
         {/* Hero Background Image */}
         <img
@@ -97,12 +97,12 @@ export default function VenturePage() {
         </div>
       </div>
 
-      {/* Main Content Grid matching 2-Column layout in screenshot */}
+      {/* ─── SECTION 1: ABOUT THIS VENTURE & STICKY TOP SIDEBAR ─────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 items-start">
 
-          {/* Left Column: Details, Specs, Features & OriginKit Magnetic Gallery */}
-          <div className="lg:col-span-8 space-y-12">
+          {/* Left Div (lg:col-span-8): About, Specs, Features & Infrastructure */}
+          <div className="lg:col-span-8 space-y-10">
 
             {/* About This Venture */}
             <div className="space-y-3">
@@ -122,7 +122,7 @@ export default function VenturePage() {
               </p>
             </div>
 
-            {/* 4 Spec Cards Grid matching screenshot */}
+            {/* 4 Spec Cards Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E5E0D5] text-center shadow-xs">
                 <div className="flex items-center justify-center space-x-1.5 text-[#4A5D4E] mb-2">
@@ -157,7 +157,7 @@ export default function VenturePage() {
               </div>
             </div>
 
-            {/* Venture Features & Infrastructure matching screenshot */}
+            {/* Venture Features & Infrastructure */}
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" />
@@ -176,39 +176,11 @@ export default function VenturePage() {
               </div>
             </div>
 
-            {/* Site Gallery with OriginKit Magnetic Carousel */}
-            <div className="space-y-4 pt-2">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="h-px w-8 bg-[#4A5D4E]"></div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
-                  SITE GALLERY • INTERACTIVE DOCK
-                </span>
-              </div>
-
-              <div className="bg-white rounded-3xl border border-[#E5E0D5] p-4 sm:p-6 shadow-xs overflow-hidden">
-                <p className="text-center text-xs text-[#636863] font-mono mb-2">
-                  ✦ Hover across bars to magnify • Click any card to expand
-                </p>
-                <div className="overflow-x-auto overflow-y-hidden py-2">
-                  <MagneticCarousel
-                    images={gallery.map(img => (typeof img === 'string' ? { src: img } : img))}
-                    collapsedWidth={75}
-                    hoverWidth={175}
-                    collapsedHeight={320}
-                    hoverHeight={380}
-                    openSize={490}
-                    gap={12}
-                    influence={180}
-                  />
-                </div>
-              </div>
-            </div>
-
           </div>
 
-          {/* Right Column: Sticky Sidebar matching screenshot */}
+          {/* Right Div (lg:col-span-4): Sticky Top Enquire Sidebar */}
           <div className="lg:col-span-4">
-            <div className="sticky top-24 space-y-5">
+            <div className="sticky top-32 space-y-5">
 
               {/* Booking CTA Card */}
               <div id="booking-card" className="bg-white rounded-3xl border border-[#E5E0D5] p-6 sm:p-7 shadow-sm space-y-4">
@@ -263,56 +235,95 @@ export default function VenturePage() {
           </div>
 
         </div>
+      </div>
 
-        {/* Explore More Ventures Section matching screenshot bottom */}
-        <div className="mt-20 pt-12 border-t border-[#E5E0D5]">
-          <div className="flex items-center space-x-3 mb-8">
-            <div className="h-px w-8 bg-[#4A5D4E]"></div>
-            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
-              EXPLORE MORE VENTURES
-            </span>
+      {/* ─── SECTION 2: STANDALONE FULL-WIDTH MAGNETIC GALLERY SECTION ───────────── */}
+      <section className="w-full bg-[#F3EFEA]/80 py-16 border-y border-[#E5E0D5]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Gallery Header */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="h-px w-8 bg-[#4A5D4E]"></div>
+                <span className="text-[11px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
+                  SITE GALLERY • INTERACTIVE DOCK
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-normal text-[#1B1C1C] font-serif">
+                Real Site Photography &amp; Layout Walkthrough
+              </h3>
+            </div>
+            <p className="text-xs text-[#636863] font-mono">
+              ✦ Hover across image bars to magnify • Click any card to expand full view
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherVentures.map((v) => (
-              <Link
-                to={`/venture/${v.id}`}
-                key={v.id}
-                className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-[#DBCBB0] transition-all group shadow-xs hover:shadow-md flex flex-col"
-              >
-                <div className="h-48 overflow-hidden bg-[#F0EDED] relative">
-                  <img
-                    src={v.thumbnail}
-                    alt={v.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white text-[#1B1C1C] text-[9px] font-mono font-bold tracking-wider uppercase shadow-xs">
-                    {v.location}
-                  </div>
-                </div>
-
-                <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
-                  <div>
-                    <span className="text-[9px] font-mono font-bold text-[#4A5D4E] uppercase tracking-wider block mb-1">
-                      {v.approval.split(' ')[0]} APPROVED
-                    </span>
-                    <h4 className="text-base font-bold text-[#1B1C1C] font-serif leading-snug group-hover:text-[#4A5D4E] transition-colors">
-                      {v.title}
-                    </h4>
-                  </div>
-                  <div className="pt-3 border-t border-[#E5E0D5] flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-[#1B1C1C]">{v.pricePerSqYd}</span>
-                    <span className="text-xs font-mono font-bold text-[#4A5D4E] group-hover:translate-x-1 transition-transform">
-                      VIEW VENTURE →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+          {/* Full-Width Magnetic Carousel with zero scrollbar */}
+          <div className="w-full relative">
+            <MagneticCarousel
+              images={gallery.map(img => (typeof img === 'string' ? { src: img } : img))}
+              collapsedWidth={100}
+              hoverWidth={240}
+              collapsedHeight={380}
+              hoverHeight={440}
+              openSize={580}
+              gap={16}
+              influence={220}
+            />
           </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 3: EXPLORE MORE VENTURES ───────────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16">
+        <div className="flex items-center space-x-3 mb-8">
+          <div className="h-px w-8 bg-[#4A5D4E]"></div>
+          <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
+            EXPLORE MORE VENTURES
+          </span>
         </div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {otherVentures.map((v) => (
+            <Link
+              to={`/venture/${v.id}`}
+              key={v.id}
+              className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-[#DBCBB0] transition-all group shadow-xs hover:shadow-md flex flex-col"
+            >
+              <div className="h-48 overflow-hidden bg-[#F0EDED] relative">
+                <img
+                  src={v.thumbnail}
+                  alt={v.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white text-[#1B1C1C] text-[9px] font-mono font-bold tracking-wider uppercase shadow-xs">
+                  {v.location}
+                </div>
+              </div>
+
+              <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[9px] font-mono font-bold text-[#4A5D4E] uppercase tracking-wider block mb-1">
+                    {v.approval.split(' ')[0]} APPROVED
+                  </span>
+                  <h4 className="text-base font-bold text-[#1B1C1C] font-serif leading-snug group-hover:text-[#4A5D4E] transition-colors">
+                    {v.title}
+                  </h4>
+                </div>
+                <div className="pt-3 border-t border-[#E5E0D5] flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-[#1B1C1C]">{v.pricePerSqYd}</span>
+                  <span className="text-xs font-mono font-bold text-[#4A5D4E] group-hover:translate-x-1 transition-transform">
+                    VIEW VENTURE →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }

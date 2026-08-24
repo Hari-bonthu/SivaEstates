@@ -23,6 +23,9 @@ export const properties = [
       "./images/assets/WhatsApp Image 2025-05-08 at 12.38.34_2a631ba4.jpg",
       "./images/assets/WhatsApp Image 2025-05-08 at 12.38.34_57f450a4.jpg",
       "./images/assets/WhatsApp Image 2025-05-08 at 12.38.36_a95cae1c.jpg",
+      "./images/assets/WhatsApp Image 2025-05-13 at 16.08.45_f4cadbe9.jpg",
+      "./images/assets/WhatsApp Image 2025-09-15 at 22.22.24_a62f2e19.jpg",
+      "./images/assets/20250529_140810.jpg"
     ],
     highlights: [
       "Grand Entrance Arch with 24/7 Security",
@@ -57,6 +60,10 @@ export const properties = [
       "./images/assets/20260218_125717.jpg",
       "./images/assets/20260814_103553.jpg",
       "./images/assets/20260814_103648.jpg",
+      "./images/assets/20260814_103718.jpg",
+      "./images/assets/20260814_103728.jpg",
+      "./images/assets/20260208_120128.jpg",
+      "./images/assets/20260208_120138.jpg"
     ],
     highlights: [
       "Located in High-Growth Residential Zone",
@@ -90,6 +97,11 @@ export const properties = [
       "./images/assets/20260814_105238.jpg",
       "./images/assets/20260814_105341.jpg",
       "./images/assets/20260814_105640.jpg",
+      "./images/assets/20260814_105706.jpg",
+      "./images/assets/20260814_105932.jpg",
+      "./images/assets/20260814_105958.jpg",
+      "./images/assets/20260814_110002.jpg",
+      "./images/assets/20260814_110125(0).jpg"
     ],
     highlights: [
       "VMRDA & DTCP Approved Layout",
@@ -124,6 +136,10 @@ export const properties = [
       "./images/assets/20260814_105640.jpg",
       "./images/assets/20260814_105706.jpg",
       "./images/assets/20260814_105932.jpg",
+      "./images/assets/20260814_105958.jpg",
+      "./images/assets/20260814_110002.jpg",
+      "./images/assets/20260814_110125(0).jpg",
+      "./images/assets/20260814_110127.jpg"
     ],
     highlights: [
       "100% Clear Title & EC Verified",
@@ -158,6 +174,10 @@ export const properties = [
       "./images/assets/20260814_101242.jpg",
       "./images/assets/20260814_101502.jpg",
       "./images/assets/20260814_101645.jpg",
+      "./images/assets/20260814_101746.jpg",
+      "./images/assets/20260509_131551.jpg",
+      "./images/assets/20260512_182730.jpg",
+      "./images/assets/20260621_165137.jpg"
     ],
     highlights: [
       "100% Sold, Registered & Handed Over",
@@ -192,6 +212,10 @@ export const properties = [
       "./images/assets/20260814_111527.jpg",
       "./images/assets/20260814_111610.jpg",
       "./images/assets/20260814_111624.jpg",
+      "./images/assets/20260814_111636(0).jpg",
+      "./images/assets/20260711_203414.jpg",
+      "./images/assets/20260803_163343.jpg",
+      "./images/assets/20260803_181927.jpg"
     ],
     highlights: [
       "Direct NH-16 National Highway Frontage",

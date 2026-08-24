@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-// Magnetic Carousel — Originkit Raw React Implementation
+// Magnetic Carousel — Originkit Full-Width React Implementation
 // macOS-dock style expanding image bars with click-to-expand focus
 
 const RenderTarget = {
@@ -42,14 +42,14 @@ function parseTransition(t) {
 
 const COMPONENT_DEFAULTS = {
   images: DEFAULT_IMAGES,
-  collapsedWidth: 70,
-  hoverWidth: 160,
-  collapsedHeight: 320,
-  hoverHeight: 380,
-  openSize: 480,
-  gap: 12,
-  influence: 180,
-  blur: 3,
+  collapsedWidth: 95,
+  hoverWidth: 230,
+  collapsedHeight: 380,
+  hoverHeight: 440,
+  openSize: 580,
+  gap: 16,
+  influence: 220,
+  blur: 4,
   transition: {
     type: "tween",
     duration: 0.35,
@@ -62,14 +62,14 @@ function OriginkitBase_MagneticCarousel(props) {
   const mergedProps = { ...COMPONENT_DEFAULTS, ...props };
   const {
     images = DEFAULT_IMAGES,
-    collapsedWidth = 70,
-    hoverWidth = 160,
-    collapsedHeight = 320,
-    hoverHeight = 380,
-    openSize = 480,
-    gap = 12,
-    influence = 180,
-    blur = 3,
+    collapsedWidth: defaultCollapsedWidth = 95,
+    hoverWidth: defaultHoverWidth = 230,
+    collapsedHeight = 380,
+    hoverHeight = 440,
+    openSize = 580,
+    gap: defaultGap = 16,
+    influence: defaultInfluence = 220,
+    blur = 4,
     transition = { type: "tween", duration: 0.35, ease: "easeInOut" },
     style = {},
   } = mergedProps;
@@ -83,6 +83,7 @@ function OriginkitBase_MagneticCarousel(props) {
   const [factors, setFactors] = useState(() => items.map(() => 0));
   const [open, setOpen] = useState(null);
   const [closing, setClosing] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(1200);
 
   const isCanvas = RenderTarget.current() === RenderTarget.canvas;
 
@@ -90,6 +91,28 @@ function OriginkitBase_MagneticCarousel(props) {
   const curRef = useRef(items.map(() => 0));
   const loopRef = useRef(0);
   const closeTimer = useRef(0);
+
+  // Measure container width to dynamically scale image bars so they always fit perfectly without horizontal scrollbar
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const updateSize = () => {
+      setContainerWidth(el.clientWidth || window.innerWidth);
+    };
+    updateSize();
+    const observer = new ResizeObserver(updateSize);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Compute responsive bar width & gap based on container width
+  const availableWidth = Math.max(320, containerWidth - 40);
+  const calculatedGap = count > 8 ? Math.max(8, Math.min(defaultGap, Math.floor(availableWidth / (count * 4)))) : defaultGap;
+  const maxPossibleBarWidth = Math.floor((availableWidth - (count - 1) * calculatedGap) / count);
+  const collapsedWidth = Math.max(36, Math.min(defaultCollapsedWidth, maxPossibleBarWidth));
+  const hoverWidth = Math.max(collapsedWidth * 1.6, Math.min(defaultHoverWidth, collapsedWidth * 2.4));
+  const gap = calculatedGap;
+  const influence = Math.max(120, defaultInfluence * (collapsedWidth / defaultCollapsedWidth));
 
   useEffect(() => {
     targetRef.current = items.map(() => 0);
@@ -166,9 +189,10 @@ function OriginkitBase_MagneticCarousel(props) {
 
   const sizeFor = (i) => {
     if (open !== null) {
+      const responsiveOpenSize = Math.min(openSize, containerWidth - 48);
       return i === open
-        ? { width: openSize, height: openSize }
-        : { width: collapsedWidth, height: collapsedHeight };
+        ? { width: responsiveOpenSize, height: responsiveOpenSize * 0.85 }
+        : { width: Math.max(20, collapsedWidth * 0.6), height: collapsedHeight * 0.9 };
     }
     const f = factors[i] ?? 0;
     return {
@@ -186,14 +210,14 @@ function OriginkitBase_MagneticCarousel(props) {
       ref={containerRef}
       style={{
         width: "100%",
-        minHeight: "440px",
+        minHeight: `${hoverHeight + 40}px`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap,
+        gap: `${gap}px`,
         position: "relative",
-        overflow: "visible",
-        padding: "24px 0",
+        overflow: "hidden", // Completely eliminate any horizontal scrollbar
+        padding: "20px 0",
         userSelect: "none",
         ...style,
       }}
@@ -225,33 +249,33 @@ function OriginkitBase_MagneticCarousel(props) {
               if (open === i) close();
               else setOpen(i);
             }}
-            className="rounded-2xl border border-[#E5E0D5] hover:border-[#4A5D4E] shadow-sm hover:shadow-lg transition-shadow"
+            className="rounded-2xl border border-[#E5E0D5] hover:border-[#4A5D4E] shadow-sm hover:shadow-xl transition-shadow"
             style={{
               flex: "none",
-              width: `${width}px`,
-              height: `${height}px`,
+              width: `${Math.round(width)}px`,
+              height: `${Math.round(height)}px`,
               overflow: "hidden",
               cursor: isCanvas ? "default" : "pointer",
               transition: barTransition,
               willChange: "width, height",
               position: "relative",
-              zIndex: isOpenCard ? 10 : 2,
+              zIndex: isOpenCard ? 20 : 2,
               filter: blurred ? `blur(${blur}px)` : "none",
-              opacity: blurred ? 0.5 : 1,
+              opacity: blurred ? 0.45 : 1,
               backgroundColor: "#1B1C1C",
               backgroundImage: img && img.src ? `url("${img.src}")` : undefined,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
               boxShadow: isOpenCard
-                ? "0 25px 50px -12px rgba(0, 0, 0, 0.4)"
+                ? "0 30px 60px -15px rgba(0, 0, 0, 0.5)"
                 : undefined,
             }}
           >
             {/* Card Overlay & Expand hint */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/70 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3">
-              <span className="text-white text-[10px] font-mono font-bold uppercase tracking-wider bg-[#1B1C1C]/80 px-2 py-0.5 rounded">
-                {isOpenCard ? "Click to close" : "Click to expand"}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3 pointer-events-none">
+              <span className="text-white text-[10px] font-mono font-bold uppercase tracking-wider bg-[#1B1C1C]/90 px-2 py-0.5 rounded border border-white/20">
+                {isOpenCard ? "Close ✕" : `Photo ${i + 1}`}
               </span>
             </div>
           </div>
