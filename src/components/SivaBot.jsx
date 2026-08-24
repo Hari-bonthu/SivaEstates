@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, MessageCircle, Phone, ChevronDown, ArrowRight, MapPin, CheckCircle2, Home, Building2, Calculator, Shield, Calendar } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { X, MessageCircle, Phone, MapPin, CheckCircle2, Home, Calculator, Shield, Calendar, RotateCcw } from 'lucide-react';
 
 // ─── FAQ Data ────────────────────────────────────────────────────────────────
 const FAQS = [
@@ -50,13 +50,13 @@ const FAQS = [
 const VENTURES_DATA = [
   { name: 'Jetty Mayfair Luxury Villa Layout', location: 'Rajahmundry', price: '₹18,500 / Sq.Yd', status: 'Fast Selling' },
   { name: 'Seshadri Heights Gated Community', location: 'Rajahmundry', price: '₹16,800 / Sq.Yd', status: 'Newly Launched' },
-  { name: 'Sree Harivasam Open Plots', location: 'Rajahmundry', price: '₹14,500 / Sq.Yd', status: 'Fast Selling' },
+  { name: 'Kakinada Port & Smart City Layout', location: 'Kakinada', price: '₹22,000 / Sq.Yd', status: 'Fast Selling' },
 ];
 
 const PRICING_DATA = [
   { venture: 'Jetty Mayfair', sizes: '150–500 Sq.Yds', price: '₹18,500 / Sq.Yd', min: '~₹27.75 Lakhs' },
   { venture: 'Seshadri Heights', sizes: '160–450 Sq.Yds', price: '₹16,800 / Sq.Yd', min: '~₹26.88 Lakhs' },
-  { venture: 'Sree Harivasam', sizes: '150–350 Sq.Yds', price: '₹14,500 / Sq.Yd', min: '~₹21.75 Lakhs' },
+  { venture: 'Kakinada Smart City', sizes: '200–600 Sq.Yds', price: '₹22,000 / Sq.Yd', min: '~₹44.00 Lakhs' },
 ];
 
 // ─── Message Renderer ─────────────────────────────────────────────────────────
@@ -64,7 +64,7 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'user') {
     return (
       <div className="flex justify-end">
-        <div className="max-w-[80%] bg-[#1B1C1C] text-white text-sm rounded-2xl rounded-tr-sm px-4 py-2.5 font-sans">
+        <div className="max-w-[82%] bg-[#1B1C1C] text-white text-xs sm:text-sm rounded-2xl rounded-tr-sm px-4 py-2.5 font-sans">
           {msg.text}
         </div>
       </div>
@@ -74,10 +74,10 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-text') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5">
-          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[80%] bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 font-sans leading-relaxed">
+        <div className="max-w-[82%] bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 font-sans leading-relaxed">
           {msg.text}
         </div>
       </div>
@@ -87,11 +87,11 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-ventures') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5">
-          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[90%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] text-sm rounded-2xl rounded-tl-sm px-4 py-2.5">
+        <div className="max-w-[88%] space-y-2">
+          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5">
             Here are our active ventures:
           </div>
           {VENTURES_DATA.map((v, i) => (
@@ -120,12 +120,12 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-pricing') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5">
-          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[90%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
-            Here's our current pricing breakdown:
+        <div className="max-w-[88%] space-y-2">
+          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+            Current pricing breakdown across locations:
           </div>
           <div className="bg-white border border-[#E5E0D5] rounded-2xl overflow-hidden">
             {PRICING_DATA.map((p, i) => (
@@ -139,7 +139,6 @@ function BotMessage({ msg, onQuickReply }) {
               </div>
             ))}
           </div>
-          <p className="text-[10px] text-[#636863] font-mono px-1">* Prices may vary based on plot location within the layout. Contact us for exact quote.</p>
         </div>
       </div>
     );
@@ -148,23 +147,23 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-offices') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5">
-          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[90%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
-            We have 2 offices across Andhra Pradesh:
+        <div className="max-w-[88%] space-y-2">
+          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+            We have 2 direct offices:
           </div>
-          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-4 space-y-4 text-xs">
+          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-3.5 space-y-3 text-xs">
             <div>
               <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Rajahmundry Head Office</p>
-              <p className="text-[#636863] mt-1">Main Road, Morampudi Junction, Rajahmundry, East Godavari District, Andhra Pradesh.</p>
-              <p className="text-[#4A5D4E] font-mono font-bold mt-1">Mon–Sun: 9:00 AM – 8:00 PM</p>
+              <p className="text-[#636863] mt-0.5">Main Road, Morampudi Junction, Rajahmundry AP.</p>
+              <p className="text-[#4A5D4E] font-mono font-bold mt-0.5">Mon–Sun: 9:00 AM – 8:00 PM</p>
             </div>
-            <div className="border-t border-[#E5E0D5] pt-4">
-              <p className="font-bold text-[#1B1C1C] font-serif text-sm flex items-center">🏢 Kakinada Branch <span className="ml-2 px-1.5 py-0.5 bg-[#EAF0EC] text-[#334537] text-[9px] rounded font-mono">NEW</span></p>
-              <p className="text-[#636863] mt-1">Ramanayyapeta Commercial Centre, Kakinada, Andhra Pradesh.</p>
-              <p className="text-[#4A5D4E] font-mono font-bold mt-1">Mon–Sun: 9:00 AM – 7:00 PM</p>
+            <div className="border-t border-[#E5E0D5] pt-3">
+              <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Kakinada Branch</p>
+              <p className="text-[#636863] mt-0.5">Ramanayyapeta Commercial Centre, Kakinada AP.</p>
+              <p className="text-[#4A5D4E] font-mono font-bold mt-0.5">Mon–Sun: 9:00 AM – 7:00 PM</p>
             </div>
           </div>
         </div>
@@ -175,22 +174,21 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-legal') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5">
-          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[90%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
-            Yes — 100% guaranteed. Here's what we provide:
+        <div className="max-w-[88%] space-y-2">
+          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+            Yes — 100% legal title guaranteed:
           </div>
-          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-4 space-y-2 text-xs">
+          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-3.5 space-y-2 text-xs">
             {[
               'DTCP / VMRDA Approved Layout Plan',
               'AP RERA Registered Project',
               'Encumbrance Certificate (EC) — 30 years',
-              'Link Documents & Parent Deed',
+              'Link Documents & Parent Deed Verified',
               'Spot Registration in Sub-Registrar Office',
-              'Bank Loan Approved — All Major Banks',
-              'Single-Owner Clear Title — No Disputes',
+              'Bank Loan Approved by All Major Banks',
             ].map((item, i) => (
               <div key={i} className="flex items-center space-x-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] shrink-0" />
@@ -206,12 +204,12 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-visit') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5">
-          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[90%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
-            We'll arrange a free AC car site visit for you. Click below to connect with Director Siva Yedida directly:
+        <div className="max-w-[88%] space-y-2">
+          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+            We provide a free AC car facility for site visits. Contact us to schedule:
           </div>
           <div className="space-y-2">
             <a
@@ -238,21 +236,21 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-director') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5">
-          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+          <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[90%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
-            Reach Director <strong>Mr. Siva Yedida</strong> directly:
+        <div className="max-w-[88%] space-y-2">
+          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+            Direct contact with Founder &amp; MD:
           </div>
-          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-4 space-y-3">
+          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-3.5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#E5E0D5]">
+              <div className="w-11 h-11 rounded-xl overflow-hidden border border-[#E5E0D5]">
                 <img src="./images/siva_yedida_professional.jpg" alt="Siva Yedida" className="w-full h-full object-cover object-top" />
               </div>
               <div>
                 <p className="font-bold text-[#1B1C1C] font-serif text-sm">Siva Yedida</p>
-                <p className="text-[10px] text-[#636863] font-mono">Founder & Managing Director</p>
+                <p className="text-[10px] text-[#636863] font-mono">Founder &amp; Managing Director</p>
               </div>
             </div>
             <div className="space-y-2">
@@ -269,7 +267,7 @@ function BotMessage({ msg, onQuickReply }) {
                 href="tel:+919851633333"
                 className="w-full py-2.5 rounded-lg bg-white border border-[#E5E0D5] text-[#1B1C1C] text-xs font-mono font-bold text-center block hover:bg-[#F9F7F2] transition-all"
               >
-                Direct Call: +91 98516 33333
+                Call: +91 98516 33333
               </a>
             </div>
           </div>
@@ -288,15 +286,22 @@ export default function SivaBot() {
     {
       id: 1,
       type: 'bot-text',
-      text: 'Hello! 👋 I\'m SivaBot, your real estate assistant for Siva Telugu Estates. How can I help you today?'
+      text: 'Hello! 👋 I\'m SivaBot, your real estate assistant for Siva Telugu Estates. Choose a question below or connect with us directly.'
     }
   ]);
-  const [showMenu, setShowMenu] = useState(true);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      scrollToBottom();
+    }
+  }, [messages, isOpen]);
 
   const handleFAQ = (faq) => {
-    setShowMenu(false);
-
-    // Add user message
     const userMsg = { id: Date.now(), type: 'user', text: faq.label };
 
     let botMsg;
@@ -315,18 +320,6 @@ export default function SivaBot() {
     }
 
     setMessages(prev => [...prev, userMsg, botMsg]);
-
-    setTimeout(() => {
-      setMessages(prev => [
-        ...prev,
-        {
-          id: Date.now() + 2,
-          type: 'bot-text',
-          text: 'Is there anything else I can help you with? Feel free to ask another question!'
-        }
-      ]);
-      setShowMenu(true);
-    }, 500);
   };
 
   const handleQuickReply = (label, type) => {
@@ -335,25 +328,26 @@ export default function SivaBot() {
   };
 
   const resetChat = () => {
-    setMessages([{
-      id: 1,
-      type: 'bot-text',
-      text: 'Hello! 👋 I\'m SivaBot. How can I help you today?'
-    }]);
-    setShowMenu(true);
+    setMessages([
+      {
+        id: Date.now(),
+        type: 'bot-text',
+        text: 'Hello! 👋 I\'m SivaBot. How can I help you today? Pick a question below:'
+      }
+    ]);
   };
 
   return (
     <>
       {/* Chat Panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[380px] max-h-[70vh] bg-white rounded-3xl shadow-2xl border border-[#E5E0D5] flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[380px] max-h-[75vh] bg-white rounded-3xl shadow-2xl border border-[#E5E0D5] flex flex-col overflow-hidden">
 
           {/* Header */}
-          <div className="bg-[#1B1C1C] text-white px-5 py-4 flex items-center justify-between shrink-0">
+          <div className="bg-[#1B1C1C] text-white px-5 py-3.5 flex items-center justify-between shrink-0">
             <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-full bg-white p-0.5 border border-white/20">
-                <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full rounded-full object-contain" />
+              <div className="w-8 h-8 rounded-full bg-white p-0.5 border border-white/20 overflow-hidden">
+                <img src="./images/logo/logo_ivory_gold.jpg" alt="SivaBot" className="w-full h-full object-contain" />
               </div>
               <div>
                 <p className="font-bold text-sm font-serif">SivaBot</p>
@@ -364,10 +358,19 @@ export default function SivaBot() {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <button onClick={resetChat} className="text-white/60 hover:text-white text-[10px] font-mono cursor-pointer transition-colors">
-                RESET
+              <button 
+                onClick={resetChat} 
+                className="flex items-center space-x-1 px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-white text-[10px] font-mono cursor-pointer transition-colors"
+                title="Reset Conversation"
+              >
+                <RotateCcw className="w-3 h-3" />
+                <span>NEW CHAT</span>
               </button>
-              <button onClick={() => setIsOpen(false)} className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer transition-all">
+              <button 
+                onClick={() => setIsOpen(false)} 
+                className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer transition-all"
+                aria-label="Close Chat"
+              >
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -379,34 +382,35 @@ export default function SivaBot() {
               <BotMessage key={msg.id} msg={msg} onQuickReply={handleQuickReply} />
             ))}
 
-            {/* FAQ Quick Menu */}
-            {showMenu && (
-              <div className="space-y-2">
-                <p className="text-[10px] font-mono font-bold text-[#636863] uppercase tracking-widest text-center">— Quick Questions —</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {FAQS.map(faq => (
-                    <button
-                      key={faq.id}
-                      onClick={() => handleFAQ(faq)}
-                      className="p-3 rounded-xl bg-white border border-[#E5E0D5] hover:border-[#4A5D4E] text-left transition-all cursor-pointer group"
-                    >
-                      <div className="text-[#4A5D4E] mb-1 group-hover:scale-110 transition-transform">
-                        {faq.icon}
-                      </div>
-                      <p className="text-xs font-medium text-[#1B1C1C] leading-tight">{faq.label}</p>
-                    </button>
-                  ))}
-                </div>
+            {/* Quick Questions Grid ALWAYS appears in new conversation, after replies, and on reset */}
+            <div className="pt-2 space-y-2">
+              <div className="flex items-center justify-center space-x-2 py-1">
+                <div className="h-px w-6 bg-[#E5E0D5]"></div>
+                <span className="text-[9px] font-mono font-bold text-[#636863] uppercase tracking-widest">
+                  QUICK QUESTIONS
+                </span>
+                <div className="h-px w-6 bg-[#E5E0D5]"></div>
               </div>
-            )}
+
+              <div className="grid grid-cols-2 gap-2">
+                {FAQS.map(faq => (
+                  <button
+                    key={faq.id}
+                    onClick={() => handleFAQ(faq)}
+                    className="p-2.5 rounded-xl bg-white border border-[#E5E0D5] hover:border-[#4A5D4E] hover:shadow-xs text-left transition-all cursor-pointer group"
+                  >
+                    <div className="text-[#4A5D4E] mb-1 group-hover:scale-110 transition-transform">
+                      {faq.icon}
+                    </div>
+                    <p className="text-xs font-medium text-[#1B1C1C] leading-tight">{faq.label}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div ref={messagesEndRef} />
           </div>
 
-          {/* Footer Note */}
-          <div className="border-t border-[#E5E0D5] px-4 py-3 bg-white shrink-0 text-center">
-            <p className="text-[10px] text-[#636863] font-mono">
-              Powered by Siva Telugu Estates • <a href="tel:+919851633333" className="text-[#4A5D4E] font-bold hover:underline">+91 98516 33333</a>
-            </p>
-          </div>
         </div>
       )}
 
@@ -423,7 +427,7 @@ export default function SivaBot() {
           <MessageCircle className="w-6 h-6" />
         )}
 
-        {/* Unread dot */}
+        {/* Unread indicator */}
         {!isOpen && (
           <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#10B981] border-2 border-white text-[8px] flex items-center justify-center text-white font-bold">
             1

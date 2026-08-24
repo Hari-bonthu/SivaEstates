@@ -26,10 +26,12 @@ export default function HeroSlider({ lang }) {
           {/* Left Column: Headlines & Content */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Tagline Badge matching screenshot */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white border border-[#E5E0D5] text-[#2D2D2D] text-[11px] font-mono font-bold tracking-widest uppercase shadow-xs">
-              <span className="text-[#4A5D4E]">◆</span>
-              <span>GODAVARI REGION • CLEAR TITLE &amp; DTCP APPROVED</span>
+            {/* Improvised Luxury Badge without capsule pill */}
+            <div className="flex items-center space-x-3 mb-2">
+              <div className="h-px w-8 bg-[#4A5D4E]"></div>
+              <span className="text-[11px] font-mono font-bold tracking-widest text-[#4A5D4E] uppercase">
+                GODAVARI REGION • CLEAR TITLE &amp; DTCP APPROVED
+              </span>
             </div>
 
             {/* Headline matching screenshot with Playfair Italic */}
