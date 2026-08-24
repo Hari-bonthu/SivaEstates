@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { properties } from '../data/properties';
-import { MapPin, Phone, ShieldCheck, CheckCircle2, ArrowLeft, LayoutGrid, Compass, Ruler, IndianRupee, MessageCircle, Sparkles } from 'lucide-react';
-import MagneticGallery from '../components/MagneticGallery';
+import { MapPin, Phone, ShieldCheck, CheckCircle2, ArrowLeft, LayoutGrid, Compass, Ruler, IndianRupee, MessageCircle } from 'lucide-react';
+import MagneticCarousel from '../components/MagneticCarousel';
 
 export default function VenturePage() {
   const { id } = useParams();
@@ -101,7 +101,7 @@ export default function VenturePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12">
 
-          {/* Left Column: Details, Specs, Features & Magnetic Gallery */}
+          {/* Left Column: Details, Specs, Features & OriginKit Magnetic Gallery */}
           <div className="lg:col-span-8 space-y-12">
 
             {/* About This Venture */}
@@ -176,17 +176,32 @@ export default function VenturePage() {
               </div>
             </div>
 
-            {/* Site Gallery with Magnetic Carousel Style */}
+            {/* Site Gallery with OriginKit Magnetic Carousel */}
             <div className="space-y-4 pt-2">
               <div className="flex items-center space-x-3 mb-2">
                 <div className="h-px w-8 bg-[#4A5D4E]"></div>
                 <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
-                  SITE GALLERY
+                  SITE GALLERY • INTERACTIVE DOCK
                 </span>
               </div>
 
-              {/* Magnetic Gallery Component */}
-              <MagneticGallery images={gallery} title={property.title} />
+              <div className="bg-white rounded-3xl border border-[#E5E0D5] p-4 sm:p-6 shadow-xs overflow-hidden">
+                <p className="text-center text-xs text-[#636863] font-mono mb-2">
+                  ✦ Hover across bars to magnify • Click any card to expand
+                </p>
+                <div className="overflow-x-auto overflow-y-hidden py-2">
+                  <MagneticCarousel
+                    images={gallery.map(img => (typeof img === 'string' ? { src: img } : img))}
+                    collapsedWidth={75}
+                    hoverWidth={175}
+                    collapsedHeight={320}
+                    hoverHeight={380}
+                    openSize={490}
+                    gap={12}
+                    influence={180}
+                  />
+                </div>
+              </div>
             </div>
 
           </div>
