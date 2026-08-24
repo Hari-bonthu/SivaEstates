@@ -1,21 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Globe, Menu, X } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function Navbar({ lang, setLang }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState('home');
   const location = useLocation();
   const navigate = useNavigate();
   const t = translations[lang].nav;
+
+  // Track active navigation tab based on location and scroll position
+  useEffect(() => {
+    if (location.pathname === '/properties') {
+      setActiveNav('properties');
+      return;
+    }
+
+    if (location.pathname === '/') {
+      const handleScroll = () => {
+        const sections = ['contact', 'trust', 'branches', 'ventures', 'home'];
+        for (const sec of sections) {
+          const el = document.getElementById(sec);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 160 && rect.bottom >= 160) {
+              if (sec === 'ventures') setActiveNav('properties');
+              else if (sec === 'trust') setActiveNav('about');
+              else if (sec === 'branches') setActiveNav('branches');
+              else if (sec === 'home') setActiveNav('home');
+              return;
+            }
+          }
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, [location.pathname]);
 
   const toggleLanguage = () => {
     setLang(lang === 'en' ? 'te' : 'en');
   };
 
-  const scrollToSection = (e, sectionId) => {
-    if (e) e.preventDefault();
+  const handleNavClick = (sectionId, navKey) => {
+    setActiveNav(navKey);
     setMobileMenuOpen(false);
+
+    if (navKey === 'properties' && location.pathname !== '/properties') {
+      // If user wants full properties page
+      navigate('/properties');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
 
     if (location.pathname !== '/') {
       navigate('/');
@@ -74,7 +112,7 @@ export default function Navbar({ lang, setLang }) {
           {/* Logo & Brand Name */}
           <Link
             to="/"
-            onClick={(e) => scrollToSection(e, 'home')}
+            onClick={() => handleNavClick('home', 'home')}
             className="flex items-center space-x-3 group cursor-pointer"
           >
             <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#E5E0D5] bg-white p-1 shadow-xs flex items-center justify-center shrink-0">
@@ -94,29 +132,29 @@ export default function Navbar({ lang, setLang }) {
             </div>
           </Link>
 
-          {/* Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-8 text-xs font-mono font-bold tracking-widest uppercase text-[#2D2D2D]">
+          {/* User-Specified Editorial Navigation Bar */}
+          <nav className="editorial-nav hidden lg:flex">
             <button
-              onClick={(e) => scrollToSection(e, 'home')}
-              className="hover:text-[#4A5D4E] transition-colors cursor-pointer"
+              onClick={() => handleNavClick('home', 'home')}
+              className={`nav-item ${activeNav === 'home' ? 'active' : ''}`}
             >
               HOME
             </button>
             <button
-              onClick={(e) => scrollToSection(e, 'ventures')}
-              className="hover:text-[#4A5D4E] transition-colors cursor-pointer"
+              onClick={() => handleNavClick('ventures', 'properties')}
+              className={`nav-item ${activeNav === 'properties' ? 'active' : ''}`}
             >
               PROPERTIES
             </button>
             <button
-              onClick={(e) => scrollToSection(e, 'branches')}
-              className="hover:text-[#4A5D4E] transition-colors cursor-pointer"
+              onClick={() => handleNavClick('branches', 'branches')}
+              className={`nav-item ${activeNav === 'branches' ? 'active' : ''}`}
             >
               BRANCHES
             </button>
             <button
-              onClick={(e) => scrollToSection(e, 'trust')}
-              className="hover:text-[#4A5D4E] transition-colors cursor-pointer"
+              onClick={() => handleNavClick('trust', 'about')}
+              className={`nav-item ${activeNav === 'about' ? 'active' : ''}`}
             >
               ABOUT US
             </button>
@@ -128,7 +166,7 @@ export default function Navbar({ lang, setLang }) {
               +91 98516 33333
             </a>
             <button
-              onClick={(e) => scrollToSection(e, 'contact')}
+              onClick={() => handleNavClick('contact', 'contact')}
               className="px-5 py-2.5 rounded-lg bg-[#1B1C1C] hover:bg-[#334537] text-white font-mono font-bold text-xs shadow-sm transition-all cursor-pointer tracking-wider"
             >
               BOOK SITE VISIT
@@ -152,32 +190,32 @@ export default function Navbar({ lang, setLang }) {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-[#E5E0D5] px-4 pt-2 pb-6 space-y-3 shadow-lg font-mono text-xs">
           <button
-            onClick={(e) => scrollToSection(e, 'home')}
-            className="block w-full text-left py-2 text-[#1B1C1C] font-bold"
+            onClick={() => handleNavClick('home', 'home')}
+            className={`block w-full text-left py-2 font-bold ${activeNav === 'home' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             HOME
           </button>
           <button
-            onClick={(e) => scrollToSection(e, 'ventures')}
-            className="block w-full text-left py-2 text-[#2D2D2D]"
+            onClick={() => handleNavClick('ventures', 'properties')}
+            className={`block w-full text-left py-2 font-bold ${activeNav === 'properties' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             PROPERTIES
           </button>
           <button
-            onClick={(e) => scrollToSection(e, 'branches')}
-            className="block w-full text-left py-2 text-[#2D2D2D]"
+            onClick={() => handleNavClick('branches', 'branches')}
+            className={`block w-full text-left py-2 font-bold ${activeNav === 'branches' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             BRANCHES
           </button>
           <button
-            onClick={(e) => scrollToSection(e, 'trust')}
-            className="block w-full text-left py-2 text-[#2D2D2D]"
+            onClick={() => handleNavClick('trust', 'about')}
+            className={`block w-full text-left py-2 font-bold ${activeNav === 'about' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             ABOUT US
           </button>
           <div className="pt-3 border-t border-[#E5E0D5]">
             <button
-              onClick={(e) => scrollToSection(e, 'contact')}
+              onClick={() => handleNavClick('contact', 'contact')}
               className="block w-full text-center py-3 rounded-lg bg-[#1B1C1C] text-white font-bold tracking-wider"
             >
               BOOK SITE VISIT
