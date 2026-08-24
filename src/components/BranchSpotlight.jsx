@@ -6,18 +6,18 @@ export default function BranchSpotlight({ lang }) {
   const t = translations[lang].branches;
 
   return (
-    <section id="branches" className="py-20 bg-[#0F1115] relative border-t border-white/5">
+    <section id="branches" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#1A1D23] border border-[#10B981]/30 text-[#10B981] text-xs font-mono tracking-widest uppercase">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-[#4A5D4E]/30 text-[#334537] text-xs font-mono tracking-widest uppercase">
             {t.badge}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
             {t.heading}
           </h2>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#636863]">
             {t.subheading}
           </p>
         </div>
@@ -26,50 +26,50 @@ export default function BranchSpotlight({ lang }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
           
           {/* Card 1: Rajahmundry HQ */}
-          <div className="bg-[#1A1D23] rounded-3xl overflow-hidden border border-white/10 hover:border-[#F5A623]/40 transition-all shadow-xl">
-            <div className="relative h-48 bg-[#0F1115] p-6 flex flex-col justify-between overflow-hidden">
+          <div className="bg-white rounded-3xl overflow-hidden border border-[#E5E0D5] hover:border-[#DBCBB0] transition-all shadow-sm">
+            <div className="relative h-48 bg-[#F0EDED] p-6 flex flex-col justify-between overflow-hidden">
               <img 
                 src="./images/luxury_villa_venture_1786442598108.jpg" 
                 alt="Rajahmundry HQ" 
-                className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-luminosity"
+                className="absolute inset-0 w-full h-full object-cover opacity-20"
               />
               <div className="relative z-10 flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-[#F5A623] text-[#0F1115] font-extrabold text-[11px] font-mono tracking-wider uppercase">
+                <span className="px-3 py-1 rounded-full bg-[#4A5D4E] text-white font-extrabold text-[11px] font-mono tracking-wider uppercase">
                   {t.rajahmundry.tag}
                 </span>
-                <Building2 className="w-6 h-6 text-[#F5A623]" />
+                <Building2 className="w-6 h-6 text-[#4A5D4E]" />
               </div>
               <div className="relative z-10">
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#1B1C1C] font-serif">
                   {t.rajahmundry.name}
                 </h3>
-                <p className="text-xs text-[#F5A623] font-mono">East Godavari Real Estate Hub</p>
+                <p className="text-xs text-[#4A5D4E] font-mono">East Godavari Real Estate Hub</p>
               </div>
             </div>
 
-            <div className="p-6 space-y-4 bg-[#1A1D23]">
-              <p className="text-sm text-slate-300 leading-relaxed">
+            <div className="p-6 space-y-4 bg-white">
+              <p className="text-sm text-[#2D2D2D] leading-relaxed">
                 {t.rajahmundry.desc}
               </p>
 
-              <div className="space-y-2 pt-2 border-t border-white/10 text-xs text-slate-300">
+              <div className="space-y-2 pt-2 border-t border-[#E5E0D5] text-xs text-[#2D2D2D]">
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-4 h-4 text-[#F5A623] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#4A5D4E] shrink-0 mt-0.5" />
                   <span>{t.rajahmundry.address}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-[#10B981] shrink-0" />
-                  <a href="tel:+919851633333" className="hover:text-[#F5A623] font-bold">
+                  <a href="tel:+919851633333" className="hover:text-[#4A5D4E] font-bold">
                     {t.rajahmundry.phone}
                   </a>
                 </div>
               </div>
 
               <div className="pt-2">
-                <p className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2">
+                <p className="text-[11px] font-mono text-[#636863] uppercase tracking-wider mb-2">
                   Key Venture Belts:
                 </p>
-                <p className="text-xs text-slate-300 bg-[#0F1115] p-3 rounded-xl border border-white/10 font-mono">
+                <p className="text-xs text-[#2D2D2D] bg-[#F9F7F2] p-3 rounded-xl border border-[#E5E0D5] font-mono">
                   {t.rajahmundry.areas}
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function BranchSpotlight({ lang }) {
                   href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20Rajahmundry%20HQ."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl bg-[#F5A623] hover:bg-[#E0951C] text-[#0F1115] font-extrabold text-xs shadow-md transition-all flex items-center justify-center space-x-2"
+                  className="w-full py-3 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-xs shadow-md transition-all flex items-center justify-center space-x-2 font-mono"
                 >
                   <Navigation className="w-4 h-4" />
                   <span>Visit Rajahmundry Office</span>
@@ -89,12 +89,12 @@ export default function BranchSpotlight({ lang }) {
           </div>
 
           {/* Card 2: Kakinada Branch */}
-          <div className="bg-[#1A1D23] rounded-3xl overflow-hidden border border-white/10 hover:border-[#10B981]/40 transition-all shadow-xl">
-            <div className="relative h-48 bg-[#0F1115] p-6 flex flex-col justify-between overflow-hidden">
+          <div className="bg-white rounded-3xl overflow-hidden border border-[#E5E0D5] hover:border-[#DBCBB0] transition-all shadow-sm">
+            <div className="relative h-48 bg-[#F0EDED] p-6 flex flex-col justify-between overflow-hidden">
               <img 
                 src="./images/kakinada_branch_venture_1786442659994.jpg" 
                 alt="Kakinada Branch" 
-                className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-luminosity"
+                className="absolute inset-0 w-full h-full object-cover opacity-20"
               />
               <div className="relative z-10 flex items-center justify-between">
                 <span className="px-3 py-1 rounded-full bg-[#10B981] text-white font-extrabold text-[11px] font-mono tracking-wider uppercase flex items-center">
@@ -104,19 +104,19 @@ export default function BranchSpotlight({ lang }) {
                 <Building2 className="w-6 h-6 text-[#10B981]" />
               </div>
               <div className="relative z-10">
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#1B1C1C] font-serif">
                   {t.kakinada.name}
                 </h3>
                 <p className="text-xs text-[#10B981] font-mono">Smart City &amp; Port Corridor Specialist</p>
               </div>
             </div>
 
-            <div className="p-6 space-y-4 bg-[#1A1D23]">
-              <p className="text-sm text-slate-300 leading-relaxed">
+            <div className="p-6 space-y-4 bg-white">
+              <p className="text-sm text-[#2D2D2D] leading-relaxed">
                 {t.kakinada.desc}
               </p>
 
-              <div className="space-y-2 pt-2 border-t border-white/10 text-xs text-slate-300">
+              <div className="space-y-2 pt-2 border-t border-[#E5E0D5] text-xs text-[#2D2D2D]">
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                   <span>{t.kakinada.address}</span>
@@ -130,10 +130,10 @@ export default function BranchSpotlight({ lang }) {
               </div>
 
               <div className="pt-2">
-                <p className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2">
+                <p className="text-[11px] font-mono text-[#636863] uppercase tracking-wider mb-2">
                   Key Venture Belts:
                 </p>
-                <p className="text-xs text-slate-300 bg-[#0F1115] p-3 rounded-xl border border-white/10 font-mono">
+                <p className="text-xs text-[#2D2D2D] bg-[#F9F7F2] p-3 rounded-xl border border-[#E5E0D5] font-mono">
                   {t.kakinada.areas}
                 </p>
               </div>
@@ -143,7 +143,7 @@ export default function BranchSpotlight({ lang }) {
                   href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20new%20Kakinada%20Branch."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl bg-[#10B981] hover:bg-[#0D9668] text-white font-extrabold text-xs shadow-md transition-all flex items-center justify-center space-x-2"
+                  className="w-full py-3 rounded-xl bg-[#10B981] hover:bg-[#0D9668] text-white font-bold text-xs shadow-md transition-all flex items-center justify-center space-x-2 font-mono"
                 >
                   <Navigation className="w-4 h-4" />
                   <span>Visit Kakinada Office</span>

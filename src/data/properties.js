@@ -19,7 +19,30 @@ export const properties = [
       "Avenue Plantation & Compound Wall",
       "100% Vasthu Compliant Layout"
     ],
-    image: "./images/luxury_villa_venture_1786442598108.jpg",
+    image: "./images/assets/WhatsApp Image 2025-05-08 at 12.38.32_43d48dad.jpg",
+    featured: true
+  },
+  {
+    id: "seshadri-heights",
+    category: "current",
+    title: "Seshadri Heights Gated Community",
+    location: "Rajahmundry",
+    area: "Dowleswaram Barrage Belt",
+    type: "Residential Open Plots",
+    approval: "DTCP Approved Layout",
+    plotSizes: "160 - 450 Sq. Yards",
+    facing: "East / North-East",
+    roadWidth: "40ft BT Roads",
+    pricePerSqYd: "₹16,800 / Sq.Yd",
+    status: "Newly Launched",
+    highlights: [
+      "Located in High-Growth Residential Zone",
+      "Underground Water Pipeline & Drainage",
+      "Children's Play Park & Tree Avenue",
+      "Immediate House Construction Ready",
+      "Spot Registration & Bank Loan Facility"
+    ],
+    image: "./images/assets/20250604_152649.jpg",
     featured: true
   },
   {
@@ -34,7 +57,7 @@ export const properties = [
     facing: "East / West / South",
     roadWidth: "60ft Master Plan Road",
     pricePerSqYd: "₹22,000 / Sq.Yd",
-    status: "Newly Launched",
+    status: "Fast Selling",
     highlights: [
       "Located in Kakinada New Branch Hub",
       "Close to Port Belt & Industrial Corridor",
@@ -44,29 +67,6 @@ export const properties = [
     ],
     image: "./images/kakinada_branch_venture_1786442659994.jpg",
     featured: true
-  },
-  {
-    id: "samalkot-highway-plots",
-    category: "current",
-    title: "Samalkot ADB Highway Enclave",
-    location: "Kakinada",
-    area: "Samalkot - Kakinada Highway",
-    type: "Highway Open Plots",
-    approval: "DTCP Layout",
-    plotSizes: "150 - 350 Sq. Yards",
-    facing: "East / North-East",
-    roadWidth: "40ft BT Roads",
-    pricePerSqYd: "₹12,800 / Sq.Yd",
-    status: "Fast Selling",
-    highlights: [
-      "Direct Connectivity to Samalkot Railway Station",
-      "Ideal for Budget Investment & Villa Homes",
-      "Clean Drinking Water & Electricity Grid",
-      "Near Reputed Educational Institutions",
-      "Spot Registration Available"
-    ],
-    image: "./images/open_plot_layout_1786442637690.jpg",
-    featured: false
   },
   {
     id: "godavari-riverview",

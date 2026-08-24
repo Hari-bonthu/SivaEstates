@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, ArrowRight, ShieldCheck, Filter, CheckCircle2, Sparkles, Download } from 'lucide-react';
+import { MapPin, ArrowRight, ShieldCheck, Filter, CheckCircle2, Sparkles } from 'lucide-react';
 import { properties } from '../data/properties';
 import { translations } from '../data/translations';
 import PropertyModal from './PropertyModal';
@@ -7,7 +7,6 @@ import PropertyModal from './PropertyModal';
 export default function ProjectTabsCatalog({ lang }) {
   const t = translations[lang].ventures;
   
-  // Category tabs: 'current' vs 'completed' vs 'all'
   const [activeCategory, setActiveCategory] = useState('current');
   const [locationFilter, setLocationFilter] = useState('All');
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -19,18 +18,18 @@ export default function ProjectTabsCatalog({ lang }) {
   });
 
   return (
-    <section id="ventures" className="py-20 bg-[#0F1115] relative border-t border-white/5">
+    <section id="ventures" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#1A1D23] border border-[#F5A623]/30 text-[#F5A623] text-xs font-mono tracking-widest uppercase">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-[#4A5D4E]/30 text-[#334537] text-xs font-mono tracking-widest uppercase">
             FEATURED REAL ESTATE PROJECTS
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
             Current &amp; Completed Landmark Projects
           </h2>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#636863]">
             Explore DTCP &amp; VMRDA approved residential layouts, luxury villa plots, and investment lands.
           </p>
         </div>
@@ -41,11 +40,11 @@ export default function ProjectTabsCatalog({ lang }) {
             onClick={() => setActiveCategory('current')}
             className={`px-6 py-3 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-2 ${
               activeCategory === 'current'
-                ? 'bg-[#F5A623] text-[#0F1115] shadow-xl scale-105'
-                : 'bg-[#1A1D23] border border-white/10 text-slate-300 hover:border-[#F5A623]/40'
+                ? 'bg-[#4A5D4E] text-white shadow-md scale-105'
+                : 'bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#F0EDED]'
             }`}
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-4 h-4 text-[#DBCBB0]" />
             <span>Current Ongoing Projects</span>
           </button>
 
@@ -53,11 +52,11 @@ export default function ProjectTabsCatalog({ lang }) {
             onClick={() => setActiveCategory('completed')}
             className={`px-6 py-3 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-2 ${
               activeCategory === 'completed'
-                ? 'bg-[#F5A623] text-[#0F1115] shadow-xl scale-105'
-                : 'bg-[#1A1D23] border border-white/10 text-slate-300 hover:border-[#F5A623]/40'
+                ? 'bg-[#4A5D4E] text-white shadow-md scale-105'
+                : 'bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#F0EDED]'
             }`}
           >
-            <CheckCircle2 className="w-4 h-4" />
+            <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
             <span>Completed Projects</span>
           </button>
 
@@ -65,8 +64,8 @@ export default function ProjectTabsCatalog({ lang }) {
             onClick={() => setActiveCategory('all')}
             className={`px-6 py-3 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
               activeCategory === 'all'
-                ? 'bg-[#F5A623] text-[#0F1115] shadow-xl scale-105'
-                : 'bg-[#1A1D23] border border-white/10 text-slate-300 hover:border-[#F5A623]/40'
+                ? 'bg-[#4A5D4E] text-white shadow-md scale-105'
+                : 'bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#F0EDED]'
             }`}
           >
             <span>All Projects</span>
@@ -75,16 +74,16 @@ export default function ProjectTabsCatalog({ lang }) {
 
         {/* Secondary Location Sub-Filters */}
         <div className="flex items-center justify-center space-x-2 mt-4 text-xs font-mono">
-          <Filter className="w-3.5 h-3.5 text-slate-500 mr-1" />
-          <span className="text-slate-400 mr-2">Location:</span>
+          <Filter className="w-3.5 h-3.5 text-[#636863] mr-1" />
+          <span className="text-[#636863] mr-2">Location:</span>
           {['All', 'Rajahmundry', 'Kakinada'].map(loc => (
             <button
               key={loc}
               onClick={() => setLocationFilter(loc)}
               className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
                 locationFilter === loc
-                  ? 'bg-slate-800 text-[#F5A623] border border-[#F5A623]/40 font-bold'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-white text-[#4A5D4E] border border-[#4A5D4E] font-bold shadow-sm'
+                  : 'text-[#636863] hover:text-[#1B1C1C]'
               }`}
             >
               {loc}
@@ -97,22 +96,22 @@ export default function ProjectTabsCatalog({ lang }) {
           {filteredProperties.map(item => (
             <div 
               key={item.id}
-              className="bg-[#1A1D23] rounded-3xl overflow-hidden border border-white/10 hover:border-[#F5A623]/40 transition-all flex flex-col justify-between group shadow-xl"
+              className="bg-white rounded-3xl overflow-hidden border border-[#E5E0D5] hover:border-[#DBCBB0] transition-all flex flex-col justify-between group shadow-sm hover:shadow-md"
             >
               <div>
                 {/* Image & Badge */}
-                <div className="relative h-56 overflow-hidden bg-[#0F1115]">
+                <div className="relative h-56 overflow-hidden bg-[#F0EDED]">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0F1115]/90 border border-white/10 text-[#F5A623] text-[11px] font-mono font-bold">
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#E5E0D5] text-[#4A5D4E] text-[11px] font-mono font-bold">
                     {item.location}
                   </div>
                   
                   <div className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-white text-[10px] font-mono font-bold ${
-                    item.category === 'completed' ? 'bg-slate-700' : 'bg-[#10B981]'
+                    item.category === 'completed' ? 'bg-[#636863]' : 'bg-[#4A5D4E]'
                   }`}>
                     {item.status}
                   </div>
@@ -120,48 +119,48 @@ export default function ProjectTabsCatalog({ lang }) {
 
                 {/* Content */}
                 <div className="p-6 space-y-3">
-                  <div className="flex items-center text-xs text-[#F5A623] font-mono space-x-1">
+                  <div className="flex items-center text-xs text-[#4A5D4E] font-mono space-x-1 font-bold">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>{item.approval}</span>
                   </div>
 
-                  <h3 className="text-xl font-extrabold text-white font-heading leading-snug">
+                  <h3 className="text-xl font-bold text-[#1B1C1C] font-serif leading-snug">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs text-slate-400 flex items-center">
-                    <MapPin className="w-3.5 h-3.5 mr-1 text-slate-500 shrink-0" />
+                  <p className="text-xs text-[#636863] flex items-center">
+                    <MapPin className="w-3.5 h-3.5 mr-1 text-[#4A5D4E] shrink-0" />
                     {item.area}
                   </p>
 
                   <div className="grid grid-cols-2 gap-2 pt-2 text-xs font-mono">
-                    <div className="bg-[#0F1115] p-2.5 rounded-xl border border-white/5">
-                      <span className="text-[9px] text-slate-500 block uppercase">Plot Sizes</span>
-                      <span className="font-bold text-slate-200">{item.plotSizes}</span>
+                    <div className="bg-[#F9F7F2] p-2.5 rounded-xl border border-[#E5E0D5]">
+                      <span className="text-[9px] text-[#636863] block uppercase">Plot Sizes</span>
+                      <span className="font-bold text-[#1B1C1C]">{item.plotSizes}</span>
                     </div>
-                    <div className="bg-[#0F1115] p-2.5 rounded-xl border border-white/5">
-                      <span className="text-[9px] text-slate-500 block uppercase">Road Width</span>
-                      <span className="font-bold text-slate-200">{item.roadWidth}</span>
+                    <div className="bg-[#F9F7F2] p-2.5 rounded-xl border border-[#E5E0D5]">
+                      <span className="text-[9px] text-[#636863] block uppercase">Road Width</span>
+                      <span className="font-bold text-[#1B1C1C]">{item.roadWidth}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Card Footer Actions */}
-              <div className="p-6 pt-0 border-t border-white/5 mt-4 flex items-center space-x-2">
+              <div className="p-6 pt-0 border-t border-[#E5E0D5] mt-4 flex items-center space-x-2">
                 <button
                   onClick={() => setSelectedProperty(item)}
-                  className="flex-1 py-3 rounded-xl bg-[#0F1115] hover:bg-[#20242C] border border-white/10 text-slate-200 text-xs font-extrabold transition-all flex items-center justify-center space-x-1 cursor-pointer font-mono"
+                  className="flex-1 py-3 rounded-xl bg-[#F9F7F2] hover:bg-[#F0EDED] border border-[#E5E0D5] text-[#2D2D2D] text-xs font-bold transition-all flex items-center justify-center space-x-1 cursor-pointer font-mono"
                 >
                   <span>View Details</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#F5A623]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#4A5D4E]" />
                 </button>
 
                 <a
                   href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20am%20interested%20in%20${encodeURIComponent(item.title)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-3 rounded-xl bg-[#10B981] hover:bg-[#0D9668] text-white text-xs font-bold transition-all flex items-center justify-center font-mono"
+                  className="px-4 py-3 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white text-xs font-bold transition-all flex items-center justify-center font-mono"
                   title="WhatsApp Instant Inquiry"
                 >
                   WhatsApp

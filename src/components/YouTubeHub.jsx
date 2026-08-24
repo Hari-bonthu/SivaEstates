@@ -9,33 +9,33 @@ export default function YouTubeHub({ lang }) {
   const [activeVideo, setActiveVideo] = useState(null);
 
   return (
-    <section id="videos" className="py-20 bg-[#0F1115] relative border-t border-white/5">
+    <section id="videos" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#1A1D23] border border-red-500/30 text-red-400 text-xs font-mono tracking-widest uppercase">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-red-500/30 text-red-700 text-xs font-mono tracking-widest uppercase">
             YOUTUBE CHANNEL
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
             {t.heading}
           </h2>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#636863]">
             {t.subheading}
           </p>
         </div>
 
         {/* Channel Banner Link */}
-        <div className="mt-8 p-4 rounded-2xl bg-[#1A1D23] border border-red-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+        <div className="mt-8 p-5 rounded-2xl bg-white border border-[#E5E0D5] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-lg shrink-0">
+            <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-md shrink-0">
               <Youtube className="w-6 h-6 fill-white" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white font-heading">
+              <h3 className="text-lg font-bold text-[#1B1C1C] font-serif">
                 siva telugu estates - YouTube
               </h3>
-              <p className="text-xs text-slate-400 font-mono">
+              <p className="text-xs text-[#636863] font-mono">
                 Official Channel for Real Estate Walkthroughs &amp; Plot Layout Tours
               </p>
             </div>
@@ -45,7 +45,7 @@ export default function YouTubeHub({ lang }) {
             href="https://www.youtube.com/@sivateluguestates"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs shadow-lg transition-all flex items-center space-x-2 shrink-0 font-mono"
+            className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-md transition-all flex items-center space-x-2 shrink-0 font-mono"
           >
             <span>{t.channelButton}</span>
             <ExternalLink className="w-4 h-4" />
@@ -58,17 +58,17 @@ export default function YouTubeHub({ lang }) {
             <div
               key={vid.id}
               onClick={() => setActiveVideo(vid)}
-              className="bg-[#1A1D23] rounded-2xl overflow-hidden border border-white/10 hover:border-red-500/40 cursor-pointer group flex flex-col justify-between transition-all"
+              className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-red-500/40 cursor-pointer group flex flex-col justify-between transition-all shadow-sm hover:shadow-md"
             >
               <div>
-                <div className="relative h-44 overflow-hidden bg-[#0F1115]">
+                <div className="relative h-44 overflow-hidden bg-[#F0EDED]">
                   <img
                     src={vid.thumbnail}
                     alt={vid.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-[#0F1115]/40 group-hover:bg-[#0F1115]/20 transition-colors flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                  <div className="absolute inset-0 bg-[#1B1C1C]/30 group-hover:bg-[#1B1C1C]/10 transition-colors flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                       <Play className="w-5 h-5 ml-1 fill-white" />
                     </div>
                   </div>
@@ -80,24 +80,24 @@ export default function YouTubeHub({ lang }) {
                 </div>
 
                 <div className="p-4 space-y-2">
-                  <span className="px-2 py-0.5 rounded bg-[#0F1115] text-[10px] font-mono text-[#F5A623]">
+                  <span className="px-2 py-0.5 rounded bg-[#F9F7F2] text-[10px] font-mono text-[#4A5D4E] font-bold">
                     {vid.category}
                   </span>
-                  <h4 className="text-sm font-bold text-white font-heading group-hover:text-[#F5A623] transition-colors line-clamp-2">
+                  <h4 className="text-sm font-bold text-[#1B1C1C] font-serif group-hover:text-red-700 transition-colors line-clamp-2">
                     {vid.title}
                   </h4>
-                  <p className="text-[11px] text-slate-400 line-clamp-2">
+                  <p className="text-[11px] text-[#636863] line-clamp-2">
                     {vid.description}
                   </p>
                 </div>
               </div>
 
-              <div className="p-4 pt-0 text-[11px] text-slate-500 flex items-center justify-between border-t border-white/5 mt-2 font-mono">
+              <div className="p-4 pt-0 text-[11px] text-[#636863] flex items-center justify-between border-t border-[#E5E0D5] mt-2 font-mono">
                 <span className="flex items-center">
                   <Eye className="w-3.5 h-3.5 mr-1" />
                   {vid.views}
                 </span>
-                <span className="text-[#F5A623] font-bold">
+                <span className="text-[#4A5D4E] font-bold">
                   {t.watchVideo}
                 </span>
               </div>

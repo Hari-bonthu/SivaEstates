@@ -7,18 +7,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          primary: '#F5A623',   // Primary Warm Gold / Amber (#F5A623)
-          secondary: '#1A1D23', // Dark Charcoal Card Container (#1A1D23)
-          tertiary: '#10B981',  // Emerald Green (#10B981)
-          neutral: '#0F1115',   // Deep Canvas Background (#0F1115)
-          cardBorder: 'rgba(255, 255, 255, 0.08)',
-          cardBorderActive: 'rgba(245, 166, 35, 0.35)',
+        sage: {
+          DEFAULT: '#4A5D4E',
+          deep: '#334537',
+          light: '#6E8573',
+          bg: '#EAF0EC',
+        },
+        champagne: {
+          DEFAULT: '#DBCBB0',
+          dark: '#695D47',
+          gold: '#F5A623',
+        },
+        ivory: {
+          DEFAULT: '#F9F7F2',
+          light: '#FCF9F8',
+          card: '#FFFFFF',
+          border: '#E5E0D5',
+        },
+        charcoal: {
+          DEFAULT: '#2D2D2D',
+          dark: '#1B1C1C',
+          muted: '#636863',
         }
       },
       fontFamily: {
-        sans: ['Manrope', 'sans-serif'],
-        heading: ['Manrope', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'Manrope', 'sans-serif'],
+        heading: ['Playfair Display', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       }
     },

@@ -4,14 +4,14 @@
 
 @layer base {
   body {
-    background-color: #0F1115;
-    color: #F8FAFC;
-    font-family: 'Manrope', sans-serif;
+    background-color: #F9F7F2;
+    color: #2D2D2D;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', sans-serif;
+  h1, h2, h3, h4, h5, h6, .font-serif-title {
+    font-family: 'Playfair Display', serif;
   }
 
   code, pre, .font-mono-tag {
@@ -19,62 +19,71 @@
   }
 }
 
-/* Custom Design System Utilities */
-.brand-card {
-  background: #1A1D23;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Custom Design System Utilities for Luxe Ivory & Sage */
+.luxe-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E0D5;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px -2px rgba(45, 45, 45, 0.04);
 }
 
-.brand-card-hover {
+.luxe-card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.brand-card-hover:hover {
-  background: #20242C;
-  border-color: rgba(245, 166, 35, 0.4);
+.luxe-card-hover:hover {
+  border-color: #DBCBB0;
   transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(245, 166, 35, 0.15);
+  box-shadow: 0 20px 30px -10px rgba(74, 93, 78, 0.12);
 }
 
-.brand-badge {
+.luxe-badge {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: rgba(26, 29, 35, 0.8);
-  border: 1px solid rgba(245, 166, 35, 0.3);
-  color: #F5A623;
+  background: #EAF0EC;
+  border: 1px solid #4A5D4E;
+  color: #334537;
   padding: 4px 12px;
   border-radius: 9999px;
+  font-weight: 600;
 }
 
-.primary-btn {
-  background-color: #F5A623;
-  color: #0F1115;
-  font-weight: 700;
-  border-radius: 12px;
-  transition: all 0.2s ease-in-out;
-}
-
-.primary-btn:hover {
-  background-color: #E0951C;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -5px rgba(245, 166, 35, 0.3);
-}
-
-.secondary-btn {
-  background-color: #1A1D23;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.btn-sage {
+  background-color: #4A5D4E;
   color: #FFFFFF;
   font-weight: 600;
   border-radius: 12px;
   transition: all 0.2s ease-in-out;
 }
 
-.secondary-btn:hover {
-  background-color: #262A33;
-  border-color: #F5A623;
-  color: #F5A623;
+.btn-sage:hover {
+  background-color: #334537;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(74, 93, 78, 0.3);
+}
+
+.btn-champagne {
+  background-color: #F9F7F2;
+  border: 1px solid #DBCBB0;
+  color: #4A5D4E;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-champagne:hover {
+  background-color: #DBCBB0;
+  color: #1B1C1C;
+}
+
+/* Custom Glassmorphism Header */
+.glass-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(229, 224, 213, 0.7);
 }
 
 /* Custom Scrollbar */
@@ -83,15 +92,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F1115;
+  background: #F9F7F2;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1A1D23;
+  background: #DBCBB0;
   border-radius: 4px;
-  border: 1px solid rgba(245, 166, 35, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F5A623;
+  background: #4A5D4E;
 }
