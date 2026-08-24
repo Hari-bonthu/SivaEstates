@@ -9,10 +9,14 @@ export default function BranchSpotlight({ lang }) {
     <section id="branches" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header with luxury line indicator */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-[#4A5D4E]/30 text-[#334537] text-xs font-mono tracking-widest uppercase">
-            {t.badge}
+          <div className="flex items-center justify-center space-x-3 mb-2">
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
+            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
+              {t.badge}
+            </span>
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
             {t.heading}
@@ -34,7 +38,7 @@ export default function BranchSpotlight({ lang }) {
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
               />
               <div className="relative z-10 flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-[#4A5D4E] text-white font-extrabold text-[11px] font-mono tracking-wider uppercase">
+                <span className="px-3 py-1 rounded-md bg-[#4A5D4E] text-white font-extrabold text-[11px] font-mono tracking-wider uppercase">
                   {t.rajahmundry.tag}
                 </span>
                 <Building2 className="w-6 h-6 text-[#4A5D4E]" />
@@ -97,7 +101,7 @@ export default function BranchSpotlight({ lang }) {
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
               />
               <div className="relative z-10 flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-[#10B981] text-white font-extrabold text-[11px] font-mono tracking-wider uppercase flex items-center">
+                <span className="px-3 py-1 rounded-md bg-[#10B981] text-white font-extrabold text-[11px] font-mono tracking-wider uppercase flex items-center">
                   <Sparkles className="w-3 h-3 mr-1" />
                   {t.kakinada.tag}
                 </span>

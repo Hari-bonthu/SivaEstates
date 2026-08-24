@@ -32,23 +32,23 @@ export default function PropertyModal({ property, onClose }) {
               alt={property.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/70 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/80 via-transparent to-transparent"></div>
             
             {/* Title on image */}
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="flex items-center space-x-2 mb-2">
-                <span className="px-2 py-0.5 rounded bg-white/20 backdrop-blur-md border border-white/30 text-white text-[10px] font-mono font-bold tracking-widest uppercase">
+                <span className="px-2.5 py-1 rounded bg-[#1B1C1C]/90 border border-white/20 text-white text-[10px] font-mono font-bold tracking-widest uppercase">
                   {property.status}
                 </span>
-                <span className="px-2 py-0.5 rounded bg-[#4A5D4E]/80 text-white text-[10px] font-mono font-bold tracking-widest uppercase">
-                  {property.approval.split(' ')[0]}
+                <span className="px-2.5 py-1 rounded bg-[#4A5D4E] text-white text-[10px] font-mono font-bold tracking-widest uppercase">
+                  {property.approval.split(' ')[0]} APPROVED
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white font-serif leading-tight">
                 {property.title}
               </h2>
               <p className="flex items-center text-white/80 text-xs mt-1 font-sans">
-                <MapPin className="w-3.5 h-3.5 mr-1 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 mr-1 shrink-0 text-[#DBCBB0]" />
                 {property.area}
               </p>
             </div>
@@ -74,7 +74,7 @@ export default function PropertyModal({ property, onClose }) {
             
             {/* 4 Spec Boxes */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div className="p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+              <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <LayoutGrid className="w-3.5 h-3.5" />
                   <span className="text-[9px] font-mono font-bold uppercase tracking-widest">PLOT SIZES</span>
@@ -82,7 +82,7 @@ export default function PropertyModal({ property, onClose }) {
                 <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.plotSizes}</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+              <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <Compass className="w-3.5 h-3.5" />
                   <span className="text-[9px] font-mono font-bold uppercase tracking-widest">FACING</span>
@@ -90,7 +90,7 @@ export default function PropertyModal({ property, onClose }) {
                 <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.facing}</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+              <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <Ruler className="w-3.5 h-3.5" />
                   <span className="text-[9px] font-mono font-bold uppercase tracking-widest">ROAD WIDTH</span>
@@ -98,7 +98,7 @@ export default function PropertyModal({ property, onClose }) {
                 <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.roadWidth}</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#EAF0EC] border border-[#4A5D4E]/30 text-center">
+              <div className="p-3.5 rounded-xl bg-[#EAF0EC] border border-[#4A5D4E]/30 text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <IndianRupee className="w-3.5 h-3.5" />
                   <span className="text-[9px] font-mono font-bold uppercase tracking-widest">INDICATIVE PRICE</span>
@@ -119,7 +119,7 @@ export default function PropertyModal({ property, onClose }) {
               <div className="flex items-center space-x-2 mb-4">
                 <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" />
                 <h3 className="text-sm font-bold text-[#1B1C1C] uppercase tracking-wider font-mono">
-                  Venture Features & Infrastructure
+                  Venture Features &amp; Infrastructure
                 </h3>
               </div>
 

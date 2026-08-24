@@ -14,8 +14,9 @@ export const properties = [
     status: "Fast Selling",
     tagline: "Rajahmundry's Premium Gated Community",
     description: "Jetty Mayfair is Siva Telugu Estates' flagship gated villa layout situated in the most sought-after Morampudi–Lalacheruvu corridor of Rajahmundry. Designed for families who want a combination of luxury living standards with 100% legal safety.",
-    thumbnail: "./images/assets/WhatsApp Image 2025-05-08 at 12.38.32_43d48dad.jpg",
+    thumbnail: "./images/luxury_villa_venture_1786442598108.jpg",
     gallery: [
+      "./images/luxury_villa_venture_1786442598108.jpg",
       "./images/assets/WhatsApp Image 2025-05-08 at 12.38.32_43d48dad.jpg",
       "./images/assets/WhatsApp Image 2025-05-08 at 12.38.32_b6eb624a.jpg",
       "./images/assets/WhatsApp Image 2025-05-08 at 12.38.32_cc566e0e.jpg",
@@ -68,6 +69,39 @@ export const properties = [
     featured: true
   },
   {
+    id: "kakinada-smart-city",
+    category: "current",
+    title: "Kakinada Port & Smart City Layout",
+    location: "Kakinada",
+    area: "Ramanayyapeta & Port Corridor",
+    type: "Commercial & Premium Residential Plots",
+    approval: "VMRDA & DTCP Approved",
+    plotSizes: "200 - 600 Sq. Yards",
+    facing: "East / West / South",
+    roadWidth: "60ft Master Plan Road",
+    pricePerSqYd: "₹22,000 / Sq.Yd",
+    status: "Fast Selling",
+    tagline: "Prime Investment in Kakinada Port Growth Belt",
+    description: "Positioned directly in Kakinada's high-appreciation commercial and port expansion corridor. Featuring wide 60ft master plan roads, full VMRDA and DTCP approvals, and direct access to Kakinada Smart City economic hubs.",
+    thumbnail: "./images/kakinada_branch_venture_1786442659994.jpg",
+    gallery: [
+      "./images/kakinada_branch_venture_1786442659994.jpg",
+      "./images/assets/20260814_104916.jpg",
+      "./images/assets/20260814_105238.jpg",
+      "./images/assets/20260814_105341.jpg",
+      "./images/assets/20260814_105640.jpg",
+    ],
+    highlights: [
+      "VMRDA & DTCP Approved Layout",
+      "Direct 60ft Master Plan Road Frontage",
+      "High Appreciation Commercial Zone",
+      "Underground Electrification & Water",
+      "Immediate Spot Registration Ready",
+      "Bank Loan Facility with Top Banks"
+    ],
+    featured: true
+  },
+  {
     id: "sree-harivasam",
     category: "current",
     title: "Sree Harivasam Open Plots",
@@ -99,7 +133,7 @@ export const properties = [
       "Ready for Immediate Registration",
       "Bank Loan Approved Layout"
     ],
-    featured: true
+    featured: false
   },
   {
     id: "sreenivasam",

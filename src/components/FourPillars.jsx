@@ -11,10 +11,14 @@ export default function FourPillars({ lang }) {
     <section className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header matching screenshot */}
+        {/* Section Header with luxury line indicator */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3 py-1 rounded-full bg-white border border-[#E5E0D5] text-[#636863] text-[10px] font-mono tracking-widest uppercase">
-            CORE PHILOSOPHY &amp; STANDARDS
+          <div className="flex items-center justify-center space-x-3 mb-2">
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
+            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
+              CORE PHILOSOPHY &amp; STANDARDS
+            </span>
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
             Our Non-Negotiable Commitment
