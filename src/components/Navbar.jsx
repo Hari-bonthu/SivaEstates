@@ -77,11 +77,11 @@ export default function Navbar({ lang, setLang }) {
             onClick={(e) => scrollToSection(e, 'home')}
             className="flex items-center space-x-3 group cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-lg overflow-hidden border border-[#E5E0D5] bg-white p-0.5 shadow-xs flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#E5E0D5] bg-white p-1 shadow-xs flex items-center justify-center shrink-0">
               <img
-                src="./images/logo/logo_original.jpg"
+                src="./images/logo/original_Logo_Siva.png"
                 alt="Siva Telugu Estates Logo"
-                className="w-full h-full object-contain rounded"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col">

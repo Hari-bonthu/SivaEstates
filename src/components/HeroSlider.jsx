@@ -82,7 +82,7 @@ export default function HeroSlider({ lang }) {
                 {/* Corner Emblem Logo */}
                 <div className="absolute top-4 right-4 p-2 rounded-xl bg-white/90 backdrop-blur-md border border-[#E5E0D5] shadow-md flex items-center justify-center">
                   <img
-                    src="./images/logo/logo_ivory_gold.jpg"
+                    src="./images/logo/original_Logo_Siva.png"
                     alt="Siva Estates Emblem"
                     className="w-6 h-6 object-contain"
                   />
