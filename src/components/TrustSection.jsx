@@ -15,7 +15,7 @@ export default function TrustSection({ lang }) {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="flex items-center justify-center space-x-3 mb-2">
             <div className="h-px w-8 bg-[#4A5D4E]"></div>
-            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
+            <span className="eyebrow-tag text-[#4A5D4E]">
               {t.badge}
             </span>
             <div className="h-px w-8 bg-[#4A5D4E]"></div>
@@ -43,7 +43,7 @@ export default function TrustSection({ lang }) {
                 <h3 className="text-lg font-bold text-[#1B1C1C] font-serif">
                   {pt.title}
                 </h3>
-                <p className="text-xs text-[#636863] mt-2 leading-relaxed">
+                <p className="text-xs text-[#636863] mt-2 leading-relaxed font-sans">
                   {pt.desc}
                 </p>
               </div>
@@ -52,19 +52,19 @@ export default function TrustSection({ lang }) {
         </div>
 
         {/* Government Approvals Banner */}
-        <div className="mt-12 p-6 rounded-3xl bg-white border border-[#E5E0D5] flex flex-wrap items-center justify-around gap-6 text-center font-mono shadow-sm">
+        <div className="mt-12 p-6 rounded-3xl bg-white border border-[#E5E0D5] flex flex-wrap items-center justify-around gap-6 text-center shadow-sm">
           <div>
-            <p className="text-[10px] text-[#636863] uppercase tracking-widest">Approved Body</p>
+            <p className="text-[10px] text-[#636863] uppercase tracking-widest font-sans font-medium">Approved Body</p>
             <p className="text-xl font-bold text-[#4A5D4E] font-serif">DTCP Approved</p>
           </div>
           <div className="hidden sm:block h-8 w-px bg-[#E5E0D5]"></div>
           <div>
-            <p className="text-[10px] text-[#636863] uppercase tracking-widest">Urban Development</p>
+            <p className="text-[10px] text-[#636863] uppercase tracking-widest font-sans font-medium">Urban Development</p>
             <p className="text-xl font-bold text-[#4A5D4E] font-serif">VMRDA Layouts</p>
           </div>
           <div className="hidden sm:block h-8 w-px bg-[#E5E0D5]"></div>
           <div>
-            <p className="text-[10px] text-[#636863] uppercase tracking-widest">Real Estate Authority</p>
+            <p className="text-[10px] text-[#636863] uppercase tracking-widest font-sans font-medium">Real Estate Authority</p>
             <p className="text-xl font-bold text-[#10B981] font-serif">AP RERA Registered</p>
           </div>
         </div>

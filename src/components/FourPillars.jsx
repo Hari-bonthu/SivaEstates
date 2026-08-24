@@ -15,7 +15,7 @@ export default function FourPillars({ lang }) {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="flex items-center justify-center space-x-3 mb-2">
             <div className="h-px w-8 bg-[#4A5D4E]"></div>
-            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#4A5D4E]">
+            <span className="eyebrow-tag text-[#4A5D4E]">
               CORE PHILOSOPHY &amp; STANDARDS
             </span>
             <div className="h-px w-8 bg-[#4A5D4E]"></div>

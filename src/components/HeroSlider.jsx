@@ -29,7 +29,7 @@ export default function HeroSlider({ lang }) {
             {/* Improvised Luxury Badge without capsule pill */}
             <div className="flex items-center space-x-3 mb-2">
               <div className="h-px w-8 bg-[#4A5D4E]"></div>
-              <span className="text-[11px] font-mono font-bold tracking-widest text-[#4A5D4E] uppercase">
+              <span className="eyebrow-tag text-[#4A5D4E]">
                 GODAVARI REGION • CLEAR TITLE &amp; DTCP APPROVED
               </span>
             </div>
@@ -93,7 +93,7 @@ export default function HeroSlider({ lang }) {
               <div className="p-6 bg-white relative z-10 border-t border-[#E5E0D5]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-mono text-[#636863] uppercase tracking-widest block font-bold">
+                    <span className="brand-subtitle">
                       FOUNDER &amp; MANAGING DIRECTOR
                     </span>
                     <h3 className="text-2xl font-bold text-[#1B1C1C] font-serif mt-0.5">
@@ -132,19 +132,19 @@ export default function HeroSlider({ lang }) {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-16 mt-16 border-t border-[#E5E0D5]">
           <div>
             <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">50+</p>
-            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">VENTURES COMPLETED</p>
+            <p className="brand-subtitle mt-1">VENTURES COMPLETED</p>
           </div>
           <div>
             <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">1500+</p>
-            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">HAPPY PLOT OWNERS</p>
+            <p className="brand-subtitle mt-1">HAPPY PLOT OWNERS</p>
           </div>
           <div>
             <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">12+ Yrs</p>
-            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">INDUSTRY RECORD</p>
+            <p className="brand-subtitle mt-1">INDUSTRY RECORD</p>
           </div>
           <div>
             <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">100%</p>
-            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">CLEAR TITLE GUARANTEED</p>
+            <p className="brand-subtitle mt-1">CLEAR TITLE GUARANTEED</p>
           </div>
         </div>
 

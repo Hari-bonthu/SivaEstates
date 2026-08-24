@@ -67,7 +67,7 @@ export default function Footer({ lang = 'en' }) {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#DBCBB0]">
+                  <span className="brand-subtitle text-[#DBCBB0]">
                     SIVA TELUGU ESTATES • EST. 2008
                   </span>
                 </div>
@@ -132,7 +132,7 @@ export default function Footer({ lang = 'en' }) {
               
               {/* Column 1: Ventures */}
               <div className="space-y-3.5">
-                <h4 className="text-xs font-mono font-bold text-white uppercase tracking-widest">
+                <h4 className="text-xs font-sans font-medium text-white uppercase tracking-[0.2em]">
                   VENTURES
                 </h4>
                 <ul className="space-y-2.5 text-xs text-slate-300 font-sans">
@@ -171,7 +171,7 @@ export default function Footer({ lang = 'en' }) {
 
               {/* Column 2: Navigation & Company */}
               <div className="space-y-3.5">
-                <h4 className="text-xs font-mono font-bold text-white uppercase tracking-widest">
+                <h4 className="text-xs font-sans font-medium text-white uppercase tracking-[0.2em]">
                   COMPANY
                 </h4>
                 <ul className="space-y-2.5 text-xs text-slate-300 font-sans">
@@ -205,7 +205,7 @@ export default function Footer({ lang = 'en' }) {
 
               {/* Column 3: Legal & Resources */}
               <div className="space-y-3.5 col-span-2 sm:col-span-1">
-                <h4 className="text-xs font-mono font-bold text-white uppercase tracking-widest">
+                <h4 className="text-xs font-sans font-medium text-white uppercase tracking-[0.2em]">
                   LEGAL &amp; TRUST
                 </h4>
                 <ul className="space-y-2.5 text-xs text-slate-300 font-sans">

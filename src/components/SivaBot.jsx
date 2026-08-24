@@ -386,7 +386,7 @@ export default function SivaBot() {
             <div className="pt-2 space-y-2">
               <div className="flex items-center justify-center space-x-2 py-1">
                 <div className="h-px w-6 bg-[#E5E0D5]"></div>
-                <span className="text-[9px] font-mono font-bold text-[#636863] uppercase tracking-widest">
+                <span className="eyebrow-tag text-[#636863]">
                   QUICK QUESTIONS
                 </span>
                 <div className="h-px w-6 bg-[#E5E0D5]"></div>

@@ -58,7 +58,7 @@ export default function YouTubeHub({ lang }) {
           {/* Luxury indicator – not a capsule, editorial style */}
           <div className="flex items-center justify-center space-x-3">
             <div className="h-px w-8 bg-red-500"></div>
-            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-red-600">YOUTUBE CHANNEL</span>
+            <span className="eyebrow-tag text-red-600">YOUTUBE CHANNEL</span>
             <div className="h-px w-8 bg-red-500"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">

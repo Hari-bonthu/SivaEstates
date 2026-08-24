@@ -120,7 +120,7 @@ export default function PropertyModal({ property, onClose }) {
                 </button>
 
                 {/* Counter & Indicator Dots */}
-                <div className="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/50 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono font-bold tracking-widest">
+                <div className="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/50 backdrop-blur-md border border-white/20 text-white text-[10px] font-sans font-medium tracking-[0.2em]">
                   {activeImg + 1} / {gallery.length}
                 </div>
               </>
@@ -129,10 +129,10 @@ export default function PropertyModal({ property, onClose }) {
             {/* Title on image */}
             <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
               <div className="flex items-center space-x-2 mb-2">
-                <span className="px-2.5 py-1 rounded bg-[#1B1C1C]/90 border border-white/20 text-white text-[10px] font-mono font-bold tracking-widest uppercase">
+                <span className="px-2.5 py-1 rounded bg-[#1B1C1C]/90 border border-white/20 text-white text-[10px] font-sans font-medium tracking-[0.2em] uppercase">
                   {property.status}
                 </span>
-                <span className="px-2.5 py-1 rounded bg-[#4A5D4E] text-white text-[10px] font-mono font-bold tracking-widest uppercase">
+                <span className="px-2.5 py-1 rounded bg-[#4A5D4E] text-white text-[10px] font-sans font-medium tracking-[0.2em] uppercase">
                   {property.approval?.split(' ')[0] || 'DTCP'} APPROVED
                 </span>
               </div>
@@ -170,7 +170,7 @@ export default function PropertyModal({ property, onClose }) {
               <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <LayoutGrid className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#6B6860]">PLOT SIZES</span>
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">PLOT SIZES</span>
                 </div>
                 <p className="text-sm font-bold text-[#1B1C1C] font-mono leading-tight">{property.plotSizes}</p>
               </div>
@@ -178,7 +178,7 @@ export default function PropertyModal({ property, onClose }) {
               <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <Compass className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#6B6860]">FACING</span>
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">FACING</span>
                 </div>
                 <p className="text-sm font-bold text-[#1B1C1C] font-mono leading-tight">{property.facing || 'East / West'}</p>
               </div>
@@ -186,7 +186,7 @@ export default function PropertyModal({ property, onClose }) {
               <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <Ruler className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#6B6860]">ROAD WIDTH</span>
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">ROAD WIDTH</span>
                 </div>
                 <p className="text-sm font-bold text-[#1B1C1C] font-mono leading-tight">{property.roadWidth}</p>
               </div>
@@ -194,7 +194,7 @@ export default function PropertyModal({ property, onClose }) {
               <div className="p-3.5 rounded-xl bg-[#EAF0EC] border border-[#4A5D4E]/30 text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <IndianRupee className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#4A5D4E]">STARTING AT</span>
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#4A5D4E]">STARTING AT</span>
                 </div>
                 <p className="text-sm font-bold text-[#334537] font-mono leading-tight">{property.pricePerSqYd}</p>
               </div>

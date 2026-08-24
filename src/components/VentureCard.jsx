@@ -33,7 +33,7 @@ export default function VentureCard({ project, onInspect }) {
         />
 
         {/* Left Badge (Status with Zap / Sparkles) */}
-        <div className="absolute top-3.5 left-3.5 flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#18231C]/95 text-white text-[10px] font-mono font-bold tracking-widest uppercase shadow-sm">
+        <div className="absolute top-3.5 left-3.5 flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#18231C]/95 text-white text-[10px] font-sans font-medium tracking-[0.2em] uppercase shadow-sm">
           {isNewlyLaunched ? (
             <>
               <Sparkles className="w-3 h-3 text-amber-300" />
@@ -136,7 +136,7 @@ export default function VentureCard({ project, onInspect }) {
         <div className="flex items-center space-x-2.5 pt-1">
           <Link
             to={`/venture/${project.id}`}
-            className="flex-1 bg-[#18231C] hover:bg-[#2D3F35] text-white py-3.5 rounded-xl text-xs font-mono font-bold uppercase tracking-widest flex items-center justify-center space-x-2 transition-all shadow-xs"
+            className="flex-1 bg-[#18231C] hover:bg-[#2D3F35] text-white py-3.5 rounded-xl text-xs font-sans font-bold uppercase tracking-[0.2em] flex items-center justify-center space-x-2 transition-all shadow-xs"
           >
             <span>VIEW DETAILS</span>
             <ArrowRight className="w-3.5 h-3.5" />
