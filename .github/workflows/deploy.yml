@@ -2,7 +2,7 @@ name: Deploy Siva Telugu Estates to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "luxe-redesign", "luxury"]
 
   workflow_dispatch:
 
@@ -19,25 +19,52 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
-      - name: Install Dependencies
-        run: npm ci
+      # ─── 1. Build MAIN branch into ./dist (Production: https://hari-bonthu.github.io/SivaEstates/) ───
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: repo-main
 
-      - name: Build Web App
-        run: npm run build
+      - name: Build main branch
+        working-directory: repo-main
+        run: |
+          npm ci
+          npm run build
 
+      - name: Prepare Final Output Directory with Production Build
+        run: |
+          mkdir -p final-dist
+          cp -r repo-main/dist/* final-dist/
+
+      # ─── 2. Build LUXE-REDESIGN branch into ./dist/preview (Preview: https://hari-bonthu.github.io/SivaEstates/preview/) ───
+      - name: Checkout luxe-redesign branch
+        uses: actions/checkout@v4
+        with:
+          ref: luxe-redesign
+          path: repo-preview
+
+      - name: Build luxe-redesign branch
+        working-directory: repo-preview
+        run: |
+          npm ci
+          npm run build
+
+      - name: Copy Luxury Preview Build to final-dist/preview
+        run: |
+          mkdir -p final-dist/preview
+          cp -r repo-preview/dist/* final-dist/preview/
+
+      # ─── 3. Upload Unified Pages Artifact ───
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './final-dist'
 
   deploy:
     environment:
