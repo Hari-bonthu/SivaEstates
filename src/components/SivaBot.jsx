@@ -1,18 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { X, MessageCircle, Phone, MapPin, CheckCircle2, Home, Calculator, Shield, Calendar, RotateCcw } from 'lucide-react';
+import { X, MessageCircle, PhoneCall, MapPin, CheckCircle2, Building2, Banknote, ShieldCheck, Car, RotateCcw } from 'lucide-react';
 
 // ─── FAQ Data ────────────────────────────────────────────────────────────────
 const FAQS = [
   {
     id: 'plots',
-    icon: <Home className="w-4 h-4" />,
+    icon: <Building2 className="w-4 h-4" />,
     label: 'I want to buy a plot',
     response: "Great! We have open plots in Rajahmundry and Kakinada. Here are our current ventures:",
     type: 'ventures'
   },
   {
     id: 'pricing',
-    icon: <Calculator className="w-4 h-4" />,
+    icon: <Banknote className="w-4 h-4" />,
     label: 'Plot sizes & pricing',
     response: null,
     type: 'pricing'
@@ -26,21 +26,21 @@ const FAQS = [
   },
   {
     id: 'legal',
-    icon: <Shield className="w-4 h-4" />,
+    icon: <ShieldCheck className="w-4 h-4" />,
     label: 'Is my title 100% legal?',
     response: null,
     type: 'legal'
   },
   {
     id: 'visit',
-    icon: <Calendar className="w-4 h-4" />,
+    icon: <Car className="w-4 h-4" />,
     label: 'Book a site visit',
     response: null,
     type: 'visit'
   },
   {
     id: 'director',
-    icon: <Phone className="w-4 h-4" />,
+    icon: <PhoneCall className="w-4 h-4" />,
     label: 'Talk to Director directly',
     response: null,
     type: 'director'

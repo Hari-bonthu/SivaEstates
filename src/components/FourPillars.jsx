@@ -1,11 +1,11 @@
 import React from 'react';
-import { Heart, ShieldCheck, TrendingUp, Home, ArrowUpRight } from 'lucide-react';
+import { Heart, ShieldCheck, TrendingUp, Building, ArrowUpRight } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function FourPillars({ lang }) {
   const t = translations[lang].pillars;
 
-  const iconMap = [Heart, ShieldCheck, TrendingUp, Home];
+  const iconMap = [Heart, ShieldCheck, TrendingUp, Building];
 
   return (
     <section className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">

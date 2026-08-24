@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { properties } from '../data/properties';
-import { MapPin, Phone, ShieldCheck, CheckCircle2, ArrowLeft, LayoutGrid, Compass, Ruler, IndianRupee, MessageCircle, Eye } from 'lucide-react';
+import { MapPin, PhoneCall, ShieldCheck, CheckCircle2, ArrowLeft, Maximize2, Compass, Ruler, IndianRupee, MessageCircle } from 'lucide-react';
 import MagneticCarousel from '../components/MagneticCarousel';
 
 export default function VenturePage() {
@@ -126,7 +126,7 @@ export default function VenturePage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E5E0D5] text-center shadow-xs">
                 <div className="flex items-center justify-center space-x-1.5 text-[#4A5D4E] mb-2">
-                  <LayoutGrid className="w-4 h-4" />
+                  <Maximize2 className="w-4 h-4" />
                   <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#636863]">PLOT SIZES</span>
                 </div>
                 <p className="text-base font-bold text-[#1B1C1C] font-serif">{property.plotSizes}</p>
