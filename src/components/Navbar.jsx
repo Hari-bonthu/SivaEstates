@@ -126,7 +126,7 @@ export default function Navbar({ lang, setLang }) {
               <span className="text-xl font-bold tracking-tight text-[#1B1C1C] font-serif leading-none">
                 Siva Telugu Estates
               </span>
-              <span className="text-[10px] text-[#636863] tracking-widest uppercase font-mono mt-1">
+              <span className="brand-subtitle">
                 Godavari Luxury Real Estate • Est. 2008
               </span>
             </div>
