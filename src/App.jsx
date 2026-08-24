@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SivaBot from './components/SivaBot';
 import HomePage from './pages/HomePage';
+import PropertiesPage from './pages/PropertiesPage';
 import VenturePage from './pages/VenturePage';
 
 function ScrollToHashElement() {
@@ -36,6 +37,7 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<HomePage lang={lang} setLang={setLang} />} />
+          <Route path="/properties" element={<PropertiesPage lang={lang} />} />
           <Route path="/venture/:id" element={<VenturePage />} />
           {/* Catch-all fallback so anchor paths or unknown routes gracefully render HomePage */}
           <Route path="*" element={<HomePage lang={lang} setLang={setLang} />} />
