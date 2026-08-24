@@ -4,6 +4,7 @@ import HeroSlider from './components/HeroSlider';
 import FourPillars from './components/FourPillars';
 import BranchSpotlight from './components/BranchSpotlight';
 import ProjectTabsCatalog from './components/ProjectTabsCatalog';
+import DarkBanner from './components/DarkBanner';
 import YouTubeHub from './components/YouTubeHub';
 import TrustSection from './components/TrustSection';
 import Testimonials from './components/Testimonials';
@@ -15,7 +16,7 @@ export default function App() {
   const [lang, setLang] = useState('en');
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F9F7F2] text-[#2D2D2D] selection:bg-[#4A5D4E] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#F9F7F2] text-[#2D2D2D] selection:bg-[#4A5D4E] selection:text-white font-sans">
       
       {/* Header Navbar */}
       <Navbar lang={lang} setLang={setLang} />
@@ -24,8 +25,9 @@ export default function App() {
       <main className="flex-grow">
         <HeroSlider lang={lang} />
         <FourPillars lang={lang} />
-        <BranchSpotlight lang={lang} />
         <ProjectTabsCatalog lang={lang} />
+        <DarkBanner />
+        <BranchSpotlight lang={lang} />
         <YouTubeHub lang={lang} />
         <TrustSection lang={lang} />
         <Testimonials lang={lang} />

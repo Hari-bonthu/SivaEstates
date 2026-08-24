@@ -1,78 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { ShieldCheck, MapPin, Phone, ArrowRight, Play, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { ShieldCheck, Phone, ArrowRight, Play, PhoneCall } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function HeroSlider({ lang }) {
   const t = translations[lang].hero;
 
-  const slides = [
-    {
-      id: 1,
-      title: "Building Your Family's Best Future in Godavari Region",
-      teluguTagline: "మీ Family కి Best Future ఏంటి..?",
-      subtitle: "TRUSTED REAL ESTATE DEVELOPER",
-      location: "Jetty Mayfair • Rajahmundry",
-      image: "./images/luxury_villa_venture_1786442598108.jpg",
-      highlight: "DTCP & RERA Approved Luxury Villa Layout"
-    },
-    {
-      id: 2,
-      title: "Smart City & Port Belt Open Plot Ventures",
-      teluguTagline: "సేఫ్ పెట్టుబడి • అత్యధిక రిటర్న్స్",
-      subtitle: "NEWLY OPENED KAKINADA BRANCH",
-      location: "ADB Highway • Kakinada Port Belt",
-      image: "./images/kakinada_branch_venture_1786442659994.jpg",
-      highlight: "VMRDA & DTCP Approved Open Plots"
-    },
-    {
-      id: 3,
-      title: "Prime NH-16 Highway Commercial & Residential Plots",
-      teluguTagline: "100% లీగల్ క్లియర్ టైటిల్ గ్యారెంటీ",
-      subtitle: "100% CLEAR TITLE GUARANTEE",
-      location: "Morampudi & Diwancheruvu Corridor",
-      image: "./images/open_plot_layout_1786442637690.jpg",
-      highlight: "Instant Spot Registration & Bank Loan Facility"
-    }
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const slide = slides[currentSlide];
-
   return (
-    <section id="home" className="relative pt-10 pb-16 overflow-hidden bg-[#F9F7F2]">
+    <section id="home" className="relative pt-12 pb-20 overflow-hidden bg-[#F9F7F2]">
       
-      {/* Background Architectural Overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {slides.map((s, idx) => (
-          <div
-            key={s.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              idx === currentSlide ? 'opacity-10 scale-105' : 'opacity-0 scale-100'
-            } transition-transform duration-7000`}
-          >
-            <img
-              src={s.image}
-              alt={s.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+      {/* Light High-Key Background */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        <img
+          src="./images/luxury_villa_venture_1786442598108.jpg"
+          alt="Luxury Real Estate Venture Layout"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F9F7F2] via-[#F9F7F2]/90 to-[#F9F7F2]"></div>
       </div>
 
@@ -81,108 +23,76 @@ export default function HeroSlider({ lang }) {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column */}
+          {/* Left Column: Headlines & Content */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Location & Certification Bar */}
-            <div className="flex items-center space-x-2 text-xs font-semibold text-[#4A5D4E] tracking-wider uppercase">
-              <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" />
-              <span>{slide.subtitle} • {slide.location}</span>
+            {/* Tagline Badge matching screenshot */}
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white border border-[#E5E0D5] text-[#2D2D2D] text-[11px] font-mono font-bold tracking-widest uppercase shadow-xs">
+              <span className="text-[#4A5D4E]">◆</span>
+              <span>GODAVARI REGION • CLEAR TITLE &amp; DTCP APPROVED</span>
             </div>
 
-            {/* Handcrafted Telugu Motto Banner */}
-            <div className="p-4 rounded-2xl bg-white border border-[#E5E0D5] shadow-xs">
-              <p className="text-xl sm:text-2xl font-bold text-[#334537] font-serif">
-                "{slide.teluguTagline}"
-              </p>
-              <p className="text-xs text-[#636863] mt-1 font-medium">
-                Official Motto of Siva Telugu Estates • {slide.highlight}
-              </p>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal text-[#1B1C1C] tracking-tight leading-[1.15] font-serif">
-              {slide.title}
+            {/* Headline matching screenshot with Playfair Italic */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal text-[#1B1C1C] tracking-tight leading-[1.12] font-serif">
+              Building Your Family's <br />
+              <span className="italic font-serif font-normal text-[#334537]">Generational Legacy</span> in Godavari
             </h1>
 
-            {/* Subtext */}
-            <p className="text-base text-[#636863] leading-relaxed max-w-xl">
-              Premier DTCP &amp; VMRDA approved open plot ventures, luxury villa layouts, and high-growth land investments across Rajahmundry &amp; Kakinada.
+            {/* Paragraph Body matching screenshot */}
+            <p className="text-base text-[#636863] leading-relaxed max-w-xl font-sans">
+              Curated residential plots and luxury villa layouts with 100% clear titles, DTCP &amp; VMRDA approvals. Secure your heritage with verified, high-appreciation land assets.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Action Buttons matching screenshot */}
+            <div className="flex flex-wrap items-center gap-4 pt-2 font-mono">
               <a
                 href="#ventures"
-                className="px-7 py-3.5 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-sm shadow-md transition-all flex items-center group cursor-pointer"
+                className="px-7 py-4 rounded-lg bg-[#1B1C1C] hover:bg-[#334537] text-white font-bold text-xs shadow-md transition-all flex items-center group cursor-pointer tracking-wider"
               >
-                <span>Explore Open Plots</span>
+                <span>EXPLORE VENTURES</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
                 href="#videos"
-                className="px-6 py-3.5 rounded-xl bg-white hover:bg-[#F0EDED] border border-[#E5E0D5] text-[#4A5D4E] font-bold text-sm transition-all flex items-center cursor-pointer shadow-xs"
+                className="px-6 py-4 rounded-lg bg-white hover:bg-[#F0EDED] border border-[#E5E0D5] text-[#1B1C1C] font-bold text-xs transition-all flex items-center cursor-pointer shadow-xs tracking-wider"
               >
-                <Play className="w-4 h-4 mr-2 text-[#4A5D4E] fill-[#4A5D4E]" />
-                <span>Watch YouTube Tours</span>
+                <Play className="w-3.5 h-3.5 mr-2 text-[#1B1C1C] fill-[#1B1C1C]" />
+                <span>WATCH VIRTUAL TOURS</span>
               </a>
-            </div>
-
-            {/* Slide Navigation Controls */}
-            <div className="flex items-center space-x-3 pt-4">
-              <button
-                onClick={prevSlide}
-                className="p-2 rounded-lg bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#4A5D4E] hover:text-white transition-all cursor-pointer shadow-xs"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              <div className="flex items-center space-x-1.5">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentSlide(i)}
-                    className={`h-2 rounded-full transition-all cursor-pointer ${
-                      i === currentSlide ? 'w-6 bg-[#4A5D4E]' : 'w-2 bg-[#E5E0D5]'
-                    }`}
-                    aria-label={`Go to slide ${i + 1}`}
-                  ></button>
-                ))}
-              </div>
-
-              <button
-                onClick={nextSlide}
-                className="p-2 rounded-lg bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#4A5D4E] hover:text-white transition-all cursor-pointer shadow-xs"
-                aria-label="Next slide"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
             </div>
 
           </div>
 
-          {/* Right Column: Founder & Director Portrait Card */}
+          {/* Right Column: LARGE Profile Photo Founder Card */}
           <div className="lg:col-span-5 relative flex justify-center">
             
-            <div className="relative w-full max-w-md rounded-3xl overflow-hidden bg-white border border-[#E5E0D5] shadow-lg group">
+            <div className="relative w-full max-w-md rounded-3xl overflow-hidden bg-white border border-[#E5E0D5] shadow-xl group">
               
-              {/* Founder Image */}
-              <div className="relative h-[360px] sm:h-[400px] overflow-hidden bg-[#F0EDED]">
+              {/* LARGE Profile Photo */}
+              <div className="relative h-[380px] sm:h-[420px] overflow-hidden bg-[#F0EDED]">
                 <img
                   src="./images/siva_yedida_professional.jpg"
-                  alt="Mr. Siva Yedida - Founder & Director"
+                  alt="Mr. Siva Yedida - Founder & Managing Director"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
+
+                {/* Corner Emblem Logo */}
+                <div className="absolute top-4 right-4 p-2 rounded-xl bg-white/90 backdrop-blur-md border border-[#E5E0D5] shadow-md flex items-center justify-center">
+                  <img
+                    src="./images/logo/logo_ivory_gold.jpg"
+                    alt="Siva Estates Emblem"
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
               </div>
 
-              {/* Founder Details */}
+              {/* Founder Details Card Content */}
               <div className="p-6 bg-white relative z-10 border-t border-[#E5E0D5]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-xs text-[#4A5D4E] uppercase tracking-wider block font-bold font-mono">
-                      FOUNDER &amp; DIRECTOR
+                    <span className="text-[10px] font-mono text-[#636863] uppercase tracking-widest block font-bold">
+                      FOUNDER &amp; MANAGING DIRECTOR
                     </span>
                     <h3 className="text-2xl font-bold text-[#1B1C1C] font-serif mt-0.5">
                       Siva Yedida
@@ -192,15 +102,22 @@ export default function HeroSlider({ lang }) {
                   <a
                     href="tel:+919851633333"
                     className="p-3 rounded-xl bg-[#EAF0EC] hover:bg-[#4A5D4E] hover:text-white text-[#4A5D4E] transition-all shadow-xs"
-                    title="Call Director Direct"
+                    title="Request Direct Meeting / Call"
                   >
-                    <Phone className="w-5 h-5" />
+                    <PhoneCall className="w-4 h-4" />
                   </a>
                 </div>
 
-                <p className="text-xs text-[#636863] mt-2 leading-relaxed">
-                  Dedicated to securing high-appreciation land assets &amp; transparent titles for over 1500+ happy families.
+                <p className="text-xs text-[#636863] mt-2.5 leading-relaxed font-sans">
+                  Dedicated to securing high-appreciation land assets &amp; transparent titles for over 1500+ happy families across Godavari districts.
                 </p>
+
+                <div className="flex items-center justify-between pt-4 mt-4 border-t border-[#E5E0D5] text-[11px] font-mono text-[#636863]">
+                  <span className="font-semibold text-[#1B1C1C]">12+ Years In Land Development</span>
+                  <a href="#contact" className="hover:text-[#4A5D4E] font-bold text-[#1B1C1C] underline">
+                    REQUEST MEETING →
+                  </a>
+                </div>
               </div>
 
             </div>
@@ -209,23 +126,23 @@ export default function HeroSlider({ lang }) {
 
         </div>
 
-        {/* Handcrafted Stats Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-12 mt-12 border-t border-[#E5E0D5]">
+        {/* Stats Row matching screenshot */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-16 mt-16 border-t border-[#E5E0D5]">
           <div>
-            <p className="text-3xl sm:text-4xl font-normal text-[#334537] font-serif">50+</p>
-            <p className="text-xs text-[#636863] font-medium uppercase tracking-wider mt-1">Ventures Completed</p>
+            <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">50+</p>
+            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">VENTURES COMPLETED</p>
           </div>
           <div>
-            <p className="text-3xl sm:text-4xl font-normal text-[#334537] font-serif">1500+</p>
-            <p className="text-xs text-[#636863] font-medium uppercase tracking-wider mt-1">Happy Plot Owners</p>
+            <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">1500+</p>
+            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">HAPPY PLOT OWNERS</p>
           </div>
           <div>
-            <p className="text-3xl sm:text-4xl font-normal text-[#334537] font-serif">12+ Yrs</p>
-            <p className="text-xs text-[#636863] font-medium uppercase tracking-wider mt-1">Industry Record</p>
+            <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">12+ Yrs</p>
+            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">INDUSTRY RECORD</p>
           </div>
           <div>
-            <p className="text-3xl sm:text-4xl font-normal text-[#334537] font-serif">100%</p>
-            <p className="text-xs text-[#636863] font-medium uppercase tracking-wider mt-1">Clear Title Guarantee</p>
+            <p className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif">100%</p>
+            <p className="text-[11px] font-mono text-[#636863] uppercase tracking-widest mt-1">CLEAR TITLE GUARANTEED</p>
           </div>
         </div>
 
