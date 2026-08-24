@@ -1,15 +1,71 @@
-import React, { useState } from 'react';
-import { X, MapPin, Phone, CheckCircle2, ShieldCheck, ArrowRight, LayoutGrid, Compass, Ruler, IndianRupee, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import {
+  X,
+  MapPin,
+  Phone,
+  CheckCircle2,
+  ShieldCheck,
+  LayoutGrid,
+  Compass,
+  Ruler,
+  IndianRupee,
+  ChevronLeft,
+  ChevronRight
+} from 'lucide-react';
 
 export default function PropertyModal({ property, onClose }) {
   const [activeImg, setActiveImg] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef(null);
+
   if (!property) return null;
 
-  const gallery = property.gallery || [property.thumbnail];
+  const gallery = property.gallery && property.gallery.length > 0
+    ? property.gallery
+    : [property.thumbnail];
+
+  // Auto-slide effect (changes every 3.5 seconds when not hovered)
+  useEffect(() => {
+    if (gallery.length <= 1 || isPaused) return;
+
+    timerRef.current = setInterval(() => {
+      setActiveImg((prev) => (prev + 1) % gallery.length);
+    }, 3500);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [gallery.length, isPaused]);
+
+  // Keyboard navigation for arrow keys (Left/Right) and Escape to close
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      } else if (e.key === 'ArrowLeft') {
+        setActiveImg((prev) => (prev - 1 + gallery.length) % gallery.length);
+      } else if (e.key === 'ArrowRight') {
+        setActiveImg((prev) => (prev + 1) % gallery.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [gallery.length, onClose]);
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setActiveImg((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setActiveImg((prev) => (prev + 1) % gallery.length);
+  };
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1B1C1C]/70"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1B1C1C]/75 backdrop-blur-xs font-sans"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#E5E0D5] max-h-[92vh] flex flex-col">
@@ -17,7 +73,8 @@ export default function PropertyModal({ property, onClose }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white border border-[#E5E0D5] shadow-md flex items-center justify-center text-[#2D2D2D] hover:bg-[#1B1C1C] hover:text-white transition-all cursor-pointer"
+          className="absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-[#E5E0D5] shadow-md flex items-center justify-center text-[#2D2D2D] hover:bg-[#1B1C1C] hover:text-white transition-all cursor-pointer"
+          aria-label="Close modal"
         >
           <X className="w-4 h-4" />
         </button>
@@ -25,26 +82,61 @@ export default function PropertyModal({ property, onClose }) {
         {/* Scrollable Content */}
         <div className="overflow-y-auto">
           
-          {/* Hero Image with title overlay */}
-          <div className="relative h-64 sm:h-80 bg-[#F0EDED] shrink-0">
+          {/* Hero Image Carousel with Auto-slide & Manual Arrow Buttons */}
+          <div 
+            className="relative h-72 sm:h-96 bg-[#18231C] shrink-0 overflow-hidden group select-none"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <img
+              key={activeImg}
               src={gallery[activeImg]}
-              alt={property.title}
-              className="w-full h-full object-cover"
+              alt={`${property.title} view ${activeImg + 1}`}
+              className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/80 via-transparent to-transparent"></div>
             
+            {/* Atmospheric Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/85 via-transparent to-black/20 pointer-events-none"></div>
+
+            {/* Left / Right Carousel Arrow Buttons */}
+            {gallery.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-lg"
+                  title="Previous image (Left arrow)"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+
+                <button
+                  onClick={handleNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-lg"
+                  title="Next image (Right arrow)"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+
+                {/* Counter & Indicator Dots */}
+                <div className="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/50 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono font-bold tracking-widest">
+                  {activeImg + 1} / {gallery.length}
+                </div>
+              </>
+            )}
+
             {/* Title on image */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
               <div className="flex items-center space-x-2 mb-2">
                 <span className="px-2.5 py-1 rounded bg-[#1B1C1C]/90 border border-white/20 text-white text-[10px] font-mono font-bold tracking-widest uppercase">
                   {property.status}
                 </span>
                 <span className="px-2.5 py-1 rounded bg-[#4A5D4E] text-white text-[10px] font-mono font-bold tracking-widest uppercase">
-                  {property.approval.split(' ')[0]} APPROVED
+                  {property.approval?.split(' ')[0] || 'DTCP'} APPROVED
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white font-serif leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-normal text-white font-serif leading-tight">
                 {property.title}
               </h2>
               <p className="flex items-center text-white/80 text-xs mt-1 font-sans">
@@ -53,16 +145,17 @@ export default function PropertyModal({ property, onClose }) {
               </p>
             </div>
 
-            {/* Gallery Thumbnails */}
+            {/* Indicator Dots inside Hero Image */}
             {gallery.length > 1 && (
-              <div className="absolute bottom-4 right-4 flex space-x-1.5">
-                {gallery.map((img, idx) => (
+              <div className="absolute bottom-4 right-4 z-20 flex space-x-1.5">
+                {gallery.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setActiveImg(idx)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
-                      idx === activeImg ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'
+                    className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                      idx === activeImg ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
                     }`}
+                    aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
               </div>
@@ -77,39 +170,39 @@ export default function PropertyModal({ property, onClose }) {
               <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <LayoutGrid className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">PLOT SIZES</span>
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#6B6860]">PLOT SIZES</span>
                 </div>
-                <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.plotSizes}</p>
+                <p className="text-sm font-bold text-[#1B1C1C] font-mono leading-tight">{property.plotSizes}</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <Compass className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">FACING</span>
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#6B6860]">FACING</span>
                 </div>
-                <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.facing}</p>
+                <p className="text-sm font-bold text-[#1B1C1C] font-mono leading-tight">{property.facing || 'East / West'}</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <Ruler className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">ROAD WIDTH</span>
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#6B6860]">ROAD WIDTH</span>
                 </div>
-                <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.roadWidth}</p>
+                <p className="text-sm font-bold text-[#1B1C1C] font-mono leading-tight">{property.roadWidth}</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-[#EAF0EC] border border-[#4A5D4E]/30 text-center">
                 <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
                   <IndianRupee className="w-3.5 h-3.5" />
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">INDICATIVE PRICE</span>
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#4A5D4E]">STARTING AT</span>
                 </div>
-                <p className="text-sm font-bold text-[#334537] font-serif leading-tight">{property.pricePerSqYd}</p>
+                <p className="text-sm font-bold text-[#334537] font-mono leading-tight">{property.pricePerSqYd}</p>
               </div>
             </div>
 
             {/* Description */}
             <div>
-              <p className="text-sm text-[#636863] leading-relaxed font-sans">
+              <p className="text-sm text-[#59564F] leading-relaxed font-sans">
                 {property.description}
               </p>
             </div>
@@ -118,13 +211,20 @@ export default function PropertyModal({ property, onClose }) {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" />
-                <h3 className="text-sm font-bold text-[#1B1C1C] uppercase tracking-wider font-mono">
+                <h3 className="text-xs font-mono font-bold text-[#1B1C1C] uppercase tracking-wider">
                   Venture Features &amp; Infrastructure
                 </h3>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {property.highlights.map((h, i) => (
+                {(property.highlights || [
+                  '100% Clear Title & Spot Registration',
+                  'DTCP & RERA Approved Master Blueprint',
+                  'Underground Drainage & Electricity',
+                  'Avenue Plantation & Compound Wall',
+                  'Grand Arch Entrance with 24/7 Security',
+                  'Bank Loan Approved: SBI, HDFC, ICICI'
+                ]).map((h, i) => (
                   <div key={i} className="flex items-center space-x-2.5 p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5]">
                     <CheckCircle2 className="w-4 h-4 text-[#4A5D4E] shrink-0" />
                     <span className="text-xs text-[#2D2D2D] font-sans font-medium">{h}</span>
@@ -132,26 +232,6 @@ export default function PropertyModal({ property, onClose }) {
                 ))}
               </div>
             </div>
-
-            {/* Gallery Strip */}
-            {gallery.length > 1 && (
-              <div>
-                <h3 className="text-xs font-mono font-bold text-[#636863] uppercase tracking-widest mb-3">PHOTO GALLERY</h3>
-                <div className="flex space-x-2 overflow-x-auto pb-1">
-                  {gallery.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveImg(idx)}
-                      className={`shrink-0 w-20 h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                        idx === activeImg ? 'border-[#4A5D4E] scale-105' : 'border-transparent opacity-60 hover:opacity-90'
-                      }`}
-                    >
-                      <img src={img} alt="" className="w-full h-full object-cover" />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
 
           </div>
         </div>
@@ -162,7 +242,7 @@ export default function PropertyModal({ property, onClose }) {
             href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}.%20Please%20share%20more%20details.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 py-4 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-sm flex items-center justify-center space-x-2 transition-all shadow-sm font-mono tracking-wide"
+            className="flex-1 py-3.5 rounded-xl bg-[#18231C] hover:bg-[#334537] text-white font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-all shadow-xs"
           >
             <Phone className="w-4 h-4" />
             <span>Inquire via WhatsApp</span>
@@ -170,7 +250,7 @@ export default function PropertyModal({ property, onClose }) {
 
           <a
             href="tel:+919851633333"
-            className="sm:w-48 py-4 rounded-xl bg-white border border-[#E5E0D5] text-[#1B1C1C] font-bold text-sm flex items-center justify-center transition-all hover:bg-[#F9F7F2] font-mono"
+            className="sm:w-48 py-3.5 rounded-xl bg-white border border-[#E5E0D5] text-[#1B1C1C] font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center transition-all hover:bg-[#F9F7F2]"
           >
             Call +91 98516 33333
           </a>
