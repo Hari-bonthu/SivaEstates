@@ -1,49 +1,100 @@
 import React, { useState } from 'react';
 import { properties } from '../data/properties';
-import { MapPin, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  ShieldCheck,
+  FileCheck,
+  Sparkles,
+  Users
+} from 'lucide-react';
+import VentureCard from './VentureCard';
 import PropertyModal from './PropertyModal';
 import { Link } from 'react-router-dom';
 
 export default function ProjectTabsCatalog({ lang = 'en' }) {
   const [selectedProperty, setSelectedProperty] = useState(null);
 
-  // 3 Featured Gated Ventures exactly as shown in screenshot
+  // 3 Featured Gated Ventures matching the reference screenshot exactly
   const featuredVentures = [
     {
       id: "jetty-mayfair",
       title: "Jetty Mayfair Luxury Villa Layout",
       location: "Rajahmundry",
-      area: "Morampudi - Lalacheruvu Highway Corridor",
-      pricePerSqYd: "₹18,500 / Sq. Yd",
+      area: "Morampudi – Lalacheruvu Highway Corridor",
+      pricePerSqYd: "₹18,500 / Sq.Yd",
+      plotSizes: "150 – 500 Sq.Yards",
+      roadWidth: "40ft & 60ft Blacktop Roads",
+      approval: "DTCP APPROVED & RERA REGISTERED",
       status: "FAST SELLING",
       thumbnail: "./images/luxury_villa_venture_1786442598108.jpg",
     },
     {
-      id: "kakinada-smart-city",
-      title: "Kakinada Port & Smart City",
-      location: "Kakinada",
-      area: "Ramanayyapeta - ADB Road Corridor",
-      pricePerSqYd: "₹14,200 / Sq. Yd",
+      id: "seshadri-heights",
+      title: "Seshadri Heights Gated Community",
+      location: "Rajahmundry",
+      area: "Dowleswaram Barrage Belt",
+      pricePerSqYd: "₹16,800 / Sq.Yd",
+      plotSizes: "160 – 450 Sq.Yards",
+      roadWidth: "40ft BT Roads",
+      approval: "DTCP APPROVED LAYOUT",
       status: "NEWLY LAUNCHED",
-      thumbnail: "./images/kakinada_branch_venture_1786442659994.jpg",
+      thumbnail: "./images/assets/20250604_152649.jpg",
     },
     {
-      id: "seshadri-heights",
-      title: "Samalkot ADB Highway Enclave",
+      id: "kakinada-smart-city",
+      title: "Kakinada Port & Smart City Layout",
       location: "Kakinada",
-      area: "Samalkot - Kakinada Highway",
-      pricePerSqYd: "₹13,800 / Sq. Yd",
+      area: "Ramanayyapeta & Port Corridor",
+      pricePerSqYd: "₹22,000 / Sq.Yd",
+      plotSizes: "200 – 600 Sq.Yards",
+      roadWidth: "60ft Master Plan Road",
+      approval: "VMRDA & DTCP APPROVED",
       status: "FAST SELLING",
-      thumbnail: "./images/assets/20250604_152649.jpg",
+      thumbnail: "./images/kakinada_branch_venture_1786442659994.jpg",
     },
   ];
 
+  const trustBadges = [
+    {
+      icon: <ShieldCheck className="w-5 h-5 text-[#18231C]" />,
+      title: "Legal Clear Titles",
+      subtitle: "100% Verified"
+    },
+    {
+      icon: <FileCheck className="w-5 h-5 text-[#18231C]" />,
+      title: "DTCP / RERA",
+      subtitle: "Approved"
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5 text-[#18231C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 19L8 5" />
+          <path d="M20 19L16 5" />
+          <line x1="12" y1="7" x2="12" y2="9" />
+          <line x1="12" y1="13" x2="12" y2="15" />
+        </svg>
+      ),
+      title: "Premium",
+      subtitle: "Infrastructure"
+    },
+    {
+      icon: <Sparkles className="w-5 h-5 text-[#18231C]" />,
+      title: "Green & Serene",
+      subtitle: "Environment"
+    },
+    {
+      icon: <Users className="w-5 h-5 text-[#18231C]" />,
+      title: "Trusted by",
+      subtitle: "Thousands"
+    }
+  ];
+
   return (
-    <section id="ventures" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
+    <section id="ventures" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5] font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header matching screenshot */}
-        <div className="flex items-end justify-between mb-10">
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
             <span className="text-[10px] uppercase tracking-[0.25em] font-mono font-bold text-[#6B6860] block mb-2">
               CURATED PORTFOLIO
@@ -55,81 +106,47 @@ export default function ProjectTabsCatalog({ lang = 'en' }) {
 
           <Link
             to="/properties"
-            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-[#4A5D4E] transition-colors flex items-center space-x-1.5"
+            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#1A1A1A] hover:text-[#334537] transition-colors flex items-center space-x-1.5 shrink-0"
           >
             <span>VIEW ALL 3 VENTURES</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* 3-Column Featured Grid matching screenshot */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {featuredVentures.map((item) => {
-            const fullProp = properties.find((p) => p.id === item.id) || item;
-
-            return (
-              <div
-                key={item.id}
-                className="bg-white rounded-xl overflow-hidden border border-[#E5E2D9] hover:border-[#1A1A1A] transition-all duration-300 group flex flex-col justify-between shadow-xs hover:shadow-lg"
-              >
-                {/* Image with Badges */}
-                <div className="relative h-60 overflow-hidden bg-[#F0EDED]">
-                  <img
-                    src={item.thumbnail}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-
-                  {/* Left Badge (Status) */}
-                  <div className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded bg-[#1A1A1A]/95 text-white text-[9px] font-mono font-bold tracking-widest uppercase shadow-xs">
-                    {item.status}
-                  </div>
-
-                  {/* Right Badge (Location) */}
-                  <div className="absolute top-3.5 right-3.5 bg-white/95 px-2.5 py-1 rounded text-[9px] font-mono font-bold tracking-wider text-[#1A1A1A] border border-[#E5E2D9] shadow-xs">
-                    {item.location}
-                  </div>
-                </div>
-
-                {/* Body Details */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <h3 className="font-serif text-xl font-normal text-[#1A1A1A] mb-1.5 leading-snug group-hover:text-[#4A5D4E] transition-colors">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs text-[#6B6860] flex items-center font-sans">
-                      <MapPin className="w-3.5 h-3.5 mr-1 shrink-0 text-[#4A5D4E]" />
-                      <span>{item.area}</span>
-                    </p>
-                  </div>
-
-                  {/* Footer Row */}
-                  <div className="pt-4 border-t border-[#E5E2D9] flex items-center justify-between">
-                    <div>
-                      <span className="text-[9px] font-mono text-[#6B6860] uppercase tracking-wider block">
-                        STARTING FROM
-                      </span>
-                      <span className="text-sm font-bold text-[#1A1A1A] font-mono">
-                        {item.pricePerSqYd}
-                      </span>
-                    </div>
-
-                    <button
-                      onClick={() => setSelectedProperty(fullProp)}
-                      className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#1A1A1A] hover:text-[#4A5D4E] transition-colors flex items-center space-x-1 cursor-pointer"
-                    >
-                      <span>INSPECT LAYOUT</span>
-                      <span>→</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        {/* 3-Column Venture Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredVentures.map((project) => (
+            <VentureCard
+              key={project.id}
+              project={project}
+              onInspect={(p) => {
+                const fullProp = properties.find((item) => item.id === p.id) || p;
+                setSelectedProperty(fullProp);
+              }}
+            />
+          ))}
         </div>
 
-        {/* Modal */}
+        {/* Bottom 5-Item Trust Assurance Strip matching screenshot */}
+        <div className="mt-16 pt-12 border-t border-[#E5E2D9] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-center justify-between">
+          {trustBadges.map((badge, idx) => (
+            <div key={idx} className="flex items-center space-x-3">
+              <div className="w-10 h-10 rounded-xl bg-white border border-[#E5E2D9] flex items-center justify-center shrink-0 shadow-2xs">
+                {badge.icon}
+              </div>
+              <div className="leading-tight">
+                <span className="text-xs font-bold text-[#1A1A1A] block font-sans">
+                  {badge.title}
+                </span>
+                <span className="text-[11px] text-[#6B6860] font-sans">
+                  {badge.subtitle}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Drawer Modal */}
         {selectedProperty && (
           <PropertyModal
             property={selectedProperty}
