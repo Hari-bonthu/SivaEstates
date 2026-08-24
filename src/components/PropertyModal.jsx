@@ -1,116 +1,179 @@
-import React from 'react';
-import { X, MapPin, CheckCircle, ShieldCheck, Phone, Compass, Ruler, Maximize2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, MapPin, Phone, CheckCircle2, ShieldCheck, ArrowRight, LayoutGrid, Compass, Ruler, IndianRupee, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function PropertyModal({ property, onClose }) {
+  const [activeImg, setActiveImg] = useState(0);
   if (!property) return null;
 
+  const gallery = property.gallery || [property.thumbnail];
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-3xl rounded-3xl bg-navy-900 border border-gold-500/40 shadow-2xl overflow-hidden my-8">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1B1C1C]/70"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#E5E0D5] max-h-[92vh] flex flex-col">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-navy-950/80 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
-          aria-label="Close modal"
+          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white border border-[#E5E0D5] shadow-md flex items-center justify-center text-[#2D2D2D] hover:bg-[#1B1C1C] hover:text-white transition-all cursor-pointer"
         >
-          <X className="w-6 h-6" />
+          <X className="w-4 h-4" />
         </button>
 
-        {/* Modal Header Image */}
-        <div className="relative h-64 sm:h-80 w-full overflow-hidden">
-          <img
-            src={property.image}
-            alt={property.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/30 to-transparent"></div>
+        {/* Scrollable Content */}
+        <div className="overflow-y-auto">
           
-          <div className="absolute bottom-4 left-6 right-6">
-            <span className="px-3 py-1 rounded-full bg-gold-500 text-navy-950 font-extrabold text-xs uppercase tracking-wider">
-              {property.location} • {property.approval}
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-2">
-              {property.title}
-            </h3>
-            <p className="text-xs text-gold-300 flex items-center mt-1">
-              <MapPin className="w-3.5 h-3.5 mr-1" />
-              {property.area}
-            </p>
+          {/* Hero Image with title overlay */}
+          <div className="relative h-64 sm:h-80 bg-[#F0EDED] shrink-0">
+            <img
+              src={gallery[activeImg]}
+              alt={property.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/70 via-transparent to-transparent"></div>
+            
+            {/* Title on image */}
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="flex items-center space-x-2 mb-2">
+                <span className="px-2 py-0.5 rounded bg-white/20 backdrop-blur-md border border-white/30 text-white text-[10px] font-mono font-bold tracking-widest uppercase">
+                  {property.status}
+                </span>
+                <span className="px-2 py-0.5 rounded bg-[#4A5D4E]/80 text-white text-[10px] font-mono font-bold tracking-widest uppercase">
+                  {property.approval.split(' ')[0]}
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white font-serif leading-tight">
+                {property.title}
+              </h2>
+              <p className="flex items-center text-white/80 text-xs mt-1 font-sans">
+                <MapPin className="w-3.5 h-3.5 mr-1 shrink-0" />
+                {property.area}
+              </p>
+            </div>
+
+            {/* Gallery Thumbnails */}
+            {gallery.length > 1 && (
+              <div className="absolute bottom-4 right-4 flex space-x-1.5">
+                {gallery.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImg(idx)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
+                      idx === activeImg ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Content Body */}
+          <div className="p-6 sm:p-8 space-y-6">
+            
+            {/* 4 Spec Boxes */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">PLOT SIZES</span>
+                </div>
+                <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.plotSizes}</p>
+              </div>
+
+              <div className="p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <Compass className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">FACING</span>
+                </div>
+                <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.facing}</p>
+              </div>
+
+              <div className="p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <Ruler className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">ROAD WIDTH</span>
+                </div>
+                <p className="text-sm font-bold text-[#1B1C1C] font-serif leading-tight">{property.roadWidth}</p>
+              </div>
+
+              <div className="p-3 rounded-xl bg-[#EAF0EC] border border-[#4A5D4E]/30 text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <IndianRupee className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest">INDICATIVE PRICE</span>
+                </div>
+                <p className="text-sm font-bold text-[#334537] font-serif leading-tight">{property.pricePerSqYd}</p>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div>
+              <p className="text-sm text-[#636863] leading-relaxed font-sans">
+                {property.description}
+              </p>
+            </div>
+
+            {/* Features Checklist */}
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" />
+                <h3 className="text-sm font-bold text-[#1B1C1C] uppercase tracking-wider font-mono">
+                  Venture Features & Infrastructure
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {property.highlights.map((h, i) => (
+                  <div key={i} className="flex items-center space-x-2.5 p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5]">
+                    <CheckCircle2 className="w-4 h-4 text-[#4A5D4E] shrink-0" />
+                    <span className="text-xs text-[#2D2D2D] font-sans font-medium">{h}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Gallery Strip */}
+            {gallery.length > 1 && (
+              <div>
+                <h3 className="text-xs font-mono font-bold text-[#636863] uppercase tracking-widest mb-3">PHOTO GALLERY</h3>
+                <div className="flex space-x-2 overflow-x-auto pb-1">
+                  {gallery.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveImg(idx)}
+                      className={`shrink-0 w-20 h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+                        idx === activeImg ? 'border-[#4A5D4E] scale-105' : 'border-transparent opacity-60 hover:opacity-90'
+                      }`}
+                    >
+                      <img src={img} alt="" className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
 
-        {/* Modal Body */}
-        <div className="p-6 space-y-6">
-          
-          {/* Key Specs Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-2xl bg-navy-950 border border-slate-800">
-            <div>
-              <p className="text-[11px] text-slate-400 font-semibold uppercase flex items-center">
-                <Maximize2 className="w-3.5 h-3.5 mr-1 text-gold-400" />
-                Plot Sizes
-              </p>
-              <p className="text-sm font-bold text-white mt-1">{property.plotSizes}</p>
-            </div>
-            <div>
-              <p className="text-[11px] text-slate-400 font-semibold uppercase flex items-center">
-                <Compass className="w-3.5 h-3.5 mr-1 text-gold-400" />
-                Facing
-              </p>
-              <p className="text-sm font-bold text-white mt-1">{property.facing}</p>
-            </div>
-            <div>
-              <p className="text-[11px] text-slate-400 font-semibold uppercase flex items-center">
-                <Ruler className="w-3.5 h-3.5 mr-1 text-gold-400" />
-                Road Width
-              </p>
-              <p className="text-sm font-bold text-white mt-1">{property.roadWidth}</p>
-            </div>
-            <div>
-              <p className="text-[11px] text-slate-400 font-semibold uppercase flex items-center">
-                <ShieldCheck className="w-3.5 h-3.5 mr-1 text-emerald-400" />
-                Indicative Price
-              </p>
-              <p className="text-sm font-extrabold text-gold-400 mt-1">{property.pricePerSqYd}</p>
-            </div>
-          </div>
+        {/* Fixed Footer CTA */}
+        <div className="border-t border-[#E5E0D5] p-4 sm:p-6 bg-white shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <a
+            href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}.%20Please%20share%20more%20details.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-4 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-sm flex items-center justify-center space-x-2 transition-all shadow-sm font-mono tracking-wide"
+          >
+            <Phone className="w-4 h-4" />
+            <span>Inquire via WhatsApp</span>
+          </a>
 
-          {/* Venture Highlights List */}
-          <div>
-            <h4 className="text-base font-bold text-white font-heading mb-3 flex items-center">
-              <CheckCircle className="w-5 h-5 text-gold-400 mr-2" />
-              Venture Key Features &amp; Infrastructure
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {property.highlights.map((h, i) => (
-                <div key={i} className="flex items-center space-x-2 text-xs text-slate-200 bg-slate-800/40 p-2.5 rounded-xl">
-                  <div className="w-2 h-2 rounded-full bg-gold-400 shrink-0"></div>
-                  <span>{h}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Action CTAs */}
-          <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
-            <a
-              href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20know%20more%20details%20about%20${encodeURIComponent(property.title)}.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg text-center flex items-center justify-center space-x-2"
-            >
-              <Phone className="w-4 h-4" />
-              <span>Inquire via WhatsApp</span>
-            </a>
-            
-            <a
-              href="tel:+919851633333"
-              className="px-6 py-3.5 rounded-xl bg-gold-gradient text-navy-950 font-extrabold text-sm shadow-lg text-center flex items-center justify-center"
-            >
-              <span>Call +91 98516 33333</span>
-            </a>
-          </div>
-
+          <a
+            href="tel:+919851633333"
+            className="sm:w-48 py-4 rounded-xl bg-white border border-[#E5E0D5] text-[#1B1C1C] font-bold text-sm flex items-center justify-center transition-all hover:bg-[#F9F7F2] font-mono"
+          >
+            Call +91 98516 33333
+          </a>
         </div>
 
       </div>

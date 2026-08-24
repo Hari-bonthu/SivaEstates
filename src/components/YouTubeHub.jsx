@@ -1,42 +1,86 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Youtube, Play, ExternalLink, Clock, Eye } from 'lucide-react';
-import { youtubeVideos } from '../data/youtubeVideos';
-import { translations } from '../data/translations';
-import VideoModal from './VideoModal';
+
+const VIDEOS = [
+  {
+    id: 'v1',
+    youtubeId: 'sivateluguestates',
+    title: 'Jetty Mayfair Rajahmundry - Gated Community Villa Plots…',
+    description: 'Complete site tour of Jetty Mayfair venture at Morampudi Lalacheruvu corridor in Rajahmundry…',
+    category: 'Site Walkthrough',
+    duration: '12:45',
+    views: '45K+ Views',
+    thumbnail: './images/luxury_villa_venture_1786442598108.jpg',
+    url: 'https://www.youtube.com/@sivateluguestates'
+  },
+  {
+    id: 'v2',
+    youtubeId: 'sivateluguestates',
+    title: 'Kakinada New Branch Grand Opening & Smart City Plot…',
+    description: 'Director Mr. Siva Yedida introduces the new Kakinada branch office and announces upcoming…',
+    category: 'Branch Update',
+    duration: '08:20',
+    views: '38K+ Views',
+    thumbnail: './images/kakinada_branch_venture_1786442659994.jpg',
+    url: 'https://www.youtube.com/@sivateluguestates'
+  },
+  {
+    id: 'v3',
+    youtubeId: 'sivateluguestates',
+    title: 'How to Verify 100% Clear Title Before Buying Open Plots in…',
+    description: 'Essential legal guidance by Siva Telugu Estates on checking DTCP approvals, link documents…',
+    category: 'Investment Guide',
+    duration: '15:10',
+    views: '82K+ Views',
+    thumbnail: './images/open_plot_layout_1786442637690.jpg',
+    url: 'https://www.youtube.com/@sivateluguestates'
+  },
+  {
+    id: 'v4',
+    youtubeId: 'sivateluguestates',
+    title: 'Rajahmundry Real Estate Land Rates Analysis & High Growth…',
+    description: 'Detailed market analysis comparing land appreciation in Morampudi, Diwancheruvu…',
+    category: 'Market Analysis',
+    duration: '18:30',
+    views: '64K+ Views',
+    thumbnail: './images/assets/20250604_152649.jpg',
+    url: 'https://www.youtube.com/@sivateluguestates'
+  }
+];
 
 export default function YouTubeHub({ lang }) {
-  const t = translations[lang].youtube;
-  const [activeVideo, setActiveVideo] = useState(null);
-
   return (
     <section id="videos" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-red-500/30 text-red-700 text-xs font-mono tracking-widest uppercase">
-            YOUTUBE CHANNEL
+          {/* Luxury indicator – not a capsule, editorial style */}
+          <div className="flex items-center justify-center space-x-3">
+            <div className="h-px w-8 bg-red-500"></div>
+            <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-red-600">YOUTUBE CHANNEL</span>
+            <div className="h-px w-8 bg-red-500"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
-            {t.heading}
+            Live Site Walkthroughs & Land Advice
           </h2>
-          <p className="text-sm text-[#636863]">
-            {t.subheading}
+          <p className="text-sm text-[#636863] font-sans">
+            Subscribe to <span className="text-red-600 font-semibold">@sivateluguestates</span> for real video tours, legal advice, and investment guides.
           </p>
         </div>
 
-        {/* Channel Banner Link */}
-        <div className="mt-8 p-5 rounded-2xl bg-white border border-[#E5E0D5] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+        {/* Channel Banner */}
+        <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-white border border-[#E5E0D5] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-md shrink-0">
               <Youtube className="w-6 h-6 fill-white" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-[#1B1C1C] font-serif">
+              <h3 className="text-base font-bold text-[#1B1C1C] font-serif">
                 siva telugu estates - YouTube
               </h3>
-              <p className="text-xs text-[#636863] font-mono">
-                Official Channel for Real Estate Walkthroughs &amp; Plot Layout Tours
+              <p className="text-xs text-[#636863] font-sans">
+                Official Channel for Real Estate Walkthroughs & Plot Layout Tours
               </p>
             </div>
           </div>
@@ -45,72 +89,66 @@ export default function YouTubeHub({ lang }) {
             href="https://www.youtube.com/@sivateluguestates"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-md transition-all flex items-center space-x-2 shrink-0 font-mono"
+            className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-sm transition-all flex items-center space-x-2 shrink-0 font-mono tracking-wider"
           >
-            <span>{t.channelButton}</span>
-            <ExternalLink className="w-4 h-4" />
+            <span>Visit Official YouTube Channel</span>
+            <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
 
         {/* Video Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-          {youtubeVideos.map(vid => (
-            <div
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+          {VIDEOS.map(vid => (
+            <a
               key={vid.id}
-              onClick={() => setActiveVideo(vid)}
-              className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-red-500/40 cursor-pointer group flex flex-col justify-between transition-all shadow-sm hover:shadow-md"
+              href={vid.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-red-400 cursor-pointer group flex flex-col transition-all shadow-xs hover:shadow-md"
             >
-              <div>
-                <div className="relative h-44 overflow-hidden bg-[#F0EDED]">
-                  <img
-                    src={vid.thumbnail}
-                    alt={vid.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-[#1B1C1C]/30 group-hover:bg-[#1B1C1C]/10 transition-colors flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                      <Play className="w-5 h-5 ml-1 fill-white" />
-                    </div>
+              {/* Thumbnail */}
+              <div className="relative h-44 overflow-hidden bg-[#F0EDED]">
+                <img
+                  src={vid.thumbnail}
+                  alt={vid.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Dark overlay with play button */}
+                <div className="absolute inset-0 bg-[#1B1C1C]/30 group-hover:bg-[#1B1C1C]/10 transition-colors flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Play className="w-5 h-5 ml-1 fill-white" />
                   </div>
-
-                  <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono font-bold text-white flex items-center">
-                    <Clock className="w-3 h-3 mr-1" />
-                    {vid.duration}
-                  </span>
                 </div>
+                {/* Duration */}
+                <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-[#1B1C1C]/80 text-[10px] font-mono font-bold text-white flex items-center">
+                  <Clock className="w-2.5 h-2.5 mr-0.5" />
+                  {vid.duration}
+                </span>
+              </div>
 
-                <div className="p-4 space-y-2">
-                  <span className="px-2 py-0.5 rounded bg-[#F9F7F2] text-[10px] font-mono text-[#4A5D4E] font-bold">
-                    {vid.category}
-                  </span>
-                  <h4 className="text-sm font-bold text-[#1B1C1C] font-serif group-hover:text-red-700 transition-colors line-clamp-2">
-                    {vid.title}
-                  </h4>
-                  <p className="text-[11px] text-[#636863] line-clamp-2">
-                    {vid.description}
-                  </p>
-                </div>
+              {/* Content */}
+              <div className="p-4 flex flex-col flex-1 space-y-2">
+                <span className="inline-block px-2 py-0.5 rounded bg-[#F9F7F2] border border-[#E5E0D5] text-[9px] font-mono font-bold text-[#4A5D4E] tracking-wider w-fit">
+                  {vid.category}
+                </span>
+                <h4 className="text-sm font-bold text-[#1B1C1C] font-serif group-hover:text-red-700 transition-colors leading-snug line-clamp-2">
+                  {vid.title}
+                </h4>
+                <p className="text-[11px] text-[#636863] line-clamp-2 flex-1 font-sans">
+                  {vid.description}
+                </p>
               </div>
 
               <div className="p-4 pt-0 text-[11px] text-[#636863] flex items-center justify-between border-t border-[#E5E0D5] mt-2 font-mono">
-                <span className="flex items-center">
-                  <Eye className="w-3.5 h-3.5 mr-1" />
-                  {vid.views}
+                <span className="flex items-center space-x-1">
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>{vid.views}</span>
                 </span>
-                <span className="text-[#4A5D4E] font-bold">
-                  {t.watchVideo}
-                </span>
+                <span className="text-[#4A5D4E] font-bold tracking-wider">Watch Full Tour</span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
-
-        {activeVideo && (
-          <VideoModal
-            video={activeVideo}
-            onClose={() => setActiveVideo(null)}
-          />
-        )}
 
       </div>
     </section>

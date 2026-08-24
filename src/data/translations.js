@@ -18,7 +18,6 @@ export const translations = {
       subtitle: "TRUSTED REAL ESTATE DEVELOPER & CONSULTANT",
       title: "Building Your Family's Best Future in Godavari Region",
       description: "Premier DTCP & VMRDA approved open plot ventures, luxury villa layouts, and high-growth land investments across Rajahmundry & Kakinada.",
-      taglineTelugu: "మీ Family కి Best Future ఏంటి..?",
       directorTitle: "Founder & Director",
       directorName: "Siva Yedida",
       directorDesc: "Dedicated to securing high-appreciation land assets & transparent titles for over 1500+ happy families.",
@@ -39,25 +38,21 @@ export const translations = {
       items: [
         {
           title: "Family Happiness",
-          telugu: "ఫ్యామిలీ హ్యాపీ",
           desc: "Vastu-compliant peaceful gated communities with parks, wide roads & children play areas.",
           icon: "HeartHandshake"
         },
         {
           title: "Safe Investment",
-          telugu: "సేఫ్ పెట్టుబడి",
           desc: "100% Legal Clear Title, DTCP/VMRDA Approved layouts with instant bank loan facility.",
           icon: "ShieldCheck"
         },
         {
           title: "Financial Security",
-          telugu: "ఫైనాన్షియల్ సెక్యూరిటీ",
           desc: "High land value appreciation in fast-developing corridors of Rajahmundry & Kakinada.",
           icon: "TrendingUp"
         },
         {
           title: "Dream Lifestyle",
-          telugu: "డ్రీమ్ లైఫ్ స్టైల్",
           desc: "Modern luxury infrastructure, underground drainage, compound walls, and 24/7 security.",
           icon: "Sparkles"
         }
@@ -189,7 +184,6 @@ export const translations = {
       subtitle: "ప్రముఖ రియల్ ఎస్టేట్ డెవలపర్ & కన్సల్టెంట్",
       title: "గోదావరి ప్రాంతంలో మీ కుటుంబానికి బెస్ట్ ఫ్యూచర్",
       description: "రాజమండ్రి మరియు కాకినాడ పరిసర ప్రాంతాలలో డిటిసిపి & విఎంఆర్‌డిఎ ఆమోదిత ఓపెన్ ప్లాట్లు, లగ్జరీ విల్లా లేఅవుట్లు మరియు సేఫ్ ఇన్వెస్ట్‌మెంట్ ల్యాండ్స్.",
-      taglineTelugu: "మీ Family కి Best Future ఏంటి..?",
       directorTitle: "ఫౌండర్ & డైరెక్టర్",
       directorName: "శివ ఏడిద",
       directorDesc: "1500 కంటే ఎక్కువ హ్యాపీ ఫ్యామిలీలకు పారదర్శకమైన టైటిల్‌తో అత్యధిక లాభాలు ఇచ్చే స్థలాలను అందించడంలో నిబద్ధత.",
@@ -210,25 +204,21 @@ export const translations = {
       items: [
         {
           title: "Family Happiness",
-          telugu: "ఫ్యామిలీ హ్యాపీ",
           desc: "పార్కులు, విశాలమైన రోడ్లు మరియు చిల్డ్రన్ ప్లే ఏరియాతో 100% వాస్తు ఆమోదిత ప్రశాంతమైన వాతావరణం.",
           icon: "HeartHandshake"
         },
         {
           title: "Safe Investment",
-          telugu: "సేఫ్ పెట్టుబడి",
           desc: "100% లీగల్ క్లియర్ టైటిల్, డిటిసిపి/విఎమ్‌ఆర్‌డిఎ లేఅవుట్లు మరియు తక్షణ బ్యాంక్ లోన్ సదుపాయం.",
           icon: "ShieldCheck"
         },
         {
           title: "Financial Security",
-          telugu: "ఫైనాన్షియల్ సెక్యూరిటీ",
           desc: "రాజమండ్రి & కాకినాడ వేగంగా అభివృద్ధి చెందుతున్న కారిడార్లలో స్థలం విలువలో అత్యధిక పెరుగుదల.",
           icon: "TrendingUp"
         },
         {
           title: "Dream Lifestyle",
-          telugu: "డ్రీమ్ లైఫ్ స్టైల్",
           desc: "ఆధునిక మౌలిక సదుపాయాలు, అండర్‌గ్రౌండ్ డ్రైనేజీ, కాంపౌండ్ వాల్స్ మరియు 24/7 సెక్యూరిటీ.",
           icon: "Sparkles"
         }
