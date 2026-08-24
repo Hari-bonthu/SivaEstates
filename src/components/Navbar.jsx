@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Phone, Globe, Menu, X, MapPin, Building2 } from 'lucide-react';
+﻿import React, { useState } from 'react';
+import { Phone, Globe, Menu, X, MapPin, Building2, Camera } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function Navbar({ lang, setLang }) {
@@ -12,11 +12,10 @@ export default function Navbar({ lang, setLang }) {
 
   const navLinks = [
     { name: t.home, href: "#home" },
-    { name: t.branches, href: "#branches" },
     { name: t.ventures, href: "#ventures" },
-    { name: t.visualizer, href: "#visualizer" },
+    { name: t.gallery, href: "#gallery" },
+    { name: t.branches, href: "#branches" },
     { name: t.videos, href: "#videos" },
-    { name: t.calculator, href: "#calculator" },
     { name: t.trust, href: "#trust" },
     { name: t.contact, href: "#contact" }
   ];
@@ -62,7 +61,6 @@ export default function Navbar({ lang, setLang }) {
           
           {/* Logo & Multi-Purpose Branding */}
           <a href="#home" className="flex items-center space-x-3 group">
-            {/* Client Official Logo Image */}
             <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#DBCBB0] shadow-md group-hover:scale-105 transition-transform bg-white flex items-center justify-center p-0.5">
               <img
                 src="./images/logo/logo_original.jpg"
@@ -97,7 +95,7 @@ export default function Navbar({ lang, setLang }) {
           <div className="hidden lg:flex items-center space-x-3">
             <a
               href="#contact"
-              className="px-5 py-2.5 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-xs shadow-md transition-all cursor-pointer font-mono"
+              className="px-5 py-2.5 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-xs shadow-md transition-all cursor-pointer font-mono tracking-wider"
             >
               {t.bookVisit}
             </a>
@@ -124,16 +122,16 @@ export default function Navbar({ lang, setLang }) {
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-3 rounded-lg text-sm font-semibold text-[#2D2D2D] hover:bg-[#F9F7F2] hover:text-[#4A5D4E] transition-colors"
+              className="block px-4 py-2.5 rounded-lg text-sm font-semibold text-[#2D2D2D] hover:bg-[#F9F7F2] hover:text-[#4A5D4E] transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-4 border-t border-[#E5E0D5]">
+          <div className="pt-3 border-t border-[#E5E0D5]">
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center py-3 rounded-xl bg-[#4A5D4E] text-white font-bold shadow-lg"
+              className="block w-full text-center py-3 rounded-xl bg-[#4A5D4E] text-white font-bold font-mono text-xs shadow-md"
             >
               {t.bookVisit}
             </a>

@@ -1,10 +1,11 @@
-export const translations = {
+﻿export const translations = {
   en: {
     nav: {
       home: "Home",
-      branches: "Branches",
       ventures: "Ventures",
+      gallery: "Site Proof",
       visualizer: "Plot Visualizer",
+      branches: "Branches",
       videos: "YouTube Tours",
       calculator: "EMI Calculator",
       trust: "Why Trust Us",
@@ -18,19 +19,29 @@ export const translations = {
       subtitle: "TRUSTED REAL ESTATE DEVELOPER & CONSULTANT",
       title: "Building Your Family's Best Future in Godavari Region",
       description: "Premier DTCP & VMRDA approved open plot ventures, luxury villa layouts, and high-growth land investments across Rajahmundry & Kakinada.",
-      taglineTelugu: "మీ Family కి Best Future ఏంటి..?",
-      directorTitle: "Founder & Director",
+      directorTitle: "Founder & Managing Director",
       directorName: "Siva Yedida",
-      directorDesc: "Dedicated to securing high-appreciation land assets & transparent titles for over 1500+ happy families.",
+      directorDesc: "Dedicated to securing high-appreciation land assets & transparent titles for over 1500+ happy families across East Godavari.",
       ctaVentures: "Explore Open Plots",
       ctaVideos: "Watch YouTube Tours",
       ctaWhatsApp: "WhatsApp Chat",
       stats: {
-        ventures: "50+ Completed Ventures",
-        clients: "1500+ Happy Families",
-        experience: "12+ Years Industry Leadership",
+        ventures: "Ventures Completed",
+        clients: "Happy Families",
+        experience: "Industry Record",
         locations: "Rajahmundry & Kakinada",
       }
+    },
+    gallery: {
+      badge: "100% REAL GROUND PROOF",
+      heading: "Live Venture Developments & Customer Moments",
+      subheading: "Browse verified ground photos of our active gated layouts, blacktop roads, infrastructure work, and customer site visits across Godavari.",
+      all: "All Photos",
+      ongoing: "Ongoing Layouts",
+      visits: "Customer Visits",
+      completed: "Completed Projects",
+      inquirePhoto: "Inquire About This Location",
+      viewPhoto: "Inspect High-Res Photo"
     },
     pillars: {
       badge: "4 PILLARS OF SUCCESS",
@@ -39,25 +50,21 @@ export const translations = {
       items: [
         {
           title: "Family Happiness",
-          telugu: "ఫ్యామిలీ హ్యాపీ",
           desc: "Vastu-compliant peaceful gated communities with parks, wide roads & children play areas.",
           icon: "HeartHandshake"
         },
         {
           title: "Safe Investment",
-          telugu: "సేఫ్ పెట్టుబడి",
           desc: "100% Legal Clear Title, DTCP/VMRDA Approved layouts with instant bank loan facility.",
           icon: "ShieldCheck"
         },
         {
           title: "Financial Security",
-          telugu: "ఫైనాన్షియల్ సెక్యూరిటీ",
           desc: "High land value appreciation in fast-developing corridors of Rajahmundry & Kakinada.",
           icon: "TrendingUp"
         },
         {
           title: "Dream Lifestyle",
-          telugu: "డ్రీమ్ లైఫ్ స్టైల్",
           desc: "Modern luxury infrastructure, underground drainage, compound walls, and 24/7 security.",
           icon: "Sparkles"
         }
@@ -173,13 +180,14 @@ export const translations = {
   te: {
     nav: {
       home: "హోమ్",
-      branches: "బ్రాంచ్ ఆఫీసులు",
       ventures: "వెంచర్లు",
+      gallery: "గ్రౌండ్ ఫోటోలు",
       visualizer: "ప్లాట్ లేఅవుట్",
+      branches: "బ్రాంచ్ ఆఫీసులు",
       videos: "యూట్యూబ్ వీడియోలు",
       calculator: "ఈఎంఐ క్యాలిక్యులేటర్",
       trust: "నమ్మకం - గ్యారెంటీ",
-      contact: "సంపదించండి",
+      contact: "సంప్రదించండి",
       callUs: "కాల్: +91 98516 33333",
       rajahmundryHQ: "రాజమండ్రి హెచ్‌క్యూ",
       kakinadaBranch: "కాకినాడ బ్రాంచ్",
@@ -189,19 +197,29 @@ export const translations = {
       subtitle: "ప్రముఖ రియల్ ఎస్టేట్ డెవలపర్ & కన్సల్టెంట్",
       title: "గోదావరి ప్రాంతంలో మీ కుటుంబానికి బెస్ట్ ఫ్యూచర్",
       description: "రాజమండ్రి మరియు కాకినాడ పరిసర ప్రాంతాలలో డిటిసిపి & విఎంఆర్‌డిఎ ఆమోదిత ఓపెన్ ప్లాట్లు, లగ్జరీ విల్లా లేఅవుట్లు మరియు సేఫ్ ఇన్వెస్ట్‌మెంట్ ల్యాండ్స్.",
-      taglineTelugu: "మీ Family కి Best Future ఏంటి..?",
-      directorTitle: "ఫౌండర్ & డైరెక్టర్",
+      directorTitle: "ఫౌండర్ & మేనేజింగ్ డైరెక్టర్",
       directorName: "శివ ఏడిద",
       directorDesc: "1500 కంటే ఎక్కువ హ్యాపీ ఫ్యామిలీలకు పారదర్శకమైన టైటిల్‌తో అత్యధిక లాభాలు ఇచ్చే స్థలాలను అందించడంలో నిబద్ధత.",
       ctaVentures: "ఓపెన్ ప్లాట్లు చూడండి",
       ctaVideos: "యూట్యూబ్ వీడియోలు చూడండి",
       ctaWhatsApp: "వాట్సాప్ లో మాట్లాడండి",
       stats: {
-        ventures: "50+ పూర్తయిన వెంచర్లు",
-        clients: "1500+ సంతోషకరమైన కుటుంబాలు",
-        experience: "12+ సంవత్సరాల అనుభవం",
+        ventures: "పూర్తయిన వెంచర్లు",
+        clients: "సంతోషకరమైన కుటుంబాలు",
+        experience: "సంవత్సరాల అనుభవం",
         locations: "రాజమండ్రి & కాకినాడ",
       }
+    },
+    gallery: {
+      badge: "100% లైవ్ గ్రౌండ్ ప్రూఫ్",
+      heading: "వెంచర్ డెవలప్‌మెంట్స్ & కస్టమర్ సైట్ విజిట్స్",
+      subheading: "మా లేఅవుట్లలో జరుగుతున్న రోడ్లు, డ్రైనేజీ పనులు, కస్టమర్ రిజిస్ట్రేషన్స్ మరియు రియల్ సైట్ ఫోటోలను పరిశీలించండి.",
+      all: "అన్ని ఫోటోలు",
+      ongoing: "ప్రస్తుత లేఅవుట్లు",
+      visits: "కస్టమర్ విజిట్స్",
+      completed: "పూర్తయిన ప్రాజెక్టులు",
+      inquirePhoto: "ఈ లొకేషన్ గురించి అడగండి",
+      viewPhoto: "హై-రెసల్యూషన్ ఫోటో చూడండి"
     },
     pillars: {
       badge: "విజయవంతమైన 4 స్తంభాలు",
@@ -210,25 +228,21 @@ export const translations = {
       items: [
         {
           title: "Family Happiness",
-          telugu: "ఫ్యామిలీ హ్యాపీ",
           desc: "పార్కులు, విశాలమైన రోడ్లు మరియు చిల్డ్రన్ ప్లే ఏరియాతో 100% వాస్తు ఆమోదిత ప్రశాంతమైన వాతావరణం.",
           icon: "HeartHandshake"
         },
         {
           title: "Safe Investment",
-          telugu: "సేఫ్ పెట్టుబడి",
           desc: "100% లీగల్ క్లియర్ టైటిల్, డిటిసిపి/విఎమ్‌ఆర్‌డిఎ లేఅవుట్లు మరియు తక్షణ బ్యాంక్ లోన్ సదుపాయం.",
           icon: "ShieldCheck"
         },
         {
           title: "Financial Security",
-          telugu: "ఫైనాన్షియల్ సెక్యూరిటీ",
           desc: "రాజమండ్రి & కాకినాడ వేగంగా అభివృద్ధి చెందుతున్న కారిడార్లలో స్థలం విలువలో అత్యధిక పెరుగుదల.",
           icon: "TrendingUp"
         },
         {
           title: "Dream Lifestyle",
-          telugu: "డ్రీమ్ లైఫ్ స్టైల్",
           desc: "ఆధునిక మౌలిక సదుపాయాలు, అండర్‌గ్రౌండ్ డ్రైనేజీ, కాంపౌండ్ వాల్స్ మరియు 24/7 సెక్యూరిటీ.",
           icon: "Sparkles"
         }

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Phone, MapPin, ArrowUp, Globe } from 'lucide-react';
 import { translations } from '../data/translations';
 
@@ -47,20 +47,20 @@ export default function Footer({ lang }) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li><a href="#home" className="hover:text-[#DBCBB0] transition-colors">HOME &amp; FOUNDER</a></li>
-              <li><a href="#ventures" className="hover:text-[#DBCBB0] transition-colors">FEATURED PROJECTS</a></li>
-              <li><a href="#visualizer" className="hover:text-[#DBCBB0] transition-colors">INTERACTIVE PLOT VISUALIZER</a></li>
+              <li><a href="#ventures" className="hover:text-[#DBCBB0] transition-colors">FEATURED VENTURES</a></li>
+              <li><a href="#gallery" className="hover:text-[#DBCBB0] transition-colors">REAL SITE PROOF</a></li>
             </ul>
           </div>
 
           {/* Resources */}
           <div className="md:col-span-2 space-y-3 font-mono">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Resources
+              Branches &amp; Media
             </h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#branches" className="hover:text-[#DBCBB0] transition-colors">RAJAHMUNDRY OFFICE</a></li>
-              <li><a href="#videos" className="hover:text-[#DBCBB0] transition-colors">YOUTUBE VIDEO TOURS</a></li>
-              <li><a href="#calculator" className="hover:text-[#DBCBB0] transition-colors">EMI CALCULATOR</a></li>
+              <li><a href="#branches" className="hover:text-[#DBCBB0] transition-colors">HEADQUARTERS &amp; BRANCH</a></li>
+              <li><a href="#videos" className="hover:text-[#DBCBB0] transition-colors">YOUTUBE TOURS</a></li>
+              <li><a href="#trust" className="hover:text-[#DBCBB0] transition-colors">WHY TRUST US</a></li>
             </ul>
           </div>
 
