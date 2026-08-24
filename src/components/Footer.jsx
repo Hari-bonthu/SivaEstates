@@ -1,12 +1,38 @@
 import React from 'react';
 import { Phone, MapPin, ArrowUp } from 'lucide-react';
 import { translations } from '../data/translations';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Footer({ lang }) {
   const t = translations[lang].footer;
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (e, sectionId) => {
+    if (e) e.preventDefault();
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        if (sectionId === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    } else {
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -41,11 +67,31 @@ export default function Footer({ lang }) {
               NAVIGATION
             </h4>
             <ul className="space-y-2 text-xs text-[#636863]">
-              <li><a href="#home" className="hover:text-[#1B1C1C] transition-colors">Home Overview</a></li>
-              <li><a href="#ventures" className="hover:text-[#1B1C1C] transition-colors">Properties &amp; Ventures</a></li>
-              <li><a href="#videos" className="hover:text-[#1B1C1C] transition-colors">YouTube Video Tours</a></li>
-              <li><a href="#branches" className="hover:text-[#1B1C1C] transition-colors">Direct Offices &amp; Branches</a></li>
-              <li><a href="#contact" className="hover:text-[#1B1C1C] font-bold text-[#1B1C1C]">Book Site Visit →</a></li>
+              <li>
+                <button onClick={(e) => scrollToSection(e, 'home')} className="hover:text-[#1B1C1C] transition-colors cursor-pointer text-left">
+                  Home Overview
+                </button>
+              </li>
+              <li>
+                <button onClick={(e) => scrollToSection(e, 'ventures')} className="hover:text-[#1B1C1C] transition-colors cursor-pointer text-left">
+                  Properties &amp; Ventures
+                </button>
+              </li>
+              <li>
+                <button onClick={(e) => scrollToSection(e, 'videos')} className="hover:text-[#1B1C1C] transition-colors cursor-pointer text-left">
+                  YouTube Video Tours
+                </button>
+              </li>
+              <li>
+                <button onClick={(e) => scrollToSection(e, 'branches')} className="hover:text-[#1B1C1C] transition-colors cursor-pointer text-left">
+                  Direct Offices &amp; Branches
+                </button>
+              </li>
+              <li>
+                <button onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-[#1B1C1C] font-bold text-[#1B1C1C] cursor-pointer text-left">
+                  Book Site Visit →
+                </button>
+              </li>
             </ul>
           </div>
 
