@@ -15,13 +15,13 @@ export default function Footer({ lang }) {
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
-          {/* Brand Info with Multi-Purpose Dark Logo Variant */}
+          {/* Brand Info with Dark Logo Variant */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-xl bg-white p-0.5 shadow-md flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-md flex items-center justify-center">
                 <img
                   src="./images/logo/logo_dark_sage.jpg"
-                  alt="Siva Telugu Estates Dark Logo Emblem"
+                  alt="Siva Telugu Estates Dark Emblem"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>
@@ -41,31 +41,31 @@ export default function Footer({ lang }) {
           </div>
 
           {/* Quick Links */}
-          <div className="md:col-span-3 space-y-3 font-mono">
+          <div className="md:col-span-3 space-y-3 font-sans">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs">
               <li><a href="#home" className="hover:text-[#DBCBB0] transition-colors">HOME &amp; FOUNDER</a></li>
               <li><a href="#ventures" className="hover:text-[#DBCBB0] transition-colors">FEATURED PROJECTS</a></li>
-              <li><a href="#visualizer" className="hover:text-[#DBCBB0] transition-colors">INTERACTIVE PLOT VISUALIZER</a></li>
+              <li><a href="#videos" className="hover:text-[#DBCBB0] transition-colors">YOUTUBE VIDEO TOURS</a></li>
             </ul>
           </div>
 
           {/* Resources */}
-          <div className="md:col-span-2 space-y-3 font-mono">
+          <div className="md:col-span-2 space-y-3 font-sans">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Resources
+              Branches
             </h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#branches" className="hover:text-[#DBCBB0] transition-colors">RAJAHMUNDRY OFFICE</a></li>
-              <li><a href="#videos" className="hover:text-[#DBCBB0] transition-colors">YOUTUBE VIDEO TOURS</a></li>
-              <li><a href="#calculator" className="hover:text-[#DBCBB0] transition-colors">EMI CALCULATOR</a></li>
+              <li><a href="#branches" className="hover:text-[#DBCBB0] transition-colors">RAJAHMUNDRY HQ</a></li>
+              <li><a href="#branches" className="hover:text-[#DBCBB0] transition-colors">KAKINADA BRANCH</a></li>
+              <li><a href="#trust" className="hover:text-[#DBCBB0] transition-colors">WHY TRUST US</a></li>
             </ul>
           </div>
 
           {/* Contact Details */}
-          <div className="md:col-span-2 space-y-3 font-mono">
+          <div className="md:col-span-2 space-y-3 font-sans">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
               Contact
             </h4>
@@ -78,7 +78,7 @@ export default function Footer({ lang }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans text-slate-400">
           <p>© All Rights Reserved. Siva Telugu Estates.</p>
 
           <div className="flex items-center space-x-4">
