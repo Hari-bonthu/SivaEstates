@@ -108,7 +108,7 @@ function BotMessage({ msg, onQuickReply }) {
           ))}
           <button
             onClick={() => onQuickReply('Book a site visit', 'visit')}
-            className="w-full py-2.5 rounded-xl bg-[#4A5D4E] text-white text-xs font-mono font-bold tracking-wider hover:bg-[#334537] transition-all cursor-pointer"
+            className="w-full py-2.5 rounded-xl bg-[#4A5D4E] text-white text-xs font-sans font-bold tracking-[0.1em] hover:bg-[#334537] transition-all cursor-pointer"
           >
             Book a Free Site Visit →
           </button>
@@ -216,7 +216,7 @@ function BotMessage({ msg, onQuickReply }) {
               href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20book%20a%20free%20site%20visit.%20Please%20help%20me%20schedule."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl bg-[#4A5D4E] text-white text-xs font-mono font-bold tracking-wider hover:bg-[#334537] transition-all flex items-center justify-center space-x-2"
+              className="w-full py-3 rounded-xl bg-[#4A5D4E] text-white text-xs font-sans font-bold tracking-[0.1em] hover:bg-[#334537] transition-all flex items-center justify-center space-x-2"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>WhatsApp to Book Visit</span>

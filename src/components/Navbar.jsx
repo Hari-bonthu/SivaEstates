@@ -167,7 +167,7 @@ export default function Navbar({ lang, setLang }) {
             </a>
             <button
               onClick={() => handleNavClick('contact', 'contact')}
-              className="px-5 py-2.5 rounded-lg bg-[#1B1C1C] hover:bg-[#334537] text-white font-mono font-bold text-xs shadow-sm transition-all cursor-pointer tracking-wider"
+              className="px-5 py-2.5 rounded-lg bg-[#1B1C1C] hover:bg-[#334537] text-white font-sans font-bold text-xs shadow-sm transition-all cursor-pointer tracking-[0.1em]"
             >
               BOOK SITE VISIT
             </button>
@@ -188,35 +188,35 @@ export default function Navbar({ lang, setLang }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E5E0D5] px-4 pt-2 pb-6 space-y-3 shadow-lg font-mono text-xs">
+        <div className="lg:hidden bg-white border-b border-[#E5E0D5] px-4 pt-2 pb-6 space-y-3 shadow-lg font-sans text-xs">
           <button
             onClick={() => handleNavClick('home', 'home')}
-            className={`block w-full text-left py-2 font-bold ${activeNav === 'home' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
+            className={`block w-full text-left py-2 font-bold tracking-[0.15em] ${activeNav === 'home' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             HOME
           </button>
           <button
             onClick={() => handleNavClick('ventures', 'properties')}
-            className={`block w-full text-left py-2 font-bold ${activeNav === 'properties' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
+            className={`block w-full text-left py-2 font-bold tracking-[0.15em] ${activeNav === 'properties' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             PROPERTIES
           </button>
           <button
             onClick={() => handleNavClick('branches', 'branches')}
-            className={`block w-full text-left py-2 font-bold ${activeNav === 'branches' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
+            className={`block w-full text-left py-2 font-bold tracking-[0.15em] ${activeNav === 'branches' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             BRANCHES
           </button>
           <button
             onClick={() => handleNavClick('trust', 'about')}
-            className={`block w-full text-left py-2 font-bold ${activeNav === 'about' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
+            className={`block w-full text-left py-2 font-bold tracking-[0.15em] ${activeNav === 'about' ? 'text-[#1A1A1A]' : 'text-[#77736D]'}`}
           >
             ABOUT US
           </button>
           <div className="pt-3 border-t border-[#E5E0D5]">
             <button
               onClick={() => handleNavClick('contact', 'contact')}
-              className="block w-full text-center py-3 rounded-lg bg-[#1B1C1C] text-white font-bold tracking-wider"
+              className="block w-full text-center py-3 rounded-lg bg-[#1B1C1C] text-white font-bold tracking-[0.1em]"
             >
               BOOK SITE VISIT
             </button>

@@ -77,7 +77,7 @@ export default function ContactFormServerless({ lang }) {
             <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E5E0D5] space-y-6 shadow-sm">
               
               <div>
-                <span className="text-[11px] font-mono font-bold text-[#4A5D4E] uppercase tracking-wider block mb-1">
+                <span className="text-[11px] font-sans font-medium text-[#4A5D4E] uppercase tracking-[0.2em] block mb-1">
                   DIRECT CONSULTATION HOTLINE
                 </span>
                 <a

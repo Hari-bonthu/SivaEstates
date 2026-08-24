@@ -89,7 +89,7 @@ export default function YouTubeHub({ lang }) {
             href="https://www.youtube.com/@sivateluguestates"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-sm transition-all flex items-center space-x-2 shrink-0 font-mono tracking-wider"
+            className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-sm transition-all flex items-center space-x-2 shrink-0 font-sans tracking-[0.1em]"
           >
             <span>Visit Official YouTube Channel</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -120,7 +120,7 @@ export default function YouTubeHub({ lang }) {
                   </div>
                 </div>
                 {/* Duration */}
-                <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-[#1B1C1C]/80 text-[10px] font-mono font-bold text-white flex items-center">
+                <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-[#1B1C1C]/80 text-[10px] font-sans font-medium text-white flex items-center">
                   <Clock className="w-2.5 h-2.5 mr-0.5" />
                   {vid.duration}
                 </span>
@@ -128,7 +128,7 @@ export default function YouTubeHub({ lang }) {
 
               {/* Content */}
               <div className="p-4 flex flex-col flex-1 space-y-2">
-                <span className="inline-block px-2 py-0.5 rounded bg-[#F9F7F2] border border-[#E5E0D5] text-[9px] font-mono font-bold text-[#4A5D4E] tracking-wider w-fit">
+                <span className="inline-block px-2 py-0.5 rounded bg-[#F9F7F2] border border-[#E5E0D5] text-[9px] font-sans font-medium uppercase text-[#4A5D4E] tracking-[0.2em] w-fit">
                   {vid.category}
                 </span>
                 <h4 className="text-sm font-bold text-[#1B1C1C] font-serif group-hover:text-red-700 transition-colors leading-snug line-clamp-2">
@@ -139,12 +139,12 @@ export default function YouTubeHub({ lang }) {
                 </p>
               </div>
 
-              <div className="p-4 pt-0 text-[11px] text-[#636863] flex items-center justify-between border-t border-[#E5E0D5] mt-2 font-mono">
+              <div className="p-4 pt-0 text-[11px] text-[#636863] flex items-center justify-between border-t border-[#E5E0D5] mt-2 font-sans">
                 <span className="flex items-center space-x-1">
                   <Eye className="w-3.5 h-3.5" />
                   <span>{vid.views}</span>
                 </span>
-                <span className="text-[#4A5D4E] font-bold tracking-wider">Watch Full Tour</span>
+                <span className="text-[#4A5D4E] font-bold tracking-wide">Watch Full Tour</span>
               </div>
             </a>
           ))}

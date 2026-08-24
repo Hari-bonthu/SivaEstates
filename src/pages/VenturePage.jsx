@@ -52,7 +52,7 @@ export default function VenturePage() {
 
           <button
             onClick={scrollToBooking}
-            className="px-4 py-2 rounded-lg border border-[#E5E0D5] hover:bg-[#1B1C1C] hover:text-white text-[#1B1C1C] text-xs font-mono font-bold tracking-wider transition-all cursor-pointer shadow-xs"
+            className="px-4 py-2 rounded-lg border border-[#E5E0D5] hover:bg-[#1B1C1C] hover:text-white text-[#1B1C1C] text-xs font-sans font-bold tracking-[0.1em] transition-all cursor-pointer shadow-xs"
           >
             Book Site Visit
           </button>
@@ -161,7 +161,7 @@ export default function VenturePage() {
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" />
-                <h3 className="text-xs font-mono font-bold text-[#1B1C1C] uppercase tracking-wider">
+                <h3 className="text-xs font-sans font-medium text-[#1B1C1C] uppercase tracking-[0.2em]">
                   VENTURE FEATURES &amp; INFRASTRUCTURE
                 </h3>
               </div>
@@ -202,7 +202,7 @@ export default function VenturePage() {
                     href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20book%20a%20site%20visit%20for%20${encodeURIComponent(property.title)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-4 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-xs sm:text-sm flex items-center justify-center space-x-2 transition-all shadow-md font-mono tracking-wider"
+                    className="w-full py-4 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-xs sm:text-sm flex items-center justify-center space-x-2 transition-all shadow-md font-sans tracking-[0.1em]"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>WhatsApp Inquiry</span>
@@ -210,7 +210,7 @@ export default function VenturePage() {
 
                   <a
                     href="tel:+919851633333"
-                    className="w-full py-3.5 rounded-xl bg-white border border-[#E5E0D5] text-[#1B1C1C] font-bold text-xs sm:text-sm flex items-center justify-center hover:bg-[#F9F7F2] transition-all font-mono"
+                    className="w-full py-3.5 rounded-xl bg-white border border-[#E5E0D5] text-[#1B1C1C] font-bold text-xs sm:text-sm flex items-center justify-center hover:bg-[#F9F7F2] transition-all font-sans"
                   >
                     Call +91 98516 33333
                   </a>
@@ -221,7 +221,7 @@ export default function VenturePage() {
               <div className="bg-[#EAF0EC] rounded-3xl border border-[#4A5D4E]/20 p-6 space-y-2">
                 <div className="flex items-center space-x-2">
                   <ShieldCheck className="w-5 h-5 text-[#4A5D4E]" />
-                  <span className="text-xs font-mono font-bold text-[#334537] uppercase tracking-wider">
+                  <span className="text-xs font-sans font-medium text-[#334537] uppercase tracking-[0.2em]">
                     LEGAL APPROVALS
                   </span>
                 </div>
@@ -298,14 +298,14 @@ export default function VenturePage() {
                   alt={v.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white text-[#1B1C1C] text-[9px] font-mono font-bold tracking-wider uppercase shadow-xs">
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white text-[#1B1C1C] text-[9px] font-sans font-medium tracking-[0.2em] uppercase shadow-xs">
                   {v.location}
                 </div>
               </div>
 
               <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-[9px] font-mono font-bold text-[#4A5D4E] uppercase tracking-wider block mb-1">
+                  <span className="text-[9px] font-sans font-medium text-[#4A5D4E] uppercase tracking-[0.2em] block mb-1">
                     {v.approval.split(' ')[0]} APPROVED
                   </span>
                   <h4 className="text-base font-bold text-[#1B1C1C] font-serif leading-snug group-hover:text-[#4A5D4E] transition-colors">

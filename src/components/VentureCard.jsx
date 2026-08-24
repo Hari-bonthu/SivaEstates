@@ -48,7 +48,7 @@ export default function VentureCard({ project, onInspect }) {
         </div>
 
         {/* Right Badge (Location with MapPin) */}
-        <div className="absolute top-3.5 right-3.5 flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white/95 text-[#18231C] text-[10px] font-mono font-bold uppercase tracking-wider border border-[#E5E2D9] shadow-sm">
+        <div className="absolute top-3.5 right-3.5 flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white/95 text-[#18231C] text-[10px] font-sans font-medium uppercase tracking-[0.2em] border border-[#E5E2D9] shadow-sm">
           <MapPin className="w-3 h-3 text-[#18231C]" />
           <span>{project.location?.toUpperCase() || 'RAJAHMUNDRY'}</span>
         </div>
@@ -57,7 +57,7 @@ export default function VentureCard({ project, onInspect }) {
       {/* Approval Tag Banner Strip */}
       <div className="bg-[#FAF8F2] px-6 py-2.5 border-b border-[#EBE8DF] flex items-center space-x-2">
         <ShieldCheck className="w-3.5 h-3.5 text-[#18231C] shrink-0" />
-        <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-[#18231C]">
+        <span className="text-[10px] font-sans font-medium tracking-[0.2em] uppercase text-[#18231C]">
           {project.approval || 'DTCP APPROVED & RERA REGISTERED'}
         </span>
       </div>
@@ -87,7 +87,7 @@ export default function VentureCard({ project, onInspect }) {
                   <path d="M9 3v18" />
                   <path d="M15 3v18" />
                 </svg>
-                <span className="text-[9px] font-mono font-bold uppercase tracking-wider">PLOT SIZES</span>
+                <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em]">PLOT SIZES</span>
               </div>
               <span className="text-xs sm:text-[13px] font-bold text-[#1A1A1A] font-mono">
                 {project.plotSizes || '150 – 500 Sq.Yards'}
@@ -104,7 +104,7 @@ export default function VentureCard({ project, onInspect }) {
                   <line x1="12" y1="7" x2="12" y2="9" />
                   <line x1="12" y1="13" x2="12" y2="15" />
                 </svg>
-                <span className="text-[9px] font-mono font-bold uppercase tracking-wider">ROAD WIDTH</span>
+                <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em]">ROAD WIDTH</span>
               </div>
               <span className="text-xs sm:text-[13px] font-bold text-[#1A1A1A] font-mono">
                 {project.roadWidth || '40ft & 60ft Roads'}
@@ -116,7 +116,7 @@ export default function VentureCard({ project, onInspect }) {
         {/* Pricing & Inspect Layout */}
         <div className="pt-4 border-t border-[#EBE8DF] flex items-center justify-between">
           <div>
-            <span className="text-[9px] font-mono font-bold text-[#78756D] uppercase tracking-wider block">
+            <span className="text-[9px] font-sans font-medium text-[#78756D] uppercase tracking-[0.2em] block">
               STARTING FROM
             </span>
             <span className="text-lg sm:text-xl font-bold text-[#1A1A1A] font-mono tracking-tight">
@@ -126,7 +126,7 @@ export default function VentureCard({ project, onInspect }) {
 
           <button
             onClick={() => onInspect(project)}
-            className="px-3.5 py-1.5 rounded-lg border border-[#D5D0C5] bg-[#FAF9F6] hover:bg-[#18231C] hover:text-white text-[#1A1A1A] text-[10px] font-mono font-bold uppercase tracking-wider transition-all cursor-pointer shadow-2xs"
+            className="px-3.5 py-1.5 rounded-lg border border-[#D5D0C5] bg-[#FAF9F6] hover:bg-[#18231C] hover:text-white text-[#1A1A1A] text-[10px] font-sans font-medium uppercase tracking-[0.2em] transition-all cursor-pointer shadow-2xs"
           >
             INSPECT LAYOUT →
           </button>

@@ -46,10 +46,10 @@ export default function HeroSlider({ lang }) {
             </p>
 
             {/* Action Buttons matching screenshot */}
-            <div className="flex flex-wrap items-center gap-4 pt-2 font-mono">
+            <div className="flex flex-wrap items-center gap-4 pt-2 font-sans">
               <a
                 href="#ventures"
-                className="px-7 py-4 rounded-lg bg-[#1B1C1C] hover:bg-[#334537] text-white font-bold text-xs shadow-md transition-all flex items-center group cursor-pointer tracking-wider"
+                className="px-7 py-4 rounded-lg bg-[#1B1C1C] hover:bg-[#334537] text-white font-bold text-xs shadow-md transition-all flex items-center group cursor-pointer tracking-[0.1em]"
               >
                 <span>EXPLORE VENTURES</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -57,7 +57,7 @@ export default function HeroSlider({ lang }) {
 
               <a
                 href="#videos"
-                className="px-6 py-4 rounded-lg bg-white hover:bg-[#F0EDED] border border-[#E5E0D5] text-[#1B1C1C] font-bold text-xs transition-all flex items-center cursor-pointer shadow-xs tracking-wider"
+                className="px-6 py-4 rounded-lg bg-white hover:bg-[#F0EDED] border border-[#E5E0D5] text-[#1B1C1C] font-bold text-xs transition-all flex items-center cursor-pointer shadow-xs tracking-[0.1em]"
               >
                 <Play className="w-3.5 h-3.5 mr-2 text-[#1B1C1C] fill-[#1B1C1C]" />
                 <span>WATCH VIRTUAL TOURS</span>

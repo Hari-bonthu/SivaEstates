@@ -119,7 +119,7 @@ export default function PropertiesPage({ lang = 'en' }) {
           <span>Showing <strong className="text-[#1A1A1A]">{filteredProjects.length}</strong> Curated Ventures</span>
           <Link
             to="/#ventures"
-            className="text-[#1A1A1A] font-bold uppercase tracking-wider text-[11px] flex items-center gap-1 hover:text-[#4A5D4E] transition-colors"
+            className="text-[#1A1A1A] font-sans font-bold uppercase tracking-[0.2em] text-[11px] flex items-center gap-1 hover:text-[#4A5D4E] transition-colors"
           >
             <Layers className="w-3.5 h-3.5" />
             <span>Featured View</span>

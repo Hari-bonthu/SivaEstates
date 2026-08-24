@@ -68,13 +68,13 @@ export default function PlotVisualizer({ lang }) {
           {/* Plot Grid Map */}
           <div className="lg:col-span-7 bg-white p-6 rounded-3xl border border-[#E5E0D5] shadow-sm">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs font-mono text-[#636863] uppercase tracking-wider">
+              <span className="text-xs font-sans text-[#636863] uppercase tracking-[0.1em]">
                 Jetty Mayfair Layout Grid (60ft &amp; 40ft Roads)
               </span>
-              <span className="text-[11px] font-mono text-[#4A5D4E] font-bold">Interactive Grid</span>
+              <span className="text-[11px] font-sans text-[#4A5D4E] font-bold">Interactive Grid</span>
             </div>
 
-            <div className="w-full py-2 bg-[#F9F7F2] rounded-lg text-center text-[10px] text-[#636863] font-mono tracking-widest uppercase mb-4 border border-[#E5E0D5]">
+            <div className="w-full py-2 bg-[#F9F7F2] rounded-lg text-center text-[10px] text-[#636863] font-sans tracking-[0.2em] uppercase mb-4 border border-[#E5E0D5]">
               ◄ 60 FEET MAIN ROAD (EAST FACING CORRIDOR) ►
             </div>
 
@@ -100,7 +100,7 @@ export default function PlotVisualizer({ lang }) {
               })}
             </div>
 
-            <div className="w-full py-2 bg-[#F9F7F2] rounded-lg text-center text-[10px] text-[#636863] font-mono tracking-widest uppercase mt-4 border border-[#E5E0D5]">
+            <div className="w-full py-2 bg-[#F9F7F2] rounded-lg text-center text-[10px] text-[#636863] font-sans tracking-[0.2em] uppercase mt-4 border border-[#E5E0D5]">
               ◄ 40 FEET INTERNAL AVENUE ROAD ►
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function PlotVisualizer({ lang }) {
               <div className="space-y-6">
                 <div className="flex items-center justify-between border-b border-[#E5E0D5] pb-4">
                   <div>
-                    <span className="text-[11px] font-mono text-[#4A5D4E] uppercase tracking-wider font-bold">
+                    <span className="text-[11px] font-sans text-[#4A5D4E] uppercase tracking-[0.2em] font-bold">
                       {t.plotDetailsTitle}
                     </span>
                     <h3 className="text-3xl font-bold text-[#1B1C1C] font-serif mt-1">
