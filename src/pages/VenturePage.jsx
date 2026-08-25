@@ -18,8 +18,9 @@ export default function VenturePage() {
       <div className="min-h-screen bg-[#F9F7F2] flex flex-col items-center justify-center text-center p-8">
         <h1 className="text-3xl font-bold text-[#1B1C1C] font-serif mb-4">Venture Not Found</h1>
         <p className="text-[#636863] mb-6">This project page doesn't exist or may have been moved.</p>
-        <Link to="/" className="px-6 py-3 rounded-xl bg-[#1B1C1C] text-white font-mono font-bold text-sm">
-          ← Back to All Ventures
+        <Link to="/properties" className="inline-flex items-center px-6 py-3 rounded-xl bg-[#1B1C1C] text-white font-mono font-bold text-sm">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          <span>Back to All Ventures</span>
         </Link>
       </div>
     );
@@ -39,15 +40,15 @@ export default function VenturePage() {
   return (
     <div className="min-h-screen bg-[#F9F7F2] font-sans">
 
-      {/* Sub-Header Navigation Bar matching screenshot */}
+      {/* Sub-Header Navigation Bar */}
       <div className="bg-white border-b border-[#E5E0D5] px-4 sm:px-8 py-3.5 sticky top-20 z-30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
-            to="/"
+            to="/properties"
             className="flex items-center space-x-2 text-xs font-mono font-bold text-[#1B1C1C] hover:text-[#4A5D4E] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>← Back to All Ventures</span>
+            <span>Back to All Ventures</span>
           </Link>
 
           <button

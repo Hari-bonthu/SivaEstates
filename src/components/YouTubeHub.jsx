@@ -1,5 +1,13 @@
 import React from 'react';
-import { Youtube, Play, ExternalLink, Clock, Eye } from 'lucide-react';
+import { Play, ExternalLink, Clock, Eye } from 'lucide-react';
+
+function YouTubeIcon({ className = "w-6 h-6" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+  );
+}
 
 const VIDEOS = [
   {
@@ -55,32 +63,31 @@ export default function YouTubeHub({ lang }) {
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          {/* Luxury indicator – not a capsule, editorial style */}
           <div className="flex items-center justify-center space-x-3">
-            <div className="h-px w-8 bg-red-500"></div>
-            <span className="eyebrow-tag text-red-600">YOUTUBE CHANNEL</span>
-            <div className="h-px w-8 bg-red-500"></div>
+            <div className="h-px w-8 bg-[#C8312A]"></div>
+            <span className="eyebrow-tag text-[#C8312A]">YOUTUBE CHANNEL</span>
+            <div className="h-px w-8 bg-[#C8312A]"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
-            Live Site Walkthroughs & Land Advice
+            Live Site Walkthroughs &amp; Land Advice
           </h2>
           <p className="text-sm text-[#636863] font-sans">
-            Subscribe to <span className="text-red-600 font-semibold">@sivateluguestates</span> for real video tours, legal advice, and investment guides.
+            Subscribe to <span className="text-[#C8312A] font-semibold">@sivateluguestates</span> for real video tours, legal advice, and investment guides.
           </p>
         </div>
 
         {/* Channel Banner */}
         <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-white border border-[#E5E0D5] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-md shrink-0">
-              <Youtube className="w-6 h-6 fill-white" />
+            <div className="w-12 h-12 rounded-full bg-[#FF0000] flex items-center justify-center text-white shadow-md shrink-0">
+              <YouTubeIcon className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-base font-bold text-[#1B1C1C] font-serif">
                 siva telugu estates - YouTube
               </h3>
               <p className="text-xs text-[#636863] font-sans">
-                Official Channel for Real Estate Walkthroughs & Plot Layout Tours
+                Official Channel for Real Estate Walkthroughs &amp; Plot Layout Tours
               </p>
             </div>
           </div>
@@ -89,7 +96,7 @@ export default function YouTubeHub({ lang }) {
             href="https://www.youtube.com/@sivateluguestates"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-sm transition-all flex items-center space-x-2 shrink-0 font-sans tracking-[0.1em]"
+            className="px-5 py-3 rounded-xl bg-[#CC0000] hover:bg-[#990000] text-white font-bold text-xs shadow-sm transition-all flex items-center space-x-2 shrink-0 font-sans tracking-[0.1em]"
           >
             <span>Visit Official YouTube Channel</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -104,7 +111,7 @@ export default function YouTubeHub({ lang }) {
               href={vid.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-red-400 cursor-pointer group flex flex-col transition-all shadow-xs hover:shadow-md"
+              className="bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-[#CC0000] cursor-pointer group flex flex-col transition-all shadow-xs hover:shadow-md"
             >
               {/* Thumbnail */}
               <div className="relative h-44 overflow-hidden bg-[#F0EDED]">
@@ -115,36 +122,34 @@ export default function YouTubeHub({ lang }) {
                 />
                 {/* Dark overlay with play button */}
                 <div className="absolute inset-0 bg-[#1B1C1C]/30 group-hover:bg-[#1B1C1C]/10 transition-colors flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <Play className="w-5 h-5 ml-1 fill-white" />
+                  <div className="w-12 h-12 rounded-full bg-[#FF0000] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Play className="w-5 h-5 ml-0.5 fill-white" />
                   </div>
                 </div>
-                {/* Duration */}
-                <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-[#1B1C1C]/80 text-[10px] font-sans font-medium text-white flex items-center">
-                  <Clock className="w-2.5 h-2.5 mr-0.5" />
+                <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white">
                   {vid.duration}
-                </span>
+                </div>
               </div>
 
-              {/* Content */}
-              <div className="p-4 flex flex-col flex-1 space-y-2">
-                <span className="inline-block px-2 py-0.5 rounded bg-[#F9F7F2] border border-[#E5E0D5] text-[9px] font-sans font-medium uppercase text-[#4A5D4E] tracking-[0.2em] w-fit">
-                  {vid.category}
-                </span>
-                <h4 className="text-sm font-bold text-[#1B1C1C] font-serif group-hover:text-red-700 transition-colors leading-snug line-clamp-2">
-                  {vid.title}
-                </h4>
-                <p className="text-[11px] text-[#636863] line-clamp-2 flex-1 font-sans">
-                  {vid.description}
-                </p>
-              </div>
+              {/* Body */}
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="brand-subtitle text-[9px] text-[#888]">{vid.category}</span>
+                  <h4 className="text-sm font-bold text-[#1B1C1C] font-serif line-clamp-2 mt-1 group-hover:text-[#CC0000] transition-colors leading-snug">
+                    {vid.title}
+                  </h4>
+                  <p className="text-xs text-[#636863] mt-1.5 line-clamp-2 leading-relaxed font-sans">
+                    {vid.description}
+                  </p>
+                </div>
 
-              <div className="p-4 pt-0 text-[11px] text-[#636863] flex items-center justify-between border-t border-[#E5E0D5] mt-2 font-sans">
-                <span className="flex items-center space-x-1">
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>{vid.views}</span>
-                </span>
-                <span className="text-[#4A5D4E] font-bold tracking-wide">Watch Full Tour</span>
+                <div className="flex items-center justify-between pt-3 mt-3 border-t border-[#F0EBE3] text-[11px] text-[#888] font-sans">
+                  <span className="flex items-center">
+                    <Eye className="w-3 h-3 mr-1" />
+                    {vid.views}
+                  </span>
+                  <span className="text-[#CC0000] font-semibold group-hover:underline">Watch ↗</span>
+                </div>
               </div>
             </a>
           ))}

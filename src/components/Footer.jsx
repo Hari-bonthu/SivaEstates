@@ -176,29 +176,29 @@ export default function Footer({ lang = 'en' }) {
                 </h4>
                 <ul className="space-y-2.5 text-xs text-slate-300 font-sans">
                   <li>
-                    <button onClick={(e) => scrollToSection(e, 'home')} className="hover:text-white hover:underline transition-colors cursor-pointer text-left">
+                    <Link to="/" onClick={scrollToTop} className="hover:text-white hover:underline transition-colors block">
                       Home Overview
-                    </button>
+                    </Link>
                   </li>
                   <li>
-                    <button onClick={(e) => scrollToSection(e, 'trust')} className="hover:text-white hover:underline transition-colors cursor-pointer text-left">
+                    <Link to="/about" onClick={scrollToTop} className="hover:text-white hover:underline transition-colors block">
                       About Us &amp; Founder
-                    </button>
+                    </Link>
                   </li>
                   <li>
-                    <button onClick={(e) => scrollToSection(e, 'branches')} className="hover:text-white hover:underline transition-colors cursor-pointer text-left">
+                    <Link to="/gallery" onClick={scrollToTop} className="hover:text-white hover:underline transition-colors block">
+                      Site Proof Gallery
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/offices" onClick={scrollToTop} className="hover:text-white hover:underline transition-colors block">
                       Rajahmundry &amp; Kakinada Offices
-                    </button>
+                    </Link>
                   </li>
                   <li>
-                    <button onClick={(e) => scrollToSection(e, 'videos')} className="hover:text-white hover:underline transition-colors cursor-pointer text-left">
-                      YouTube Video Tours
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-[#DBCBB0] font-bold text-white cursor-pointer text-left">
+                    <Link to="/contact" onClick={scrollToTop} className="hover:text-[#DBCBB0] font-bold text-white block">
                       Book Free Site Visit →
-                    </button>
+                    </Link>
                   </li>
                 </ul>
               </div>

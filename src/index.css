@@ -188,7 +188,6 @@
 
 /* User-Specified Editorial Navigation System */
 nav.editorial-nav {
-  display: flex;
   align-items: center;
   gap: 38px;
   height: 42px;

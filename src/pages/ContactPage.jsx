@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Send, MapPin, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
 import { translations } from '../data/translations';
 
-export default function ContactFormServerless({ lang = 'en' }) {
+export default function ContactPage({ lang = 'en' }) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const t = translations[lang]?.contact || translations.en.contact;
 
   const [formData, setFormData] = useState({
@@ -50,7 +54,7 @@ export default function ContactFormServerless({ lang = 'en' }) {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5] font-sans">
+    <div className="min-h-screen bg-[#F9F7F2] py-16 sm:py-20 font-sans">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header matching study template media_1787653798696.png */}
@@ -63,9 +67,9 @@ export default function ContactFormServerless({ lang = 'en' }) {
             <div className="h-px w-8 bg-[#D4CEC6]"></div>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1B1C1C] font-serif tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1B1C1C] font-serif tracking-tight leading-tight">
             Schedule Your Free Site Visit
-          </h2>
+          </h1>
 
           <p className="text-sm sm:text-base text-[#6B6860] leading-relaxed">
             We provide free AC car facility for site visits in Rajahmundry &amp; Kakinada.
@@ -228,6 +232,6 @@ export default function ContactFormServerless({ lang = 'en' }) {
         </div>
 
       </div>
-    </section>
+    </div>
   );
 }
