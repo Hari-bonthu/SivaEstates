@@ -414,10 +414,10 @@ export default function SivaBot() {
         </div>
       )}
 
-      {/* Floating Trigger Button */}
+      {/* Floating Trigger Button — Red Circle matching template */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-[#1B1C1C] text-white shadow-xl hover:bg-[#A82822] hover:scale-105 transition-all flex items-center justify-center cursor-pointer"
+        className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-[#C8312A] text-white shadow-xl hover:bg-[#A82822] hover:scale-105 active:scale-95 transition-all flex items-center justify-center cursor-pointer"
         title="Chat with SivaBot"
         aria-label="Open SivaBot chat"
       >

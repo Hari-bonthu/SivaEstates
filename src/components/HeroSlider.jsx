@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Play, PhoneCall } from 'lucide-react';
+import { ChevronRight, Play, PhoneCall } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ export default function HeroSlider({ lang = 'en' }) {
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
 
-            {/* Eyebrow tag — red accent */}
+            {/* Eyebrow tag matching template: — GODAVARI REGION · SINCE 2014 */}
             <div className="flex items-center space-x-2">
               <div className="h-px w-6 bg-[#C8312A]"></div>
               <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ display: 'inline', color: '#C8312A' }}>
@@ -35,8 +35,8 @@ export default function HeroSlider({ lang = 'en' }) {
               </span>
             </div>
 
-            {/* Headline with responsive fluid sizing */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#1A1A1A] tracking-tight leading-[1.12] font-serif">
+            {/* Headline matching template */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-[#1A1A1A] tracking-tight leading-[1.12]">
               {t.titleLine1}<br className="hidden sm:inline" />{' '}
               {t.titleLine2}<br className="hidden sm:inline" />{' '}
               <span className="font-serif font-normal text-[#1A1A1A]">{t.titleLine3}</span>
@@ -47,14 +47,14 @@ export default function HeroSlider({ lang = 'en' }) {
               {t.description}
             </p>
 
-            {/* Action Buttons — full width on mobile, inline on tablet/desktop */}
+            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 font-sans">
               <Link
                 to="/properties"
                 className="btn-red inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold group cursor-pointer shadow-md active:scale-95 transition-all text-center"
               >
                 <span>{t.ctaExplore}</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
@@ -68,12 +68,12 @@ export default function HeroSlider({ lang = 'en' }) {
 
           </div>
 
-          {/* Right Column — Founder Photo Card (user-specified: keep this) */}
-          <div className="lg:col-span-5 relative flex justify-center mt-4 lg:mt-0">
+          {/* Right Column — Founder Photo Card (kept as specified) */}
+          <div className="lg:col-span-5 relative flex justify-center mt-2 lg:mt-0">
 
-            <div className="relative w-full max-w-sm sm:max-w-md rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-[#E8E2DA] shadow-xl group">
+            <div className="relative w-full max-w-sm sm:max-w-md rounded-3xl overflow-hidden bg-white border border-[#E8E2DA] shadow-xl group">
 
-              {/* Responsive Profile Photo Height */}
+              {/* Profile Photo */}
               <div className="relative h-[280px] sm:h-[360px] md:h-[400px] overflow-hidden bg-[#F0EDED]">
                 <img
                   src="./images/siva_yedida_professional.jpg"

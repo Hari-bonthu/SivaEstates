@@ -12,12 +12,12 @@ export const translations = {
       region: "GODAVARI REGION"
     },
     hero: {
-      eyebrow: "GODAVARI REGION",
+      eyebrow: "GODAVARI REGION · SINCE 2014",
       titleLine1: "Building your family's",
       titleLine2: "best future in the",
       titleLine3: "Godavari region",
-      description: "Curated residential plots and luxury villa layouts with 100% clear titles, DTCP & VMRDA approvals. Secure your heritage with verified, high-appreciation land assets.",
-      ctaExplore: "Explore ventures",
+      description: "Approved plots, thoughtfully designed villas and managed farmland — delivered with clear titles, fixed pricing and paperwork you can actually read.",
+      ctaExplore: "Explore projects",
       ctaVideos: "Watch virtual tours",
       directorTitle: "FOUNDER & MANAGING DIRECTOR",
       directorName: "Siva Yedida",
@@ -238,12 +238,12 @@ export const translations = {
       region: "గోదావరి ప్రాంతం"
     },
     hero: {
-      eyebrow: "గోదావరి ప్రాంతం",
+      eyebrow: "గోదావరి ప్రాంతం · 2014 నుండి",
       titleLine1: "గోదావరి ప్రాంతంలో మీ",
       titleLine2: "కుటుంబానికి ఉత్తమమైన",
       titleLine3: "ఉజ్వల భవిష్యత్తు",
-      description: "100% క్లియర్ టైటిల్, DTCP & VMRDA ఆమోదాలతో అత్యున్నత రెసిడెన్షియల్ ప్లాట్లు మరియు లగ్జరీ విల్లా లేఅవుట్లు. అధిక లాభాలనిచ్చే స్థలాలతో మీ ఆస్తిని సురక్షితం చేసుకోండి.",
-      ctaExplore: "వెంచర్లను చూడండి",
+      description: "స్పష్టమైన టైటిల్స్, స్థిరమైన ధరలతో గోదావరి జిల్లాలలోని అత్యుత్తమ రెసిడెన్షియల్ ప్లాట్లు మరియు లగ్జరీ విల్లా లేఅవుట్లు.",
+      ctaExplore: "ప్రాజెక్టులను చూడండి",
       ctaVideos: "వీడియో టూర్స్ చూడండి",
       directorTitle: "ఫౌండర్ & మేనేజింగ్ డైరెక్టర్",
       directorName: "శివ ఏడిద",
