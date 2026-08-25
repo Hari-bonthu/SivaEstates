@@ -74,10 +74,10 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-text') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+        <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
           <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-[82%] bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 font-sans leading-relaxed">
+        <div className="max-w-[82%] bg-[#F5F0EB] border border-[#E8E2DA] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 font-sans leading-relaxed">
           {msg.text}
         </div>
       </div>
@@ -87,28 +87,28 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-ventures') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+        <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
           <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5">
+          <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5">
             Here are our active ventures:
           </div>
           {VENTURES_DATA.map((v, i) => (
-            <div key={i} className="bg-white border border-[#E5E0D5] rounded-xl p-3 text-xs space-y-1">
+            <div key={i} className="bg-white border border-[#E8E2DA] rounded-xl p-3 text-xs space-y-1">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-[#1B1C1C] font-serif text-sm">{v.name}</span>
-                <span className={`px-2 py-0.5 rounded text-[9px] font-sans font-bold ${v.status === 'Fast Selling' ? 'bg-[#EAF0EC] text-[#334537]' : 'bg-blue-50 text-blue-700'}`}>
+                <span className={`px-2 py-0.5 rounded text-[9px] font-sans font-bold ${v.status === 'Fast Selling' ? 'bg-[#FCECEA] text-[#A82822]' : 'bg-blue-50 text-blue-700'}`}>
                   {v.status}
                 </span>
               </div>
-              <p className="text-[#636863]"><MapPin className="inline w-3 h-3 mr-0.5" />{v.location}</p>
-              <p className="font-bold text-[#4A5D4E] font-sans">{v.price}</p>
+              <p className="text-[#6B6860]"><MapPin className="inline w-3 h-3 mr-0.5" />{v.location}</p>
+              <p className="font-bold text-[#C8312A] font-sans">{v.price}</p>
             </div>
           ))}
           <button
             onClick={() => onQuickReply('Book a site visit', 'visit')}
-            className="w-full py-2.5 rounded-xl bg-[#4A5D4E] text-white text-xs font-sans font-bold tracking-[0.1em] hover:bg-[#334537] transition-all cursor-pointer"
+            className="w-full py-2.5 rounded-xl bg-[#C8312A] text-white text-xs font-sans font-bold tracking-[0.1em] hover:bg-[#A82822] transition-all cursor-pointer"
           >
             Book a Free Site Visit →
           </button>
@@ -120,22 +120,22 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-pricing') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+        <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
           <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+          <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
             Current pricing breakdown across locations:
           </div>
-          <div className="bg-white border border-[#E5E0D5] rounded-2xl overflow-hidden">
+          <div className="bg-white border border-[#E8E2DA] rounded-2xl overflow-hidden">
             {PRICING_DATA.map((p, i) => (
-              <div key={i} className={`p-3 text-xs ${i !== PRICING_DATA.length - 1 ? 'border-b border-[#E5E0D5]' : ''}`}>
+              <div key={i} className={`p-3 text-xs ${i !== PRICING_DATA.length - 1 ? 'border-b border-[#E8E2DA]' : ''}`}>
                 <p className="font-bold text-[#1B1C1C] font-serif">{p.venture}</p>
-                <div className="flex justify-between mt-1 text-[#636863]">
+                <div className="flex justify-between mt-1 text-[#6B6860]">
                   <span>{p.sizes}</span>
-                  <span className="font-bold text-[#4A5D4E] font-sans">{p.price}</span>
+                  <span className="font-bold text-[#C8312A] font-sans">{p.price}</span>
                 </div>
-                <p className="text-[#636863] mt-0.5">Min. investment: <strong>{p.min}</strong></p>
+                <p className="text-[#6B6860] mt-0.5">Min. investment: <strong>{p.min}</strong></p>
               </div>
             ))}
           </div>
@@ -147,23 +147,23 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-offices') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+        <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
           <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+          <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
             We have 2 direct offices:
           </div>
-          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-3.5 space-y-3 text-xs">
+          <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-3 text-xs">
             <div>
               <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Rajahmundry Head Office</p>
-              <p className="text-[#636863] mt-0.5">Main Road, Morampudi Junction, Rajahmundry AP.</p>
-              <p className="text-[#4A5D4E] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 8:00 PM</p>
+              <p className="text-[#6B6860] mt-0.5">Main Road, Morampudi Junction, Rajahmundry AP.</p>
+              <p className="text-[#C8312A] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 8:00 PM</p>
             </div>
-            <div className="border-t border-[#E5E0D5] pt-3">
+            <div className="border-t border-[#E8E2DA] pt-3">
               <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Kakinada Branch</p>
-              <p className="text-[#636863] mt-0.5">Ramanayyapeta Commercial Centre, Kakinada AP.</p>
-              <p className="text-[#4A5D4E] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 7:00 PM</p>
+              <p className="text-[#6B6860] mt-0.5">Ramanayyapeta Commercial Centre, Kakinada AP.</p>
+              <p className="text-[#C8312A] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 7:00 PM</p>
             </div>
           </div>
         </div>
@@ -174,14 +174,14 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-legal') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+        <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
           <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+          <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
             Yes — 100% legal title guaranteed:
           </div>
-          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-3.5 space-y-2 text-xs">
+          <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-2 text-xs">
             {[
               'DTCP / VMRDA Approved Layout Plan',
               'AP RERA Registered Project',
@@ -191,7 +191,7 @@ function BotMessage({ msg, onQuickReply }) {
               'Bank Loan Approved by All Major Banks',
             ].map((item, i) => (
               <div key={i} className="flex items-center space-x-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#C8312A] shrink-0" />
                 <span className="text-[#2D2D2D]">{item}</span>
               </div>
             ))}
@@ -204,11 +204,11 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-visit') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+        <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
           <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+          <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
             We provide a free AC car facility for site visits. Contact us to schedule:
           </div>
           <div className="space-y-2">
@@ -216,14 +216,14 @@ function BotMessage({ msg, onQuickReply }) {
               href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20book%20a%20free%20site%20visit.%20Please%20help%20me%20schedule."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl bg-[#4A5D4E] text-white text-xs font-sans font-bold tracking-[0.1em] hover:bg-[#334537] transition-all flex items-center justify-center space-x-2"
+              className="w-full py-3 rounded-xl bg-[#C8312A] text-white text-xs font-sans font-bold tracking-[0.1em] hover:bg-[#A82822] transition-all flex items-center justify-center space-x-2"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>WhatsApp to Book Visit</span>
             </a>
             <a
               href="tel:+919851633333"
-              className="w-full py-3 rounded-xl bg-white border border-[#E5E0D5] text-[#1B1C1C] text-xs font-sans font-bold hover:bg-[#F9F7F2] transition-all text-center block"
+              className="w-full py-3 rounded-xl bg-white border border-[#E8E2DA] text-[#1B1C1C] text-xs font-sans font-bold hover:bg-[#F5F0EB] transition-all text-center block"
             >
               Call +91 98516 33333
             </a>
@@ -236,21 +236,21 @@ function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'bot-director') {
     return (
       <div className="flex items-start space-x-2">
-        <div className="w-7 h-7 rounded-full bg-[#4A5D4E] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+        <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
           <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
-          <div className="bg-[#F9F7F2] border border-[#E5E0D5] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
+          <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
             Direct contact with Founder &amp; MD:
           </div>
-          <div className="bg-white border border-[#E5E0D5] rounded-2xl p-3.5 space-y-3">
+          <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-11 h-11 rounded-xl overflow-hidden border border-[#E5E0D5]">
+              <div className="w-11 h-11 rounded-xl overflow-hidden border border-[#E8E2DA]">
                 <img src="./images/siva_yedida_professional.jpg" alt="Siva Yedida" className="w-full h-full object-cover object-top" />
               </div>
               <div>
                 <p className="font-bold text-[#1B1C1C] font-serif text-sm">Siva Yedida</p>
-                <p className="text-[10px] text-[#636863] font-sans">Founder &amp; Managing Director</p>
+                <p className="text-[10px] text-[#6B6860] font-sans">Founder &amp; Managing Director</p>
               </div>
             </div>
             <div className="space-y-2">
@@ -258,14 +258,14 @@ function BotMessage({ msg, onQuickReply }) {
                 href="https://wa.me/919851633333?text=Hi%20Siva%20garu,%20I%20want%20to%20speak%20with%20you%20directly%20about%20a%20plot%20purchase."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 rounded-lg bg-[#4A5D4E] text-white text-xs font-sans font-bold flex items-center justify-center space-x-2 hover:bg-[#334537] transition-all"
+                className="w-full py-2.5 rounded-lg bg-[#C8312A] text-white text-xs font-sans font-bold flex items-center justify-center space-x-2 hover:bg-[#A82822] transition-all"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>WhatsApp Director</span>
               </a>
               <a
                 href="tel:+919851633333"
-                className="w-full py-2.5 rounded-lg bg-white border border-[#E5E0D5] text-[#1B1C1C] text-xs font-sans font-bold text-center block hover:bg-[#F9F7F2] transition-all"
+                className="w-full py-2.5 rounded-lg bg-white border border-[#E8E2DA] text-[#1B1C1C] text-xs font-sans font-bold text-center block hover:bg-[#F5F0EB] transition-all"
               >
                 Call: +91 98516 33333
               </a>
@@ -341,7 +341,7 @@ export default function SivaBot() {
     <>
       {/* Chat Panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[380px] max-h-[75vh] bg-white rounded-3xl shadow-2xl border border-[#E5E0D5] flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[380px] max-h-[75vh] bg-white rounded-3xl shadow-2xl border border-[#E8E2DA] flex flex-col overflow-hidden">
 
           {/* Header */}
           <div className="bg-[#1B1C1C] text-white px-5 py-3.5 flex items-center justify-between shrink-0">
@@ -385,11 +385,11 @@ export default function SivaBot() {
             {/* Quick Questions Grid ALWAYS appears in new conversation, after replies, and on reset */}
             <div className="pt-2 space-y-2">
               <div className="flex items-center justify-center space-x-2 py-1">
-                <div className="h-px w-6 bg-[#E5E0D5]"></div>
-                <span className="eyebrow-tag text-[#636863]">
+                <div className="h-px w-6 bg-[#E8E2DA]"></div>
+                <span className="eyebrow-tag text-[#6B6860]">
                   QUICK QUESTIONS
                 </span>
-                <div className="h-px w-6 bg-[#E5E0D5]"></div>
+                <div className="h-px w-6 bg-[#E8E2DA]"></div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -397,9 +397,9 @@ export default function SivaBot() {
                   <button
                     key={faq.id}
                     onClick={() => handleFAQ(faq)}
-                    className="p-2.5 rounded-xl bg-white border border-[#E5E0D5] hover:border-[#4A5D4E] hover:shadow-xs text-left transition-all cursor-pointer group"
+                    className="p-2.5 rounded-xl bg-white border border-[#E8E2DA] hover:border-[#C8312A] hover:shadow-xs text-left transition-all cursor-pointer group"
                   >
-                    <div className="text-[#4A5D4E] mb-1 group-hover:scale-110 transition-transform">
+                    <div className="text-[#C8312A] mb-1 group-hover:scale-110 transition-transform">
                       {faq.icon}
                     </div>
                     <p className="text-xs font-medium text-[#1B1C1C] leading-tight">{faq.label}</p>
@@ -417,7 +417,7 @@ export default function SivaBot() {
       {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-[#1B1C1C] text-white shadow-xl hover:bg-[#334537] hover:scale-105 transition-all flex items-center justify-center cursor-pointer"
+        className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-[#1B1C1C] text-white shadow-xl hover:bg-[#A82822] hover:scale-105 transition-all flex items-center justify-center cursor-pointer"
         title="Chat with SivaBot"
         aria-label="Open SivaBot chat"
       >

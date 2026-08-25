@@ -31,7 +31,7 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToHashElement />
-      <div className="min-h-screen flex flex-col bg-[#F9F7F2] text-[#2D2D2D] selection:bg-[#4A5D4E] selection:text-white font-sans">
+        <div className="min-h-screen flex flex-col bg-[#F5F0EB] text-[#1A1A1A] selection:bg-[#C8312A] selection:text-white font-sans">
         
         <Navbar lang={lang} setLang={setLang} />
 

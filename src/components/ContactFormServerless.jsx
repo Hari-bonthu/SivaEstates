@@ -50,22 +50,22 @@ export default function ContactFormServerless({ lang }) {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
+    <section id="contact" className="py-20 bg-[#F5F0EB] relative border-t border-[#E8E2DA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header with luxury line indicator */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="flex items-center justify-center space-x-3 mb-2">
-            <div className="h-px w-8 bg-[#4A5D4E]"></div>
-            <span className="eyebrow-tag text-[#4A5D4E]">
+            <div className="h-px w-8 bg-[#C8312A]"></div>
+            <span className="eyebrow-tag text-[#C8312A]">
               {t.badge}
             </span>
-            <div className="h-px w-8 bg-[#4A5D4E]"></div>
+            <div className="h-px w-8 bg-[#C8312A]"></div>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
+          <h2 className="text-3xl sm:text-4xl font-normal text-[#1A1A1A] tracking-tight font-serif">
             {t.heading}
           </h2>
-          <p className="text-sm text-[#636863]">
+          <p className="text-sm text-[#6B6860]">
             {t.subheading}
           </p>
         </div>
@@ -74,26 +74,26 @@ export default function ContactFormServerless({ lang }) {
           
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E5E0D5] space-y-6 shadow-sm">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E8E2DA] space-y-6 shadow-sm">
               
               <div>
-                <span className="text-[11px] font-sans font-medium text-[#4A5D4E] uppercase tracking-[0.2em] block mb-1">
+                <span className="text-[11px] font-sans font-medium text-[#C8312A] uppercase tracking-[0.2em] block mb-1">
                   DIRECT CONSULTATION HOTLINE
                 </span>
                 <a
                   href="tel:+919851633333"
-                  className="text-3xl font-bold text-[#1B1C1C] hover:text-[#4A5D4E] font-serif flex items-center mt-1 transition-colors"
+                  className="text-3xl font-bold text-[#1A1A1A] hover:text-[#C8312A] font-serif flex items-center mt-1 transition-colors"
                 >
-                  <Phone className="w-7 h-7 text-[#4A5D4E] mr-3 animate-pulse" />
+                  <Phone className="w-7 h-7 text-[#C8312A] mr-3 animate-pulse" />
                   +91 98516 33333
                 </a>
               </div>
 
-              <div className="space-y-4 pt-4 border-t border-[#E5E0D5] text-xs text-[#2D2D2D]">
+              <div className="space-y-4 pt-4 border-t border-[#E8E2DA] text-xs text-[#2D2D2D]">
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-[#4A5D4E] shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#C8312A] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-[#1B1C1C] block font-serif">Rajahmundry Head Office:</strong>
+                    <strong className="text-[#1A1A1A] block font-serif">Rajahmundry Head Office:</strong>
                     Main Road, Morampudi Junction, Rajahmundry AP.
                   </div>
                 </div>
@@ -101,26 +101,26 @@ export default function ContactFormServerless({ lang }) {
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-[#1B1C1C] block font-serif">Kakinada Branch Office:</strong>
+                    <strong className="text-[#1A1A1A] block font-serif">Kakinada Branch Office:</strong>
                     Ramanayyapeta Commercial Center, Kakinada AP.
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-[#4A5D4E] shrink-0" />
+                  <Clock className="w-5 h-5 text-[#C8312A] shrink-0" />
                   <div>
-                    <strong className="text-[#1B1C1C] block">{t.officeHours}</strong>
+                    <strong className="text-[#1A1A1A] block">{t.officeHours}</strong>
                     Free AC Car Facility Available for Site Visits
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#2D2D2D] text-xs font-sans space-y-1">
-                <div className="flex items-center text-[#4A5D4E] font-bold">
+              <div className="p-4 rounded-2xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#2D2D2D] text-xs font-sans space-y-1">
+                <div className="flex items-center text-[#C8312A] font-bold">
                   <MessageSquare className="w-4 h-4 mr-1.5" />
                   <span>Instant Lead Dispatch</span>
                 </div>
-                <p className="text-[11px] text-[#636863]">
+                <p className="text-[11px] text-[#6B6860]">
                   Submissions automatically notify Director Mr. Siva Yedida via email and direct WhatsApp lead routing.
                 </p>
               </div>
@@ -129,7 +129,7 @@ export default function ContactFormServerless({ lang }) {
           </div>
 
           {/* Right Form Column */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-[#E5E0D5] shadow-sm">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-[#E8E2DA] shadow-sm">
             <form onSubmit={handleSubmit} className="space-y-5">
               
               <div>
@@ -142,7 +142,7 @@ export default function ContactFormServerless({ lang }) {
                   placeholder="e.g. Siva Kumar"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] placeholder-[#636863] focus:outline-none focus:border-[#4A5D4E] text-sm"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"
                 />
               </div>
 
@@ -157,7 +157,7 @@ export default function ContactFormServerless({ lang }) {
                     placeholder="e.g. +91 98516 33333"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] placeholder-[#636863] focus:outline-none focus:border-[#4A5D4E] text-sm font-sans"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm font-sans"
                   />
                 </div>
 
@@ -170,7 +170,7 @@ export default function ContactFormServerless({ lang }) {
                     placeholder="e.g. siva@gmail.com"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] placeholder-[#636863] focus:outline-none focus:border-[#4A5D4E] text-sm"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"
                   />
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default function ContactFormServerless({ lang }) {
                 <select
                   value={formData.location}
                   onChange={(e) => setFormData({...formData, location: e.target.value})}
-                  className="w-full px-4 py-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] focus:outline-none focus:border-[#4A5D4E] text-sm"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] focus:outline-none focus:border-[#C8312A] text-sm"
                 >
                   <option value="Rajahmundry HQ">Rajahmundry Open Plots &amp; Villa Layouts</option>
                   <option value="Kakinada Branch">Kakinada Smart City &amp; Port Belt Layouts</option>
@@ -200,14 +200,14 @@ export default function ContactFormServerless({ lang }) {
                   placeholder="Tell us about your plot requirement, preferred budget, or site visit date..."
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full px-4 py-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] placeholder-[#636863] focus:outline-none focus:border-[#4A5D4E] text-sm"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-base shadow-lg transition-all flex items-center justify-center space-x-2 cursor-pointer font-sans disabled:opacity-50"
+                className="w-full py-4 rounded-xl bg-[#C8312A] hover:bg-[#A82822] text-white font-bold text-base shadow-lg transition-all flex items-center justify-center space-x-2 cursor-pointer font-sans disabled:opacity-50"
               >
                 <Send className="w-5 h-5" />
                 <span>{isSubmitting ? "Submitting Inquiry..." : t.submit}</span>
