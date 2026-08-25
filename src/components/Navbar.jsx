@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Globe, Menu, X, Mail } from 'lucide-react';
+import { Globe, Menu, X, Phone } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,6 @@ export default function Navbar({ lang, setLang }) {
   const [activeNav, setActiveNav] = useState('home');
   const location = useLocation();
   const navigate = useNavigate();
-  const t = translations[lang].nav;
 
   // Track active navigation tab based on location and scroll position
   useEffect(() => {
@@ -84,50 +83,17 @@ export default function Navbar({ lang, setLang }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-[#E8E2DA]">
-      {/* Top Banner Bar */}
-      <div className="bg-[#1A1A1A] py-1.5 px-4 text-xs text-white font-sans">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <span className="text-[#BBBBBB] hidden sm:inline">
-            RERA &amp; DTCP approved layouts across the Godavari districts
-          </span>
-          <div className="flex items-center space-x-4 ml-auto">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center space-x-1 px-2.5 py-0.5 rounded bg-white/10 hover:bg-white/20 text-white transition-all text-[11px] font-medium cursor-pointer"
-            >
-              <Globe className="w-3 h-3" />
-              <span>{lang === 'en' ? 'తెలుగు' : 'English'}</span>
-            </button>
-            <a
-              href="mailto:hello@siteluguuestates.in"
-              className="hidden md:flex items-center text-[#BBBBBB] hover:text-white transition-colors text-[11px]"
-            >
-              <Mail className="w-3 h-3 mr-1" />
-              <span>hello@siteluguestates.in</span>
-            </a>
-            <a
-              href="tel:+919876543210"
-              className="flex items-center text-white hover:text-[#F5C6C4] font-medium transition-colors text-[11px]"
-            >
-              <Phone className="w-3 h-3 mr-1" />
-              <span>+91 98765 43210</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Header */}
+    <header className="sticky top-0 z-40 bg-white border-b border-[#E8E2DA] shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 py-3">
+        <div className="flex items-center justify-between h-16">
 
-          {/* Logo & Brand Name */}
+          {/* Logo & Brand */}
           <Link
             to="/"
             onClick={() => handleNavClick('home', 'home')}
-            className="flex items-center space-x-3 group cursor-pointer shrink-0"
+            className="flex items-center space-x-2.5 group cursor-pointer shrink-0"
           >
-            <div className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-lg overflow-hidden bg-white flex items-center justify-center shrink-0">
               <img
                 src="./images/logo/original_Logo_Siva.png"
                 alt="Siva Telugu Estates Logo"
@@ -135,11 +101,11 @@ export default function Navbar({ lang, setLang }) {
               />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-[15px] font-bold tracking-tight text-[#1A1A1A] font-sans">
+              <span className="text-[14px] font-bold tracking-tight text-[#1A1A1A] font-sans">
                 Siva Telugu Estates
               </span>
-              <span className="text-[10px] text-[#888] font-sans tracking-wide">
-                GODAVARI REGION
+              <span className="text-[9px] text-[#AAA] font-sans tracking-widest uppercase">
+                Godavari Region
               </span>
             </div>
           </Link>
@@ -157,18 +123,36 @@ export default function Navbar({ lang, setLang }) {
             ))}
           </nav>
 
-          {/* Book a site visit — Red pill CTA */}
-          <div className="hidden lg:flex items-center">
+          {/* Right side: Language toggle + Book CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Language toggle — clean pill */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E8E2DA] hover:border-[#C8312A] text-[#555] hover:text-[#C8312A] text-xs font-sans font-medium transition-all cursor-pointer"
+              title="Switch language"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{lang === 'en' ? 'తెలుగు' : 'English'}</span>
+            </button>
+
+            {/* Book a site visit — red pill */}
             <button
               onClick={() => handleNavClick('contact', 'contact')}
-              className="btn-red px-5 py-2.5 text-sm font-semibold cursor-pointer shadow-sm"
+              className="btn-red px-5 py-2.5 text-sm font-semibold cursor-pointer"
             >
               Book a site visit
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <div className="flex lg:hidden items-center">
+          {/* Mobile: language toggle + hamburger */}
+          <div className="flex lg:hidden items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-[#E8E2DA] text-[#555] text-[11px] font-sans transition-all cursor-pointer"
+            >
+              <Globe className="w-3 h-3" />
+              <span>{lang === 'en' ? 'తె' : 'En'}</span>
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg bg-[#F5F0EB] text-[#1A1A1A] border border-[#E8E2DA]"
@@ -177,6 +161,7 @@ export default function Navbar({ lang, setLang }) {
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 

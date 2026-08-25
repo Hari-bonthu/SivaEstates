@@ -40,14 +40,14 @@ export default function VenturePage() {
     <div className="min-h-screen bg-[#F5F0EB] font-sans">
 
       {/* Sub-Header Navigation Bar matching screenshot */}
-      <div className="bg-white border-b border-[#E8E2DA] px-4 sm:px-8 py-3.5 sticky top-20 z-30">
+      <div className="bg-white border-b border-[#E8E2DA] px-4 sm:px-8 py-3.5 sticky top-16 z-30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
             className="flex items-center space-x-2 text-xs font-sans font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>← Back to All Ventures</span>
+            <span>Back to All Ventures</span>
           </Link>
 
           <button

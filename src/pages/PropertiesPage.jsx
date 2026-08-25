@@ -38,7 +38,7 @@ export default function PropertiesPage({ lang = 'en' }) {
           <div className="flex items-center gap-2 mb-4">
             <div className="h-px w-6 bg-[#C8312A]"></div>
             <span className="eyebrow-tag" style={{ color: '#C8312A', display: 'inline' }}>
-              PORTFOLIO
+              PROPERTIES
             </span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] font-normal leading-tight mb-4 tracking-tight">

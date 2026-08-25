@@ -1,5 +1,5 @@
 import React from 'react';
-import { Youtube, Play, ExternalLink, Clock, Eye } from 'lucide-react';
+import { Play, ExternalLink, Clock, Eye } from 'lucide-react';
 
 const VIDEOS = [
   {
@@ -72,8 +72,11 @@ export default function YouTubeHub({ lang }) {
         {/* Channel Banner */}
         <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E2DA] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center space-x-3">
+            {/* YouTube brand logo — rounded rect + play triangle */}
             <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-md shrink-0">
-              <Youtube className="w-6 h-6 fill-white" />
+              <svg viewBox="0 0 24 24" fill="white" className="w-7 h-7" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
             </div>
             <div>
               <h3 className="text-base font-bold text-[#1A1A1A] font-serif">
