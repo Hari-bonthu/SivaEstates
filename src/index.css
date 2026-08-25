@@ -265,7 +265,6 @@
 
 /* Navigation — clean sans, sentence-case */
 nav.site-nav {
-  display: flex;
   align-items: center;
   gap: 32px;
   height: 42px;
@@ -313,7 +312,6 @@ nav.site-nav button.nav-item.active::after {
 
 /* Keep editorial-nav class for any components that still reference it */
 nav.editorial-nav {
-  display: flex;
   align-items: center;
   gap: 32px;
   height: 42px;

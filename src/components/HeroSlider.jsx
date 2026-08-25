@@ -3,21 +3,51 @@ import { ChevronRight, Play, PhoneCall } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link } from 'react-router-dom';
 
+// ─── HERO BACKGROUND MANUAL CONFIGURATION ──────────────────────────────────────
+// You can easily adjust these settings anytime:
+const HERO_BG_CONFIG = {
+  // Path to the abstract topographic contour map background image
+  imageSrc: './images/topography_pattern.jpg',
+  // Opacity: 0.05 = 5% (very subtle), 0.07 = 7% (recommended), 0.12 = 12% (moderate)
+  opacity: 0.07,
+  // Blend mode with canvas background: 'multiply' | 'overlay' | 'normal'
+  blendMode: 'multiply',
+  // Scale / Position styling
+  backgroundSize: 'cover',
+  backgroundPosition: 'center center',
+  // Whether to apply soft radial vignette fade to keep text & founder card crisp
+  enableSoftFade: true,
+};
+// ───────────────────────────────────────────────────────────────────────────────
+
 export default function HeroSlider({ lang = 'en' }) {
   const t = translations[lang]?.hero || translations.en.hero;
 
   return (
     <section id="home" className="relative pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 overflow-hidden bg-[#F5F0EB]">
 
-      {/* Subtle textured bg overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-5">
-        <img
-          src="./images/luxury_villa_venture_1786442598108.jpg"
-          alt=""
-          className="w-full h-full object-cover"
+      {/* Abstract Topographic Contour Background with Manual Config */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
+        style={{
+          opacity: HERO_BG_CONFIG.opacity,
+          mixBlendMode: HERO_BG_CONFIG.blendMode,
+          backgroundImage: `url(${HERO_BG_CONFIG.imageSrc})`,
+          backgroundSize: HERO_BG_CONFIG.backgroundSize,
+          backgroundPosition: HERO_BG_CONFIG.backgroundPosition,
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
+      {/* Soft Radial & Bottom Fade Gradient Overlay */}
+      {HERO_BG_CONFIG.enableSoftFade && (
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse at top left, rgba(245, 240, 235, 0) 0%, rgba(245, 240, 235, 0.4) 60%, rgba(245, 240, 235, 0.95) 100%), linear-gradient(to bottom, transparent 70%, #F5F0EB 100%)',
+          }}
         />
-        <div className="absolute inset-0 bg-[#F5F0EB]"></div>
-      </div>
+      )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -27,7 +57,7 @@ export default function HeroSlider({ lang = 'en' }) {
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
 
-            {/* Eyebrow tag matching template: — GODAVARI REGION · SINCE 2014 */}
+            {/* Eyebrow tag: — GODAVARI REGION · SINCE 2014 */}
             <div className="flex items-center space-x-2">
               <div className="h-px w-6 bg-[#C8312A]"></div>
               <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ display: 'inline', color: '#C8312A' }}>
@@ -35,7 +65,7 @@ export default function HeroSlider({ lang = 'en' }) {
               </span>
             </div>
 
-            {/* Headline matching template */}
+            {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-[#1A1A1A] tracking-tight leading-[1.12]">
               {t.titleLine1}<br className="hidden sm:inline" />{' '}
               {t.titleLine2}<br className="hidden sm:inline" />{' '}
@@ -68,7 +98,7 @@ export default function HeroSlider({ lang = 'en' }) {
 
           </div>
 
-          {/* Right Column — Founder Photo Card (kept as specified) */}
+          {/* Right Column — Founder Photo Card */}
           <div className="lg:col-span-5 relative flex justify-center mt-2 lg:mt-0">
 
             <div className="relative w-full max-w-sm sm:max-w-md rounded-3xl overflow-hidden bg-white border border-[#E8E2DA] shadow-xl group">
