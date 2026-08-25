@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { properties } from '../data/properties';
+import { translations } from '../data/translations';
 import { ArrowRight } from 'lucide-react';
 import VentureCard from './VentureCard';
 import PropertyModal from './PropertyModal';
@@ -7,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 export default function ProjectTabsCatalog({ lang = 'en' }) {
   const [selectedProperty, setSelectedProperty] = useState(null);
+  const t = translations[lang]?.developments || translations.en.developments;
 
   // Use the first 3 featured properties from the data
   const featuredVentures = properties.filter(p => p.featured).slice(0, 3);
@@ -19,10 +21,10 @@ export default function ProjectTabsCatalog({ lang = 'en' }) {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
             <span className="eyebrow-tag mb-2" style={{ color: '#C8312A' }}>
-              CURRENT &amp; COMPLETED DEVELOPMENTS
+              {t.eyebrow}
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1A1A1A] font-normal tracking-tight mt-1">
-              Current &amp; completed developments
+              {t.heading}
             </h2>
           </div>
 
@@ -30,7 +32,7 @@ export default function ProjectTabsCatalog({ lang = 'en' }) {
             to="/properties"
             className="text-sm font-semibold text-[#C8312A] hover:text-[#A82822] transition-colors flex items-center space-x-1.5 shrink-0"
           >
-            <span>View all ventures</span>
+            <span>{t.viewAll}</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

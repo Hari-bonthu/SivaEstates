@@ -12,14 +12,14 @@ import BranchSpotlight from '../components/BranchSpotlight';
 import TrustSection from '../components/TrustSection';
 import ContactFormServerless from '../components/ContactFormServerless';
 
-export default function HomePage({ lang, setLang }) {
+export default function HomePage({ lang = 'en', setLang }) {
   return (
     <main className="flex-grow">
       {/* Hero Section */}
       <HeroSlider lang={lang} />
 
       {/* Stats Strip — 50+ | 1500+ | 12 | 100% */}
-      <StatsStrip />
+      <StatsStrip lang={lang} />
 
       {/* A promise we keep on every single deal — 4 Pillars */}
       <FourPillars lang={lang} />
@@ -28,16 +28,16 @@ export default function HomePage({ lang, setLang }) {
       <ProjectTabsCatalog lang={lang} />
 
       {/* From first call to registered title in four steps — dark section */}
-      <FourSteps />
+      <FourSteps lang={lang} />
 
-      {/* See the land before you see the paperwork — gallery */}
-      <GalleryStrip />
+      {/* See the land before you see the paperwork — gallery with popup modal */}
+      <GalleryStrip lang={lang} />
 
       {/* What our property buyers say */}
       <Testimonials lang={lang} />
 
       {/* Schedule a free site visit — dark CTA banner */}
-      <CTABanner />
+      <CTABanner lang={lang} />
 
       {/* YouTube Video Hub */}
       <YouTubeHub lang={lang} />

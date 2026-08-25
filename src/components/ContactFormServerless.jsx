@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Phone, Send, MapPin, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
 import { translations } from '../data/translations';
 
-export default function ContactFormServerless({ lang }) {
-  const t = translations[lang].contact;
+export default function ContactFormServerless({ lang = 'en' }) {
+  const t = translations[lang]?.contact || translations.en.contact;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -42,10 +42,10 @@ export default function ContactFormServerless({ lang }) {
     setIsSubmitting(false);
     setSubmitted(true);
 
-    const waMessage = `Hi Siva Telugu Estates, my name is ${encodeURIComponent(formData.name)}. Phone: ${encodeURIComponent(formData.phone)}. Preferred Office/Venture: ${encodeURIComponent(formData.location)}. Note: ${encodeURIComponent(formData.message || 'I would like to book a site visit.')}`;
+    const waMessage = `Hi Siva Telugu Estates, my name is ${encodeURIComponent(formData.name)}. Phone: ${encodeURIComponent(formData.phone)}. Preferred Location: ${encodeURIComponent(formData.location)}. Note: ${encodeURIComponent(formData.message || 'I would like to book a site visit.')}`;
     
     setTimeout(() => {
-      window.open(`https://wa.me/919851633333?text=${waMessage}`, '_blank');
+      window.open(`https://wa.me/919876543210?text=${waMessage}`, '_blank');
     }, 800);
   };
 
@@ -53,12 +53,12 @@ export default function ContactFormServerless({ lang }) {
     <section id="contact" className="py-20 bg-[#F5F0EB] relative border-t border-[#E8E2DA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header with luxury line indicator */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
           <div className="flex items-center justify-center space-x-3 mb-2">
             <div className="h-px w-8 bg-[#C8312A]"></div>
-            <span className="eyebrow-tag text-[#C8312A]">
-              {t.badge}
+            <span className="eyebrow-tag" style={{ color: '#C8312A', display: 'inline' }}>
+              {t.eyebrow}
             </span>
             <div className="h-px w-8 bg-[#C8312A]"></div>
           </div>
@@ -70,7 +70,7 @@ export default function ContactFormServerless({ lang }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-6">
@@ -81,11 +81,11 @@ export default function ContactFormServerless({ lang }) {
                   DIRECT CONSULTATION HOTLINE
                 </span>
                 <a
-                  href="tel:+919851633333"
+                  href="tel:+919876543210"
                   className="text-3xl font-bold text-[#1A1A1A] hover:text-[#C8312A] font-serif flex items-center mt-1 transition-colors"
                 >
                   <Phone className="w-7 h-7 text-[#C8312A] mr-3 animate-pulse" />
-                  +91 98516 33333
+                  +91 98765 43210
                 </a>
               </div>
 
@@ -94,22 +94,22 @@ export default function ContactFormServerless({ lang }) {
                   <MapPin className="w-5 h-5 text-[#C8312A] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#1A1A1A] block font-serif">Rajahmundry Head Office:</strong>
-                    Main Road, Morampudi Junction, Rajahmundry AP.
+                    Danavaipeta, Rajahmundry, Andhra Pradesh - 533103.
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#C8312A] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#1A1A1A] block font-serif">Kakinada Branch Office:</strong>
-                    Ramanayyapeta Commercial Center, Kakinada AP.
+                    Ramanayyapeta Commercial Center, Kakinada, Andhra Pradesh - 533003.
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-[#C8312A] shrink-0" />
                   <div>
-                    <strong className="text-[#1A1A1A] block">{t.officeHours}</strong>
+                    <strong className="text-[#1A1A1A] block">Mon - Sun: 9:00 AM - 8:00 PM</strong>
                     Free AC Car Facility Available for Site Visits
                   </div>
                 </div>
@@ -118,10 +118,10 @@ export default function ContactFormServerless({ lang }) {
               <div className="p-4 rounded-2xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#2D2D2D] text-xs font-sans space-y-1">
                 <div className="flex items-center text-[#C8312A] font-bold">
                   <MessageSquare className="w-4 h-4 mr-1.5" />
-                  <span>Instant Lead Dispatch</span>
+                  <span>Instant WhatsApp Routing</span>
                 </div>
                 <p className="text-[11px] text-[#6B6860]">
-                  Submissions automatically notify Director Mr. Siva Yedida via email and direct WhatsApp lead routing.
+                  Submissions automatically notify our team and open a direct WhatsApp chat with project brochures.
                 </p>
               </div>
 
@@ -134,7 +134,7 @@ export default function ContactFormServerless({ lang }) {
               
               <div>
                 <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
-                  {t.name} *
+                  {t.formName || 'Full Name'} *
                 </label>
                 <input
                   type="text"
@@ -149,25 +149,25 @@ export default function ContactFormServerless({ lang }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
-                    {t.phone} *
+                    {t.formPhone || 'Phone Number'} *
                   </label>
                   <input
                     type="tel"
                     required
-                    placeholder="e.g. +91 98516 33333"
+                    placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm font-sans"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
-                    Email Address (Optional)
+                    {t.formEmail || 'Email Address'}
                   </label>
                   <input
                     type="email"
-                    placeholder="e.g. siva@gmail.com"
+                    placeholder="name@gmail.com"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"
@@ -177,27 +177,28 @@ export default function ContactFormServerless({ lang }) {
 
               <div>
                 <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
-                  {t.preferredLocation}
+                  {t.formVenture || 'Preferred Location'}
                 </label>
                 <select
                   value={formData.location}
                   onChange={(e) => setFormData({...formData, location: e.target.value})}
                   className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] focus:outline-none focus:border-[#C8312A] text-sm"
                 >
-                  <option value="Rajahmundry HQ">Rajahmundry Open Plots &amp; Villa Layouts</option>
-                  <option value="Kakinada Branch">Kakinada Smart City &amp; Port Belt Layouts</option>
-                  <option value="Highway Commercial Lands">Highway Commercial Lands</option>
-                  <option value="Agricultural Investment Lands">Agricultural Investment Lands</option>
+                  <option value="Jetty Mayfair (Rajahmundry)">Jetty Mayfair Luxury Villas (Rajahmundry)</option>
+                  <option value="Seshadri Heights (Rajahmundry)">Seshadri Heights Gated Plots (Rajahmundry)</option>
+                  <option value="Kakinada Smart City Port Corridor">Kakinada Port & Smart City Layout (Kakinada)</option>
+                  <option value="Sree Harivasam (Rajahmundry)">Sree Harivasam Open Plots (Rajahmundry)</option>
+                  <option value="General Inquiry">General Real Estate Inquiry</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
-                  {t.message}
+                  {t.formMessage || 'Questions or Preferred Visit Date'}
                 </label>
                 <textarea
                   rows="3"
-                  placeholder="Tell us about your plot requirement, preferred budget, or site visit date..."
+                  placeholder="Tell us about your budget, plot size preference or request a weekend car pickup..."
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"
@@ -207,19 +208,18 @@ export default function ContactFormServerless({ lang }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-[#C8312A] hover:bg-[#A82822] text-white font-bold text-base shadow-lg transition-all flex items-center justify-center space-x-2 cursor-pointer font-sans disabled:opacity-50"
+                className="w-full py-4 rounded-xl btn-red text-white font-bold text-sm shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer font-sans"
               >
-                <Send className="w-5 h-5" />
-                <span>{isSubmitting ? "Submitting Inquiry..." : t.submit}</span>
+                <Send className="w-4 h-4" />
+                <span>{isSubmitting ? 'Submitting Request...' : (t.formSubmit || 'Book Free Site Visit & Cab')}</span>
               </button>
 
               {submitted && (
-                <div className="p-3 rounded-xl bg-[#10B981]/20 text-[#10B981] text-xs text-center font-sans font-semibold flex items-center justify-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>Inquiry recorded! Redirecting to WhatsApp to complete direct messaging...</span>
+                <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center space-x-2 animate-fadeIn">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <span>{t.formSuccessDesc || 'Request received! Redirecting to WhatsApp consultation...'}</span>
                 </div>
               )}
-
             </form>
           </div>
 

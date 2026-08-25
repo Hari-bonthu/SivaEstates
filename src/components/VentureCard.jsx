@@ -2,7 +2,6 @@ import React from 'react';
 import { MapPin, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Map project type string to a short display label
 function getTypeLabel(typeStr) {
   if (!typeStr) return 'Plots';
   const t = typeStr.toLowerCase();
@@ -13,7 +12,6 @@ function getTypeLabel(typeStr) {
   return 'Plots';
 }
 
-// Map status to badge text and style
 function getStatusBadge(status, category) {
   if (!status) return { label: 'ONGOING', completed: false };
   const s = status.toLowerCase();
@@ -39,18 +37,19 @@ export default function VentureCard({ project, onInspect }) {
   const description = project.description || '';
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all duration-300 group shadow-sm hover:shadow-lg font-sans">
+    <div className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all duration-300 group shadow-xs hover:shadow-lg font-sans flex flex-col justify-between">
 
       {/* Image with badges */}
-      <div className="relative h-56 overflow-hidden bg-[#F0EDED]">
+      <div className="relative h-48 sm:h-56 overflow-hidden bg-[#F0EDED]">
         <img
           src={project.thumbnail}
           alt={project.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          loading="lazy"
         />
 
         {/* Status badge — top-left, red pill */}
-        <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-sans font-bold tracking-wide shadow-sm ${
+        <div className={`absolute top-3 left-3 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-sans font-bold tracking-wide shadow-sm ${
           completed
             ? 'bg-[#3D3D3D] text-white'
             : 'bg-[#C8312A] text-white'
@@ -59,37 +58,39 @@ export default function VentureCard({ project, onInspect }) {
         </div>
 
         {/* Property type tag — bottom-right, white pill */}
-        <div className="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/95 text-[#1A1A1A] text-[10px] font-sans font-medium shadow-sm">
+        <div className="absolute bottom-3 right-3 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 text-[#1A1A1A] text-[9px] sm:text-[10px] font-sans font-semibold shadow-sm">
           {typeLabel}
         </div>
       </div>
 
       {/* Card body */}
-      <div className="p-5 flex flex-col gap-3">
+      <div className="p-4 sm:p-5 flex flex-col gap-2.5 sm:gap-3 flex-1 justify-between">
 
-        {/* Location */}
-        <div className="flex items-center gap-1.5 text-[#6B6860] text-xs font-sans">
-          <MapPin className="w-3.5 h-3.5 shrink-0" />
-          <span>{project.area || project.location}</span>
+        <div>
+          {/* Location */}
+          <div className="flex items-center gap-1.5 text-[#6B6860] text-xs font-sans mb-1">
+            <MapPin className="w-3.5 h-3.5 text-[#C8312A] shrink-0" />
+            <span className="truncate">{project.area || project.location}</span>
+          </div>
+
+          {/* Title */}
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1A1A1A] leading-snug group-hover:text-[#C8312A] transition-colors line-clamp-2">
+            {project.title}
+          </h3>
+
+          {/* Description excerpt */}
+          {description && (
+            <p className="text-xs text-[#6B6860] leading-relaxed font-sans line-clamp-2 mt-1">
+              {description}
+            </p>
+          )}
         </div>
 
-        {/* Title */}
-        <h3 className="font-serif text-xl font-bold text-[#1A1A1A] leading-snug group-hover:text-[#C8312A] transition-colors">
-          {project.title}
-        </h3>
-
-        {/* Description excerpt */}
-        {description && (
-          <p className="text-xs text-[#6B6860] leading-relaxed font-sans line-clamp-2">
-            {description}
-          </p>
-        )}
-
         {/* Price row */}
-        <div className="flex items-center justify-between pt-3 border-t border-[#E8E2DA]">
+        <div className="flex items-center justify-between pt-3 border-t border-[#E8E2DA] mt-2">
           <div>
-            <p className="text-[10px] text-[#9CA3AF] font-sans mb-0.5">Starting from</p>
-            <p className="text-sm font-bold text-[#1A1A1A] font-sans">{priceDisplay}</p>
+            <p className="text-[10px] text-[#9CA3AF] font-sans">Starting from</p>
+            <p className="text-sm sm:text-base font-bold text-[#1A1A1A] font-sans">{priceDisplay}</p>
             <p className="text-[11px] text-[#6B6860] font-sans mt-0.5">□ {plotRange}</p>
           </div>
 
@@ -97,19 +98,19 @@ export default function VentureCard({ project, onInspect }) {
             {/* WhatsApp quick inquiry */}
             <button
               onClick={handleWhatsApp}
-              className="w-9 h-9 rounded-full bg-[#F5F0EB] hover:bg-[#FCECEA] text-[#6B6860] hover:text-[#C8312A] border border-[#E8E2DA] flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-[#F5F0EB] hover:bg-[#FCECEA] text-[#6B6860] hover:text-[#C8312A] border border-[#E8E2DA] flex items-center justify-center transition-all cursor-pointer active:scale-95 shrink-0"
               title="WhatsApp Inquiry"
               aria-label="WhatsApp Inquiry"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
+              <MessageCircle className="w-4 h-4" />
             </button>
 
             {/* Details link */}
             <Link
               to={`/venture/${project.id}`}
-              className="inline-flex items-center gap-1 text-sm font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-[#1A1A1A] hover:bg-[#C8312A] text-white text-xs font-bold transition-colors shrink-0"
             >
-              Details
+              <span>Details</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>

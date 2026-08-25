@@ -1,64 +1,44 @@
 import React from 'react';
+import { translations } from '../data/translations';
 
-const steps = [
-  {
-    number: '01',
-    title: 'Site selection',
-    desc: 'We show you options that match your budget, purpose, and preferred corridor. No pressure — just land.'
-  },
-  {
-    number: '02',
-    title: 'Legal due diligence',
-    desc: 'EC check, patta verification, survey number mapping — every document verified before you sign anything.'
-  },
-  {
-    number: '03',
-    title: 'Registration',
-    desc: 'Spot registration at the sub-registrar\'s office. You walk out with your title deed in hand, same day.'
-  },
-  {
-    number: '04',
-    title: 'Delivery',
-    desc: 'Layout handover with all amenities complete — roads, drainage, plantation, electricity connection.'
-  },
-];
+export default function FourSteps({ lang = 'en' }) {
+  const t = translations[lang]?.steps || translations.en.steps;
 
-export default function FourSteps() {
   return (
-    <section className="py-20 bg-[#1A1A1A]">
+    <section className="py-14 sm:py-20 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="mb-14">
-          <div className="flex items-center gap-2 mb-3">
+        <div className="mb-10 sm:mb-14">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <div className="h-px w-6 bg-[#C8312A]"></div>
-            <span className="eyebrow-tag" style={{ color: '#C8312A', display: 'inline' }}>
-              OUR PROCESS
+            <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ color: '#C8312A', display: 'inline' }}>
+              {t.eyebrow}
             </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-normal tracking-tight leading-tight max-w-xl">
-            From first call to registered title in four steps
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-normal tracking-tight leading-tight max-w-xl">
+            {t.heading}
           </h2>
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, i) => (
-            <div key={i} className="flex flex-col gap-4">
+        {/* Steps Grid: 1 col on mobile, 2 col on tablet, 4 col on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {t.items.map((step, i) => (
+            <div key={i} className="flex flex-col gap-3 sm:gap-4 p-5 sm:p-0 rounded-2xl bg-white/5 sm:bg-transparent border border-white/5 sm:border-0">
               {/* Step number */}
-              <span className="text-5xl font-serif font-normal text-[#C8312A] leading-none">
+              <span className="text-4xl sm:text-5xl font-serif font-normal text-[#C8312A] leading-none">
                 {step.number}
               </span>
 
               {/* Divider */}
-              <div className="h-px w-12 bg-[#2E2E2E]"></div>
+              <div className="h-px w-10 sm:w-12 bg-[#2E2E2E]"></div>
 
               {/* Content */}
               <div>
-                <h3 className="text-lg font-sans font-bold text-white mb-2">
+                <h3 className="text-base sm:text-lg font-sans font-bold text-white mb-1.5 sm:mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm text-[#9CA3AF] font-sans leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#9CA3AF] font-sans leading-relaxed">
                   {step.desc}
                 </p>
               </div>
