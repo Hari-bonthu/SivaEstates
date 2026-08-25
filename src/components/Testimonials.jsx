@@ -30,10 +30,14 @@ export default function Testimonials({ lang }) {
     <section className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
+        {/* Header with luxury line indicator */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-[#4A5D4E]/30 text-[#334537] text-xs font-mono tracking-widest uppercase">
-            {t.badge}
+          <div className="flex items-center justify-center space-x-3 mb-2">
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
+            <span className="eyebrow-tag text-[#4A5D4E]">
+              {t.badge}
+            </span>
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
             {t.heading}
@@ -68,7 +72,7 @@ export default function Testimonials({ lang }) {
                 <h4 className="text-sm font-bold text-[#1B1C1C] font-serif">
                   {rev.name}
                 </h4>
-                <p className="text-xs text-[#4A5D4E] font-mono mt-0.5">
+                <p className="text-xs text-[#4A5D4E] font-sans mt-0.5">
                   {rev.location}
                 </p>
               </div>

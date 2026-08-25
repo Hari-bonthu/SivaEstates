@@ -1,180 +1,156 @@
 import React, { useState } from 'react';
-import { MapPin, ArrowRight, ShieldCheck, Filter, CheckCircle2, Sparkles } from 'lucide-react';
 import { properties } from '../data/properties';
-import { translations } from '../data/translations';
+import {
+  ArrowRight,
+  ShieldCheck,
+  FileCheck,
+  Sparkles,
+  Users
+} from 'lucide-react';
+import VentureCard from './VentureCard';
 import PropertyModal from './PropertyModal';
+import { Link } from 'react-router-dom';
 
-export default function ProjectTabsCatalog({ lang }) {
-  const t = translations[lang].ventures;
-  
-  const [activeCategory, setActiveCategory] = useState('current');
-  const [locationFilter, setLocationFilter] = useState('All');
+export default function ProjectTabsCatalog({ lang = 'en' }) {
   const [selectedProperty, setSelectedProperty] = useState(null);
 
-  const filteredProperties = properties.filter(p => {
-    const matchCategory = activeCategory === 'all' || p.category === activeCategory;
-    const matchLocation = locationFilter === 'All' || p.location.toLowerCase() === locationFilter.toLowerCase();
-    return matchCategory && matchLocation;
-  });
+  // 3 Featured Gated Ventures matching the reference screenshot exactly
+  const featuredVentures = [
+    {
+      id: "jetty-mayfair",
+      title: "Jetty Mayfair Luxury Villa Layout",
+      location: "Rajahmundry",
+      area: "Morampudi – Lalacheruvu Highway Corridor",
+      pricePerSqYd: "₹18,500 / Sq.Yd",
+      plotSizes: "150 – 500 Sq.Yards",
+      roadWidth: "40ft & 60ft Blacktop Roads",
+      approval: "DTCP APPROVED & RERA REGISTERED",
+      status: "FAST SELLING",
+      thumbnail: "./images/luxury_villa_venture_1786442598108.jpg",
+    },
+    {
+      id: "seshadri-heights",
+      title: "Seshadri Heights Gated Community",
+      location: "Rajahmundry",
+      area: "Dowleswaram Barrage Belt",
+      pricePerSqYd: "₹16,800 / Sq.Yd",
+      plotSizes: "160 – 450 Sq.Yards",
+      roadWidth: "40ft BT Roads",
+      approval: "DTCP APPROVED LAYOUT",
+      status: "NEWLY LAUNCHED",
+      thumbnail: "./images/assets/20250604_152649.jpg",
+    },
+    {
+      id: "kakinada-smart-city",
+      title: "Kakinada Port & Smart City Layout",
+      location: "Kakinada",
+      area: "Ramanayyapeta & Port Corridor",
+      pricePerSqYd: "₹22,000 / Sq.Yd",
+      plotSizes: "200 – 600 Sq.Yards",
+      roadWidth: "60ft Master Plan Road",
+      approval: "VMRDA & DTCP APPROVED",
+      status: "FAST SELLING",
+      thumbnail: "./images/kakinada_branch_venture_1786442659994.jpg",
+    },
+  ];
+
+  const trustBadges = [
+    {
+      icon: <ShieldCheck className="w-5 h-5 text-[#18231C]" />,
+      title: "Legal Clear Titles",
+      subtitle: "100% Verified"
+    },
+    {
+      icon: <FileCheck className="w-5 h-5 text-[#18231C]" />,
+      title: "DTCP / RERA",
+      subtitle: "Approved"
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5 text-[#18231C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 19L8 5" />
+          <path d="M20 19L16 5" />
+          <line x1="12" y1="7" x2="12" y2="9" />
+          <line x1="12" y1="13" x2="12" y2="15" />
+        </svg>
+      ),
+      title: "Premium",
+      subtitle: "Infrastructure"
+    },
+    {
+      icon: <Sparkles className="w-5 h-5 text-[#18231C]" />,
+      title: "Green & Serene",
+      subtitle: "Environment"
+    },
+    {
+      icon: <Users className="w-5 h-5 text-[#18231C]" />,
+      title: "Trusted by",
+      subtitle: "Thousands"
+    }
+  ];
 
   return (
-    <section id="ventures" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
+    <section id="ventures" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5] font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-[#4A5D4E]/30 text-[#334537] text-xs font-mono tracking-widest uppercase">
-            FEATURED REAL ESTATE PROJECTS
+
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+          <div>
+            <span className="eyebrow-tag text-[#6B6860] mb-2">
+              CURATED PORTFOLIO
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1A1A1A] font-normal tracking-tight">
+              Featured Gated Ventures
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
-            Current &amp; Completed Landmark Projects
-          </h2>
-          <p className="text-sm text-[#636863]">
-            Explore DTCP &amp; VMRDA approved residential layouts, luxury villa plots, and investment lands.
-          </p>
+
+          <Link
+            to="/properties"
+            className="text-xs font-sans font-bold uppercase tracking-[0.15em] text-[#1A1A1A] hover:text-[#334537] transition-colors flex items-center space-x-1.5 shrink-0"
+          >
+            <span>VIEW ALL 3 VENTURES</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
-        {/* Primary Project Status Tabs (Inspired by RS Property Developers) */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-10">
-          <button
-            onClick={() => setActiveCategory('current')}
-            className={`px-6 py-3 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-2 ${
-              activeCategory === 'current'
-                ? 'bg-[#4A5D4E] text-white shadow-md scale-105'
-                : 'bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#F0EDED]'
-            }`}
-          >
-            <Sparkles className="w-4 h-4 text-[#DBCBB0]" />
-            <span>Current Ongoing Projects</span>
-          </button>
-
-          <button
-            onClick={() => setActiveCategory('completed')}
-            className={`px-6 py-3 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-2 ${
-              activeCategory === 'completed'
-                ? 'bg-[#4A5D4E] text-white shadow-md scale-105'
-                : 'bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#F0EDED]'
-            }`}
-          >
-            <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-            <span>Completed Projects</span>
-          </button>
-
-          <button
-            onClick={() => setActiveCategory('all')}
-            className={`px-6 py-3 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
-              activeCategory === 'all'
-                ? 'bg-[#4A5D4E] text-white shadow-md scale-105'
-                : 'bg-white border border-[#E5E0D5] text-[#2D2D2D] hover:bg-[#F0EDED]'
-            }`}
-          >
-            <span>All Projects</span>
-          </button>
-        </div>
-
-        {/* Secondary Location Sub-Filters */}
-        <div className="flex items-center justify-center space-x-2 mt-4 text-xs font-mono">
-          <Filter className="w-3.5 h-3.5 text-[#636863] mr-1" />
-          <span className="text-[#636863] mr-2">Location:</span>
-          {['All', 'Rajahmundry', 'Kakinada'].map(loc => (
-            <button
-              key={loc}
-              onClick={() => setLocationFilter(loc)}
-              className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                locationFilter === loc
-                  ? 'bg-white text-[#4A5D4E] border border-[#4A5D4E] font-bold shadow-sm'
-                  : 'text-[#636863] hover:text-[#1B1C1C]'
-              }`}
-            >
-              {loc}
-            </button>
+        {/* 3-Column Venture Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredVentures.map((project) => (
+            <VentureCard
+              key={project.id}
+              project={project}
+              onInspect={(p) => {
+                const fullProp = properties.find((item) => item.id === p.id) || p;
+                setSelectedProperty(fullProp);
+              }}
+            />
           ))}
         </div>
 
-        {/* Property Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-          {filteredProperties.map(item => (
-            <div 
-              key={item.id}
-              className="bg-white rounded-3xl overflow-hidden border border-[#E5E0D5] hover:border-[#DBCBB0] transition-all flex flex-col justify-between group shadow-sm hover:shadow-md"
-            >
-              <div>
-                {/* Image & Badge */}
-                <div className="relative h-56 overflow-hidden bg-[#F0EDED]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#E5E0D5] text-[#4A5D4E] text-[11px] font-mono font-bold">
-                    {item.location}
-                  </div>
-                  
-                  <div className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-white text-[10px] font-mono font-bold ${
-                    item.category === 'completed' ? 'bg-[#636863]' : 'bg-[#4A5D4E]'
-                  }`}>
-                    {item.status}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 space-y-3">
-                  <div className="flex items-center text-xs text-[#4A5D4E] font-mono space-x-1 font-bold">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>{item.approval}</span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-[#1B1C1C] font-serif leading-snug">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xs text-[#636863] flex items-center">
-                    <MapPin className="w-3.5 h-3.5 mr-1 text-[#4A5D4E] shrink-0" />
-                    {item.area}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-2 pt-2 text-xs font-mono">
-                    <div className="bg-[#F9F7F2] p-2.5 rounded-xl border border-[#E5E0D5]">
-                      <span className="text-[9px] text-[#636863] block uppercase">Plot Sizes</span>
-                      <span className="font-bold text-[#1B1C1C]">{item.plotSizes}</span>
-                    </div>
-                    <div className="bg-[#F9F7F2] p-2.5 rounded-xl border border-[#E5E0D5]">
-                      <span className="text-[9px] text-[#636863] block uppercase">Road Width</span>
-                      <span className="font-bold text-[#1B1C1C]">{item.roadWidth}</span>
-                    </div>
-                  </div>
-                </div>
+        {/* Bottom 5-Item Trust Assurance Strip matching screenshot */}
+        <div className="mt-16 pt-12 border-t border-[#E5E2D9] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-center justify-between">
+          {trustBadges.map((badge, idx) => (
+            <div key={idx} className="flex items-center space-x-3">
+              <div className="w-10 h-10 rounded-xl bg-white border border-[#E5E2D9] flex items-center justify-center shrink-0 shadow-2xs">
+                {badge.icon}
               </div>
-
-              {/* Card Footer Actions */}
-              <div className="p-6 pt-0 border-t border-[#E5E0D5] mt-4 flex items-center space-x-2">
-                <button
-                  onClick={() => setSelectedProperty(item)}
-                  className="flex-1 py-3 rounded-xl bg-[#F9F7F2] hover:bg-[#F0EDED] border border-[#E5E0D5] text-[#2D2D2D] text-xs font-bold transition-all flex items-center justify-center space-x-1 cursor-pointer font-mono"
-                >
-                  <span>View Details</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#4A5D4E]" />
-                </button>
-
-                <a
-                  href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20am%20interested%20in%20${encodeURIComponent(item.title)}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-3 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white text-xs font-bold transition-all flex items-center justify-center font-mono"
-                  title="WhatsApp Instant Inquiry"
-                >
-                  WhatsApp
-                </a>
+              <div className="leading-tight">
+                <span className="text-xs font-bold text-[#1A1A1A] block font-sans">
+                  {badge.title}
+                </span>
+                <span className="text-[11px] text-[#6B6860] font-sans">
+                  {badge.subtitle}
+                </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Modal render */}
+        {/* Drawer Modal */}
         {selectedProperty && (
-          <PropertyModal 
-            property={selectedProperty} 
-            onClose={() => setSelectedProperty(null)} 
+          <PropertyModal
+            property={selectedProperty}
+            onClose={() => setSelectedProperty(null)}
           />
         )}
 

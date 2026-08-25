@@ -1,133 +1,259 @@
-﻿import React, { useState } from 'react';
-import { X, MapPin, CheckCircle, ShieldCheck, Phone, Compass, Ruler, Maximize2, FileCheck, ArrowRight, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import {
+  X,
+  MapPin,
+  Phone,
+  CheckCircle2,
+  ShieldCheck,
+  LayoutGrid,
+  Compass,
+  Ruler,
+  IndianRupee,
+  ChevronLeft,
+  ChevronRight
+} from 'lucide-react';
 
 export default function PropertyModal({ property, onClose }) {
+  const [activeImg, setActiveImg] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef(null);
+
   if (!property) return null;
 
+  const gallery = property.gallery && property.gallery.length > 0
+    ? property.gallery
+    : [property.thumbnail];
+
+  // Auto-slide effect (changes every 3.5 seconds when not hovered)
+  useEffect(() => {
+    if (gallery.length <= 1 || isPaused) return;
+
+    timerRef.current = setInterval(() => {
+      setActiveImg((prev) => (prev + 1) % gallery.length);
+    }, 3500);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [gallery.length, isPaused]);
+
+  // Keyboard navigation for arrow keys (Left/Right) and Escape to close
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      } else if (e.key === 'ArrowLeft') {
+        setActiveImg((prev) => (prev - 1 + gallery.length) % gallery.length);
+      } else if (e.key === 'ArrowRight') {
+        setActiveImg((prev) => (prev + 1) % gallery.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [gallery.length, onClose]);
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setActiveImg((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setActiveImg((prev) => (prev + 1) % gallery.length);
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-3xl rounded-3xl bg-white border border-[#E5E0D5] shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in duration-200">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1B1C1C]/75 backdrop-blur-xs font-sans"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#E5E0D5] max-h-[92vh] flex flex-col">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/90 hover:bg-white text-[#1B1C1C] border border-[#E5E0D5] shadow-md transition-all cursor-pointer"
+          className="absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-[#E5E0D5] shadow-md flex items-center justify-center text-[#2D2D2D] hover:bg-[#1B1C1C] hover:text-white transition-all cursor-pointer"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
-        {/* Modal Header Image */}
-        <div className="relative h-64 sm:h-80 w-full overflow-hidden bg-[#F0EDED]">
-          <img
-            src={property.image}
-            alt={property.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+        {/* Scrollable Content */}
+        <div className="overflow-y-auto">
           
-          <div className="absolute bottom-4 left-6 right-6 text-white">
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full bg-[#4A5D4E] text-white font-mono font-bold text-[11px] uppercase tracking-wider">
-                {property.location}
-              </span>
-              <span className="px-3 py-1 rounded-full bg-white/90 text-[#1B1C1C] font-mono font-bold text-[11px] uppercase tracking-wider">
-                {property.approval}
-              </span>
+          {/* Hero Image Carousel with Auto-slide & Manual Arrow Buttons */}
+          <div 
+            className="relative h-72 sm:h-96 bg-[#18231C] shrink-0 overflow-hidden group select-none"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <img
+              key={activeImg}
+              src={gallery[activeImg]}
+              alt={`${property.title} view ${activeImg + 1}`}
+              className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+            />
+            
+            {/* Atmospheric Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1C]/85 via-transparent to-black/20 pointer-events-none"></div>
+
+            {/* Left / Right Carousel Arrow Buttons */}
+            {gallery.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-lg"
+                  title="Previous image (Left arrow)"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+
+                <button
+                  onClick={handleNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-lg"
+                  title="Next image (Right arrow)"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+
+                {/* Counter & Indicator Dots */}
+                <div className="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/50 backdrop-blur-md border border-white/20 text-white text-[10px] font-sans font-medium tracking-[0.2em]">
+                  {activeImg + 1} / {gallery.length}
+                </div>
+              </>
+            )}
+
+            {/* Title on image */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+              <div className="flex items-center space-x-2 mb-2">
+                <span className="px-2.5 py-1 rounded bg-[#1B1C1C]/90 border border-white/20 text-white text-[10px] font-sans font-medium tracking-[0.2em] uppercase">
+                  {property.status}
+                </span>
+                <span className="px-2.5 py-1 rounded bg-[#4A5D4E] text-white text-[10px] font-sans font-medium tracking-[0.2em] uppercase">
+                  {property.approval?.split(' ')[0] || 'DTCP'} APPROVED
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-normal text-white font-serif leading-tight">
+                {property.title}
+              </h2>
+              <p className="flex items-center text-white/80 text-xs mt-1 font-sans">
+                <MapPin className="w-3.5 h-3.5 mr-1 shrink-0 text-[#DBCBB0]" />
+                {property.area}
+              </p>
             </div>
+
+            {/* Indicator Dots inside Hero Image */}
+            {gallery.length > 1 && (
+              <div className="absolute bottom-4 right-4 z-20 flex space-x-1.5">
+                {gallery.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImg(idx)}
+                    className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                      idx === activeImg ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Content Body */}
+          <div className="p-6 sm:p-8 space-y-6">
             
-            <h3 className="text-2xl sm:text-3xl font-bold text-white font-serif">
-              {property.title}
-            </h3>
-            
-            <p className="text-xs text-white/80 flex items-center mt-1 font-mono">
-              <MapPin className="w-3.5 h-3.5 mr-1 text-[#DBCBB0]" />
-              {property.area}
-            </p>
+            {/* 4 Spec Boxes */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">PLOT SIZES</span>
+                </div>
+                <p className="text-sm font-bold text-[#1B1C1C] font-sans leading-tight">{property.plotSizes}</p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <Compass className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">FACING</span>
+                </div>
+                <p className="text-sm font-bold text-[#1B1C1C] font-sans leading-tight">{property.facing || 'East / West'}</p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <Ruler className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">ROAD WIDTH</span>
+                </div>
+                <p className="text-sm font-bold text-[#1B1C1C] font-sans leading-tight">{property.roadWidth}</p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#EAF0EC] border border-[#4A5D4E]/30 text-center">
+                <div className="flex items-center justify-center space-x-1 text-[#4A5D4E] mb-1">
+                  <IndianRupee className="w-3.5 h-3.5" />
+                  <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#4A5D4E]">STARTING AT</span>
+                </div>
+                <p className="text-sm font-bold text-[#334537] font-sans leading-tight">{property.pricePerSqYd}</p>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div>
+              <p className="text-sm text-[#59564F] leading-relaxed font-sans">
+                {property.description}
+              </p>
+            </div>
+
+            {/* Features Checklist */}
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" />
+                <h3 className="text-xs font-sans font-medium text-[#1B1C1C] uppercase tracking-[0.2em]">
+                  Venture Features &amp; Infrastructure
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {(property.highlights || [
+                  '100% Clear Title & Spot Registration',
+                  'DTCP & RERA Approved Master Blueprint',
+                  'Underground Drainage & Electricity',
+                  'Avenue Plantation & Compound Wall',
+                  'Grand Arch Entrance with 24/7 Security',
+                  'Bank Loan Approved: SBI, HDFC, ICICI'
+                ]).map((h, i) => (
+                  <div key={i} className="flex items-center space-x-2.5 p-3 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5]">
+                    <CheckCircle2 className="w-4 h-4 text-[#4A5D4E] shrink-0" />
+                    <span className="text-xs text-[#2D2D2D] font-sans font-medium">{h}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* Modal Body */}
-        <div className="p-6 sm:p-8 space-y-6">
-          
-          {/* Key Specs Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl bg-[#F9F7F2] border border-[#E5E0D5] font-mono text-xs">
-            <div>
-              <p className="text-[10px] text-[#636863] font-bold uppercase flex items-center">
-                <Maximize2 className="w-3.5 h-3.5 mr-1 text-[#4A5D4E]" />
-                Plot Sizes
-              </p>
-              <p className="text-xs font-bold text-[#1B1C1C] mt-1">{property.plotSizes}</p>
-            </div>
-            <div>
-              <p className="text-[10px] text-[#636863] font-bold uppercase flex items-center">
-                <Compass className="w-3.5 h-3.5 mr-1 text-[#4A5D4E]" />
-                Facing
-              </p>
-              <p className="text-xs font-bold text-[#1B1C1C] mt-1">{property.facing}</p>
-            </div>
-            <div>
-              <p className="text-[10px] text-[#636863] font-bold uppercase flex items-center">
-                <Ruler className="w-3.5 h-3.5 mr-1 text-[#4A5D4E]" />
-                Road Width
-              </p>
-              <p className="text-xs font-bold text-[#1B1C1C] mt-1">{property.roadWidth}</p>
-            </div>
-            <div>
-              <p className="text-[10px] text-[#636863] font-bold uppercase flex items-center">
-                <ShieldCheck className="w-3.5 h-3.5 mr-1 text-[#10B981]" />
-                Indicative Price
-              </p>
-              <p className="text-xs font-bold text-[#4A5D4E] mt-1">{property.pricePerSqYd}</p>
-            </div>
-          </div>
+        {/* Fixed Footer CTA */}
+        <div className="border-t border-[#E5E0D5] p-4 sm:p-6 bg-white shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <a
+            href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}.%20Please%20share%20more%20details.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-3.5 rounded-xl bg-[#18231C] hover:bg-[#334537] text-white font-sans font-bold text-xs uppercase tracking-[0.2em] flex items-center justify-center space-x-2 transition-all shadow-xs"
+          >
+            <Phone className="w-4 h-4" />
+            <span>Inquire via WhatsApp</span>
+          </a>
 
-          {/* Venture Highlights List */}
-          <div>
-            <h4 className="text-sm font-bold text-[#1B1C1C] font-serif mb-3 flex items-center">
-              <CheckCircle className="w-4 h-4 text-[#4A5D4E] mr-2" />
-              Venture Key Features &amp; Infrastructure
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {property.highlights.map((h, i) => (
-                <div key={i} className="flex items-center space-x-2 text-xs text-[#2D2D2D] bg-[#F9F7F2] p-2.5 rounded-xl border border-[#E5E0D5]">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#4A5D4E] shrink-0"></div>
-                  <span>{h}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Legal Scrutiny & Clear Title Guarantee */}
-          <div className="p-4 rounded-2xl bg-[#EAF0EC] border border-[#4A5D4E]/30 text-xs text-[#334537] flex items-start space-x-3">
-            <FileCheck className="w-5 h-5 text-[#4A5D4E] shrink-0 mt-0.5" />
-            <div>
-              <strong className="block font-serif text-[#1B1C1C]">100% Legal Title &amp; Bank Loan Assistance:</strong>
-              This layout is fully scrutinized by senior legal advocates. Link documents, Encumbrance Certificate (EC), and spot registration support are guaranteed.
-            </div>
-          </div>
-
-          {/* Action CTAs */}
-          <div className="pt-2 border-t border-[#E5E0D5] flex flex-col sm:flex-row gap-3 font-mono">
-            <a
-              href={`https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20know%20more%20details%20and%20inspect%20the%20layout%20for%20${encodeURIComponent(property.title)}.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 py-3.5 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-xs shadow-md text-center flex items-center justify-center space-x-2 transition-all cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>Inquire on WhatsApp</span>
-            </a>
-            
-            <a
-              href="tel:+919851633333"
-              className="px-6 py-3.5 rounded-xl bg-white hover:bg-[#F0EDED] border border-[#E5E0D5] text-[#1B1C1C] font-bold text-xs shadow-sm text-center flex items-center justify-center space-x-2 transition-all"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#4A5D4E]" />
-              <span>Call +91 98516 33333</span>
-            </a>
-          </div>
-
+          <a
+            href="tel:+919851633333"
+            className="sm:w-48 py-3.5 rounded-xl bg-white border border-[#E5E0D5] text-[#1B1C1C] font-sans font-bold text-xs uppercase tracking-[0.2em] flex items-center justify-center transition-all hover:bg-[#F9F7F2]"
+          >
+            Call +91 98516 33333
+          </a>
         </div>
 
       </div>

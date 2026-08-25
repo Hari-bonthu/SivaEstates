@@ -53,10 +53,14 @@ export default function ContactFormServerless({ lang }) {
     <section id="contact" className="py-20 bg-[#F9F7F2] relative border-t border-[#E5E0D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
+        {/* Header with luxury line indicator */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-[#EAF0EC] border border-[#4A5D4E]/30 text-[#334537] text-xs font-mono tracking-widest uppercase">
-            {t.badge}
+          <div className="flex items-center justify-center space-x-3 mb-2">
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
+            <span className="eyebrow-tag text-[#4A5D4E]">
+              {t.badge}
+            </span>
+            <div className="h-px w-8 bg-[#4A5D4E]"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] tracking-tight font-serif">
             {t.heading}
@@ -73,7 +77,7 @@ export default function ContactFormServerless({ lang }) {
             <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E5E0D5] space-y-6 shadow-sm">
               
               <div>
-                <span className="text-[11px] font-mono font-bold text-[#4A5D4E] uppercase tracking-wider block mb-1">
+                <span className="text-[11px] font-sans font-medium text-[#4A5D4E] uppercase tracking-[0.2em] block mb-1">
                   DIRECT CONSULTATION HOTLINE
                 </span>
                 <a
@@ -111,7 +115,7 @@ export default function ContactFormServerless({ lang }) {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#2D2D2D] text-xs font-mono space-y-1">
+              <div className="p-4 rounded-2xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#2D2D2D] text-xs font-sans space-y-1">
                 <div className="flex items-center text-[#4A5D4E] font-bold">
                   <MessageSquare className="w-4 h-4 mr-1.5" />
                   <span>Instant Lead Dispatch</span>
@@ -129,7 +133,7 @@ export default function ContactFormServerless({ lang }) {
             <form onSubmit={handleSubmit} className="space-y-5">
               
               <div>
-                <label className="block text-xs font-mono font-bold text-[#2D2D2D] uppercase mb-2">
+                <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
                   {t.name} *
                 </label>
                 <input
@@ -144,7 +148,7 @@ export default function ContactFormServerless({ lang }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-bold text-[#2D2D2D] uppercase mb-2">
+                  <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
                     {t.phone} *
                   </label>
                   <input
@@ -153,12 +157,12 @@ export default function ContactFormServerless({ lang }) {
                     placeholder="e.g. +91 98516 33333"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] placeholder-[#636863] focus:outline-none focus:border-[#4A5D4E] text-sm font-mono"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#F9F7F2] border border-[#E5E0D5] text-[#1B1C1C] placeholder-[#636863] focus:outline-none focus:border-[#4A5D4E] text-sm font-sans"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-bold text-[#2D2D2D] uppercase mb-2">
+                  <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
                     Email Address (Optional)
                   </label>
                   <input
@@ -172,7 +176,7 @@ export default function ContactFormServerless({ lang }) {
               </div>
 
               <div>
-                <label className="block text-xs font-mono font-bold text-[#2D2D2D] uppercase mb-2">
+                <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
                   {t.preferredLocation}
                 </label>
                 <select
@@ -188,7 +192,7 @@ export default function ContactFormServerless({ lang }) {
               </div>
 
               <div>
-                <label className="block text-xs font-mono font-bold text-[#2D2D2D] uppercase mb-2">
+                <label className="block text-xs font-sans font-bold text-[#2D2D2D] uppercase mb-2">
                   {t.message}
                 </label>
                 <textarea
@@ -203,14 +207,14 @@ export default function ContactFormServerless({ lang }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-base shadow-lg transition-all flex items-center justify-center space-x-2 cursor-pointer font-mono disabled:opacity-50"
+                className="w-full py-4 rounded-xl bg-[#4A5D4E] hover:bg-[#334537] text-white font-bold text-base shadow-lg transition-all flex items-center justify-center space-x-2 cursor-pointer font-sans disabled:opacity-50"
               >
                 <Send className="w-5 h-5" />
                 <span>{isSubmitting ? "Submitting Inquiry..." : t.submit}</span>
               </button>
 
               {submitted && (
-                <div className="p-3 rounded-xl bg-[#10B981]/20 text-[#10B981] text-xs text-center font-mono font-semibold flex items-center justify-center space-x-2">
+                <div className="p-3 rounded-xl bg-[#10B981]/20 text-[#10B981] text-xs text-center font-sans font-semibold flex items-center justify-center space-x-2">
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Inquiry recorded! Redirecting to WhatsApp to complete direct messaging...</span>
                 </div>

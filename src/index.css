@@ -2,28 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-editorial: "Newsreader", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+
+  --color-red-50: oklch(97.1% 0.013 17.38);
+  --color-red-200: oklch(88.5% 0.062 18.334);
+  --color-red-600: oklch(57.7% 0.245 27.325);
+  --color-red-700: oklch(50.5% 0.213 27.518);
+  --color-emerald-400: oklch(76.5% 0.177 163.223);
+  --color-black: #000;
+  --color-white: #fff;
+  --spacing: 0.25rem;
+
+  --container-sm: 24rem;
+  --container-md: 28rem;
+  --container-lg: 32rem;
+  --container-2xl: 42rem;
+  --container-3xl: 48rem;
+  --container-4xl: 56rem;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: calc(1 / 0.75);
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-relaxed: 1.625;
+  --radius-xs: 0.125rem;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --blur-xs: 4px;
+  --blur-sm: 8px;
+  --blur-md: 12px;
+  --aspect-video: 16 / 9;
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --default-font-family: var(--font-sans);
+  --default-mono-font-family: var(--font-mono);
+}
+
 @layer base {
   body {
     background-color: #F9F7F2;
     color: #2D2D2D;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6, .font-serif-title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-serif);
+    font-weight: 500;
+  }
+
+  .font-editorial {
+    font-family: var(--font-editorial);
   }
 
   code, pre, .font-mono-tag {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
   }
+}
+
+/* User-Specified Subtitle & Eyebrow Typography Styling */
+.brand-subtitle, .eyebrow-tag {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.25em;
+  color: #6B6860;
+  text-transform: uppercase;
+  display: block;
+  margin-top: calc(var(--spacing) * 0.5);
 }
 
 /* Custom Design System Utilities for Luxe Ivory & Sage */
 .luxe-card {
   background: #FFFFFF;
   border: 1px solid #E5E0D5;
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 4px 20px -2px rgba(45, 45, 45, 0.04);
 }
 
@@ -38,7 +120,7 @@
 }
 
 .luxe-badge {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -102,4 +184,54 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #4A5D4E;
+}
+
+/* User-Specified Editorial Navigation System */
+nav.editorial-nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  height: 42px;
+  padding-left: 8px;
+  background: #fbfbfa;
+  border-radius: 8px;
+}
+
+nav.editorial-nav a,
+nav.editorial-nav button.nav-item {
+  position: relative;
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #77736d;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+nav.editorial-nav a:hover,
+nav.editorial-nav button.nav-item:hover {
+  color: #1a1a1a;
+}
+
+nav.editorial-nav a.active,
+nav.editorial-nav button.nav-item.active {
+  color: #1a1a1a;
+}
+
+nav.editorial-nav a.active::after,
+nav.editorial-nav button.nav-item.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  height: 1px;
+  background: #1a1a1a;
 }
