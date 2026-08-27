@@ -31,7 +31,7 @@ export default function Footer({ lang = 'en' }) {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-white leading-tight">Siva Telugu Estates</p>
-                  <p className="text-[10px] text-[#888] tracking-wide uppercase">{tNav.region || 'GODAVARI REGION'}</p>
+                  {/* <p className="text-[10px] text-[#888] tracking-wide uppercase">{tNav.region || 'GODAVARI REGION'}</p> */}
                 </div>
               </div>
               <p className="text-xs text-[#9CA3AF] leading-relaxed max-w-[220px]">
@@ -150,8 +150,8 @@ export default function Footer({ lang = 'en' }) {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 shrink-0 text-[#888]" />
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">
-                  +91 98765 43210
+                <a href="tel:+919851633333" className="hover:text-white transition-colors">
+                  +91 98516 33333
                 </a>
               </li>
               <li className="flex items-center gap-2">

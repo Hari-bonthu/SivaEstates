@@ -27,12 +27,12 @@ export default function Hero({ lang }) {
             
             {/* Top Mono Pill Badge */}
             <div className="inline-block px-3.5 py-1 rounded-full bg-[#1A1D23] border border-[#F5A623]/30 text-[#F5A623] text-xs font-mono tracking-widest uppercase shadow-sm">
-              TRUSTED REAL ESTATE DEVELOPER &amp; CONSULTANT
+              TRUSTED REAL ESTATE CONSULTANT &amp; PROMOTER
             </div>
 
-            {/* Headline matching Reference 1 & 2 */}
+            {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] font-heading">
-              Building Your Family's <span className="text-[#F5A623]">Best Future</span> in Godavari Region
+              Building Your Family's <span className="text-[#F5A623]">Best Future</span> in Rajahmundry &amp; Kakinada
             </h1>
 
             {/* Description */}
@@ -77,7 +77,7 @@ export default function Hero({ lang }) {
 
           </div>
 
-          {/* Right Column: Founder & Director Card (Matching Reference 1 & 2) */}
+          {/* Right Column: Founder & Director Card */}
           <div className="lg:col-span-5 relative flex justify-center">
             
             <div className="relative w-full max-w-md rounded-3xl overflow-hidden bg-[#1A1D23] border border-white/10 shadow-2xl group">
@@ -85,7 +85,7 @@ export default function Hero({ lang }) {
               {/* Founder Image */}
               <div className="relative h-[360px] sm:h-[400px] overflow-hidden bg-[#0F1115]">
                 <img
-                  src="./images/siva_yedida_professional.jpg"
+                  src="./images/siva_profile_cutout.png"
                   alt="Mr. Siva Yedida - Founder & Director"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />

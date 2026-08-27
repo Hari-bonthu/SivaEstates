@@ -45,7 +45,7 @@ export default function ContactFormServerless({ lang = 'en' }) {
     const waMessage = `Hi Siva Telugu Estates, my name is ${encodeURIComponent(formData.name)}. Phone: ${encodeURIComponent(formData.phone)}. Preferred Location: ${encodeURIComponent(formData.location)}. Note: ${encodeURIComponent(formData.message || 'I would like to book a site visit.')}`;
     
     setTimeout(() => {
-      window.open(`https://wa.me/919876543210?text=${waMessage}`, '_blank');
+      window.open(`https://wa.me/919851633333?text=${waMessage}`, '_blank');
     }, 800);
   };
 
@@ -72,60 +72,52 @@ export default function ContactFormServerless({ lang = 'en' }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Info Column */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E8E2DA] space-y-6 shadow-sm">
-              
-              <div>
-                <span className="text-[11px] font-sans font-medium text-[#C8312A] uppercase tracking-[0.2em] block mb-1">
-                  DIRECT CONSULTATION HOTLINE
+          {/* Left Column: Big Profile + Direct Routing Card */}
+          <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-[#E5E0D5] shadow-xs flex flex-col space-y-5">
+            
+            {/* Big Siva Profile Portrait Image */}
+            <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#F9F7F2] border border-[#E5E0D5] shadow-xs group">
+              <img
+                src="./images/siva_profile_cutout.png"
+                alt="Mr. Siva Yedida - Managing Director"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+              {/* Founder Tag Overlay at bottom of photo */}
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent p-4 text-white">
+                <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[#E8E2DA] block">
+                  Founder &amp; Managing Director
                 </span>
-                <a
-                  href="tel:+919876543210"
-                  className="text-3xl font-bold text-[#1A1A1A] hover:text-[#C8312A] font-serif flex items-center mt-1 transition-colors"
-                >
-                  <Phone className="w-7 h-7 text-[#C8312A] mr-3 animate-pulse" />
-                  +91 98765 43210
-                </a>
+                <h3 className="text-lg sm:text-xl font-serif font-bold text-white mt-0.5">
+                  Mr. Siva Yedida
+                </h3>
               </div>
-
-              <div className="space-y-4 pt-4 border-t border-[#E8E2DA] text-xs text-[#2D2D2D]">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-[#C8312A] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-[#1A1A1A] block font-serif">Rajahmundry Head Office:</strong>
-                    Danavaipeta, Rajahmundry, Andhra Pradesh - 533103.
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-[#C8312A] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-[#1A1A1A] block font-serif">Kakinada Branch Office:</strong>
-                    Ramanayyapeta Commercial Center, Kakinada, Andhra Pradesh - 533003.
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-[#C8312A] shrink-0" />
-                  <div>
-                    <strong className="text-[#1A1A1A] block">Mon - Sun: 9:00 AM - 8:00 PM</strong>
-                    Free AC Car Facility Available for Site Visits
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#2D2D2D] text-xs font-sans space-y-1">
-                <div className="flex items-center text-[#C8312A] font-bold">
-                  <MessageSquare className="w-4 h-4 mr-1.5" />
-                  <span>Instant WhatsApp Routing</span>
-                </div>
-                <p className="text-[11px] text-[#6B6860]">
-                  Submissions automatically notify our team and open a direct WhatsApp chat with project brochures.
-                </p>
-              </div>
-
             </div>
+
+            {/* Instant WhatsApp Routing Block */}
+            <div className="p-5 rounded-2xl bg-[#F9F7F2] border border-[#E5E0D5] space-y-1.5">
+              <span className="text-[10px] font-sans font-semibold text-[#6B6860] uppercase tracking-[0.2em] block">
+                Instant WhatsApp Routing
+              </span>
+              <a
+                href="tel:+919851633333"
+                className="text-2xl sm:text-3xl font-bold text-[#1B1C1C] hover:text-[#3E5C49] font-serif flex items-center transition-colors"
+              >
+                <Phone className="w-6 h-6 text-[#3E5C49] mr-2.5 shrink-0" />
+                <span>+91 98516 33333</span>
+              </a>
+            </div>
+
+            {/* Instant Lead Dispatch Block */}
+            <div className="p-5 rounded-2xl bg-[#F9F7F2] border border-[#E5E0D5] text-xs space-y-1.5">
+              <div className="flex items-center text-[#3E5C49] font-bold font-sans">
+                <MessageSquare className="w-4 h-4 mr-2 shrink-0" />
+                <span className="text-sm font-serif">Instant Lead Dispatch</span>
+              </div>
+              <p className="text-xs text-[#6B6860] leading-relaxed">
+                Submissions automatically notify Director Mr. Siva Yedida via email and direct WhatsApp lead routing.
+              </p>
+            </div>
+
           </div>
 
           {/* Right Form Column */}
@@ -154,7 +146,7 @@ export default function ContactFormServerless({ lang = 'en' }) {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 98516 33333"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"

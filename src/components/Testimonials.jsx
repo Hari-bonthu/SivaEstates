@@ -22,10 +22,10 @@ export default function Testimonials({ lang = 'en' }) {
     },
     {
       name: "Ramesh Babu",
-      role: "NRI Investor — Dallas, USA",
+      role: "Doctor Orthopedic",
       location: "Rajahmundry • Diwancheruvu Corridor",
       text: "Being an NRI, transparent legal documents are my main concern. Siva Yedida garu sent video tours and legal copies via WhatsApp. Everything was clear and bank loan got approved smoothly.",
-      rating: 5
+      rating: 4.5
     }
   ];
 

@@ -8,14 +8,14 @@ export const translations = {
       offices: "Offices",
       contact: "Contact",
       bookVisit: "Book a site visit",
-      callUs: "+91 98765 43210",
-      region: "GODAVARI REGION"
+      callUs: "+91 98516 33333",
+      // region: "GODAVARI REGION"
     },
     hero: {
-      eyebrow: "GODAVARI REGION · SINCE 2014",
+      eyebrow: "TRUSTED REAL ESTATE CONSULTANT · SINCE 2014",
       titleLine1: "Building your family's",
-      titleLine2: "best future in the",
-      titleLine3: "Godavari region",
+      titleLine2: "best future — here in",
+      titleLine3: "Rajahmundry & Kakinada",
       description: "Approved plots, thoughtfully designed villas and managed farmland — delivered with clear titles, fixed pricing and paperwork you can actually read.",
       ctaExplore: "Explore projects",
       ctaVideos: "Watch virtual tours",
@@ -38,7 +38,7 @@ export const translations = {
     pillars: {
       eyebrow: "A PROMISE WE KEEP ON EVERY SINGLE DEAL",
       heading: "Our Non-Negotiable Commitment",
-      subheading: "Every venture developed under Siva Telugu Estates is built upon rigorous legal scrutiny, aesthetic architecture, and transparent community stewardship.",
+      subheading: "Every venture promoted by Siva Telugu Estates is backed by rigorous legal scrutiny, transparent documentation, and full DTCP / VMRDA / AP RERA approvals.",
       items: [
         {
           title: "Family Happiness",
@@ -71,13 +71,13 @@ export const translations = {
       items: [
         {
           number: "01",
-          title: "Site selection",
-          desc: "We show you options that match your budget, purpose, and preferred corridor. No pressure — just land."
+          title: "Site View / Selection",
+          desc: "We schedule a free AC car site visit to show you the venture in person. You inspect the land, road access, and layout boundaries with our team — no pressure, just the plot."
         },
         {
           number: "02",
-          title: "Legal due diligence",
-          desc: "EC check, patta verification, survey number mapping — every document verified before you sign anything."
+          title: "Documentation",
+          desc: "EC check, patta verification, sale deed review, survey number mapping — every document is vetted by our legal advisors before you commit to anything."
         },
         {
           number: "03",
@@ -124,8 +124,8 @@ export const translations = {
         tag: "MAIN HEADQUARTERS",
         name: "Rajahmundry HQ",
         desc: "Serving East Godavari with premier residential plot ventures, NH-16 highway layouts, and Riverview plots.",
-        address: "Main Road, Near Morampudi Junction, Rajahmundry, Andhra Pradesh - 533107",
-        phone: "+91 98765 43210",
+        address: "Lala cheruvu Rajahmundry, Andhra Pradesh - 533106",
+        phone: "+91 98516 33333",
         areas: "Morampudi, Dowleswaram, Diwancheruvu, Lalacheruvu, Hukumpeta",
         visitBtn: "Visit Rajahmundry Office"
       },
@@ -133,8 +133,8 @@ export const translations = {
         tag: "NEWLY OPENED BRANCH",
         name: "Kakinada Branch",
         desc: "Expanding smart city opportunities with coastal open plot layouts, port corridor lands, and villa plots.",
-        address: "Main Commercial Center, Ramanayyapeta, Kakinada, Andhra Pradesh - 533003",
-        phone: "+91 98765 43210",
+        address: "Atchampeta Junction, Kakinada, Andhra Pradesh - 533005",
+        phone: "+91 98516 33333",
         areas: "Ramanayyapeta, Samalkot Road, Sarpavaram, ADB Road, Port Belt",
         visitBtn: "Visit Kakinada Office"
       }
@@ -183,7 +183,7 @@ export const translations = {
       explore: "Explore",
       projects: "Projects",
       contact: "Contact",
-      address: "Danavaipeta, Rajahmundry, Andhra Pradesh 533103",
+      address: "Lala cheruvu, Rajahmundry, Andhra Pradesh 533106",
       copyright: "© 2026 Siva Telugu Estates. All rights reserved.",
       rera: "RERA: AP/R&B/2024/50301 · DTCP layouts approved"
     },
@@ -206,7 +206,7 @@ export const translations = {
       subheading: "Founded by Mr. Siva Yedida, we are committed to delivering legally spotless, high-appreciation land layouts.",
       storyTitle: "Our 12-Year Heritage",
       storyP1: "Since 2014, Siva Telugu Estates has stood as a symbol of integrity and reliability in the East Godavari real estate landscape. We believe land ownership is not just a commercial transaction — it is the foundation of a family's future and generational security.",
-      storyP2: "Every layout we develop undergo thorough legal verification by experienced advocates, rigorous soil and master plan inspections, and full DTCP / VMRDA / AP RERA approvals before being presented to clients.",
+      storyP2: "Every venture we promote undergoes thorough legal verification by experienced advocates, rigorous soil and master plan inspections, and full DTCP / VMRDA / AP RERA approvals before being presented to clients.",
       milestone1: "1500+ Happy Families",
       milestone2: "50+ Successful Ventures",
       milestone3: "100% Clear Title Guarantee",
@@ -234,7 +234,7 @@ export const translations = {
       offices: "ఆఫీసులు",
       contact: "సంప్రదించండి",
       bookVisit: "సైట్ విజిట్ బుక్ చేయండి",
-      callUs: "+91 98765 43210",
+      callUs: "+91 98516 33333",
       region: "గోదావరి ప్రాంతం"
     },
     hero: {
@@ -351,7 +351,7 @@ export const translations = {
         name: "రాజమండ్రి హెచ్‌క్యూ",
         desc: "ఎన్‌హెచ్-16 హైవే వెంచర్లు, మోరంపూడి, గోదావరి రివర్‌వ్యూ ప్లాట్లతో తూర్పు గోదావరి ప్రజలకు అందుబాటులో.",
         address: "మెయిన్ రోడ్, మోరంపూడి జంక్షన్ వద్ద, రాజమండ్రి, ఆంధ్రప్రదేశ్ - 533107",
-        phone: "+91 98765 43210",
+        phone: "+91 98516 33333",
         areas: "మోరంపూడి, ధవళేశ్వరం, దివాన్‌చెరువు, లాలాచెరువు, హుకుంపేట",
         visitBtn: "రాజమండ్రి ఆఫీసును సందర్శించండి"
       },
@@ -360,7 +360,7 @@ export const translations = {
         name: "కాకినాడ బ్రాంచ్",
         desc: "కాకినాడ స్మార్ట్ సిటీ, పోర్ట్ రోడ్ మరియు సామర్లకోట బెల్ట్ ప్లాట్లతో సరికొత్త విస్తరణ.",
         address: "మెయిన్ కమర్షియల్ సెంటర్, రామానయ్యపేట, కాకినాడ, ఆంధ్రప్రదేశ్ - 533003",
-        phone: "+91 98765 43210",
+        phone: "+91 98516 33333",
         areas: "రామానయ్యపేట, సామర్లకోట రోడ్, సర్పవరం, ఏడిబి రోడ్, పోర్ట్ బెల్ట్",
         visitBtn: "కాకినాడ ఆఫీసును సందర్శించండి"
       }

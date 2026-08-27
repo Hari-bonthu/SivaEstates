@@ -106,7 +106,7 @@ export default function HeroSlider({ lang = 'en' }) {
               {/* Profile Photo */}
               <div className="relative h-[280px] sm:h-[360px] md:h-[400px] overflow-hidden bg-[#F0EDED]">
                 <img
-                  src="./images/siva_yedida_professional.jpg"
+                  src="./images/siva_profile_cutout.png"
                   alt="Mr. Siva Yedida - Founder & Managing Director"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
@@ -134,7 +134,7 @@ export default function HeroSlider({ lang = 'en' }) {
                   </div>
 
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+919851633333"
                     className="p-2.5 sm:p-3 rounded-xl bg-[#FCECEA] hover:bg-[#C8312A] hover:text-white text-[#C8312A] transition-all shadow-xs"
                     title="Call Directly"
                     aria-label="Call Director"

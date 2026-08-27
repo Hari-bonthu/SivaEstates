@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { properties } from '../data/properties';
 import { MapPin, PhoneCall, ShieldCheck, CheckCircle2, ArrowLeft, Maximize2, Compass, Ruler, IndianRupee, MessageCircle } from 'lucide-react';
-import MagneticCarousel from '../components/MagneticCarousel';
 
 export default function VenturePage() {
   const { id } = useParams();
@@ -237,40 +236,36 @@ export default function VenturePage() {
         </div>
       </div>
 
-      {/* ─── SECTION 2: STANDALONE FULL-WIDTH MAGNETIC GALLERY SECTION ───────────── */}
+      {/* ─── SECTION 2: SITE PHOTO GALLERY ──────────────────────────────────────── */}
       <section className="w-full bg-[#F3EFEA]/80 py-16 border-y border-[#E8E2DA]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Gallery Header */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
             <div>
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="h-px w-8 bg-[#C8312A]"></div>
-                <span className="eyebrow-tag text-[#C8312A]">
-                  SITE GALLERY • INTERACTIVE DOCK
-                </span>
-              </div>
               <h3 className="text-2xl sm:text-3xl font-normal text-[#1A1A1A] font-serif">
                 Real Site Photography &amp; Layout Walkthrough
               </h3>
+              <p className="text-xs text-[#6B6860] font-sans mt-1">
+                Actual photos of the venture site, layout roads, and amenities
+              </p>
             </div>
-            <p className="text-xs text-[#6B6860] font-sans">
-              ✦ Hover across image bars to magnify • Click any card to expand full view
-            </p>
           </div>
 
-          {/* Full-Width Magnetic Carousel with zero scrollbar */}
-          <div className="w-full relative">
-            <MagneticCarousel
-              images={gallery.map(img => (typeof img === 'string' ? { src: img } : img))}
-              collapsedWidth={100}
-              hoverWidth={240}
-              collapsedHeight={380}
-              hoverHeight={440}
-              openSize={580}
-              gap={16}
-              influence={220}
-            />
+          {/* Static Responsive Photo Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {gallery.map((img, idx) => (
+              <div
+                key={idx}
+                className="rounded-xl overflow-hidden bg-[#E8E2DA] aspect-square shadow-xs hover:shadow-md transition-shadow group"
+              >
+                <img
+                  src={typeof img === 'string' ? img : img.src}
+                  alt={`${property.title} - Site Photo ${idx + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
           </div>
 
         </div>

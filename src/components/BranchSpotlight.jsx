@@ -33,7 +33,7 @@ export default function BranchSpotlight({ lang = 'en' }) {
           <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all shadow-sm flex flex-col justify-between">
             <div className="relative h-44 sm:h-48 bg-[#F0EDED] p-5 sm:p-6 flex flex-col justify-between overflow-hidden">
               <img 
-                src="./images/luxury_villa_venture_1786442598108.jpg" 
+                src="./images/ventures/jetty-mayfair.jpg" 
                 alt="Rajahmundry HQ" 
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
                 loading="lazy"
@@ -64,7 +64,7 @@ export default function BranchSpotlight({ lang = 'en' }) {
                 </div>
                 <div className="flex items-center space-x-2.5">
                   <Phone className="w-4 h-4 text-[#C8312A] shrink-0" />
-                  <a href="tel:+919876543210" className="hover:text-[#C8312A] font-bold">
+                  <a href="tel:+919851633333" className="hover:text-[#C8312A] font-bold">
                     {t.rajahmundry.phone}
                   </a>
                 </div>
@@ -81,7 +81,7 @@ export default function BranchSpotlight({ lang = 'en' }) {
 
               <div className="pt-2">
                 <a
-                  href="https://wa.me/919876543210?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20Rajahmundry%20HQ."
+                  href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20Rajahmundry%20HQ."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-red w-full py-3 sm:py-3.5 text-xs font-bold shadow-md transition-all flex items-center justify-center space-x-2 active:scale-95"
@@ -129,7 +129,7 @@ export default function BranchSpotlight({ lang = 'en' }) {
                 </div>
                 <div className="flex items-center space-x-2.5">
                   <Phone className="w-4 h-4 text-[#C8312A] shrink-0" />
-                  <a href="tel:+919876543210" className="hover:text-[#C8312A] font-bold">
+                  <a href="tel:+919851633333" className="hover:text-[#C8312A] font-bold">
                     {t.kakinada.phone}
                   </a>
                 </div>
@@ -146,7 +146,7 @@ export default function BranchSpotlight({ lang = 'en' }) {
 
               <div className="pt-2">
                 <a
-                  href="https://wa.me/919876543210?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20new%20Kakinada%20Branch."
+                  href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20new%20Kakinada%20Branch."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-red w-full py-3 sm:py-3.5 text-xs font-bold shadow-md transition-all flex items-center justify-center space-x-2 active:scale-95"

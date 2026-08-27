@@ -5,10 +5,23 @@ import { Link } from 'react-router-dom';
 export default function ProjectGalleryModal({ project, onClose }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const touchStartX = useRef(null);
+  const thumbnailContainerRef = useRef(null);
+  const activeThumbRef = useRef(null);
 
   const images = project?.gallery && project.gallery.length > 0
     ? project.gallery
-    : [project?.thumbnail || './images/luxury_villa_venture_1786442598108.jpg'];
+    : [project?.thumbnail || './images/ventures/jetty-mayfair.jpg'];
+
+  // Auto-scroll active thumbnail into view
+  useEffect(() => {
+    if (activeThumbRef.current && thumbnailContainerRef.current) {
+      activeThumbRef.current.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest'
+      });
+    }
+  }, [activeIdx]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -53,7 +66,7 @@ export default function ProjectGalleryModal({ project, onClose }) {
     const message = encodeURIComponent(
       `Hello Siva Telugu Estates, I am looking at the site photos for "${project?.title}". Please share full brochure and pricing.`
     );
-    window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
+    window.open(`https://wa.me/919851633333?text=${message}`, '_blank');
   };
 
   if (!project) return null;
@@ -135,34 +148,79 @@ export default function ProjectGalleryModal({ project, onClose }) {
           )}
         </div>
 
-        {/* Thumbnail Strip with horizontal smooth scrolling */}
+        {/* Thumbnail Dock Alternative — Clean track with nav controls and zero scrollbars */}
         {images.length > 1 && (
-          <div className="p-2.5 sm:p-3.5 bg-[#141414] border-t border-white/10 flex items-center gap-2 overflow-x-auto scrollbar-thin">
-            {images.map((imgSrc, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIdx(idx)}
-                className={`relative h-12 w-16 sm:h-16 sm:w-24 rounded-lg sm:rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
-                  activeIdx === idx ? 'border-[#C8312A] scale-105 shadow-md' : 'border-transparent opacity-50 hover:opacity-100'
-                }`}
-                aria-label={`Photo ${idx + 1}`}
-              >
-                <img
-                  src={imgSrc}
-                  alt={`Thumbnail ${idx + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </button>
-            ))}
+          <div className="relative bg-[#141414] border-t border-white/10 px-2 sm:px-4 py-2.5 sm:py-3 flex items-center">
+            
+            {/* Scroll Left Button */}
+            <button
+              onClick={() => {
+                if (thumbnailContainerRef.current) {
+                  thumbnailContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+                }
+              }}
+              className="p-1.5 rounded-lg bg-white/10 hover:bg-[#C8312A] text-white/70 hover:text-white transition-all mr-1.5 shrink-0 hidden sm:flex items-center justify-center cursor-pointer"
+              title="Previous thumbnails"
+              aria-label="Scroll thumbnails left"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* Thumbnail Track with Zero Scrollbar */}
+            <div 
+              ref={thumbnailContainerRef}
+              className="flex-1 flex items-center gap-2 overflow-x-auto no-scrollbar scrollbar-none py-1 scroll-smooth"
+            >
+              {images.map((imgSrc, idx) => (
+                <button
+                  key={idx}
+                  ref={idx === activeIdx ? activeThumbRef : null}
+                  onClick={() => setActiveIdx(idx)}
+                  className={`relative h-12 w-16 sm:h-14 sm:w-20 rounded-lg overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
+                    activeIdx === idx 
+                      ? 'border-[#C8312A] scale-105 shadow-md ring-2 ring-[#C8312A]/30 opacity-100' 
+                      : 'border-white/10 opacity-50 hover:opacity-90 hover:border-white/30'
+                  }`}
+                  aria-label={`Photo ${idx + 1}`}
+                >
+                  <img
+                    src={imgSrc}
+                    alt={`Thumbnail ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {activeIdx === idx && (
+                    <div className="absolute inset-0 bg-[#C8312A]/10 pointer-events-none" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Scroll Right Button */}
+            <button
+              onClick={() => {
+                if (thumbnailContainerRef.current) {
+                  thumbnailContainerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+                }
+              }}
+              className="p-1.5 rounded-lg bg-white/10 hover:bg-[#C8312A] text-white/70 hover:text-white transition-all ml-1.5 shrink-0 hidden sm:flex items-center justify-center cursor-pointer"
+              title="Next thumbnails"
+              aria-label="Scroll thumbnails right"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+
           </div>
         )}
 
         {/* Footer Actions */}
         <div className="p-3 sm:p-4 bg-[#1A1A1A] border-t border-white/10 flex flex-wrap items-center justify-between gap-2.5 text-xs font-sans">
-          <span className="text-[#9CA3AF] text-[11px] hidden md:inline">
-            Swipe or use arrow keys to navigate photos
-          </span>
+          <div className="flex items-center gap-2 text-[#9CA3AF] text-[11px]">
+            <span className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80 font-mono">
+              {activeIdx + 1} / {images.length}
+            </span>
+            <span className="hidden md:inline">Use arrow keys or swipe to browse</span>
+          </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end ml-auto">
             <button

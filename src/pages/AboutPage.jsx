@@ -19,12 +19,6 @@ export default function AboutPage({ lang = 'en' }) {
       {/* Hero Header */}
       <section className="pt-12 sm:pt-16 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <div className="h-px w-6 bg-[#C8312A]"></div>
-            <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ color: '#C8312A', display: 'inline' }}>
-              {t.eyebrow}
-            </span>
-          </div>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-normal leading-tight mb-3 sm:mb-4 tracking-tight">
             {t.heading}
           </h1>
@@ -44,7 +38,7 @@ export default function AboutPage({ lang = 'en' }) {
               <div className="relative w-full max-w-sm sm:max-w-md rounded-2xl sm:rounded-3xl overflow-hidden bg-[#F5F0EB] border border-[#E8E2DA] shadow-xl group">
                 <div className="h-[280px] sm:h-[380px] md:h-[420px] overflow-hidden bg-[#E8E2DA]">
                   <img
-                    src="./images/siva_yedida_professional.jpg"
+                    src="./images/siva_profile_cutout.png"
                     alt="Mr. Siva Yedida"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />

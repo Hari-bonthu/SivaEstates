@@ -94,9 +94,9 @@ export default function Navbar({ lang = 'en', setLang }) {
               <span className="text-[14px] sm:text-[15px] font-bold tracking-tight text-[#1A1A1A] font-sans">
                 Siva Telugu Estates
               </span>
-              <span className="text-[9px] text-[#888] font-sans tracking-widest uppercase">
-                {t.region || 'GODAVARI REGION'}
-              </span>
+              {/* <span className="text-[9px] text-[#888] font-sans tracking-widest uppercase">
+                {t.region}
+              </span> */}
             </div>
           </Link>
 

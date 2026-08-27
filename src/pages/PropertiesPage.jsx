@@ -37,8 +37,6 @@ export default function PropertiesPage({ lang = 'en' }) {
     { key: 'All', label: t.filters.all },
     { key: 'Plots', label: t.filters.plots },
     { key: 'Villas', label: t.filters.villas },
-    { key: 'Farmland', label: t.filters.farmland },
-    { key: 'Apartments', label: t.filters.apartments },
   ];
 
   const filteredProjects = properties.filter((project) =>
@@ -51,12 +49,6 @@ export default function PropertiesPage({ lang = 'en' }) {
       {/* Page Hero */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 sm:pb-12">
         <div className="max-w-xl">
-          <div className="flex items-center gap-2 mb-2 sm:mb-4">
-            <div className="h-px w-6 bg-[#C8312A]"></div>
-            <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ color: '#C8312A', display: 'inline' }}>
-              {t.eyebrow}
-            </span>
-          </div>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-normal leading-tight mb-3 sm:mb-4 tracking-tight">
             {t.heading}
           </h1>

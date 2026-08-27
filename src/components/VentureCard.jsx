@@ -27,7 +27,7 @@ export default function VentureCard({ project, onInspect }) {
     const message = encodeURIComponent(
       `Hello Siva Telugu Estates, I am interested in "${project.title}". Please share pricing and brochure.`
     );
-    window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
+    window.open(`https://wa.me/919851633333?text=${message}`, '_blank');
   };
 
   const typeLabel = project.displayType || getTypeLabel(project.type);

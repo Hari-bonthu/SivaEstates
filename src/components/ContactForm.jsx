@@ -43,53 +43,50 @@ export default function ContactForm({ lang }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
           
           {/* Left Info Column */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#1A1D23] p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6">
-              
-              <div>
-                <span className="text-[11px] font-mono font-bold text-[#F5A623] uppercase tracking-wider block mb-1">
-                  DIRECT CONSULTATION HOTLINE
+          <div className="lg:col-span-5 bg-[#1A1D23] p-6 sm:p-7 rounded-3xl border border-white/10 space-y-5">
+
+            {/* Big Siva Profile Image Card */}
+            <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#0F1115] border border-white/10 shadow-lg group">
+              <img
+                src="./images/siva_profile_cutout.png"
+                alt="Mr. Siva Yedida - Managing Director"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 text-white">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#F5A623] block">
+                  Founder &amp; Managing Director
                 </span>
-                <a
-                  href="tel:+919851633333"
-                  className="text-3xl font-extrabold text-white hover:text-[#F5A623] font-heading flex items-center mt-1 transition-colors"
-                >
-                  <Phone className="w-7 h-7 text-[#F5A623] mr-3 animate-pulse" />
-                  +91 98516 33333
-                </a>
+                <h3 className="text-lg sm:text-xl font-bold text-white font-heading mt-0.5">
+                  Mr. Siva Yedida
+                </h3>
               </div>
-
-              <div className="space-y-4 pt-4 border-t border-white/10 text-xs text-slate-300">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-[#F5A623] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white block font-heading">Rajahmundry Head Office:</strong>
-                    Main Road, Morampudi Junction, Rajahmundry AP.
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white block font-heading">Kakinada Branch Office:</strong>
-                    Ramanayyapeta Commercial Center, Kakinada AP.
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-[#F5A623] shrink-0" />
-                  <div>
-                    <strong className="text-white block">{t.officeHours}</strong>
-                    Free AC Car Facility Available for Site Visits
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#0F1115] border border-white/10 text-slate-300 text-xs font-mono">
-                Complimentary AC car pickup provided for site inspections across Rajahmundry &amp; Kakinada.
-              </div>
-
             </div>
+
+            {/* Instant WhatsApp Routing Block */}
+            <div className="p-5 rounded-2xl bg-[#0F1115] border border-white/10 space-y-1.5">
+              <span className="text-[11px] font-mono font-bold text-[#F5A623] uppercase tracking-wider block">
+                Instant WhatsApp Routing
+              </span>
+              <a
+                href="tel:+919851633333"
+                className="text-2xl sm:text-3xl font-extrabold text-white hover:text-[#F5A623] font-heading flex items-center transition-colors"
+              >
+                <Phone className="w-6 h-6 text-[#F5A623] mr-2.5 shrink-0" />
+                <span>+91 98516 33333</span>
+              </a>
+            </div>
+
+            {/* Instant Lead Dispatch Block */}
+            <div className="p-5 rounded-2xl bg-[#0F1115] border border-white/10 text-xs space-y-1.5">
+              <div className="flex items-center text-[#F5A623] font-bold font-heading">
+                <MessageSquare className="w-4 h-4 mr-2 shrink-0" />
+                <span className="text-sm">Instant Lead Dispatch</span>
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Submissions automatically notify Director Mr. Siva Yedida via email and direct WhatsApp lead routing.
+              </p>
+            </div>
+
           </div>
 
           {/* Right Form Column */}

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { X, MessageCircle, PhoneCall, MapPin, CheckCircle2, Building2, Banknote, ShieldCheck, Car, RotateCcw } from 'lucide-react';
+import { X, MessageCircle, PhoneCall, Phone, MapPin, CheckCircle2, Building2, Banknote, ShieldCheck, Car, RotateCcw } from 'lucide-react';
 
 // ─── FAQ Data ────────────────────────────────────────────────────────────────
 const FAQS = [
@@ -7,7 +7,7 @@ const FAQS = [
     id: 'plots',
     icon: <Building2 className="w-4 h-4" />,
     label: 'I want to buy a plot',
-    response: "Great! We have open plots in Rajahmundry and Kakinada. Here are our current ventures:",
+    response: "Great! We promote premier approved ventures in Rajahmundry. Here are our current ventures:",
     type: 'ventures'
   },
   {
@@ -48,15 +48,15 @@ const FAQS = [
 ];
 
 const VENTURES_DATA = [
-  { name: 'Jetty Mayfair Luxury Villa Layout', location: 'Rajahmundry', price: '₹18,500 / Sq.Yd', status: 'Fast Selling' },
-  { name: 'Seshadri Heights Gated Community', location: 'Rajahmundry', price: '₹16,800 / Sq.Yd', status: 'Newly Launched' },
-  { name: 'Kakinada Port & Smart City Layout', location: 'Kakinada', price: '₹22,000 / Sq.Yd', status: 'Fast Selling' },
+  { name: 'Jetty Mayfair Luxury Villa Layout', location: 'Rajahmundry', price: '₹18,500 / Sq.Yd', status: 'Ongoing' },
+  { name: 'Sreenivasam Lake View Villas', location: 'Rajahmundry', price: '₹15,500 / Sq.Yd', status: 'Ongoing' },
+  { name: 'Sree Harivasam Open Plots', location: 'Rajahmundry', price: '₹14,500 / Sq.Yd', status: 'Completed' },
 ];
 
 const PRICING_DATA = [
   { venture: 'Jetty Mayfair', sizes: '150–500 Sq.Yds', price: '₹18,500 / Sq.Yd', min: '~₹27.75 Lakhs' },
-  { venture: 'Seshadri Heights', sizes: '160–450 Sq.Yds', price: '₹16,800 / Sq.Yd', min: '~₹26.88 Lakhs' },
-  { venture: 'Kakinada Smart City', sizes: '200–600 Sq.Yds', price: '₹22,000 / Sq.Yd', min: '~₹44.00 Lakhs' },
+  { venture: 'Sreenivasam Lake View', sizes: '180–400 Sq.Yds', price: '₹15,500 / Sq.Yd', min: '~₹27.90 Lakhs' },
+  { venture: 'Sree Harivasam', sizes: '150–350 Sq.Yds', price: '₹14,500 / Sq.Yd', min: '~₹21.75 Lakhs' },
 ];
 
 // ─── Message Renderer ─────────────────────────────────────────────────────────
@@ -245,8 +245,8 @@ function BotMessage({ msg, onQuickReply }) {
           </div>
           <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-11 h-11 rounded-xl overflow-hidden border border-[#E8E2DA]">
-                <img src="./images/siva_yedida_professional.jpg" alt="Siva Yedida" className="w-full h-full object-cover object-top" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#E8E2DA] bg-[#F5F0EB]">
+                <img src="./images/siva_profile_cutout.png" alt="Siva Yedida" className="w-full h-full object-cover object-top" />
               </div>
               <div>
                 <p className="font-bold text-[#1B1C1C] font-serif text-sm">Siva Yedida</p>
