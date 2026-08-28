@@ -30,31 +30,27 @@ export default function VenturePage() {
 
   const otherVentures = properties.filter(p => p.id !== property.id).slice(0, 3);
 
-  const scrollToBooking = (e) => {
-    e.preventDefault();
-    document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="min-h-screen bg-[#F5F0EB] font-sans">
 
-      {/* Sub-Header Navigation Bar matching screenshot */}
-      <div className="bg-white border-b border-[#E8E2DA] px-4 sm:px-8 py-3.5 sticky top-16 z-30">
+      {/* Sub-Header Navigation Bar matching navbar frosted glass */}
+      <div 
+        className="sticky top-16 sm:top-18 z-30 px-4 sm:px-8 py-3.5 transition-all duration-300 shadow-2xs"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.70)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(232, 226, 218, 0.50)',
+        }}
+      >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
-            className="flex items-center space-x-2 text-xs font-sans font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors"
+            className="flex items-center space-x-2 text-xs font-sans font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors group cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-[#C8312A]" />
             <span>Back to All Ventures</span>
           </Link>
-
-          <button
-            onClick={scrollToBooking}
-            className="px-4 py-2 rounded-lg border border-[#E8E2DA] hover:bg-[#1A1A1A] hover:text-white text-[#1A1A1A] text-xs font-sans font-bold tracking-[0.1em] transition-all cursor-pointer shadow-xs"
-          >
-            Book Site Visit
-          </button>
         </div>
       </div>
 
