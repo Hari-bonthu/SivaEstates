@@ -48,15 +48,21 @@ const FAQS = [
 ];
 
 const VENTURES_DATA = [
-  { name: 'Jetty Mayfair Luxury Villa Layout', location: 'Rajahmundry', price: '₹18,500 / Sq.Yd', status: 'Ongoing' },
-  { name: 'Sreenivasam Lake View Villas', location: 'Rajahmundry', price: '₹15,500 / Sq.Yd', status: 'Ongoing' },
-  { name: 'Sree Harivasam Open Plots', location: 'Rajahmundry', price: '₹14,500 / Sq.Yd', status: 'Completed' },
+  { name: 'Jetty Mayfair Luxury Villa Layout', location: 'Rajahmundry', price: '₹18,000 / Sq.Yd', status: 'Ongoing' },
+  { name: 'Sreenivasam Lake View Villas', location: 'Kakinada', price: '₹25,000 / Sq.Yd', status: 'Ongoing' },
+  { name: 'Sree Harivasam Open Plots', location: 'Rajahmundry', price: '₹15,000 / Sq.Yd', status: 'Completed' },
+  { name: 'Sreenivasam Landmark Venture', location: 'Rajahmundry', price: '₹13,000 / Sq.Yd', status: 'Completed' },
+  { name: 'Sree Venkatesam Gated Layout', location: 'Rajahmundry', price: '₹15,000 / Sq.Yd', status: 'Completed' },
+  { name: 'Seshadri Heights Gated Community', location: 'Rajahmundry', price: '₹4,000 / Sq.Yd', status: 'Completed' },
 ];
 
 const PRICING_DATA = [
-  { venture: 'Jetty Mayfair', sizes: '150–500 Sq.Yds', price: '₹18,500 / Sq.Yd', min: '~₹27.75 Lakhs' },
-  { venture: 'Sreenivasam Lake View', sizes: '180–400 Sq.Yds', price: '₹15,500 / Sq.Yd', min: '~₹27.90 Lakhs' },
-  { venture: 'Sree Harivasam', sizes: '150–350 Sq.Yds', price: '₹14,500 / Sq.Yd', min: '~₹21.75 Lakhs' },
+  { venture: 'Jetty Mayfair', sizes: '150–500 Sq.Yds', price: '₹18,000 / Sq.Yd', min: '~₹27.00 Lakhs' },
+  { venture: 'Sreenivasam Lake View', sizes: '134–150 Sq.Yds', price: '₹25,000 / Sq.Yd', min: '~₹33.50 Lakhs' },
+  { venture: 'Sree Harivasam', sizes: '167–300 Sq.Yds', price: '₹15,000 / Sq.Yd', min: '~₹25.05 Lakhs' },
+  { venture: 'Sreenivasam Landmark', sizes: '150–250 Sq.Yds', price: '₹13,000 / Sq.Yd', min: '~₹19.50 Lakhs' },
+  { venture: 'Sree Venkatesam', sizes: '167–300 Sq.Yds', price: '₹15,000 / Sq.Yd', min: '~₹25.05 Lakhs' },
+  { venture: 'Seshadri Heights', sizes: '200–400 Sq.Yds', price: '₹4,000 / Sq.Yd', min: '~₹8.00 Lakhs' },
 ];
 
 // ─── Message Renderer ─────────────────────────────────────────────────────────
