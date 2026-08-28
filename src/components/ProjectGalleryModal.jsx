@@ -77,14 +77,14 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
       {/* Click outside to close */}
       <div className="absolute inset-0" onClick={onClose}></div>
 
-      {/* Modal Container */}
+      {/* Modal Container — Fixed Viewport-Fitted Responsive Box */}
       <div 
-        className="relative z-10 w-full max-w-4xl bg-[#1A1A1A] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[94vh]"
+        className="relative z-10 w-full max-w-4xl h-[90vh] sm:h-[86vh] max-h-[820px] bg-[#141414] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between"
         onClick={(e) => e.stopPropagation()}
       >
 
         {/* Modal Top Header */}
-        <div className="p-3.5 sm:p-5 flex items-center justify-between border-b border-white/10 bg-[#141414]">
+        <div className="p-3 sm:p-4 md:p-5 flex items-center justify-between border-b border-white/10 bg-[#161616] shrink-0">
           <div className="flex items-center space-x-2.5 sm:space-x-3 min-w-0 pr-2">
             <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#C8312A] text-white text-[10px] sm:text-[11px] font-sans font-bold tracking-wide shrink-0">
               {project.location || 'Godavari'}
@@ -112,16 +112,16 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
           </button>
         </div>
 
-        {/* Main Image Stage with Touch Swipe */}
+        {/* Main Image Stage — Fits Any Aspect Ratio (Landscape / Portrait Flyers) Into Screen Without Resizing Frame */}
         <div 
-          className="relative flex-1 bg-black flex items-center justify-center min-h-[220px] sm:min-h-[350px] md:min-h-[420px] max-h-[50vh] sm:max-h-[55vh] overflow-hidden group touch-pan-y"
+          className="relative flex-1 min-h-0 bg-black flex items-center justify-center p-2 sm:p-4 overflow-hidden group touch-pan-y select-none"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <img
             src={images[activeIdx]}
             alt={`${project.title} site photo ${activeIdx + 1}`}
-            className="w-full h-full max-h-[55vh] object-contain transition-all duration-300 select-none"
+            className="max-w-full max-h-full w-auto h-auto object-contain transition-all duration-200 select-none drop-shadow-md pointer-events-none"
             onError={(e) => {
               const currentSrc = images[activeIdx];
               if (currentSrc && currentSrc.endsWith('.jpg') && !e.target.dataset.triedJpeg) {
@@ -139,7 +139,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
             <>
               <button
                 onClick={() => setActiveIdx((prev) => (prev - 1 + images.length) % images.length)}
-                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90 z-10"
                 title="Previous photo"
                 aria-label="Previous"
               >
@@ -148,7 +148,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
 
               <button
                 onClick={() => setActiveIdx((prev) => (prev + 1) % images.length)}
-                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90 z-10"
                 title="Next photo"
                 aria-label="Next"
               >
@@ -160,7 +160,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
 
         {/* Thumbnail Dock Alternative — Clean track with nav controls and zero scrollbars */}
         {images.length > 1 && (
-          <div className="relative bg-[#141414] border-t border-white/10 px-2 sm:px-4 py-2.5 sm:py-3 flex items-center">
+          <div className="relative bg-[#161616] border-t border-white/10 px-2 sm:px-4 py-2 sm:py-2.5 flex items-center shrink-0">
             
             {/* Scroll Left Button */}
             <button
