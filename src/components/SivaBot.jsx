@@ -183,7 +183,7 @@ function BotMessage({ msg, onQuickReply }) {
           </div>
           <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-2 text-xs">
             {[
-              'DTCP / VMRDA Approved Layout Plan',
+              'RUDA / VMRDA Approved Layout Plan',
               'AP RERA Registered Project',
               'Encumbrance Certificate (EC) — 30 years',
               'Link Documents & Parent Deed Verified',

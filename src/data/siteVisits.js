@@ -21,7 +21,7 @@ export const siteVisitsData = [
     location: "Rajahmundry HQ Belts",
     image: "./images/site-visits/site_visit_03.jpg",
     tag: "Title Verification",
-    caption: "Clear documentation, parent deeds, and DTCP approval plans presented directly on location."
+    caption: "Clear documentation, parent deeds, and RUDA approval plans presented directly on location."
   },
   {
     id: 4,

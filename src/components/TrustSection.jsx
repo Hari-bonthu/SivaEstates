@@ -55,7 +55,7 @@ export default function TrustSection({ lang = 'en' }) {
         <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#E8E2DA] grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center shadow-xs font-sans">
           <div className="p-2">
             <p className="eyebrow-tag text-[#888] text-[9px] sm:text-[10px]">APPROVED BODY</p>
-            <p className="text-lg sm:text-xl font-bold text-[#C8312A] font-serif mt-0.5">DTCP Approved</p>
+            <p className="text-lg sm:text-xl font-bold text-[#C8312A] font-serif mt-0.5">RUDA Approved</p>
           </div>
           <div className="p-2 border-t sm:border-t-0 sm:border-x border-[#E8E2DA]">
             <p className="eyebrow-tag text-[#888] text-[9px] sm:text-[10px]">URBAN DEVELOPMENT</p>

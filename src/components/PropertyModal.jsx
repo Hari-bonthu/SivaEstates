@@ -133,7 +133,7 @@ export default function PropertyModal({ property, onClose }) {
                   {property.status}
                 </span>
                 <span className="px-2.5 py-1 rounded bg-[#C8312A] text-white text-[10px] font-sans font-medium tracking-[0.2em] uppercase">
-                  {property.approval?.split(' ')[0] || 'DTCP'} APPROVED
+                  {property.approval?.split(' ')[0] || 'RUDA'} APPROVED
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-normal text-white font-serif leading-tight">
@@ -219,7 +219,7 @@ export default function PropertyModal({ property, onClose }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {(property.highlights || [
                   '100% Clear Title & Spot Registration',
-                  'DTCP & RERA Approved Master Blueprint',
+                  'RUDA & RERA Approved Master Blueprint',
                   'Underground Drainage & Electricity',
                   'Avenue Plantation & Compound Wall',
                   'Grand Arch Entrance with 24/7 Security',

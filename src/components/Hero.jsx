@@ -37,7 +37,7 @@ export default function Hero({ lang }) {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-              Premier DTCP &amp; VMRDA approved open plot ventures, luxury villa layouts, and high-growth land investments across Rajahmundry &amp; Kakinada.
+              Premier RUDA &amp; VMRDA approved open plot ventures, luxury villa layouts, and high-growth land investments across Rajahmundry &amp; Kakinada.
             </p>
 
             {/* Location Badges */}
@@ -52,7 +52,7 @@ export default function Hero({ lang }) {
               </div>
               <div className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#1A1D23] border border-white/10 text-slate-200">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#F5A623]" />
-                <span>DTCP &amp; VMRDA Approved</span>
+                <span>RUDA &amp; VMRDA Approved</span>
               </div>
             </div>
 

@@ -8,7 +8,7 @@
 
 This is the official website for **Siva Telugu Estates**, a real estate sales & promotions agency based in Rajahmundry, Andhra Pradesh. The agency promotes approved residential plot ventures, luxury villa layouts, and high-growth land investment opportunities across the Godavari districts.
 
-> **Note:** Siva Telugu Estates acts as a sales & marketing agency and promoter for the listed ventures. All ventures are independently developed by their respective landowners / builders with full DTCP / VMRDA / AP RERA approvals.
+> **Note:** Siva Telugu Estates acts as a sales & marketing agency and promoter for the listed ventures. All ventures are independently developed by their respective landowners / builders with full RUDA / VMRDA / AP RERA approvals.
 
 ---
 
@@ -78,7 +78,7 @@ npm run build
 
 ## Legal Disclaimer
 
-Siva Telugu Estates is a real estate sales agency and promoter. All venture approvals (DTCP, VMRDA, AP RERA) are issued to the respective project developers. Clients are advised to verify all legal documents independently before any investment.
+Siva Telugu Estates is a real estate sales agency and promoter. All venture approvals (RUDA, VMRDA, AP RERA) are issued to the respective project developers. Clients are advised to verify all legal documents independently before any investment.
 
 ---
 
