@@ -106,7 +106,7 @@ export default function HeroSlider({ lang = 'en' }) {
               {/* Profile Photo */}
               <div className="relative h-[280px] sm:h-[360px] md:h-[400px] overflow-hidden bg-[#F0EDED]">
                 <img
-                  src="./images/siva_profile_cutout.png"
+                  src="./images/siva_yedida_professional.jpg"
                   alt="Mr. Siva Yedida - Founder & Managing Director"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
