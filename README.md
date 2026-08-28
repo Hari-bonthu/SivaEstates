@@ -1,3 +1,4 @@
+[![Deploy Siva Telugu Estates to GitHub Pages](https://github.com/Hari-bonthu/SivaEstates/actions/workflows/deploy.yml/badge.svg)](https://github.com/Hari-bonthu/SivaEstates/actions/workflows/deploy.yml)
 # Siva Telugu Estates — Official Website
 
 **Live Website:** [Main Branch](https://hari-bonthu.github.io/SivaEstates/) | [Luxe Preview](https://hari-bonthu.github.io/SivaEstates/preview/)
