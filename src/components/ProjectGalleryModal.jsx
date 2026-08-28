@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, MapPin, ExternalLink, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function ProjectGalleryModal({ project, onClose }) {
+const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, onClose }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const touchStartX = useRef(null);
   const thumbnailContainerRef = useRef(null);
@@ -266,4 +266,6 @@ export default function ProjectGalleryModal({ project, onClose }) {
       </div>
     </div>
   );
-}
+});
+
+export default ProjectGalleryModal;

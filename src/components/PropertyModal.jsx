@@ -13,7 +13,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-export default function PropertyModal({ property, onClose }) {
+const PropertyModal = React.memo(function PropertyModal({ property, onClose }) {
   const [activeImg, setActiveImg] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef(null);
@@ -259,4 +259,6 @@ export default function PropertyModal({ property, onClose }) {
       </div>
     </div>
   );
-}
+});
+
+export default PropertyModal;

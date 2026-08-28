@@ -50,7 +50,7 @@ export const properties = [
     type: "Gated Villa Plots",
     displayType: "Villas",
     statusLabel: "ONGOING",
-    approval: "RUDA Approved",
+    approval: "KAUDA Approved & RERA Registered",
     plotSizes: "134 - 150 Sq. Yards",
     plotRange: "134 – 150 sq.yd",
     facing: "East / North",

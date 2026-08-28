@@ -21,7 +21,7 @@ function getStatusBadge(status, category) {
   return { label: 'ONGOING', completed: false };
 }
 
-export default function VentureCard({ project, onInspect }) {
+const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
   const handleWhatsApp = (e) => {
     e.stopPropagation();
     const message = encodeURIComponent(
@@ -39,13 +39,14 @@ export default function VentureCard({ project, onInspect }) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all duration-300 group shadow-xs hover:shadow-lg font-sans flex flex-col justify-between">
 
-      {/* Image with badges */}
-      <div className="relative h-48 sm:h-56 overflow-hidden bg-[#F0EDED]">
+      {/* Image container */}
+      <div className="relative h-48 sm:h-52 overflow-hidden bg-[#E8E2DA]">
         <img
           src={project.thumbnail}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          decoding="async"
         />
 
         {/* Status badge — top-left, red pill */}
@@ -119,4 +120,6 @@ export default function VentureCard({ project, onInspect }) {
       </div>
     </div>
   );
-}
+});
+
+export default VentureCard;
