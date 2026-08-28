@@ -16,10 +16,10 @@ const EASE_PRESETS = {
 };
 
 const DEFAULT_IMAGES = [
-  { src: "./images/luxury_villa_venture_1786442598108.jpg" },
-  { src: "./images/kakinada_branch_venture_1786442659994.jpg" },
-  { src: "./images/assets/20250604_152649.jpg" },
-  { src: "./images/assets/20260814_100950.jpg" },
+  { src: "./images/ventures/jetty-mayfair.jpg" },
+  { src: "./images/ventures/sreenivasam-lake-view-villas.jpg" },
+  { src: "./images/ventures/sree-harivasam.jpg" },
+  { src: "./images/ventures/sreenivasam-landmark.jpg" },
 ];
 
 function parseTransition(t) {

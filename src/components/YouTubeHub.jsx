@@ -11,18 +11,18 @@ const VIDEOS = [
     category: 'Site Walkthrough',
     duration: '12:45',
     views: '45K+ Views',
-    thumbnail: './images/luxury_villa_venture_1786442598108.jpg',
+    thumbnail: './images/ventures/jetty-mayfair.jpg',
     url: 'https://www.youtube.com/@sivateluguestates'
   },
   {
     id: 'v2',
     youtubeId: 'sivateluguestates',
-    title: 'Kakinada New Branch Grand Opening & Smart City Plot…',
-    description: 'Director Mr. Siva Yedida introduces the new Kakinada branch office and announces upcoming…',
-    category: 'Branch Update',
+    title: 'Sreenivasam Lake View Villas - Scenic Waterfront Living…',
+    description: 'Director Mr. Siva Yedida introduces the scenic lake-view villa plots layout in Kakinada…',
+    category: 'Venture Showcase',
     duration: '08:20',
     views: '38K+ Views',
-    thumbnail: './images/kakinada_branch_venture_1786442659994.jpg',
+    thumbnail: './images/ventures/sreenivasam-lake-view-villas.jpg',
     url: 'https://www.youtube.com/@sivateluguestates'
   },
   {
@@ -33,7 +33,7 @@ const VIDEOS = [
     category: 'Investment Guide',
     duration: '15:10',
     views: '82K+ Views',
-    thumbnail: './images/open_plot_layout_1786442637690.jpg',
+    thumbnail: './images/ventures/sree-harivasam.jpg',
     url: 'https://www.youtube.com/@sivateluguestates'
   },
   {
@@ -44,7 +44,7 @@ const VIDEOS = [
     category: 'Market Analysis',
     duration: '18:30',
     views: '64K+ Views',
-    thumbnail: './images/assets/20250604_152649.jpg',
+    thumbnail: './images/ventures/seshadri-heights.jpg',
     url: 'https://www.youtube.com/@sivateluguestates'
   }
 ];
