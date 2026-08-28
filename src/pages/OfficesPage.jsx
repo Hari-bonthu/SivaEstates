@@ -12,9 +12,9 @@ export default function OfficesPage({ lang = 'en' }) {
   }, []);
 
   return (
-    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans pt-4 sm:pt-6 pb-16 sm:pb-20">
+    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
       {/* Branch Spotlight Section */}
-      <BranchSpotlight lang={lang} />
+      <BranchSpotlight lang={lang} isPage={true} />
 
       {/* Direct Visit Booking Form */}
       <ContactFormServerless lang={lang} />

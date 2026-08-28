@@ -3,7 +3,7 @@ import { Phone, Send, MapPin, Clock, CheckCircle2, MessageSquare } from 'lucide-
 import { translations } from '../data/translations';
 import { properties } from '../data/properties';
 
-export default function ContactFormServerless({ lang = 'en' }) {
+export default function ContactFormServerless({ lang = 'en', isPage = false }) {
   const t = translations[lang]?.contact || translations.en.contact;
 
   const [formData, setFormData] = useState({
@@ -24,29 +24,37 @@ export default function ContactFormServerless({ lang = 'en' }) {
     try {
       const formPayload = new FormData();
       formPayload.append("access_key", "55a4bf57-4cfb-4a58-8b9f-ba57dfc6bb64");
-      formPayload.append("subject", `New Real Estate Inquiry from ${formData.name} (${formData.location})`);
-      formPayload.append("from_name", "Siva Telugu Estates Web Lead");
+      formPayload.append("subject", `New Inquiry: ${formData.location} - Siva Telugu Estates`);
+      formPayload.append("from_name", "Siva Telugu Estates Lead Engine");
       formPayload.append("name", formData.name);
       formPayload.append("phone", formData.phone);
       formPayload.append("email", formData.email || "Not Provided");
-      formPayload.append("preferred_branch", formData.location);
-      formPayload.append("message", formData.message || "Site visit request.");
+      formPayload.append("venture_preferred", formData.location);
+      formPayload.append("message", formData.message || "Requesting free site visit & layout details.");
 
-      await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formPayload
       });
+
+      const resJson = await response.json();
+
+      if (resJson.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitted(true);
+      }
     } catch (err) {
-      console.log("Form dispatch note: Proceeding to WhatsApp lead routing.");
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
     }
 
-    setIsSubmitting(false);
-    setSubmitted(true);
-
-    const waMessage = `Hi Siva Telugu Estates, my name is ${encodeURIComponent(formData.name)}. Phone: ${encodeURIComponent(formData.phone)}. Preferred Location: ${encodeURIComponent(formData.location)}. Note: ${encodeURIComponent(formData.message || 'I would like to book a site visit.')}`;
-    
     setTimeout(() => {
-      window.open(`https://wa.me/919851633333?text=${waMessage}`, '_blank');
+      const waMsg = encodeURIComponent(
+        `*NEW WEBSITE INQUIRY*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Venture:* ${formData.location}\n*Message:* ${formData.message || 'Interested in booking site visit'}`
+      );
+      window.open(`https://wa.me/919851633333?text=${waMsg}`, '_blank');
     }, 800);
   };
 
@@ -175,21 +183,29 @@ export default function ContactFormServerless({ lang = 'en' }) {
                 <select
                   value={formData.location}
                   onChange={(e) => setFormData({...formData, location: e.target.value})}
-                  className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] focus:outline-none focus:border-[#C8312A] text-sm font-sans"
+                  className="w-full max-w-full px-3.5 sm:px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] focus:outline-none focus:border-[#C8312A] text-sm font-sans truncate"
                 >
                   <optgroup label="Ongoing Ventures">
-                    {properties.filter(p => p.category === 'ongoing').map((p) => (
-                      <option key={p.id} value={`${p.title} (${p.location})`}>
-                        {p.title} ({p.location})
-                      </option>
-                    ))}
+                    <option value="Jetty Mayfair Luxury Villa Layout (Rajahmundry)">
+                      Jetty Mayfair Villas (Rajahmundry)
+                    </option>
+                    <option value="Sreenivasam Lake View Villas (Kakinada)">
+                      Sreenivasam Lake View Villas (Kakinada)
+                    </option>
                   </optgroup>
                   <optgroup label="Completed Ventures">
-                    {properties.filter(p => p.category !== 'ongoing').map((p) => (
-                      <option key={p.id} value={`${p.title} (${p.location})`}>
-                        {p.title} ({p.location})
-                      </option>
-                    ))}
+                    <option value="Sree Harivasam Open Plots (Diwancheruvu)">
+                      Sree Harivasam Open Plots (Diwancheruvu)
+                    </option>
+                    <option value="Sreenivasam Landmark Venture (Rajahmundry)">
+                      Sreenivasam Landmark Venture (Rajahmundry)
+                    </option>
+                    <option value="Sree Venkatesam Gated Layout (Diwancheruvu)">
+                      Sree Venkatesam Gated Layout (Diwancheruvu)
+                    </option>
+                    <option value="Seshadri Heights Gated Community (Dowleswaram)">
+                      Seshadri Heights Gated Community (Dowleswaram)
+                    </option>
                   </optgroup>
                   <option value="General Real Estate / Advisory Inquiry">
                     General Real Estate / Advisory Inquiry

@@ -12,8 +12,8 @@ export default function ContactPage({ lang = 'en' }) {
   }, []);
 
   return (
-    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans pt-6 sm:pt-10 pb-16 sm:pb-20">
-      <ContactFormServerless lang={lang} />
+    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
+      <ContactFormServerless lang={lang} isPage={true} />
     </div>
   );
 }

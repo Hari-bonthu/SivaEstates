@@ -2,11 +2,11 @@ import React from 'react';
 import { MapPin, Phone, Building2, Navigation, Sparkles } from 'lucide-react';
 import { translations } from '../data/translations';
 
-export default function BranchSpotlight({ lang = 'en' }) {
+export default function BranchSpotlight({ lang = 'en', isPage = false }) {
   const t = translations[lang]?.branches || translations.en.branches;
 
   return (
-    <section id="branches" className="py-14 sm:py-20 bg-[#F5F0EB] relative border-t border-[#E8E2DA]">
+    <section id="branches" className={`${isPage ? 'pt-8 sm:pt-12 pb-14 sm:pb-20' : 'py-14 sm:py-20 border-t border-[#E8E2DA]'} bg-[#F5F0EB] relative`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
