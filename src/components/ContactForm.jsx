@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Phone, Send, MapPin, Calendar, Clock, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { translations } from '../data/translations';
+import { properties } from '../data/properties';
 
 export default function ContactForm({ lang }) {
-  const t = translations[lang].contact;
+  const t = translations[lang]?.contact || translations.en.contact;
 
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    location: 'Rajahmundry HQ',
+    email: '',
+    location: 'Jetty Mayfair Luxury Villa Layout (Rajahmundry)',
     message: ''
   });
 
@@ -123,17 +125,30 @@ export default function ContactForm({ lang }) {
 
               <div>
                 <label className="block text-xs font-mono font-bold text-slate-300 uppercase mb-2">
-                  {t.preferredLocation}
+                  {t.formVenture || t.preferredLocation || 'Preferred Venture / Location'}
                 </label>
                 <select
                   value={formData.location}
                   onChange={(e) => setFormData({...formData, location: e.target.value})}
                   className="w-full px-4 py-3.5 rounded-xl bg-[#0F1115] border border-white/10 text-white focus:outline-none focus:border-[#F5A623] text-sm"
                 >
-                  <option value="Rajahmundry HQ">Rajahmundry Open Plots &amp; Villas</option>
-                  <option value="Kakinada Branch">Kakinada Smart City &amp; Port Belts</option>
-                  <option value="Highway Commercial Lands">Highway Commercial Lands</option>
-                  <option value="Agricultural Investment Lands">Agricultural Investment Lands</option>
+                  <optgroup label="Ongoing Ventures">
+                    {properties.filter(p => p.category === 'ongoing').map((p) => (
+                      <option key={p.id} value={`${p.title} (${p.location})`}>
+                        {p.title} ({p.location})
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Completed Ventures">
+                    {properties.filter(p => p.category !== 'ongoing').map((p) => (
+                      <option key={p.id} value={`${p.title} (${p.location})`}>
+                        {p.title} ({p.location})
+                      </option>
+                    ))}
+                  </optgroup>
+                  <option value="General Real Estate / Advisory Inquiry">
+                    General Real Estate / Advisory Inquiry
+                  </option>
                 </select>
               </div>
 

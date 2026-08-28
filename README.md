@@ -1,86 +1,109 @@
 [![Deploy Siva Telugu Estates to GitHub Pages](https://github.com/Hari-bonthu/SivaEstates/actions/workflows/deploy.yml/badge.svg)](https://github.com/Hari-bonthu/SivaEstates/actions/workflows/deploy.yml)
-# Siva Telugu Estates — Official Website
 
-**Live Website:** [Main Branch](https://hari-bonthu.github.io/SivaEstates/) | [Luxe Preview](https://hari-bonthu.github.io/SivaEstates/preview/)
+# Siva Telugu Estates — Official Web Portal
 
----
-
-## About
-
-This is the official website for **Siva Telugu Estates**, a real estate sales & promotions agency based in Rajahmundry, Andhra Pradesh. The agency promotes approved residential plot ventures, luxury villa layouts, and high-growth land investment opportunities across the Godavari districts.
-
-> **Note:** Siva Telugu Estates acts as a sales & marketing agency and promoter for the listed ventures. All ventures are independently developed by their respective landowners / builders with full RUDA / VMRDA / AP RERA approvals.
+**Live Deployments:**
+- 🌐 **Primary Showcase (`main`):** [https://hari-bonthu.github.io/SivaEstates/](https://hari-bonthu.github.io/SivaEstates/)
+- 🎨 **Luxe Preview (`luxe-redesign`):** [https://hari-bonthu.github.io/SivaEstates/preview/](https://hari-bonthu.github.io/SivaEstates/preview/)
 
 ---
 
-## Contact
+## 🏛️ About Siva Telugu Estates
 
-📞 **+91 98516 33333**
-📍 Morampudi Junction, Rajahmundry, Andhra Pradesh
-🕐 Mon – Sun: 9:00 AM – 8:00 PM
-🚗 Free AC Car Facility for Site Visits
+**Siva Telugu Estates** is a premier real estate sales, marketing, and advisory agency based in **Rajahmundry, Andhra Pradesh**, led by Director **Mr. Siva Yedida**. The agency specializes in promoting 100% legally scrutinized open plot layouts, gated villa communities, and high-growth land investment corridors across **Rajahmundry & Kakinada**.
 
----
-
-## Ventures Promoted
-
-### Ongoing Projects
-| Venture | Location | Type |
-|---|---|---|
-| Jetty Mayfair Luxury Villa Layout | Rajahmundry | Gated Villa Plots |
-| Sreenivasam Lake View Villas | Rajahmundry | Gated Villa Plots |
-
-### Completed Projects
-| Venture | Location | Type |
-|---|---|---|
-| Sree Harivasam Open Plots | Rajahmundry | Residential Open Plots |
-| Sreenivasam Landmark Venture | Rajahmundry | Gated Residential Plots |
-| Sree Venkatesam Gated Layout | Rajahmundry | Commercial & Residential Plots |
-| Seshadri Heights Gated Community | Rajahmundry | Residential Open Plots |
+> ⚖️ **Agency Scope & Legal Notice:**  
+> Siva Telugu Estates acts solely as a professional sales, promotion, and marketing agency for the listed ventures. All projects are independently developed by their respective licensed builders and landowners with verified approvals from **RUDA**, **KAUDA / VMRDA**, and **AP RERA**.
 
 ---
 
-## Tech Stack
+## 📞 Contact & Head Office
 
-- **Framework:** React 18 + Vite
-- **Styling:** Tailwind CSS v3
-- **Routing:** React Router v6 (HashRouter for GitHub Pages)
+- 📱 **Universal Helpline & WhatsApp:** **`+91 98516 33333`**
+- 📍 **Rajahmundry HQ:** Morampudi Junction / Lalacheruvu Corridor, Rajahmundry, AP
+- 📍 **Kakinada Office:** Smart City Commercial Belt, Kakinada, AP
+- 🚗 **Customer Inspection:** Free AC Car pickup facility for family site visits
+- 🕒 **Hours:** Monday – Sunday | 9:00 AM – 8:00 PM
+
+---
+
+## 🏘️ Promoted Ventures
+
+### 🚀 Ongoing Ventures
+| Venture Name | Location Corridor | Property Type | Approval Authority |
+|---|---|---|---|
+| **Jetty Mayfair Luxury Villa Layout** | Rajahmundry (Bommurru) | Gated Villa Plots | RUDA Approved & RERA Registered |
+| **Sreenivasam Lake View Villas** | Kakinada (Panduru) | Lake-View Villa Plots | KAUDA Approved & RERA Registered |
+
+### 🏆 Completed Landmark Ventures
+| Venture Name | Location Corridor | Property Type | Approval Authority |
+|---|---|---|---|
+| **Sree Harivasam Open Plots** | Rajahmundry (Diwancheruvu) | Residential Open Plots | RUDA Approved Layout |
+| **Sreenivasam Landmark Venture** | Rajahmundry | Gated Residential Layout | RUDA Approved Layout |
+| **Sree Venkatesam Gated Layout** | Rajahmundry (Diwancheruvu) | Commercial & Residential Plots | RUDA Approved Layout |
+| **Seshadri Heights Gated Community** | Rajahmundry (Dowleswaram) | Residential Open Plots | RUDA Approved Layout |
+
+---
+
+## ✨ Key Platform Features
+
+- **⚡ Production-Grade Performance:** Code-split route architecture with `React.lazy()` and `Suspense`, Rollup vendor isolation (`vendor-react`, `vendor-icons`), CSS code splitting, and `React.memo` performance wrappers.
+- **📸 Interactive Venture & Site Visit Gallery:** Filterable media showcase with real high-resolution on-site client visit photography from the Godavari belt.
+- **🤖 SivaBot Real Estate Assistant:** Interactive instant-reply chat assistant providing plot pricing, legal guidance, office locations, and direct director WhatsApp routing.
+- **🎥 Official YouTube Shorts Hub:** Embedded showcase connected directly to **[@sivateluguestates](https://www.youtube.com/@sivateluguestates)** for real-time site tours and drone walkthroughs.
+- **📊 Integrated Web Analytics:** Google Analytics 4 (`G-4LYBVWTLE4`) with auto domain configuration and secure cookie flags.
+- **📱 Dual-Channel Lead Routing:** Serverless lead dispatch powered by Web3Forms paired with instant direct WhatsApp notification to Director Mr. Siva Yedida.
+- **🌐 Telugu & English Dual-Language Support:** Instant bilingual localized experience.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Core:** React 18, Vite 6
+- **Routing:** React Router DOM v6 (`HashRouter` for GitHub Pages static compatibility)
+- **Styling:** Tailwind CSS v3, Custom Real Estate SVG House Cursor, Frosted Glass Blur styling
 - **Icons:** Lucide React
-- **Form Submission:** Web3Forms API + WhatsApp Routing
-- **Deployment:** GitHub Actions → GitHub Pages
+- **Analytics:** Google Analytics 4 (gtag.js)
+- **Forms & Email:** Web3Forms API + Direct WhatsApp Protocol
+- **CI/CD:** GitHub Actions workflow with concurrent dual-branch deployment (`main` to `/` and `luxe-redesign` to `/preview`)
 
 ---
 
-## Branch Structure
+## 🌿 Branching Strategy
 
-| Branch | URL | Design |
+| Branch | Target Path | Visual Aesthetic |
 |---|---|---|
-| `main` | `https://hari-bonthu.github.io/SivaEstates/` | Dark Red Modern Design |
-| `luxe-redesign` | `https://hari-bonthu.github.io/SivaEstates/preview/` | Luxury Ivory & Sage Green |
+| **`main`** | `/` (Root) | Rich Heritage Crimson & Warm Linen Canvas |
+| **`luxe-redesign`** | `/preview` | Elegant Sage Green & Ivory Architecture |
 
-> ⚠️ **Important:** Do NOT merge these branches. They are two separate website designs deployed to separate paths.
+> ⚠️ **Branch Separation:** Keep `main` and `luxe-redesign` branches independent. Both are automatically built and deployed concurrently via `.github/workflows/deploy.yml`.
 
 ---
 
-## Development Setup
+## 💻 Local Development Setup
 
 ```bash
-# Install dependencies
+# 1. Clone the repository
+git clone https://github.com/Hari-bonthu/SivaEstates.git
+cd SivaEstates
+
+# 2. Install dependencies
 npm install
 
-# Start development server
+# 3. Start local Vite development server
 npm run dev
 
-# Build for production
+# 4. Create optimized production build
 npm run build
 ```
 
 ---
 
-## Legal Disclaimer
+## 📜 Legal Disclaimer
 
-Siva Telugu Estates is a real estate sales agency and promoter. All venture approvals (RUDA, VMRDA, AP RERA) are issued to the respective project developers. Clients are advised to verify all legal documents independently before any investment.
+Siva Telugu Estates is an authorized sales, marketing, and customer advisory agency. All venture approvals, layouts, and master blueprints (RUDA / KAUDA / VMRDA / AP RERA) are held by the respective property landowners and developers. Prospective buyers are provided with link documents, title certificates, and master plans for independent legal verification.
 
 ---
 
 *© 2026 Siva Telugu Estates. All rights reserved.*
+
