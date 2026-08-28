@@ -122,6 +122,16 @@ export default function ProjectGalleryModal({ project, onClose }) {
             src={images[activeIdx]}
             alt={`${project.title} site photo ${activeIdx + 1}`}
             className="w-full h-full max-h-[55vh] object-contain transition-all duration-300 select-none"
+            onError={(e) => {
+              const currentSrc = images[activeIdx];
+              if (currentSrc && currentSrc.endsWith('.jpg') && !e.target.dataset.triedJpeg) {
+                e.target.dataset.triedJpeg = 'true';
+                e.target.src = currentSrc.replace('.jpg', '.jpeg');
+              } else if (currentSrc && currentSrc.endsWith('.jpeg') && !e.target.dataset.triedJpg) {
+                e.target.dataset.triedJpg = 'true';
+                e.target.src = currentSrc.replace('.jpeg', '.jpg');
+              }
+            }}
           />
 
           {/* Left / Right Navigation Buttons */}
@@ -188,6 +198,15 @@ export default function ProjectGalleryModal({ project, onClose }) {
                     alt={`Thumbnail ${idx + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    onError={(e) => {
+                      if (imgSrc.endsWith('.jpg') && !e.target.dataset.triedJpeg) {
+                        e.target.dataset.triedJpeg = 'true';
+                        e.target.src = imgSrc.replace('.jpg', '.jpeg');
+                      } else if (imgSrc.endsWith('.jpeg') && !e.target.dataset.triedJpg) {
+                        e.target.dataset.triedJpg = 'true';
+                        e.target.src = imgSrc.replace('.jpeg', '.jpg');
+                      }
+                    }}
                   />
                   {activeIdx === idx && (
                     <div className="absolute inset-0 bg-[#C8312A]/10 pointer-events-none" />
