@@ -5,47 +5,47 @@ import { translations } from '../data/translations';
 const VIDEOS = [
   {
     id: 'v1',
-    youtubeId: 'sivateluguestates',
-    title: 'Jetty Mayfair Rajahmundry - Gated Community Villa Plots…',
-    description: 'Complete site tour of Jetty Mayfair venture at Morampudi Lalacheruvu corridor in Rajahmundry…',
-    category: 'Site Walkthrough',
-    duration: '12:45',
+    youtubeId: 'aXV1rrImN80',
+    title: 'Jetty Mayfair Phase 2 Bookings Open - Gated Villa Plots',
+    description: 'Watch the latest phase 2 layout development and luxury villa plots at Jetty Mayfair Rajahmundry…',
+    category: 'Jetty Mayfair',
+    duration: 'Shorts',
     views: '45K+ Views',
     thumbnail: './images/ventures/jetty-mayfair.jpg',
-    url: 'https://www.youtube.com/@sivateluguestates'
+    url: 'https://www.youtube.com/shorts/aXV1rrImN80'
   },
   {
     id: 'v2',
-    youtubeId: 'sivateluguestates',
-    title: 'Sreenivasam Lake View Villas - Scenic Waterfront Living…',
-    description: 'Director Mr. Siva Yedida introduces the scenic lake-view villa plots layout in Kakinada…',
-    category: 'Venture Showcase',
-    duration: '08:20',
+    youtubeId: 'rXkc9vxAhMM',
+    title: 'Introducing Sreenivasam Lake View Villas - Panduru, Kakinada',
+    description: 'Scenic waterfront living and exclusive villa plots layout in Kakinada presented by Siva Telugu Estates…',
+    category: 'Lake View Villas',
+    duration: 'Shorts',
     views: '38K+ Views',
     thumbnail: './images/ventures/sreenivasam-lake-view-villas.jpg',
-    url: 'https://www.youtube.com/@sivateluguestates'
+    url: 'https://www.youtube.com/shorts/rXkc9vxAhMM'
   },
   {
     id: 'v3',
-    youtubeId: 'sivateluguestates',
-    title: 'How to Verify 100% Clear Title Before Buying Open Plots in…',
-    description: 'Essential legal guidance by Siva Telugu Estates on checking DTCP approvals, link documents…',
-    category: 'Investment Guide',
-    duration: '15:10',
-    views: '82K+ Views',
-    thumbnail: './images/ventures/sree-harivasam.jpg',
-    url: 'https://www.youtube.com/@sivateluguestates'
+    youtubeId: 'PeQP-1rCT7w',
+    title: 'Jetty Mayfair Luxury Villa Plots & Grand Gated Community Tour',
+    description: 'Explore the grand entrance arch, wide CC internal roads, and premium amenities in Rajahmundry…',
+    category: 'Villa Layout',
+    duration: 'Shorts',
+    views: '52K+ Views',
+    thumbnail: './images/ventures/jetty-mayfair/01.jpg',
+    url: 'https://www.youtube.com/shorts/PeQP-1rCT7w'
   },
   {
     id: 'v4',
-    youtubeId: 'sivateluguestates',
-    title: 'Rajahmundry Real Estate Land Rates Analysis & High Growth…',
-    description: 'Detailed market analysis comparing land appreciation in Morampudi, Diwancheruvu…',
-    category: 'Market Analysis',
-    duration: '18:30',
+    youtubeId: 'BHJZ23brxIA',
+    title: 'Prime Highway Commercial & Residential Plots - Clear Title Verified',
+    description: 'Strategic high-appreciation open plots with 100% legal clearance along the NH-16 highway corridor…',
+    category: 'Highway Plots',
+    duration: 'Shorts',
     views: '64K+ Views',
-    thumbnail: './images/ventures/seshadri-heights.jpg',
-    url: 'https://www.youtube.com/@sivateluguestates'
+    thumbnail: './images/ventures/sree-harivasam.jpg',
+    url: 'https://www.youtube.com/shorts/BHJZ23brxIA'
   }
 ];
 
