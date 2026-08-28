@@ -46,6 +46,7 @@ export default function VenturePage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center space-x-2 text-xs font-sans font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors group cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-[#C8312A]" />

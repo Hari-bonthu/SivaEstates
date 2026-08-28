@@ -10,7 +10,7 @@ export const siteVisitsData = [
   {
     id: 2,
     title: "Family Plot Selection & Survey",
-    location: "Diwancheruvu NH-16 Corridor",
+    location: "Diwancheruvu corridor",
     image: "./images/site-visits/site_visit_02.jpg",
     tag: "Plot Selection",
     caption: "Family reviewing vastu-compliant corner plot layout with Director Siva Yedida."
@@ -26,7 +26,7 @@ export const siteVisitsData = [
   {
     id: 4,
     title: "Weekend Customer Delegation Visit",
-    location: "Keshavaram Highway Corridor",
+    location: "Keshavaram & Bommuru Belt",
     image: "./images/site-visits/site_visit_04.jpg",
     tag: "Group Visit",
     caption: "Complimentary AC car fleet transit provided for Hyderabad & Vijayawada NRI investors."
@@ -42,7 +42,7 @@ export const siteVisitsData = [
   {
     id: 6,
     title: "Direct Consultation on Location",
-    location: "Dowleswaram Barrage Corridor",
+    location: "Rajanagaram",
     image: "./images/site-visits/site_visit_06.jpg",
     tag: "Director Visit",
     caption: "Managing Director Siva Yedida personally guiding clients through road connectivity."

@@ -36,7 +36,7 @@ export const youtubeVideos = [
     id: "highway-plots-investment",
     youtubeId: "BHJZ23brxIA",
     title: "Prime Highway Commercial & Residential Plots - Clear Title Verified",
-    description: "Strategic high-appreciation open plots with 100% legal clearance along the NH-16 highway corridor.",
+    description: "Strategic high-appreciation open plots with 100% legal clearance along the NH-16 Highway.",
     category: "Highway Plots",
     views: "64K+ Views",
     duration: "Shorts",
