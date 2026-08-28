@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeroSlider from '../components/HeroSlider';
 import FourPillars from '../components/FourPillars';
 import BranchSpotlight from '../components/BranchSpotlight';
@@ -9,6 +9,10 @@ import Testimonials from '../components/Testimonials';
 import ContactFormServerless from '../components/ContactFormServerless';
 
 export default function HomePage({ lang, setLang }) {
+  useEffect(() => {
+    document.title = "Siva Telugu Estates | Rajahmundry & Kakinada Real Estate | Plots, Villas & Lands";
+  }, []);
+
   return (
     <main className="flex-grow">
       {/* Hero Section */}

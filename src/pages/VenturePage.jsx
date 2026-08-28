@@ -7,10 +7,13 @@ export default function VenturePage() {
   const { id } = useParams();
   const property = properties.find(p => p.id === id) || properties[0];
 
-  // Scroll to top on route change
+  // Scroll to top on route change & set dynamic title
   useEffect(() => {
+    if (property?.title) {
+      document.title = `${property.title} | Siva Telugu Estates (${property.location})`;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [id]);
+  }, [id, property]);
 
   if (!property) {
     return (

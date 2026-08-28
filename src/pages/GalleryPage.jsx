@@ -13,6 +13,7 @@ export default function GalleryPage({ lang = 'en' }) {
   const t = translations[lang]?.galleryPage || translations.en.galleryPage;
 
   useEffect(() => {
+    document.title = "Photo Gallery & Site Visits | Siva Telugu Estates Rajahmundry";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
