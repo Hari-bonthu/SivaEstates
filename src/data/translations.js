@@ -38,7 +38,7 @@ export const translations = {
     pillars: {
       eyebrow: "A PROMISE WE KEEP ON EVERY SINGLE DEAL",
       heading: "Our Non-Negotiable Commitment",
-      subheading: "Every venture promoted by Siva Telugu Estates is backed by rigorous legal scrutiny, transparent documentation, and full DTCP / VMRDA / AP RERA approvals.",
+      subheading: "Every venture promoted by Siva Telugu Estates is backed by rigorous legal scrutiny, transparent documentation, and full RUDA / VMRDA / AP RERA approvals.",
       items: [
         {
           title: "Family Happiness",
@@ -46,7 +46,7 @@ export const translations = {
         },
         {
           title: "Safe Investment",
-          desc: "100% Legal Clear Title, DTCP/VMRDA Approved layouts with instant bank loan facility."
+          desc: "100% Legal Clear Title, RUDA/VMRDA Approved layouts with instant bank loan facility."
         },
         {
           title: "Financial Security",
@@ -185,7 +185,7 @@ export const translations = {
       contact: "Contact",
       address: "Lala cheruvu, Rajahmundry, Andhra Pradesh 533106",
       copyright: "© 2026 Siva Telugu Estates. All rights reserved.",
-      rera: "RERA: AP/R&B/2024/50301 · DTCP layouts approved"
+      rera: "RERA: AP/R&B/2024/50301 · RUDA layouts approved"
     },
     propertiesPage: {
       eyebrow: "PORTFOLIO",
@@ -206,7 +206,7 @@ export const translations = {
       subheading: "Founded by Mr. Siva Yedida, we are committed to delivering legally spotless, high-appreciation land layouts.",
       storyTitle: "Our 12-Year Heritage",
       storyP1: "Since 2014, Siva Telugu Estates has stood as a symbol of integrity and reliability in the East Godavari real estate landscape. We believe land ownership is not just a commercial transaction — it is the foundation of a family's future and generational security.",
-      storyP2: "Every venture we promote undergoes thorough legal verification by experienced advocates, rigorous soil and master plan inspections, and full DTCP / VMRDA / AP RERA approvals before being presented to clients.",
+      storyP2: "Every venture we promote undergoes thorough legal verification by experienced advocates, rigorous soil and master plan inspections, and full RUDA / VMRDA / AP RERA approvals before being presented to clients.",
       milestone1: "1500+ Happy Families",
       milestone2: "50+ Successful Ventures",
       milestone3: "100% Clear Title Guarantee",
@@ -272,7 +272,7 @@ export const translations = {
         },
         {
           title: "సురక్షిత పెట్టుబడి",
-          desc: "100% లీగల్ క్లియర్ టైటిల్, DTCP/VMRDA లేఅవుట్లు మరియు తక్షణ బ్యాంక్ లోన్ సదుపాయం."
+          desc: "100% లీగల్ క్లియర్ టైటిల్, RUDA/VMRDA లేఅవుట్లు మరియు తక్షణ బ్యాంక్ లోన్ సదుపాయం."
         },
         {
           title: "ఆర్థిక భద్రత",
@@ -411,7 +411,7 @@ export const translations = {
       contact: "సంప్రదించండి",
       address: "దానవాయిపేట, రాజమండ్రి, ఆంధ్రప్రదేశ్ 533103",
       copyright: "© 2026 శివ తెలుగు ఎస్టేట్స్. సర్వ హక్కులు ప్రత్యేకించబడినవి.",
-      rera: "RERA: AP/R&B/2024/50301 · DTCP లేఅవుట్లు ఆమోదించబడ్డాయి"
+      rera: "RERA: AP/R&B/2024/50301 · RUDA లేఅవుట్లు ఆమోదించబడ్డాయి"
     },
     propertiesPage: {
       eyebrow: "పోర్ట్‌ఫోలియో",

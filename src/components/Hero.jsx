@@ -27,17 +27,17 @@ export default function Hero({ lang }) {
             
             {/* Top Mono Pill Badge */}
             <div className="inline-block px-3.5 py-1 rounded-full bg-[#1A1D23] border border-[#F5A623]/30 text-[#F5A623] text-xs font-mono tracking-widest uppercase shadow-sm">
-              TRUSTED REAL ESTATE DEVELOPER &amp; CONSULTANT
+              TRUSTED REAL ESTATE CONSULTANT &amp; PROMOTER
             </div>
 
-            {/* Headline matching Reference 1 & 2 */}
+            {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] font-heading">
-              Building Your Family's <span className="text-[#F5A623]">Best Future</span> in Godavari Region
+              Building Your Family's <span className="text-[#F5A623]">Best Future</span> in Rajahmundry &amp; Kakinada
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-              Premier DTCP &amp; VMRDA approved open plot ventures, luxury villa layouts, and high-growth land investments across Rajahmundry &amp; Kakinada.
+              Premier RUDA &amp; VMRDA approved open plot ventures, luxury villa layouts, and high-growth land investments across Rajahmundry &amp; Kakinada.
             </p>
 
             {/* Location Badges */}
@@ -52,7 +52,7 @@ export default function Hero({ lang }) {
               </div>
               <div className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#1A1D23] border border-white/10 text-slate-200">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#F5A623]" />
-                <span>DTCP &amp; VMRDA Approved</span>
+                <span>RUDA &amp; VMRDA Approved</span>
               </div>
             </div>
 
@@ -77,7 +77,7 @@ export default function Hero({ lang }) {
 
           </div>
 
-          {/* Right Column: Founder & Director Card (Matching Reference 1 & 2) */}
+          {/* Right Column: Founder & Director Card */}
           <div className="lg:col-span-5 relative flex justify-center">
             
             <div className="relative w-full max-w-md rounded-3xl overflow-hidden bg-[#1A1D23] border border-white/10 shadow-2xl group">
