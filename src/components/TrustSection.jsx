@@ -59,7 +59,7 @@ export default function TrustSection({ lang = 'en' }) {
           </div>
           <div className="p-2 border-t sm:border-t-0 sm:border-x border-[#E8E2DA]">
             <p className="eyebrow-tag text-[#888] text-[9px] sm:text-[10px]">URBAN DEVELOPMENT</p>
-            <p className="text-lg sm:text-xl font-bold text-[#C8312A] font-serif mt-0.5">VMRDA Layouts</p>
+            <p className="text-lg sm:text-xl font-bold text-[#C8312A] font-serif mt-0.5">KAUDA Approved</p>
           </div>
           <div className="p-2 border-t sm:border-t-0 border-[#E8E2DA]">
             <p className="eyebrow-tag text-[#888] text-[9px] sm:text-[10px]">REAL ESTATE AUTHORITY</p>
