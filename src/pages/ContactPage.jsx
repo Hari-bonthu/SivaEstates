@@ -7,6 +7,7 @@ export default function ContactPage({ lang = 'en' }) {
   const t = translations[lang]?.contact || translations.en.contact;
 
   useEffect(() => {
+    document.title = "Contact Us & Book Free Site Visit | Siva Telugu Estates | +91 98516 33333";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

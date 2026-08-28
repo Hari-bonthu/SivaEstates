@@ -7,6 +7,7 @@ export default function OfficesPage({ lang = 'en' }) {
   const t = translations[lang]?.branches || translations.en.branches;
 
   useEffect(() => {
+    document.title = "Our Branch Offices | Rajahmundry & Kakinada | Siva Telugu Estates";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

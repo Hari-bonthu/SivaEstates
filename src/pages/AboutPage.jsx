@@ -10,6 +10,7 @@ export default function AboutPage({ lang = 'en' }) {
   const tHero = translations[lang]?.hero || translations.en.hero;
 
   useEffect(() => {
+    document.title = "About Us | Siva Telugu Estates | Director Mr. Siva Yedida";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

@@ -30,6 +30,7 @@ export default function PropertiesPage({ lang = 'en' }) {
   const t = translations[lang]?.propertiesPage || translations.en.propertiesPage;
 
   useEffect(() => {
+    document.title = "Ventures & Open Plots | Siva Telugu Estates Rajahmundry & Kakinada";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
