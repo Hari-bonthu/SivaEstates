@@ -42,7 +42,7 @@ export default function Footer({ lang = 'en' }) {
             {/* Social icons */}
             <div className="flex items-center space-x-3">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/sivateluguestate/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all"
@@ -51,7 +51,7 @@ export default function Footer({ lang = 'en' }) {
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/sivateluguestate/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all"
@@ -60,7 +60,7 @@ export default function Footer({ lang = 'en' }) {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://youtube.com/@sivateluguestates"
+                href="https://www.youtube.com/@sivateluguestates"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all"
@@ -156,8 +156,8 @@ export default function Footer({ lang = 'en' }) {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 shrink-0 text-[#888]" />
-                <a href="mailto:hello@siteluguestates.in" className="hover:text-white transition-colors">
-                  hello@siteluguestates.in
+                <a href="mailto:sivateluguestates@gmail.com" className="hover:text-white transition-colors">
+                  sivateluguestates@gmail.com
                 </a>
               </li>
             </ul>

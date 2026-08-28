@@ -251,59 +251,65 @@ export default function GalleryPage({ lang = 'en' }) {
       {/* Site Visit Lightbox Modal */}
       {selectedSiteVisitIdx !== null && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => setSelectedSiteVisitIdx(null)}
         >
           <div 
-            className="relative z-10 w-full max-w-4xl bg-[#141414] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[92vh]"
+            className="relative z-10 w-full max-w-4xl h-[90vh] sm:h-[86vh] max-h-[820px] bg-[#141414] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-4 sm:p-5 flex items-center justify-between border-b border-white/10 bg-[#1A1A1A]">
+            <div className="p-3 sm:p-4 md:p-5 flex items-center justify-between border-b border-white/10 bg-[#161616] shrink-0">
               <div className="min-w-0 pr-2">
                 <span className="px-2 py-0.5 rounded-full bg-[#C8312A] text-white text-[10px] font-bold tracking-wide uppercase">
                   {siteVisitsData[selectedSiteVisitIdx]?.tag}
                 </span>
-                <h3 className="text-base sm:text-lg font-serif font-bold text-white mt-1 truncate">
+                <h3 className="text-sm sm:text-base md:text-lg font-serif font-bold text-white mt-1 truncate">
                   {siteVisitsData[selectedSiteVisitIdx]?.title}
                 </h3>
               </div>
               <button
                 onClick={() => setSelectedSiteVisitIdx(null)}
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-colors cursor-pointer shrink-0 active:scale-95"
+                title="Close (Esc)"
+                aria-label="Close"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
 
             {/* Modal Image Display with Prev/Next Controls */}
-            <div className="relative flex-1 bg-black flex items-center justify-center min-h-[250px] max-h-[60vh] overflow-hidden">
+            <div className="relative flex-1 min-h-0 bg-black flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
               <img
                 src={siteVisitsData[selectedSiteVisitIdx]?.image}
                 alt={siteVisitsData[selectedSiteVisitIdx]?.title}
-                className="w-full h-full max-h-[60vh] object-contain select-none"
+                className="max-w-full max-h-full w-auto h-auto object-contain select-none transition-all duration-200 drop-shadow-md pointer-events-none"
               />
 
               <button
                 onClick={() => setSelectedSiteVisitIdx((prev) => (prev - 1 + siteVisitsData.length) % siteVisitsData.length)}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90 z-10"
+                title="Previous photo"
+                aria-label="Previous"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
               <button
                 onClick={() => setSelectedSiteVisitIdx((prev) => (prev + 1) % siteVisitsData.length)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90 z-10"
+                title="Next photo"
+                aria-label="Next"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
 
             {/* Modal Footer Caption */}
-            <div className="p-4 bg-[#1A1A1A] border-t border-white/10 flex items-center justify-between text-xs">
+            <div className="p-3 sm:p-4 bg-[#161616] border-t border-white/10 flex items-center justify-between text-xs shrink-0">
               <div className="flex items-center gap-2 text-[#9CA3AF]">
                 <MapPin className="w-3.5 h-3.5 text-[#C8312A]" />
-                <span>{siteVisitsData[selectedSiteVisitIdx]?.location}</span>
+                <span className="truncate">{siteVisitsData[selectedSiteVisitIdx]?.location}</span>
                 <span className="text-white/20 mx-1">•</span>
                 <span className="font-mono text-white/70">{selectedSiteVisitIdx + 1} / {siteVisitsData.length}</span>
               </div>
@@ -311,7 +317,7 @@ export default function GalleryPage({ lang = 'en' }) {
                 href="https://wa.me/919851633333?text=Hello%20Siva%20Telugu%20Estates,%20I%20am%20interested%20in%20a%20site%20visit."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-red px-4 py-2 text-xs font-bold flex items-center gap-1.5"
+                className="btn-red px-3.5 py-2 text-xs font-bold flex items-center gap-1.5 shrink-0"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Schedule Visit</span>

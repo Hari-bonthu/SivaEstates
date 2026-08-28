@@ -20,7 +20,7 @@ export default function VenturePage() {
       <div className="min-h-screen bg-[#F5F0EB] flex flex-col items-center justify-center text-center p-8">
         <h1 className="text-3xl font-bold text-[#1A1A1A] font-serif mb-4">Venture Not Found</h1>
         <p className="text-[#6B6860] mb-6">This project page doesn't exist or may have been moved.</p>
-        <Link to="/" className="px-6 py-3 rounded-xl bg-[#1A1A1A] text-white font-sans font-bold text-sm">
+        <Link to="/properties" className="px-6 py-3 rounded-xl bg-[#1A1A1A] text-white font-sans font-bold text-sm">
           ← Back to All Ventures
         </Link>
       </div>
@@ -48,7 +48,7 @@ export default function VenturePage() {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
-            to="/"
+            to="/properties"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center space-x-2 text-xs font-sans font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors group cursor-pointer"
           >
