@@ -1,90 +1,108 @@
 import React, { useEffect } from 'react';
 import { translations } from '../data/translations';
-import { ShieldCheck, Award, Users, CheckCircle2, MapPin, Phone, ArrowRight } from 'lucide-react';
+import { Award, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import FourPillars from '../components/FourPillars';
+import TrustSection from '../components/TrustSection';
 
 export default function AboutPage({ lang = 'en' }) {
+  const t = translations[lang]?.aboutPage || translations.en.aboutPage;
+  const tHero = translations[lang]?.hero || translations.en.hero;
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const t = translations[lang] || translations.en;
-
-  const milestones = [
-    { year: '2008', title: 'Founded with Vision', desc: 'Started with single layout development in Rajahmundry with 100% legal title assurance.' },
-    { year: '2014', title: 'Godavari Expansion', desc: 'Expanded across prime growth corridors in East & West Godavari districts.' },
-    { year: '2020', title: '1,000+ Plot Owners', desc: 'Crossed milestone of 1,000 registered plot owners with zero litigations.' },
-    { year: '2024+', title: 'Kakinada Smart City & Gated Villas', desc: 'Launched luxury gated villa layouts and new dedicated Kakinada branch office.' }
-  ];
-
   return (
-    <div className="min-h-screen bg-[#F9F7F2] font-sans">
+    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
+      
       {/* Hero Header */}
-      <section className="pt-16 pb-20 border-b border-[#E5E0D5] bg-white/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="brand-subtitle mb-2">ABOUT SIVA TELUGU ESTATES</span>
-            <h1 className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif tracking-tight leading-tight">
-              Building Legacy, Trust &amp; Heritage in the Godavari Region
-            </h1>
-            <p className="mt-4 text-base text-[#636863] leading-relaxed">
-              For over 15 years, Siva Telugu Estates has been the trusted real estate benchmark for residential open plots, luxury gated villa communities, and high-appreciation land assets across Rajahmundry and Kakinada.
-            </p>
-          </div>
+      <section className="pt-12 sm:pt-16 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="max-w-3xl">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-normal leading-tight mb-3 sm:mb-4 tracking-tight">
+            {t.heading}
+          </h1>
+          <p className="text-[#6B6860] text-sm sm:text-base md:text-lg leading-relaxed">
+            {t.subheading}
+          </p>
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section className="py-20 border-b border-[#E5E0D5]">
+      {/* Founder Spotlight & Heritage Section */}
+      <section className="py-10 sm:py-16 bg-white border-y border-[#E8E2DA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden border border-[#E5E0D5] bg-white shadow-md">
-                <img
-                  src="./images/siva_yedida_professional.jpg"
-                  alt="Mr. Siva Yedida"
-                  className="w-full h-[420px] object-cover object-top"
-                />
-                <div className="p-6 bg-white border-t border-[#E5E0D5]">
-                  <span className="brand-subtitle">FOUNDER &amp; MANAGING DIRECTOR</span>
-                  <h3 className="text-2xl font-bold text-[#1B1C1C] font-serif">Siva Yedida</h3>
-                  <p className="text-xs text-[#636863] mt-1">15+ Years Experience in Land Scrutiny &amp; Community Development</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
+
+            {/* Left: Founder Photo Card */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-sm sm:max-w-md rounded-2xl sm:rounded-3xl overflow-hidden bg-[#F5F0EB] border border-[#E8E2DA] shadow-xl group">
+                <div className="h-[280px] sm:h-[380px] md:h-[420px] overflow-hidden bg-[#E8E2DA]">
+                  <img
+                    src="./images/siva_profile_cutout.png"
+                    alt="Mr. Siva Yedida"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 sm:p-6 bg-white border-t border-[#E8E2DA]">
+                  <span className="eyebrow-tag text-[9px] sm:text-[10px]" style={{ color: '#C8312A', marginBottom: '2px' }}>
+                    {tHero.directorTitle}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] font-serif">
+                    {tHero.directorName}
+                  </h3>
+                  <p className="text-xs text-[#6B6860] mt-1.5 sm:mt-2 leading-relaxed">
+                    {tHero.directorDesc}
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6">
-              <span className="brand-subtitle">LEADERSHIP MESSAGE</span>
-              <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] font-serif">
-                "Our reputation is built on clear titles and honest handovers."
+            {/* Right: Heritage Narrative */}
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FCECEA] text-[#C8312A] text-xs font-bold w-fit">
+                <Award className="w-4 h-4 shrink-0" />
+                <span>12+ Years of Leadership in Godavari</span>
+              </div>
+
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#1A1A1A] font-normal leading-snug">
+                {t.storyTitle}
               </h2>
-              <p className="text-sm sm:text-base text-[#636863] leading-relaxed">
-                When you buy land with Siva Telugu Estates, you are not just purchasing square yards — you are securing your family’s generational heritage. We personally conduct comprehensive 30-year legal link title checks, obtain all DTCP &amp; VMRDA approvals, and ensure physical infrastructure is delivered before registration.
+
+              <p className="text-xs sm:text-sm md:text-base text-[#6B6860] leading-relaxed">
+                {t.storyP1}
               </p>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4 border-t border-[#E5E0D5]">
-                <div>
-                  <p className="text-3xl font-serif text-[#1B1C1C]">50+</p>
-                  <p className="text-xs text-[#636863] mt-1 font-sans">Delivered Ventures</p>
+
+              <p className="text-xs sm:text-sm md:text-base text-[#6B6860] leading-relaxed">
+                {t.storyP2}
+              </p>
+
+              {/* 4 Milestones */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-[#E8E2DA]">
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone1}</span>
                 </div>
-                <div>
-                  <p className="text-3xl font-serif text-[#1B1C1C]">1500+</p>
-                  <p className="text-xs text-[#636863] mt-1 font-sans">Plot Owners</p>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone2}</span>
                 </div>
-                <div>
-                  <p className="text-3xl font-serif text-[#1B1C1C]">100%</p>
-                  <p className="text-xs text-[#636863] mt-1 font-sans">Clear Title Record</p>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone3}</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone4}</span>
                 </div>
               </div>
 
-              <div className="pt-4">
+              <div className="pt-2">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-[#1B1C1C] hover:bg-[#334537] text-white text-xs font-sans font-bold tracking-[0.1em] transition-all shadow-sm"
+                  className="btn-red inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold cursor-pointer shadow-sm w-full sm:w-auto text-center"
                 >
-                  <span>Request Direct Consultation</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Book Consultation With Director</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </div>
             </div>
@@ -93,27 +111,12 @@ export default function AboutPage({ lang = 'en' }) {
         </div>
       </section>
 
-      {/* Milestones / Journey */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="brand-subtitle">OUR JOURNEY</span>
-            <h2 className="text-3xl sm:text-4xl font-normal text-[#1B1C1C] font-serif mt-2">
-              A Proven Track Record of Value Creation
-            </h2>
-          </div>
+      {/* 4 Core Pillars */}
+      <FourPillars lang={lang} />
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {milestones.map((item, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-[#E5E0D5] shadow-xs space-y-3">
-                <span className="text-2xl font-serif text-[#4A5D4E] font-bold">{item.year}</span>
-                <h4 className="text-base font-bold text-[#1B1C1C] font-serif">{item.title}</h4>
-                <p className="text-xs text-[#636863] leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Trust & Legal Verification */}
+      <TrustSection lang={lang} />
+
     </div>
   );
 }

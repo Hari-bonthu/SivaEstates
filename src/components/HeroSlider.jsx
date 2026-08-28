@@ -115,7 +115,7 @@ export default function HeroSlider({ lang }) {
                 </p>
 
                 <div className="flex items-center justify-between pt-4 mt-4 border-t border-[#E5E0D5] text-[11px] font-mono text-[#636863]">
-                  <span className="font-semibold text-[#1B1C1C]">12+ Years In Land Development</span>
+                  <span className="font-semibold text-[#1B1C1C]">12+ Years In Real Estate Advisory</span>
                   <a href="#contact" className="hover:text-[#4A5D4E] font-bold text-[#1B1C1C] underline">
                     REQUEST MEETING →
                   </a>

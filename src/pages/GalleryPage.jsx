@@ -1,138 +1,151 @@
 import React, { useState, useEffect } from 'react';
+import { properties } from '../data/properties';
 import { translations } from '../data/translations';
-import { Camera, MapPin, X, ChevronLeft, ChevronRight } from 'lucide-react';
-
-const GALLERY_PHOTOS = [
-  { src: './images/assets/20250604_152649.jpg', title: 'Jetty Mayfair - Grand Entrance Arch', location: 'Morampudi Lalacheruvu, Rajahmundry', tag: 'Infrastructure' },
-  { src: './images/assets/20260814_103718.jpg', title: 'Blacktop 40ft Main Access Road', location: 'Siva Grand Corridor, Kakinada', tag: 'Roads' },
-  { src: './images/assets/20260814_105640.jpg', title: 'Vastu Demarcated Corner Plots', location: 'Godavari Greens, Rajanagaram', tag: 'Plot Layout' },
-  { src: './images/assets/20260814_110125(0).jpg', title: 'Avenue Plantation & Green Park', location: 'Sri Siva Residency, Samalkot', tag: 'Landscaping' },
-  { src: './images/assets/20260814_111324.jpg', title: 'Underground Drainage & Electricity Grid', location: 'Siva Smart City, Kakinada', tag: 'Utilities' },
-  { src: './images/assets/20260814_111610.jpg', title: 'Children Play Park & Walking Track', location: 'Royal Enclave, Diwancheruvu', tag: 'Amenities' },
-  { src: './images/assets/IMG-20230709-WA0031.jpg', title: 'Plot Boundary Stones & Kerbing', location: 'Greenfield Layout, Korukonda', tag: 'Demarcation' },
-  { src: './images/assets/IMG-20231027-WA0019.jpg', title: 'Compound Wall & 24/7 Security Gate', location: 'Jetty Mayfair Corridor', tag: 'Security' },
-  { src: './images/luxury_villa_venture_1786442598108.jpg', title: 'Luxury Villa Gated Community Concept', location: 'Morampudi Corridor', tag: 'Villas' }
-];
+import { Images, Eye, ArrowRight } from 'lucide-react';
+import ProjectGalleryModal from '../components/ProjectGalleryModal';
+import YouTubeHub from '../components/YouTubeHub';
 
 export default function GalleryPage({ lang = 'en' }) {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [filter, setFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const t = translations[lang]?.galleryPage || translations.en.galleryPage;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const tags = ['All', 'Infrastructure', 'Roads', 'Plot Layout', 'Landscaping', 'Amenities'];
-
-  const filteredPhotos = filter === 'All'
-    ? GALLERY_PHOTOS
-    : GALLERY_PHOTOS.filter(p => p.tag === filter);
+  const filteredProperties = properties.filter((project) => {
+    if (activeFilter === 'All') return true;
+    if (activeFilter === 'Villas') return (project.type || '').toLowerCase().includes('villa');
+    if (activeFilter === 'Plots') return (project.type || '').toLowerCase().includes('plot');
+    if (activeFilter === 'Completed') return project.category === 'completed';
+    return true;
+  });
 
   return (
-    <div className="min-h-screen bg-[#F9F7F2] font-sans">
-      {/* Header */}
-      <section className="pt-16 pb-16 border-b border-[#E5E0D5] bg-white/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="brand-subtitle mb-2">SITE PROOF &amp; DEVELOPMENT GALLERY</span>
-            <h1 className="text-4xl sm:text-5xl font-normal text-[#1B1C1C] font-serif tracking-tight leading-tight">
-              Real Ground Reality — 100% Unfiltered Photos
-            </h1>
-            <p className="mt-4 text-base text-[#636863] leading-relaxed">
-              Explore real development progress across our open plot layouts and gated communities in Rajahmundry, Kakinada, and surrounding growth corridors.
-            </p>
-          </div>
+    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
 
-          {/* Filter Pills */}
-          <div className="flex flex-wrap gap-2 mt-8">
-            {tags.map(tag => (
+      {/* Hero Header */}
+      <section className="pt-12 sm:pt-16 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="max-w-3xl">
+          {/* <div className="flex items-center gap-2 mb-2 sm:mb-3">
+            <div className="h-px w-6 bg-[#C8312A]"></div>
+            <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ color: '#C8312A', display: 'inline' }}>
+              {t.eyebrow}
+            </span>
+          </div> */}
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-normal leading-tight mb-3 sm:mb-4 tracking-tight">
+            {t.heading}
+          </h1>
+          <p className="text-[#6B6860] text-sm sm:text-base md:text-lg leading-relaxed">
+            {t.subheading}
+          </p>
+        </div>
+
+        {/* Filter Pills with horizontal scroll support */}
+        <div className="flex items-center gap-2 mt-6 sm:mt-8 overflow-x-auto pb-2 scrollbar-none">
+          {[
+            { key: 'All', label: t.filters.all },
+            { key: 'Villas', label: t.filters.villas },
+            { key: 'Plots', label: t.filters.plots },
+            { key: 'Completed', label: t.filters.completed },
+          ].map(({ key, label }) => {
+            const isActive = activeFilter === key;
+            return (
               <button
-                key={tag}
-                onClick={() => setFilter(tag)}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.05em] transition-all cursor-pointer ${
-                  filter === tag
-                    ? 'bg-[#1B1C1C] text-white shadow-xs'
-                    : 'bg-white text-[#636863] border border-[#E5E0D5] hover:border-[#1B1C1C] hover:text-[#1B1C1C]'
+                key={key}
+                onClick={() => setActiveFilter(key)}
+                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
+                  isActive
+                    ? 'bg-[#C8312A] text-white shadow-sm'
+                    : 'bg-white text-[#6B6860] border border-[#E8E2DA] hover:border-[#C8312A] hover:text-[#C8312A]'
                 }`}
               >
-                {tag}
+                {label}
               </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPhotos.map((photo, idx) => (
+      {/* Gallery Grid: 1 col on xs, 2 col on sm/md, 3 col on lg */}
+      <section className="pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredProperties.map((project) => {
+            const photoCount = project.gallery?.length || 1;
+            return (
               <div
-                key={idx}
-                onClick={() => setSelectedPhoto(photo)}
-                className="group bg-white rounded-2xl overflow-hidden border border-[#E5E0D5] hover:border-[#4A5D4E] transition-all shadow-xs hover:shadow-md cursor-pointer flex flex-col"
+                key={project.id}
+                onClick={() => setSelectedProject(project)}
+                className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all shadow-xs hover:shadow-xl group cursor-pointer active:scale-[0.99] flex flex-col justify-between"
               >
-                <div className="relative h-60 overflow-hidden bg-[#F0EDED]">
+                {/* Main Card Image with overlay */}
+                <div className="relative h-52 sm:h-60 overflow-hidden bg-[#E8E2DA]">
                   <img
-                    src={photo.src}
-                    alt={photo.title}
+                    src={project.thumbnail}
+                    alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-xs text-[10px] font-mono text-white">
-                    {photo.tag}
+
+                  {/* Badges */}
+                  <div className="absolute top-3 left-3 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#C8312A] text-white text-[9px] sm:text-[10px] font-bold">
+                    {project.location?.toUpperCase()}
+                  </div>
+
+                  <div className="absolute top-3 right-3 px-2.5 py-0.5 sm:py-1 rounded-full bg-black/70 backdrop-blur-xs text-white text-[9px] sm:text-[10px] font-semibold flex items-center gap-1">
+                    <Images className="w-3 h-3 text-[#F5C6C4]" />
+                    <span>{photoCount} Photos</span>
+                  </div>
+
+                  {/* Hover Popup Overlay */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="px-3.5 sm:px-4 py-2 rounded-full bg-white text-[#1A1A1A] font-bold text-xs shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                      <Eye className="w-4 h-4 text-[#C8312A]" />
+                      <span>Open Photo Gallery</span>
+                    </span>
                   </div>
                 </div>
-                <div className="p-5 flex-1 flex flex-col justify-between">
+
+                {/* Card Meta */}
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-base font-bold text-[#1B1C1C] font-serif group-hover:text-[#4A5D4E] transition-colors">
-                      {photo.title}
+                    <span className="text-[9px] sm:text-[10px] font-bold text-[#C8312A] uppercase tracking-wider block mb-1">
+                      {project.displayType || 'PLOTS & VILLAS'}
+                    </span>
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1A1A1A] group-hover:text-[#C8312A] transition-colors leading-snug line-clamp-2">
+                      {project.title}
                     </h3>
-                    <p className="flex items-center text-xs text-[#636863] mt-1.5 font-sans">
-                      <MapPin className="w-3.5 h-3.5 mr-1 shrink-0 text-[#4A5D4E]" />
-                      <span>{photo.location}</span>
+                    <p className="text-xs text-[#6B6860] mt-1 line-clamp-2">
+                      {project.description}
                     </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-[#E8E2DA] flex items-center justify-between text-xs font-semibold text-[#1A1A1A]">
+                    <span className="text-[#6B6860] truncate pr-2">{project.area}</span>
+                    <span className="text-[#C8312A] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform shrink-0">
+                      <span>View Album</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Lightbox Modal */}
-      {selectedPhoto && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setSelectedPhoto(null)}
-        >
-          <div
-            className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl"
-            onClick={e => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="max-h-[70vh] bg-black flex items-center justify-center overflow-hidden">
-              <img
-                src={selectedPhoto.src}
-                alt={selectedPhoto.title}
-                className="max-h-[70vh] w-full object-contain"
-              />
-            </div>
-            <div className="p-6 bg-white">
-              <span className="brand-subtitle">{selectedPhoto.tag}</span>
-              <h3 className="text-xl font-bold text-[#1B1C1C] font-serif mt-1">{selectedPhoto.title}</h3>
-              <p className="flex items-center text-xs text-[#636863] mt-1">
-                <MapPin className="w-3.5 h-3.5 mr-1 text-[#4A5D4E]" />
-                <span>{selectedPhoto.location}</span>
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* YouTube Video Tour Hub Section */}
+      <YouTubeHub lang={lang} />
+
+      {/* Lightbox Pop-up Modal */}
+      {selectedProject && (
+        <ProjectGalleryModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       )}
+
     </div>
   );
 }
