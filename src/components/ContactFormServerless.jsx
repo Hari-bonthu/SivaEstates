@@ -23,7 +23,7 @@ export default function ContactFormServerless({ lang = 'en' }) {
 
     try {
       const formPayload = new FormData();
-      formPayload.append("access_key", "55a4bf57-4cfb-4a58-8b9f-ba57dfc6bb64");
+      formPayload.append("access_key", "c059670b-6f4d-472a-b658-42c21e90e553");
       formPayload.append("subject", `New Real Estate Inquiry from ${formData.name} (${formData.location})`);
       formPayload.append("from_name", "Siva Telugu Estates Web Lead");
       formPayload.append("name", formData.name);
