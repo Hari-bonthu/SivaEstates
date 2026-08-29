@@ -51,7 +51,7 @@
 - **📸 Interactive Venture & Site Visit Gallery:** Filterable media showcase with real high-resolution on-site client visit photography from the Godavari belt.
 - **🤖 SivaBot Real Estate Assistant:** Interactive instant-reply chat assistant providing plot pricing, legal guidance, office locations, and direct director WhatsApp routing.
 - **🎥 Official YouTube Shorts Hub:** Embedded showcase connected directly to **[@sivateluguestates](https://www.youtube.com/@sivateluguestates)** for real-time site tours and drone walkthroughs.
-- **📊 Integrated Web Analytics:** Google Analytics 4 (`G-4LYBVWTLE4`) with auto domain configuration and secure cookie flags.
+- **📊 Integrated Web Analytics:** Google Analytics 4 (`G-F3J0QXDGSY`) with auto domain configuration and secure cookie flags.
 - **📱 Dual-Channel Lead Routing:** Serverless lead dispatch powered by Web3Forms paired with instant direct WhatsApp notification to Director Mr. Siva Yedida.
 - **🌐 Telugu & English Dual-Language Support:** Instant bilingual localized experience.
 
