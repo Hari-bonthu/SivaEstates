@@ -3,7 +3,7 @@ import { ChevronRight, Play, PhoneCall } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link } from 'react-router-dom';
 
-// â”€â”€â”€ HERO BACKGROUND MANUAL CONFIGURATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── HERO BACKGROUND MANUAL CONFIGURATION ──────────────────────────────────────
 // You can easily adjust these settings anytime:
 const HERO_BG_CONFIG = {
   // Path to the abstract topographic contour map background image
@@ -18,7 +18,7 @@ const HERO_BG_CONFIG = {
   // Whether to apply soft radial vignette fade to keep text & founder card crisp
   enableSoftFade: true,
 };
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ───────────────────────────────────────────────────────────────────────────────
 
 export default function HeroSlider({ lang = 'en' }) {
   const t = translations[lang]?.hero || translations.en.hero;
@@ -57,7 +57,7 @@ export default function HeroSlider({ lang = 'en' }) {
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
 
-            {/* Eyebrow tag: â€” GODAVARI REGION Â· SINCE 2014 */}
+            {/* Eyebrow tag: — GODAVARI REGION · SINCE 2014 */}
             <div className="flex items-center space-x-2">
               <div className="h-px w-6 bg-[#C8312A]"></div>
               <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ display: 'inline', color: '#C8312A' }}>
@@ -98,7 +98,7 @@ export default function HeroSlider({ lang = 'en' }) {
 
           </div>
 
-          {/* Right Column â€” Founder Photo Card */}
+          {/* Right Column — Founder Photo Card */}
           <div className="lg:col-span-5 relative flex justify-center mt-2 lg:mt-0">
 
             <div className="relative w-full max-w-sm sm:max-w-md rounded-3xl overflow-hidden bg-white border border-[#E8E2DA] shadow-xl group">
@@ -106,7 +106,7 @@ export default function HeroSlider({ lang = 'en' }) {
               {/* Profile Photo */}
               <div className="relative h-[280px] sm:h-[360px] md:h-[400px] overflow-hidden bg-[#F0EDED]">
                 <img
-                  src="./images/siva_yedida_professional.jpg"
+                  src="/images/siva_yedida_professional.jpg"
                   alt="Mr. Siva Yedida - Founder & Managing Director"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
@@ -114,7 +114,7 @@ export default function HeroSlider({ lang = 'en' }) {
                 {/* Corner logo emblem */}
                 <div className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 rounded-xl bg-white/90 backdrop-blur-md border border-[#E8E2DA] shadow-md flex items-center justify-center">
                   <img
-                    src="./images/logo/original_Logo_Siva.png"
+                    src="/images/logo/original_Logo_Siva.png"
                     alt="Siva Estates Emblem"
                     className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                   />

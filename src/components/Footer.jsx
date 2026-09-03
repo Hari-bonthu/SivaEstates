@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Phone, MapPin, Mail, Facebook, Instagram, Youtube } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ export default function Footer({ lang = 'en' }) {
     <footer className="bg-[#1A1A1A] text-white pt-16 pb-8 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
 
-        {/* Main Grid â€” 4 columns */}
+        {/* Main Grid — 4 columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-[#2E2E2E]">
 
           {/* Column 1: Brand + Social */}
@@ -134,7 +134,7 @@ export default function Footer({ lang = 'en' }) {
               </li>
               <li>
                 <Link to="/properties" onClick={scrollToTop} className="text-[#C8312A] hover:underline font-semibold block pt-1">
-                  View All Ventures â†’
+                  View All Ventures →
                 </Link>
               </li>
             </ul>

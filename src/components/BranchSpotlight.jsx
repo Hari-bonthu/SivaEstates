@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { MapPin, Phone, Building2, Navigation, Sparkles } from 'lucide-react';
 import { translations } from '../data/translations';
 
@@ -34,7 +34,7 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
             <div className="relative h-44 sm:h-48 bg-[#F0EDED] p-5 sm:p-6 flex flex-col justify-between overflow-hidden">
               <img 
                 src="/images/ventures/jetty-mayfair.jpg" 
-                alt="Siva Telugu Estates Rajahmundry Headquarters â€“ Morampudi Lalacheruvu Real Estate Office" 
+                alt="Siva Telugu Estates Rajahmundry Headquarters – Morampudi Lalacheruvu Real Estate Office" 
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
                 loading="lazy"
               />
@@ -86,7 +86,7 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
                   rel="noopener noreferrer"
                   className="btn-red w-full py-3 sm:py-3.5 text-xs font-bold shadow-md transition-all flex items-center justify-center space-x-2 active:scale-95"
                 >
-                  <Navigation className="w-4 h-4" aria-hidden="true" />
+                  <Navigation className="w-4 h-4" />
                   <span>{t.rajahmundry.visitBtn || 'Visit Rajahmundry Office'}</span>
                 </a>
               </div>
@@ -98,7 +98,7 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
             <div className="relative h-48 bg-[#F0EDED] p-5 sm:p-6 flex flex-col justify-between overflow-hidden">
               <img 
                 src="/images/kakinada_branch_venture_1786442659994.jpg" 
-                alt="Siva Telugu Estates Kakinada Branch Office â€“ Panduru Real Estate Hub" 
+                alt="Siva Telugu Estates Kakinada Branch Office – Panduru Real Estate Hub" 
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
                 loading="lazy"
               />
@@ -113,7 +113,7 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
                 <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] font-serif">
                   {t.kakinada.name}
                 </h3>
-                <p className="text-xs text-[#C8312A] font-sans mt-0.5">Smart City &amp; Port Corridor Specialist</p>
+                <p className="text-xs text-[#C8312A] font-sans mt-0.5">Smart City Coastal Growth Belt</p>
               </div>
             </div>
 
@@ -146,7 +146,7 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
 
               <div className="pt-2">
                 <a
-                  href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20new%20Kakinada%20Branch."
+                  href="https://maps.google.com/?q=Kakinada+Siva+Telugu+Estates"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-red w-full py-3 sm:py-3.5 text-xs font-bold shadow-md transition-all flex items-center justify-center space-x-2 active:scale-95"

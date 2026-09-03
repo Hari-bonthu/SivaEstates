@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Phone, Send, MapPin, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
 import { translations } from '../data/translations';
 import { properties } from '../data/properties';

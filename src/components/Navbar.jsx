@@ -1,9 +1,9 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Globe, Menu, X } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-// â”€â”€â”€ NAVBAR GLASS & DISPLAY MANUAL CONFIGURATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── NAVBAR GLASS & DISPLAY MANUAL CONFIGURATION ──────────────────────────────
 // You can easily adjust the navbar glass transparency and blur here:
 export const NAVBAR_GLASS_CONFIG = {
   // Transparency: 0.60 = 60% (very glassy), 0.75 = 75% (recommended), 0.90 = 90% (subtle)
@@ -21,7 +21,7 @@ export const NAVBAR_GLASS_CONFIG = {
   // Mobile drawer frosted opacity:
   drawerOpacity: 0.96,
 };
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ───────────────────────────────────────────────────────────────────────────────
 
 export default function Navbar({ lang = 'en', setLang }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -100,7 +100,7 @@ export default function Navbar({ lang = 'en', setLang }) {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links â€” Strictly hidden on mobile/medium (< 1200px), flex on desktop (xl) */}
+          {/* Desktop Navigation Links — Strictly hidden on mobile/medium (< 1200px), flex on desktop (xl) */}
           <nav className="site-nav hidden xl:flex" aria-label="Main site navigation">
             {navLinks.map(({ label, key, path }) => (
               <Link
@@ -125,7 +125,7 @@ export default function Navbar({ lang = 'en', setLang }) {
               title="Switch language"
             >
               <Globe className="w-3.5 h-3.5 text-[#C8312A]" aria-hidden="true" />
-              <span>{lang === 'en' ? 'à°¤à±†à°²à±à°—à±' : 'English'}</span>
+              <span>{lang === 'en' ? 'తెలుగు' : 'English'}</span>
             </button>
 
             <button
@@ -145,7 +145,7 @@ export default function Navbar({ lang = 'en', setLang }) {
               aria-label="Switch language"
             >
               <Globe className="w-3 h-3 text-[#C8312A]" aria-hidden="true" />
-              <span>{lang === 'en' ? 'à°¤à±†à°²à±à°—à±' : 'English'}</span>
+              <span>{lang === 'en' ? 'తెలుగు' : 'English'}</span>
             </button>
 
             {/* Circular Hamburger / Close Button matching template media_1787649568778.png */}

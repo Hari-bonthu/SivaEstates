@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const RenderTarget = {
   current: () => "preview",
@@ -211,7 +211,7 @@ function OriginkitBase_MagneticCarousel(props) {
         onMouseMove={onMove}
         onMouseLeave={onLeave}
       >
-        {/* Transparent backdrop â€” click to close */}
+        {/* Transparent backdrop — click to close */}
         <div
           style={{
             position: "absolute",

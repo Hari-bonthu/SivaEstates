@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ShieldCheck, MapPin, Phone, ArrowRight, Play, CheckCircle2 } from 'lucide-react';
 import { translations } from '../data/translations';
 

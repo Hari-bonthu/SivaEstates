@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Play, ExternalLink, Clock, Eye } from 'lucide-react';
 import { translations } from '../data/translations';
 
@@ -7,7 +7,7 @@ const VIDEOS = [
     id: 'v1',
     youtubeId: 'aXV1rrImN80',
     title: 'Jetty Mayfair Phase 2 Bookings Open - Gated Villa Plots',
-    description: 'Watch the latest phase 2 layout development and luxury villa plots at Jetty Mayfair Rajahmundryâ€¦',
+    description: 'Watch the latest phase 2 layout development and luxury villa plots at Jetty Mayfair Rajahmundry…',
     category: 'Jetty Mayfair',
     duration: 'Shorts',
     views: '45K+ Views',
@@ -18,7 +18,7 @@ const VIDEOS = [
     id: 'v2',
     youtubeId: 'rXkc9vxAhMM',
     title: 'Introducing Sreenivasam Lake View Villas - Panduru, Kakinada',
-    description: 'Scenic waterfront living and exclusive villa plots layout in Kakinada presented by Siva Telugu Estatesâ€¦',
+    description: 'Scenic waterfront living and exclusive villa plots layout in Kakinada presented by Siva Telugu Estates…',
     category: 'Lake View Villas',
     duration: 'Shorts',
     views: '38K+ Views',
@@ -29,7 +29,7 @@ const VIDEOS = [
     id: 'v3',
     youtubeId: 'PeQP-1rCT7w',
     title: 'Jetty Mayfair Luxury Villa Plots & Grand Gated Community Tour',
-    description: 'Explore the grand entrance arch, wide CC internal roads, and premium amenities in Rajahmundryâ€¦',
+    description: 'Explore the grand entrance arch, wide CC internal roads, and premium amenities in Rajahmundry…',
     category: 'Villa Layout',
     duration: 'Shorts',
     views: '52K+ Views',
@@ -40,7 +40,7 @@ const VIDEOS = [
     id: 'v4',
     youtubeId: 'BHJZ23brxIA',
     title: 'Prime Highway Commercial & Residential Plots - Clear Title Verified',
-    description: 'Strategic high-appreciation open plots with 100% legal clearance along the NH-16 highway corridorâ€¦',
+    description: 'Strategic high-appreciation open plots with 100% legal clearance along the NH-16 highway corridor…',
     category: 'Highway Plots',
     duration: 'Shorts',
     views: '64K+ Views',
@@ -76,7 +76,7 @@ export default function YouTubeHub({ lang = 'en' }) {
         {/* Channel Banner */}
         <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E2DA] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center space-x-3">
-            {/* YouTube brand logo â€” rounded rect + play triangle */}
+            {/* YouTube brand logo — rounded rect + play triangle */}
             <div className="w-12 h-12 rounded-full bg-[#C8312A] flex items-center justify-center text-white shadow-md shrink-0">
               <svg viewBox="0 0 24 24" fill="white" className="w-7 h-7" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
