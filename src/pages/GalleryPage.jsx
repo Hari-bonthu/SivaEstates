@@ -5,6 +5,7 @@ import { siteVisitsData } from '../data/siteVisits';
 import { Images, Eye, ArrowRight, MapPin, Car, CheckCircle2, Phone, MessageCircle, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ProjectGalleryModal from '../components/ProjectGalleryModal';
 import YouTubeHub from '../components/YouTubeHub';
+import SEOHead from '../components/SEOHead';
 
 export default function GalleryPage({ lang = 'en' }) {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -13,7 +14,6 @@ export default function GalleryPage({ lang = 'en' }) {
   const t = translations[lang]?.galleryPage || translations.en.galleryPage;
 
   useEffect(() => {
-    document.title = "Photo Gallery & Site Visits | Siva Telugu Estates Rajahmundry";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
@@ -26,7 +26,13 @@ export default function GalleryPage({ lang = 'en' }) {
   });
 
   return (
-    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
+    <>
+      <SEOHead
+        title="Photo Gallery & Site Visits | Real Estate Ventures | Siva Telugu Estates Rajahmundry"
+        description="Browse real photos from Siva Telugu Estates' gated community site visits across Rajahmundry and Kakinada. See Jetty Mayfair, Sreenivasam Lake View Villas, Seshadri Heights and more."
+        canonicalUrl="https://sivateluguestates.com/gallery"
+      />
+      <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
 
       {/* Hero Header */}
       <section className="pt-12 sm:pt-16 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -328,5 +334,6 @@ export default function GalleryPage({ lang = 'en' }) {
       )}
 
     </div>
+  </>
   );
 }

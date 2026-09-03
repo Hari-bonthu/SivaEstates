@@ -38,7 +38,7 @@ export default function TrustSection({ lang = 'en' }) {
                 className="bg-white p-5 sm:p-6 rounded-2xl border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all group shadow-xs hover:shadow-md"
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#FCECEA] border border-[#C8312A]/20 flex items-center justify-center text-[#C8312A] mb-4 group-hover:scale-110 transition-transform">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-[#1A1A1A] font-serif">
                   {pt.title}

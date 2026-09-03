@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -46,7 +46,7 @@ export default function App() {
   const [lang, setLang] = useState('en');
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToHashElement />
       <div className="min-h-screen flex flex-col bg-[#F5F0EB] text-[#1A1A1A] selection:bg-[#C8312A] selection:text-white font-sans">
         
@@ -86,7 +86,7 @@ export default function App() {
         </Suspense>
 
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

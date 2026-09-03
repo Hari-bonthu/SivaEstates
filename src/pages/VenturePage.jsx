@@ -2,18 +2,45 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { properties } from '../data/properties';
 import { MapPin, PhoneCall, ShieldCheck, CheckCircle2, ArrowLeft, Maximize2, Compass, Ruler, IndianRupee, MessageCircle } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 
 export default function VenturePage() {
   const { id } = useParams();
   const property = properties.find(p => p.id === id) || properties[0];
 
-  // Scroll to top on route change & set dynamic title
+  // Scroll to top on route change
   useEffect(() => {
-    if (property?.title) {
-      document.title = `${property.title} | Siva Telugu Estates (${property.location})`;
-    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id, property]);
+
+  const propertySchema = property ? {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": property.title,
+    "description": property.description,
+    "url": `https://sivateluguestates.com/venture/${property.id}`,
+    "image": property.thumbnail,
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "price": property.pricePerSqYd,
+      "availability": property.status?.toLowerCase().includes('sold')
+        ? "https://schema.org/SoldOut"
+        : "https://schema.org/InStock"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": property.location,
+      "addressRegion": "Andhra Pradesh",
+      "addressCountry": "IN"
+    },
+    "provider": {
+      "@type": "RealEstateAgent",
+      "name": "Siva Telugu Estates",
+      "telephone": "+919851633333",
+      "url": "https://sivateluguestates.com"
+    }
+  } : null;
 
   if (!property) {
     return (
@@ -34,7 +61,15 @@ export default function VenturePage() {
   const otherVentures = properties.filter(p => p.id !== property.id).slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#F5F0EB] font-sans">
+    <>
+      <SEOHead
+        title={`${property.title} | Plots for Sale in ${property.location} | Siva Telugu Estates`}
+        description={`${property.tagline}. ${property.plotSizes} plots available in ${property.area}. ${property.approval}. Free site visit available — Call +91 98516 33333.`}
+        canonicalUrl={`https://sivateluguestates.com/venture/${property.id}`}
+        ogImage={property.thumbnail?.startsWith('http') ? property.thumbnail : `https://sivateluguestates.com${property.thumbnail?.replace('./', '/')}`}
+        schemaData={propertySchema}
+      />
+      <div className="min-h-screen bg-[#F5F0EB] font-sans">
 
       {/* Sub-Header Navigation Bar matching navbar frosted glass */}
       <div 
@@ -52,7 +87,7 @@ export default function VenturePage() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center space-x-2 text-xs font-sans font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors group cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-[#C8312A]" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-[#C8312A]" aria-hidden="true" />
             <span>Back to All Ventures</span>
           </Link>
         </div>
@@ -90,7 +125,7 @@ export default function VenturePage() {
 
           {/* Location corridor */}
           <p className="flex items-center text-white/80 text-sm mt-3 font-sans">
-            <MapPin className="w-4 h-4 mr-1.5 shrink-0 text-[#F5C6C4]" />
+            <MapPin className="w-4 h-4 mr-1.5 shrink-0 text-[#F5C6C4]" aria-hidden="true" />
             <span>{property.area}</span>
           </p>
         </div>
@@ -125,7 +160,7 @@ export default function VenturePage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E2DA] text-center shadow-xs">
                 <div className="flex items-center justify-center space-x-1.5 text-[#C8312A] mb-2">
-                  <Maximize2 className="w-4 h-4" />
+                  <Maximize2 className="w-4 h-4" aria-hidden="true" />
                   <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">PLOT SIZES</span>
                 </div>
                 <p className="text-base font-bold text-[#1A1A1A] font-serif">{property.plotSizes}</p>
@@ -133,7 +168,7 @@ export default function VenturePage() {
 
               <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E2DA] text-center shadow-xs">
                 <div className="flex items-center justify-center space-x-1.5 text-[#C8312A] mb-2">
-                  <Compass className="w-4 h-4" />
+                  <Compass className="w-4 h-4" aria-hidden="true" />
                   <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">FACING</span>
                 </div>
                 <p className="text-base font-bold text-[#1A1A1A] font-serif">{property.facing}</p>
@@ -141,7 +176,7 @@ export default function VenturePage() {
 
               <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E2DA] text-center shadow-xs">
                 <div className="flex items-center justify-center space-x-1.5 text-[#C8312A] mb-2">
-                  <Ruler className="w-4 h-4" />
+                  <Ruler className="w-4 h-4" aria-hidden="true" />
                   <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#6B6860]">ROAD WIDTH</span>
                 </div>
                 <p className="text-base font-bold text-[#1A1A1A] font-serif">{property.roadWidth}</p>
@@ -149,7 +184,7 @@ export default function VenturePage() {
 
               <div className="p-4 sm:p-5 rounded-2xl bg-[#FCECEA] border border-[#C8312A]/30 text-center shadow-xs">
                 <div className="flex items-center justify-center space-x-1.5 text-[#C8312A] mb-2">
-                  <IndianRupee className="w-4 h-4" />
+                  <IndianRupee className="w-4 h-4" aria-hidden="true" />
                   <span className="text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#C8312A]">PRICE / SQ.YD</span>
                 </div>
                 <p className="text-base font-bold text-[#A82822] font-serif">{property.pricePerSqYd}</p>
@@ -159,7 +194,7 @@ export default function VenturePage() {
             {/* Venture Features & Infrastructure */}
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <ShieldCheck className="w-4 h-4 text-[#C8312A]" />
+                <ShieldCheck className="w-4 h-4 text-[#C8312A]" aria-hidden="true" />
                 <h3 className="text-xs font-sans font-medium text-[#1A1A1A] uppercase tracking-[0.2em]">
                   VENTURE FEATURES &amp; INFRASTRUCTURE
                 </h3>
@@ -168,7 +203,7 @@ export default function VenturePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {property.highlights.map((h, i) => (
                   <div key={i} className="flex items-center space-x-3 p-4 rounded-xl bg-white border border-[#E8E2DA] shadow-xs hover:border-[#F5C6C4] transition-colors">
-                    <CheckCircle2 className="w-4 h-4 text-[#C8312A] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#C8312A] shrink-0" aria-hidden="true" />
                     <span className="text-xs sm:text-sm text-[#2D2D2D] font-medium font-sans">{h}</span>
                   </div>
                 ))}
@@ -203,7 +238,7 @@ export default function VenturePage() {
                     rel="noopener noreferrer"
                     className="w-full py-4 rounded-xl bg-[#C8312A] hover:bg-[#A82822] text-white font-bold text-xs sm:text-sm flex items-center justify-center space-x-2 transition-all shadow-md font-sans tracking-[0.1em]"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageCircle className="w-4 h-4" aria-hidden="true" />
                     <span>WhatsApp Inquiry</span>
                   </a>
 
@@ -219,7 +254,7 @@ export default function VenturePage() {
               {/* Legal Approvals Card */}
               <div className="bg-[#FCECEA] rounded-3xl border border-[#C8312A]/20 p-6 space-y-2">
                 <div className="flex items-center space-x-2">
-                  <ShieldCheck className="w-5 h-5 text-[#C8312A]" />
+                  <ShieldCheck className="w-5 h-5 text-[#C8312A]" aria-hidden="true" />
                   <span className="text-xs font-sans font-medium text-[#A82822] uppercase tracking-[0.2em]">
                     LEGAL APPROVALS
                   </span>

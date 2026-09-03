@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, MapPin, ExternalLink, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
 
   const images = project?.gallery && project.gallery.length > 0
     ? project.gallery
-    : [project?.thumbnail || './images/ventures/jetty-mayfair.jpg'];
+    : [project?.thumbnail || '/images/ventures/jetty-mayfair.jpg'];
 
   // Auto-scroll active thumbnail into view
   useEffect(() => {
@@ -77,7 +77,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
       {/* Click outside to close */}
       <div className="absolute inset-0" onClick={onClose}></div>
 
-      {/* Modal Container — Fixed Viewport-Fitted Responsive Box */}
+      {/* Modal Container â€” Fixed Viewport-Fitted Responsive Box */}
       <div 
         className="relative z-10 w-full max-w-4xl h-[90vh] sm:h-[86vh] max-h-[820px] bg-[#141414] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between"
         onClick={(e) => e.stopPropagation()}
@@ -96,7 +96,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
               <p className="text-[11px] sm:text-xs text-[#9CA3AF] font-sans flex items-center gap-1 mt-0.5 truncate">
                 <MapPin className="w-3 h-3 text-[#C8312A] shrink-0" />
                 <span className="truncate">{project.area || project.location}</span>
-                <span className="text-white/20 mx-0.5 sm:mx-1">•</span>
+                <span className="text-white/20 mx-0.5 sm:mx-1">â€¢</span>
                 <span className="text-white/80 font-medium shrink-0">{activeIdx + 1} / {images.length}</span>
               </p>
             </div>
@@ -112,7 +112,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
           </button>
         </div>
 
-        {/* Main Image Stage — Fits Any Aspect Ratio (Landscape / Portrait Flyers) Into Screen Without Resizing Frame */}
+        {/* Main Image Stage â€” Fits Any Aspect Ratio (Landscape / Portrait Flyers) Into Screen Without Resizing Frame */}
         <div 
           className="relative flex-1 min-h-0 bg-black flex items-center justify-center p-2 sm:p-4 overflow-hidden group touch-pan-y select-none"
           onTouchStart={handleTouchStart}
@@ -158,7 +158,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
           )}
         </div>
 
-        {/* Thumbnail Dock Alternative — Clean track with nav controls and zero scrollbars */}
+        {/* Thumbnail Dock Alternative â€” Clean track with nav controls and zero scrollbars */}
         {images.length > 1 && (
           <div className="relative bg-[#161616] border-t border-white/10 px-2 sm:px-4 py-2 sm:py-2.5 flex items-center shrink-0">
             

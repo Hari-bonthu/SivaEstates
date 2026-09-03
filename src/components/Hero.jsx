@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { ShieldCheck, MapPin, Phone, ArrowRight, Play, CheckCircle2 } from 'lucide-react';
 import { translations } from '../data/translations';
 
@@ -10,7 +10,7 @@ export default function Hero({ lang }) {
       {/* Aerial Venture Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <img 
-          src="./images/open_plot_layout_1786442637690.jpg" 
+          src="/images/open_plot_layout_1786442637690.jpg" 
           alt="Real Estate Layout Background"
           className="w-full h-full object-cover mix-blend-luminosity"
         />
@@ -85,7 +85,7 @@ export default function Hero({ lang }) {
               {/* Founder Image */}
               <div className="relative h-[360px] sm:h-[400px] overflow-hidden bg-[#0F1115]">
                 <img
-                  src="./images/siva_yedida_professional.jpg"
+                  src="/images/siva_yedida_professional.jpg"
                   alt="Mr. Siva Yedida - Founder & Director"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />

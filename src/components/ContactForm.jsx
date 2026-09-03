@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { translations } from '../data/translations';
 import { properties } from '../data/properties';
@@ -50,7 +50,7 @@ export default function ContactForm({ lang }) {
             {/* Big Siva Profile Image Card */}
             <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#0F1115] border border-white/10 shadow-lg group">
               <img
-                src="./images/siva_profile_cutout.png"
+                src="/images/siva_profile_cutout.png"
                 alt="Mr. Siva Yedida - Managing Director"
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />

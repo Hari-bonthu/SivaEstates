@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Phone, Send, MapPin, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
 import { translations } from '../data/translations';
 import { properties } from '../data/properties';
@@ -87,7 +87,7 @@ export default function ContactFormServerless({ lang = 'en', isPage = false }) {
             {/* Big Siva Profile Portrait Image */}
             <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#F9F7F2] border border-[#E5E0D5] shadow-xs group">
               <img
-                src="./images/siva_profile_cutout.png"
+                src="/images/siva_profile_cutout.png"
                 alt="Mr. Siva Yedida - Managing Director"
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />

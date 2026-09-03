@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+﻿import React, { useEffect, useRef, useState } from "react";
 
 const RenderTarget = {
   current: () => "preview",
@@ -16,10 +16,10 @@ const EASE_PRESETS = {
 };
 
 const DEFAULT_IMAGES = [
-  { src: "./images/ventures/jetty-mayfair.jpg" },
-  { src: "./images/ventures/sreenivasam-lake-view-villas.jpg" },
-  { src: "./images/ventures/sree-harivasam.jpg" },
-  { src: "./images/ventures/sreenivasam-landmark.jpg" },
+  { src: "/images/ventures/jetty-mayfair.jpg" },
+  { src: "/images/ventures/sreenivasam-lake-view-villas.jpg" },
+  { src: "/images/ventures/sree-harivasam.jpg" },
+  { src: "/images/ventures/sreenivasam-landmark.jpg" },
 ];
 
 function parseTransition(t) {
@@ -211,7 +211,7 @@ function OriginkitBase_MagneticCarousel(props) {
         onMouseMove={onMove}
         onMouseLeave={onLeave}
       >
-        {/* Transparent backdrop — click to close */}
+        {/* Transparent backdrop â€” click to close */}
         <div
           style={{
             position: "absolute",

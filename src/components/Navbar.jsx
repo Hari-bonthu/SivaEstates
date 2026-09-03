@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Globe, Menu, X } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-// ─── NAVBAR GLASS & DISPLAY MANUAL CONFIGURATION ──────────────────────────────
+// â”€â”€â”€ NAVBAR GLASS & DISPLAY MANUAL CONFIGURATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // You can easily adjust the navbar glass transparency and blur here:
 export const NAVBAR_GLASS_CONFIG = {
   // Transparency: 0.60 = 60% (very glassy), 0.75 = 75% (recommended), 0.90 = 90% (subtle)
@@ -21,7 +21,7 @@ export const NAVBAR_GLASS_CONFIG = {
   // Mobile drawer frosted opacity:
   drawerOpacity: 0.96,
 };
-// ───────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function Navbar({ lang = 'en', setLang }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -85,7 +85,7 @@ export default function Navbar({ lang = 'en', setLang }) {
           >
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-white/90 shadow-2xs border border-[#E8E2DA]/60 flex items-center justify-center shrink-0">
               <img
-                src="./images/logo/original_Logo_Siva.png"
+                src="/images/logo/original_Logo_Siva.png"
                 alt="Siva Telugu Estates Logo"
                 className="w-full h-full object-contain"
               />
@@ -100,16 +100,20 @@ export default function Navbar({ lang = 'en', setLang }) {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links — Strictly hidden on mobile/medium (< 1200px), flex on desktop (xl) */}
-          <nav className="site-nav hidden xl:flex">
+          {/* Desktop Navigation Links â€” Strictly hidden on mobile/medium (< 1200px), flex on desktop (xl) */}
+          <nav className="site-nav hidden xl:flex" aria-label="Main site navigation">
             {navLinks.map(({ label, key, path }) => (
-              <button
+              <Link
                 key={key}
-                onClick={() => handleNavClick(path)}
+                to={path}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className={`nav-item ${activeNav === key ? 'active' : ''}`}
               >
                 {label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -120,8 +124,8 @@ export default function Navbar({ lang = 'en', setLang }) {
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#E8E2DA] hover:border-[#C8312A] text-[#444] hover:text-[#C8312A] text-xs font-sans font-semibold transition-all cursor-pointer bg-white/70 hover:bg-[#FCECEA]/80 backdrop-blur-xs"
               title="Switch language"
             >
-              <Globe className="w-3.5 h-3.5 text-[#C8312A]" />
-              <span>{lang === 'en' ? 'తెలుగు' : 'English'}</span>
+              <Globe className="w-3.5 h-3.5 text-[#C8312A]" aria-hidden="true" />
+              <span>{lang === 'en' ? 'à°¤à±†à°²à±à°—à±' : 'English'}</span>
             </button>
 
             <button
@@ -140,8 +144,8 @@ export default function Navbar({ lang = 'en', setLang }) {
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-[#E8E2DA] text-[#333] text-[11px] font-sans font-semibold transition-all cursor-pointer bg-white/80 backdrop-blur-xs active:scale-95 shadow-2xs"
               aria-label="Switch language"
             >
-              <Globe className="w-3 h-3 text-[#C8312A]" />
-              <span>{lang === 'en' ? 'తెలుగు' : 'English'}</span>
+              <Globe className="w-3 h-3 text-[#C8312A]" aria-hidden="true" />
+              <span>{lang === 'en' ? 'à°¤à±†à°²à±à°—à±' : 'English'}</span>
             </button>
 
             {/* Circular Hamburger / Close Button matching template media_1787649568778.png */}
@@ -151,9 +155,9 @@ export default function Navbar({ lang = 'en', setLang }) {
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             >
               {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-[#1A1A1A]" />
+                <X className="w-5 h-5 text-[#1A1A1A]" aria-hidden="true" />
               ) : (
-                <Menu className="w-5 h-5 text-[#1A1A1A]" />
+                <Menu className="w-5 h-5 text-[#1A1A1A]" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -175,8 +179,9 @@ export default function Navbar({ lang = 'en', setLang }) {
             {navLinks.map(({ label, key, path }) => {
               const isActive = activeNav === key;
               return (
-                <button
+                <Link
                   key={key}
+                  to={path}
                   onClick={() => handleNavClick(path)}
                   className={`block w-full text-left py-3.5 px-6 text-base transition-colors border-b border-[#F0EBE3] cursor-pointer ${
                     isActive
@@ -185,7 +190,7 @@ export default function Navbar({ lang = 'en', setLang }) {
                   }`}
                 >
                   {label}
-                </button>
+                </Link>
               );
             })}
 

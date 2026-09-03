@@ -70,7 +70,7 @@ const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
         <div>
           {/* Location */}
           <div className="flex items-center gap-1.5 text-[#6B6860] text-xs font-sans mb-1">
-            <MapPin className="w-3.5 h-3.5 text-[#C8312A] shrink-0" />
+            <MapPin className="w-3.5 h-3.5 text-[#C8312A] shrink-0" aria-hidden="true" />
             <span className="truncate">{project.area || project.location}</span>
           </div>
 
@@ -103,7 +103,7 @@ const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
               title="WhatsApp Inquiry"
               aria-label="WhatsApp Inquiry"
             >
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-4 h-4" aria-hidden="true" />
             </button>
 
             {/* Details link */}
@@ -112,7 +112,7 @@ const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
               className="inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-[#1A1A1A] hover:bg-[#C8312A] text-white text-xs font-bold transition-colors shrink-0"
             >
               <span>Details</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
             </Link>
           </div>
         </div>

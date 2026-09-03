@@ -3,11 +3,11 @@ import { ChevronRight, Play, PhoneCall } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link } from 'react-router-dom';
 
-// ─── HERO BACKGROUND MANUAL CONFIGURATION ──────────────────────────────────────
+// â”€â”€â”€ HERO BACKGROUND MANUAL CONFIGURATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // You can easily adjust these settings anytime:
 const HERO_BG_CONFIG = {
   // Path to the abstract topographic contour map background image
-  imageSrc: './images/topography_pattern.jpg',
+  imageSrc: '/images/topography_pattern.jpg',
   // Opacity: 0.05 = 5% (very subtle), 0.07 = 7% (recommended), 0.12 = 12% (moderate)
   opacity: 0.07,
   // Blend mode with canvas background: 'multiply' | 'overlay' | 'normal'
@@ -18,7 +18,7 @@ const HERO_BG_CONFIG = {
   // Whether to apply soft radial vignette fade to keep text & founder card crisp
   enableSoftFade: true,
 };
-// ───────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function HeroSlider({ lang = 'en' }) {
   const t = translations[lang]?.hero || translations.en.hero;
@@ -57,7 +57,7 @@ export default function HeroSlider({ lang = 'en' }) {
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
 
-            {/* Eyebrow tag: — GODAVARI REGION · SINCE 2014 */}
+            {/* Eyebrow tag: â€” GODAVARI REGION Â· SINCE 2014 */}
             <div className="flex items-center space-x-2">
               <div className="h-px w-6 bg-[#C8312A]"></div>
               <span className="eyebrow-tag text-[10px] sm:text-xs" style={{ display: 'inline', color: '#C8312A' }}>
@@ -84,21 +84,21 @@ export default function HeroSlider({ lang = 'en' }) {
                 className="btn-red inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold group cursor-pointer shadow-md active:scale-95 transition-all text-center"
               >
                 <span>{t.ctaExplore}</span>
-                <ChevronRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
 
               <Link
                 to="/gallery"
                 className="btn-outline inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold cursor-pointer active:scale-95 transition-all text-center"
               >
-                <Play className="w-3.5 h-3.5 mr-2 fill-current" />
+                <Play className="w-3.5 h-3.5 mr-2 fill-current" aria-hidden="true" />
                 <span>{t.ctaVideos}</span>
               </Link>
             </div>
 
           </div>
 
-          {/* Right Column — Founder Photo Card */}
+          {/* Right Column â€” Founder Photo Card */}
           <div className="lg:col-span-5 relative flex justify-center mt-2 lg:mt-0">
 
             <div className="relative w-full max-w-sm sm:max-w-md rounded-3xl overflow-hidden bg-white border border-[#E8E2DA] shadow-xl group">
@@ -139,7 +139,7 @@ export default function HeroSlider({ lang = 'en' }) {
                     title="Call Directly"
                     aria-label="Call Director"
                   >
-                    <PhoneCall className="w-4 h-4" />
+                    <PhoneCall className="w-4 h-4" aria-hidden="true" />
                   </a>
                 </div>
 

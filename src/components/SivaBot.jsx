@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import { X, MessageCircle, PhoneCall, Phone, MapPin, CheckCircle2, Building2, Banknote, ShieldCheck, Car, RotateCcw } from 'lucide-react';
 
-// ─── FAQ Data ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ FAQ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const FAQS = [
   {
     id: 'plots',
@@ -48,24 +48,24 @@ const FAQS = [
 ];
 
 const VENTURES_DATA = [
-  { name: 'Jetty Mayfair Luxury Villa Layout', location: 'Rajahmundry', price: '₹18,000 / Sq.Yd', status: 'Ongoing' },
-  { name: 'Sreenivasam Lake View Villas', location: 'Kakinada', price: '₹25,000 / Sq.Yd', status: 'Ongoing' },
-  { name: 'Sree Harivasam Open Plots', location: 'Rajahmundry', price: '₹15,000 / Sq.Yd', status: 'Completed' },
-  { name: 'Sreenivasam Landmark Venture', location: 'Rajahmundry', price: '₹13,000 / Sq.Yd', status: 'Completed' },
-  { name: 'Sree Venkatesam Gated Layout', location: 'Rajahmundry', price: '₹15,000 / Sq.Yd', status: 'Completed' },
-  { name: 'Seshadri Heights Gated Community', location: 'Rajahmundry', price: '₹4,000 / Sq.Yd', status: 'Completed' },
+  { name: 'Jetty Mayfair Luxury Villa Layout', location: 'Rajahmundry', price: 'â‚¹18,000 / Sq.Yd', status: 'Ongoing' },
+  { name: 'Sreenivasam Lake View Villas', location: 'Kakinada', price: 'â‚¹25,000 / Sq.Yd', status: 'Ongoing' },
+  { name: 'Sree Harivasam Open Plots', location: 'Rajahmundry', price: 'â‚¹15,000 / Sq.Yd', status: 'Completed' },
+  { name: 'Sreenivasam Landmark Venture', location: 'Rajahmundry', price: 'â‚¹13,000 / Sq.Yd', status: 'Completed' },
+  { name: 'Sree Venkatesam Gated Layout', location: 'Rajahmundry', price: 'â‚¹15,000 / Sq.Yd', status: 'Completed' },
+  { name: 'Seshadri Heights Gated Community', location: 'Rajahmundry', price: 'â‚¹4,000 / Sq.Yd', status: 'Completed' },
 ];
 
 const PRICING_DATA = [
-  { venture: 'Jetty Mayfair', sizes: '150–500 Sq.Yds', price: '₹18,000 / Sq.Yd', min: '~₹27.00 Lakhs' },
-  { venture: 'Sreenivasam Lake View', sizes: '134–150 Sq.Yds', price: '₹25,000 / Sq.Yd', min: '~₹33.50 Lakhs' },
-  { venture: 'Sree Harivasam', sizes: '167–300 Sq.Yds', price: '₹15,000 / Sq.Yd', min: '~₹25.05 Lakhs' },
-  { venture: 'Sreenivasam Landmark', sizes: '150–250 Sq.Yds', price: '₹13,000 / Sq.Yd', min: '~₹19.50 Lakhs' },
-  { venture: 'Sree Venkatesam', sizes: '167–300 Sq.Yds', price: '₹15,000 / Sq.Yd', min: '~₹25.05 Lakhs' },
-  { venture: 'Seshadri Heights', sizes: '200–400 Sq.Yds', price: '₹4,000 / Sq.Yd', min: '~₹8.00 Lakhs' },
+  { venture: 'Jetty Mayfair', sizes: '150â€“500 Sq.Yds', price: 'â‚¹18,000 / Sq.Yd', min: '~â‚¹27.00 Lakhs' },
+  { venture: 'Sreenivasam Lake View', sizes: '134â€“150 Sq.Yds', price: 'â‚¹25,000 / Sq.Yd', min: '~â‚¹33.50 Lakhs' },
+  { venture: 'Sree Harivasam', sizes: '167â€“300 Sq.Yds', price: 'â‚¹15,000 / Sq.Yd', min: '~â‚¹25.05 Lakhs' },
+  { venture: 'Sreenivasam Landmark', sizes: '150â€“250 Sq.Yds', price: 'â‚¹13,000 / Sq.Yd', min: '~â‚¹19.50 Lakhs' },
+  { venture: 'Sree Venkatesam', sizes: '167â€“300 Sq.Yds', price: 'â‚¹15,000 / Sq.Yd', min: '~â‚¹25.05 Lakhs' },
+  { venture: 'Seshadri Heights', sizes: '200â€“400 Sq.Yds', price: 'â‚¹4,000 / Sq.Yd', min: '~â‚¹8.00 Lakhs' },
 ];
 
-// ─── Message Renderer ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Message Renderer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function BotMessage({ msg, onQuickReply }) {
   if (msg.type === 'user') {
     return (
@@ -81,7 +81,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[82%] bg-[#F5F0EB] border border-[#E8E2DA] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 font-sans leading-relaxed">
           {msg.text}
@@ -94,7 +94,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5">
@@ -116,7 +116,7 @@ function BotMessage({ msg, onQuickReply }) {
             onClick={() => onQuickReply('Book a site visit', 'visit')}
             className="w-full py-2.5 rounded-xl bg-[#C8312A] text-white text-xs font-sans font-bold tracking-[0.1em] hover:bg-[#A82822] transition-all cursor-pointer"
           >
-            Book a Free Site Visit →
+            Book a Free Site Visit â†’
           </button>
         </div>
       </div>
@@ -127,7 +127,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -154,7 +154,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -162,14 +162,14 @@ function BotMessage({ msg, onQuickReply }) {
           </div>
           <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-3 text-xs">
             <div>
-              <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Rajahmundry Head Office</p>
+              <p className="font-bold text-[#1B1C1C] font-serif text-sm">ðŸ¢ Rajahmundry Head Office</p>
               <p className="text-[#6B6860] mt-0.5">Main Road, Morampudi Junction, Rajahmundry AP.</p>
-              <p className="text-[#C8312A] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 8:00 PM</p>
+              <p className="text-[#C8312A] font-sans font-bold mt-0.5">Monâ€“Sun: 9:00 AM â€“ 8:00 PM</p>
             </div>
             <div className="border-t border-[#E8E2DA] pt-3">
-              <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Kakinada Branch</p>
+              <p className="font-bold text-[#1B1C1C] font-serif text-sm">ðŸ¢ Kakinada Branch</p>
               <p className="text-[#6B6860] mt-0.5">Ramanayyapeta Commercial Centre, Kakinada AP.</p>
-              <p className="text-[#C8312A] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 7:00 PM</p>
+              <p className="text-[#C8312A] font-sans font-bold mt-0.5">Monâ€“Sun: 9:00 AM â€“ 7:00 PM</p>
             </div>
           </div>
         </div>
@@ -181,17 +181,17 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
-            Yes — 100% legal title guaranteed:
+            Yes â€” 100% legal title guaranteed:
           </div>
           <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-2 text-xs">
             {[
               'RUDA / VMRDA Approved Layout Plan',
               'AP RERA Registered Project',
-              'Encumbrance Certificate (EC) — 30 years',
+              'Encumbrance Certificate (EC) â€” 30 years',
               'Link Documents & Parent Deed Verified',
               'Spot Registration in Sub-Registrar Office',
               'Bank Loan Approved by All Major Banks',
@@ -211,7 +211,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -243,7 +243,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -252,7 +252,7 @@ function BotMessage({ msg, onQuickReply }) {
           <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-3">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#E8E2DA] bg-[#F5F0EB]">
-                <img src="./images/siva_profile_cutout.png" alt="Siva Yedida" className="w-full h-full object-cover object-top" />
+                <img src="/images/siva_profile_cutout.png" alt="Siva Yedida" className="w-full h-full object-cover object-top" />
               </div>
               <div>
                 <p className="font-bold text-[#1B1C1C] font-serif text-sm">Siva Yedida</p>
@@ -285,14 +285,14 @@ function BotMessage({ msg, onQuickReply }) {
   return null;
 }
 
-// ─── Main SivaBot Component ───────────────────────────────────────────────────
+// â”€â”€â”€ Main SivaBot Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function SivaBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       id: 1,
       type: 'bot-text',
-      text: 'Hello! 👋 I\'m SivaBot, your real estate assistant for Siva Telugu Estates. Choose a question below or connect with us directly.'
+      text: 'Hello! ðŸ‘‹ I\'m SivaBot, your real estate assistant for Siva Telugu Estates. Choose a question below or connect with us directly.'
     }
   ]);
   const messagesEndRef = useRef(null);
@@ -338,7 +338,7 @@ export default function SivaBot() {
       {
         id: Date.now(),
         type: 'bot-text',
-        text: 'Hello! 👋 I\'m SivaBot. How can I help you today? Pick a question below:'
+        text: 'Hello! ðŸ‘‹ I\'m SivaBot. How can I help you today? Pick a question below:'
       }
     ]);
   };
@@ -353,7 +353,7 @@ export default function SivaBot() {
           <div className="bg-[#1B1C1C] text-white px-5 py-3.5 flex items-center justify-between shrink-0">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-full bg-white p-0.5 border border-white/20 overflow-hidden">
-                <img src="./images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+                <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
               </div>
               <div>
                 <p className="font-bold text-sm font-serif">SivaBot</p>
@@ -420,7 +420,7 @@ export default function SivaBot() {
         </div>
       )}
 
-      {/* Floating Trigger Button — Red Circle matching template */}
+      {/* Floating Trigger Button â€” Red Circle matching template */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-[#C8312A] text-white shadow-xl hover:bg-[#A82822] hover:scale-105 active:scale-95 transition-all flex items-center justify-center cursor-pointer"

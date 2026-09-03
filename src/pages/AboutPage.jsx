@@ -4,18 +4,24 @@ import { Award, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FourPillars from '../components/FourPillars';
 import TrustSection from '../components/TrustSection';
+import SEOHead from '../components/SEOHead';
 
 export default function AboutPage({ lang = 'en' }) {
   const t = translations[lang]?.aboutPage || translations.en.aboutPage;
   const tHero = translations[lang]?.hero || translations.en.hero;
 
   useEffect(() => {
-    document.title = "About Us | Siva Telugu Estates | Director Mr. Siva Yedida";
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
+    <>
+      <SEOHead
+        title="About Us | Siva Telugu Estates | Director Mr. Siva Yedida – 12+ Years in Godavari Real Estate"
+        description="Learn about Siva Telugu Estates, Rajahmundry's trusted real estate agency since 2014. Founded and led by Managing Director Mr. Siva Yedida. RUDA, KAUDA & AP RERA approved ventures across East Godavari."
+        canonicalUrl="https://sivateluguestates.com/about"
+      />
+      <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
       
       {/* Hero Header */}
       <section className="pt-12 sm:pt-16 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -39,7 +45,7 @@ export default function AboutPage({ lang = 'en' }) {
               <div className="relative w-full max-w-sm sm:max-w-md rounded-2xl sm:rounded-3xl overflow-hidden bg-[#F5F0EB] border border-[#E8E2DA] shadow-xl group">
                 <div className="h-[280px] sm:h-[380px] md:h-[420px] overflow-hidden bg-[#E8E2DA]">
                   <img
-                    src="./images/siva_profile_cutout.png"
+                    src="/images/siva_profile_cutout.png"
                     alt="Mr. Siva Yedida"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
@@ -61,7 +67,7 @@ export default function AboutPage({ lang = 'en' }) {
             {/* Right: Heritage Narrative */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FCECEA] text-[#C8312A] text-xs font-bold w-fit">
-                <Award className="w-4 h-4 shrink-0" />
+                <Award className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>12+ Years of Leadership in Godavari</span>
               </div>
 
@@ -80,19 +86,19 @@ export default function AboutPage({ lang = 'en' }) {
               {/* 4 Milestones */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-[#E8E2DA]">
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
-                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" aria-hidden="true" />
                   <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone1}</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
-                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" aria-hidden="true" />
                   <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone2}</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
-                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" aria-hidden="true" />
                   <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone3}</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F0EB]">
-                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[#C8312A] shrink-0" aria-hidden="true" />
                   <span className="text-xs font-bold text-[#1A1A1A]">{t.milestone4}</span>
                 </div>
               </div>
@@ -103,7 +109,7 @@ export default function AboutPage({ lang = 'en' }) {
                   className="btn-red inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold cursor-pointer shadow-sm w-full sm:w-auto text-center"
                 >
                   <span>Book Consultation With Director</span>
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -119,5 +125,6 @@ export default function AboutPage({ lang = 'en' }) {
       <TrustSection lang={lang} />
 
     </div>
+  </>
   );
 }

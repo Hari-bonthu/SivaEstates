@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Phone, MapPin, Mail, Facebook, Instagram, Youtube } from 'lucide-react';
 import { translations } from '../data/translations';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ export default function Footer({ lang = 'en' }) {
     <footer className="bg-[#1A1A1A] text-white pt-16 pb-8 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
 
-        {/* Main Grid — 4 columns */}
+        {/* Main Grid â€” 4 columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-[#2E2E2E]">
 
           {/* Column 1: Brand + Social */}
@@ -24,7 +24,7 @@ export default function Footer({ lang = 'en' }) {
               <div className="flex items-center space-x-3 mb-3">
                 <div className="w-9 h-9 rounded-lg overflow-hidden bg-white p-0.5 shrink-0">
                   <img
-                    src="./images/logo/original_Logo_Siva.png"
+                    src="/images/logo/original_Logo_Siva.png"
                     alt="Siva Telugu Estates Logo"
                     className="w-full h-full object-contain"
                   />
@@ -48,7 +48,7 @@ export default function Footer({ lang = 'en' }) {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all"
                 aria-label="Facebook"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href="https://www.instagram.com/sivateluguestate/"
@@ -57,7 +57,7 @@ export default function Footer({ lang = 'en' }) {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all"
                 aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href="https://www.youtube.com/@sivateluguestates"
@@ -66,7 +66,7 @@ export default function Footer({ lang = 'en' }) {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C8312A] text-white flex items-center justify-center transition-all"
                 aria-label="YouTube"
               >
-                <Youtube className="w-4 h-4" />
+                <Youtube className="w-4 h-4" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function Footer({ lang = 'en' }) {
               </li>
               <li>
                 <Link to="/properties" onClick={scrollToTop} className="text-[#C8312A] hover:underline font-semibold block pt-1">
-                  View All Ventures →
+                  View All Ventures â†’
                 </Link>
               </li>
             </ul>
@@ -145,17 +145,17 @@ export default function Footer({ lang = 'en' }) {
             <h4 className="text-xs font-semibold text-white uppercase tracking-[0.15em]">{t.contact}</h4>
             <ul className="space-y-3 text-xs text-[#9CA3AF]">
               <li className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#888]" />
+                <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#888]" aria-hidden="true" />
                 <span>{t.address}</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 shrink-0 text-[#888]" />
+                <Phone className="w-3.5 h-3.5 shrink-0 text-[#888]" aria-hidden="true" />
                 <a href="tel:+919851633333" className="hover:text-white transition-colors">
                   +91 98516 33333
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 shrink-0 text-[#888]" />
+                <Mail className="w-3.5 h-3.5 shrink-0 text-[#888]" aria-hidden="true" />
                 <a href="mailto:sivateluguestates@gmail.com" className="hover:text-white transition-colors">
                   sivateluguestates@gmail.com
                 </a>
