@@ -44,12 +44,32 @@ export default function PropertiesPage({ lang = 'en' }) {
     matchesTypeFilter(project, selectedFilter)
   );
 
+  const propertiesSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.sivateluguestates.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Ventures & Plots",
+        "item": "https://www.sivateluguestates.com/properties/"
+      }
+    ]
+  };
+
   return (
     <>
       <SEOHead
         title="Ventures & Open Plots for Sale | Rajahmundry & Kakinada | Siva Telugu Estates"
         description="Browse RUDA & AP RERA approved plots, gated villa layouts and open plots for sale in Rajahmundry and Kakinada by Siva Telugu Estates. Jetty Mayfair, Seshadri Heights, Sree Harivasam & more. Free site visits available."
-        canonicalUrl="https://sivateluguestates.com/properties"
+        canonicalUrl="https://www.sivateluguestates.com/properties/"
+        schemaData={propertiesSchema}
       />
       <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
 

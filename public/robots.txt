@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://sivateluguestates.com/sitemap.xml
+Sitemap: https://www.sivateluguestates.com/sitemap.xml

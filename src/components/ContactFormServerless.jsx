@@ -71,9 +71,15 @@ export default function ContactFormServerless({ lang = 'en', isPage = false }) {
             </span>
             <div className="h-px w-8 bg-[#C8312A]"></div>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-normal text-[#1A1A1A] tracking-tight font-serif">
-            {t.heading}
-          </h2>
+          {isPage ? (
+            <h1 className="text-3xl sm:text-4xl font-normal text-[#1A1A1A] tracking-tight font-serif">
+              {t.heading}
+            </h1>
+          ) : (
+            <h2 className="text-3xl sm:text-4xl font-normal text-[#1A1A1A] tracking-tight font-serif">
+              {t.heading}
+            </h2>
+          )}
           <p className="text-sm text-[#6B6860]">
             {t.subheading}
           </p>
@@ -89,6 +95,10 @@ export default function ContactFormServerless({ lang = 'en', isPage = false }) {
               <img
                 src="/images/siva_profile_cutout.png"
                 alt="Mr. Siva Yedida - Managing Director"
+                width="400"
+                height="320"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />
               {/* Founder Tag Overlay at bottom of photo */}

@@ -1,0 +1,108 @@
+{
+  "timestamp": "2026-09-16T09:29:27.528Z",
+  "domain": "https://www.sivateluguestates.com",
+  "totalRoutes": 12,
+  "parityMatches": 12,
+  "criticalCount": 0,
+  "highCount": 0,
+  "mediumCount": 0,
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "title": "Siva Telugu Estates | Rajahmundry & Kakinada Real Estate | Plots, Villas & Lands",
+      "canonical": "https://www.sivateluguestates.com/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/properties",
+      "status": 200,
+      "title": "Ventures & Open Plots for Sale | Rajahmundry & Kakinada | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/properties/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/about",
+      "status": 200,
+      "title": "About Us | Siva Telugu Estates | Director Mr. Siva Yedida – 12+ Years in Godavari Real Estate",
+      "canonical": "https://www.sivateluguestates.com/about/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/gallery",
+      "status": 200,
+      "title": "Photo Gallery & Site Visits | Real Estate Ventures | Siva Telugu Estates Rajahmundry",
+      "canonical": "https://www.sivateluguestates.com/gallery/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/offices",
+      "status": 200,
+      "title": "Branch Offices in Rajahmundry & Kakinada | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/offices/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/contact",
+      "status": 200,
+      "title": "Contact Us & Book Free Site Visit | Siva Telugu Estates | +91 98516 33333",
+      "canonical": "https://www.sivateluguestates.com/contact/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/venture/jetty-mayfair",
+      "status": 200,
+      "title": "Jetty Mayfair Luxury Villa Layout | Plots for Sale in Rajahmundry | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/venture/jetty-mayfair/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/venture/sreenivasam-lake-view",
+      "status": 200,
+      "title": "Sreenivasam Lake View Villas | Plots for Sale in Kakinada | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/venture/sreenivasam-lake-view/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/venture/sree-harivasam",
+      "status": 200,
+      "title": "Sree Harivasam Open Plots | Plots for Sale in Diwancheruvu - Rajahmundry | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/venture/sree-harivasam/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/venture/sreenivasam",
+      "status": 200,
+      "title": "Sreenivasam Landmark Venture | Plots for Sale in Rajanagaram - Rajahmundry | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/venture/sreenivasam/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/venture/sree-venkatesam",
+      "status": 200,
+      "title": "Sree Venkatesam Gated Layout | Plots for Sale in Rajahmundry Airport Road | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/venture/sree-venkatesam/",
+      "h1Count": 1,
+      "parityPassed": true
+    },
+    {
+      "route": "/venture/seshadri-heights",
+      "status": 200,
+      "title": "Seshadri Heights Gated Community | Plots for Sale in Diwancheruvu - Rajahmundry | Siva Telugu Estates",
+      "canonical": "https://www.sivateluguestates.com/venture/seshadri-heights/",
+      "h1Count": 1,
+      "parityPassed": true
+    }
+  ],
+  "findings": []
+}

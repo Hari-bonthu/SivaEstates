@@ -35,6 +35,7 @@ jobs:
         working-directory: repo-main
         run: |
           npm ci
+          npx playwright install --with-deps chromium
           npm run build
 
       - name: Prepare Final Output Directory with Production Build
@@ -45,20 +46,23 @@ jobs:
       # ─── 2. Build LUXE-REDESIGN branch into ./dist/preview (Preview: https://hari-bonthu.github.io/SivaEstates/preview/) ───
       - name: Checkout luxe-redesign branch
         uses: actions/checkout@v4
+        continue-on-error: true
         with:
           ref: luxe-redesign
           path: repo-preview
 
       - name: Build luxe-redesign branch
+        continue-on-error: true
         working-directory: repo-preview
         run: |
           npm ci
           npm run build
 
       - name: Copy Luxury Preview Build to final-dist/preview
+        continue-on-error: true
         run: |
           mkdir -p final-dist/preview
-          cp -r repo-preview/dist/* final-dist/preview/
+          cp -r repo-preview/dist/* final-dist/preview/ || true
 
       # ─── 3. Upload Unified Pages Artifact ───
       - name: Upload Pages Artifact

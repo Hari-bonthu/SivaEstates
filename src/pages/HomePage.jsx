@@ -19,7 +19,7 @@ export default function HomePage({ lang = 'en', setLang }) {
       <SEOHead
         title="Siva Telugu Estates | Rajahmundry & Kakinada Real Estate | Plots, Villas & Lands"
         description="Leading Real Estate Agency in Rajahmundry & Kakinada by Director Mr. Siva Yedida. RUDA & AP RERA Approved Open Plots, Luxury Gated Community Villas & Land Investments. Free site visit with AC car. Call +91 98516 33333."
-        canonicalUrl="https://sivateluguestates.com/"
+        canonicalUrl="https://www.sivateluguestates.com/"
       />
       <div className="flex-grow">
         {/* Hero Section */}

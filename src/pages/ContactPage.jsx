@@ -11,12 +11,32 @@ export default function ContactPage({ lang = 'en' }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.sivateluguestates.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us",
+        "item": "https://www.sivateluguestates.com/contact/"
+      }
+    ]
+  };
+
   return (
     <>
       <SEOHead
         title="Contact Us & Book Free Site Visit | Siva Telugu Estates | +91 98516 33333"
         description="Contact Siva Telugu Estates to book a free AC car site visit to any plot or villa venture in Rajahmundry and Kakinada. Call or WhatsApp Mr. Siva Yedida at +91 98516 33333."
-        canonicalUrl="https://sivateluguestates.com/contact"
+        canonicalUrl="https://www.sivateluguestates.com/contact/"
+        schemaData={contactSchema}
       />
       <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
         <ContactFormServerless lang={lang} isPage={true} />

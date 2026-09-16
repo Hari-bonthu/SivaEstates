@@ -11,12 +11,13 @@ export default function SEOHead({
   title,
   description,
   canonicalUrl,
-  ogImage = 'https://sivateluguestates.com/android-chrome-512x512.png',
+  ogImage = 'https://www.sivateluguestates.com/android-chrome-512x512.png',
   schemaData = null,
 }) {
   const location = useLocation();
+  const normalizedPath = location.pathname === '/' ? '/' : `${location.pathname.replace(/\/$/, '')}/`;
   const fullCanonical =
-    canonicalUrl || `https://sivateluguestates.com${location.pathname}`;
+    canonicalUrl || `https://www.sivateluguestates.com${normalizedPath}`;
 
   useEffect(() => {
     // 1. Page title

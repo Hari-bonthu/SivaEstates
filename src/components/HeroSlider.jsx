@@ -108,6 +108,10 @@ export default function HeroSlider({ lang = 'en' }) {
                 <img
                   src="/images/siva_yedida_professional.jpg"
                   alt="Mr. Siva Yedida - Founder & Managing Director"
+                  width="448"
+                  height="400"
+                  loading="eager"
+                  fetchPriority="high"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
 
@@ -116,6 +120,9 @@ export default function HeroSlider({ lang = 'en' }) {
                   <img
                     src="/images/logo/original_Logo_Siva.png"
                     alt="Siva Estates Emblem"
+                    width="24"
+                    height="24"
+                    loading="eager"
                     className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                   />
                 </div>

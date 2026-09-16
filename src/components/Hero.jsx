@@ -10,7 +10,7 @@ export default function Hero({ lang }) {
       {/* Aerial Venture Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <img 
-          src="/images/open_plot_layout_1786442637690.jpg" 
+          src="/images/ventures/jetty-mayfair.jpg" 
           alt="Real Estate Layout Background"
           className="w-full h-full object-cover mix-blend-luminosity"
         />

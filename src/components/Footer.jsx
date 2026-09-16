@@ -123,8 +123,8 @@ export default function Footer({ lang = 'en' }) {
                 </Link>
               </li>
               <li>
-                <Link to="/venture/kakinada-smart-city" onClick={scrollToTop} className="hover:text-white transition-colors">
-                  Kakinada Smart City Layout
+                <Link to="/venture/sreenivasam-lake-view" onClick={scrollToTop} className="hover:text-white transition-colors">
+                  Sreenivasam Lake View Villas
                 </Link>
               </li>
               <li>

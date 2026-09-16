@@ -14,12 +14,32 @@ export default function AboutPage({ lang = 'en' }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.sivateluguestates.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://www.sivateluguestates.com/about/"
+      }
+    ]
+  };
+
   return (
     <>
       <SEOHead
         title="About Us | Siva Telugu Estates | Director Mr. Siva Yedida – 12+ Years in Godavari Real Estate"
         description="Learn about Siva Telugu Estates, Rajahmundry's trusted real estate agency since 2014. Founded and led by Managing Director Mr. Siva Yedida. RUDA, KAUDA & AP RERA approved ventures across East Godavari."
-        canonicalUrl="https://sivateluguestates.com/about"
+        canonicalUrl="https://www.sivateluguestates.com/about/"
+        schemaData={aboutSchema}
       />
       <div className="w-full bg-[#F5F0EB] text-[#1A1A1A] min-h-screen font-sans">
       
@@ -46,7 +66,11 @@ export default function AboutPage({ lang = 'en' }) {
                 <div className="h-[280px] sm:h-[380px] md:h-[420px] overflow-hidden bg-[#E8E2DA]">
                   <img
                     src="/images/siva_profile_cutout.png"
-                    alt="Mr. Siva Yedida"
+                    alt="Mr. Siva Yedida - Managing Director"
+                    width="448"
+                    height="420"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -123,6 +147,32 @@ export default function AboutPage({ lang = 'en' }) {
 
       {/* Trust & Legal Verification */}
       <TrustSection lang={lang} />
+
+      {/* Digital Infrastructure & Strategic Partners */}
+      <section className="py-10 sm:py-14 bg-[#F5F0EB] border-t border-[#E8E2DA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E8E2DA] shadow-xs max-w-4xl mx-auto text-center space-y-3">
+            <span className="eyebrow-tag text-[9px] sm:text-[10px] text-[#C8312A] tracking-widest uppercase">
+              Digital Infrastructure &amp; Growth
+            </span>
+            <h3 className="font-serif text-xl sm:text-2xl text-[#1A1A1A] font-normal">
+              Technology &amp; Marketing Operations
+            </h3>
+            <p className="text-xs sm:text-sm text-[#6B6860] leading-relaxed max-w-2xl mx-auto">
+              Digital marketing and website services by{' '}
+              <a
+                href="https://www.bhargavdigitalsolutions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#C8312A] font-semibold hover:underline"
+              >
+                Bhargav Digital Solutions
+              </a>
+              , ensuring verified property discovery, fast search accessibility, and transparent investor engagement across Rajahmundry and Kakinada.
+            </p>
+          </div>
+        </div>
+      </section>
 
     </div>
   </>

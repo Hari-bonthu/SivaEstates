@@ -18,9 +18,15 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
             </span>
             <div className="h-px w-8 bg-[#C8312A]"></div>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight font-serif">
-            {t.heading}
-          </h2>
+          {isPage ? (
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight font-serif">
+              {t.heading}
+            </h1>
+          ) : (
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight font-serif">
+              {t.heading}
+            </h2>
+          )}
           <p className="text-xs sm:text-sm text-[#6B6860] max-w-2xl mx-auto">
             {t.subheading}
           </p>

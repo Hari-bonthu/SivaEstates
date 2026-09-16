@@ -6,53 +6,87 @@ import SEOHead from '../components/SEOHead';
 
 export default function VenturePage() {
   const { id } = useParams();
-  const property = properties.find(p => p.id === id) || properties[0];
+  const property = properties.find(p => p.id === id);
 
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id, property]);
 
-  const propertySchema = property ? {
-    "@context": "https://schema.org",
-    "@type": "RealEstateListing",
-    "name": property.title,
-    "description": property.description,
-    "url": `https://sivateluguestates.com/venture/${property.id}`,
-    "image": property.thumbnail,
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "INR",
-      "price": property.pricePerSqYd,
-      "availability": property.status?.toLowerCase().includes('sold')
-        ? "https://schema.org/SoldOut"
-        : "https://schema.org/InStock"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": property.location,
-      "addressRegion": "Andhra Pradesh",
-      "addressCountry": "IN"
-    },
-    "provider": {
-      "@type": "RealEstateAgent",
-      "name": "Siva Telugu Estates",
-      "telephone": "+919851633333",
-      "url": "https://sivateluguestates.com"
-    }
-  } : null;
-
   if (!property) {
     return (
-      <div className="min-h-screen bg-[#F5F0EB] flex flex-col items-center justify-center text-center p-8">
-        <h1 className="text-3xl font-bold text-[#1A1A1A] font-serif mb-4">Venture Not Found</h1>
-        <p className="text-[#6B6860] mb-6">This project page doesn't exist or may have been moved.</p>
-        <Link to="/properties" className="px-6 py-3 rounded-xl bg-[#1A1A1A] text-white font-sans font-bold text-sm">
-          ← Back to All Ventures
-        </Link>
-      </div>
+      <>
+        <SEOHead
+          title="Venture Not Found | Siva Telugu Estates"
+          description="The requested project layout does not exist or may have been moved. Explore all active ventures in Rajahmundry and Kakinada."
+          canonicalUrl="https://www.sivateluguestates.com/properties/"
+        />
+        <div className="min-h-[70vh] bg-[#F5F0EB] flex flex-col items-center justify-center text-center p-8">
+          <h1 className="text-3xl font-bold text-[#1A1A1A] font-serif mb-4">Venture Not Found</h1>
+          <p className="text-[#6B6860] mb-6 max-w-md">This project page doesn't exist or may have been updated. View our verified active layouts in Rajahmundry &amp; Kakinada.</p>
+          <Link to="/properties" className="btn-red px-6 py-3 rounded-xl text-white font-sans font-bold text-sm">
+            ← Back to All Ventures
+          </Link>
+        </div>
+      </>
     );
   }
+
+  const propertySchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.sivateluguestates.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ventures & Plots",
+            "item": "https://www.sivateluguestates.com/properties/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": property.title,
+            "item": `https://www.sivateluguestates.com/venture/${property.id}/`
+          }
+        ]
+      },
+      {
+        "@type": "RealEstateListing",
+        "name": property.title,
+        "description": property.description,
+        "url": `https://www.sivateluguestates.com/venture/${property.id}/`,
+        "image": property.thumbnail?.startsWith('http') ? property.thumbnail : `https://www.sivateluguestates.com${property.thumbnail?.replace('./', '/')}`,
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "INR",
+          "price": property.pricePerSqYd,
+          "availability": property.status?.toLowerCase().includes('sold')
+            ? "https://schema.org/SoldOut"
+            : "https://schema.org/InStock"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": property.location,
+          "addressRegion": "Andhra Pradesh",
+          "addressCountry": "IN"
+        },
+        "provider": {
+          "@type": "RealEstateAgent",
+          "name": "Siva Telugu Estates",
+          "telephone": "+919851633333",
+          "url": "https://www.sivateluguestates.com"
+        }
+      }
+    ]
+  };
 
   const gallery = property.gallery && property.gallery.length > 0
     ? property.gallery
@@ -65,8 +99,8 @@ export default function VenturePage() {
       <SEOHead
         title={`${property.title} | Plots for Sale in ${property.location} | Siva Telugu Estates`}
         description={`${property.tagline}. ${property.plotSizes} plots available in ${property.area}. ${property.approval}. Free site visit available — Call +91 98516 33333.`}
-        canonicalUrl={`https://sivateluguestates.com/venture/${property.id}`}
-        ogImage={property.thumbnail?.startsWith('http') ? property.thumbnail : `https://sivateluguestates.com${property.thumbnail?.replace('./', '/')}`}
+        canonicalUrl={`https://www.sivateluguestates.com/venture/${property.id}/`}
+        ogImage={property.thumbnail?.startsWith('http') ? property.thumbnail : `https://www.sivateluguestates.com${property.thumbnail?.replace('./', '/')}`}
         schemaData={propertySchema}
       />
       <div className="min-h-screen bg-[#F5F0EB] font-sans">

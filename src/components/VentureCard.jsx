@@ -44,6 +44,8 @@ const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
         <img
           src={project.thumbnail}
           alt={project.title}
+          width="400"
+          height="208"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           decoding="async"
