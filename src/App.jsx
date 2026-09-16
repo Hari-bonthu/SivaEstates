@@ -3,14 +3,15 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Code-split route components for fast initial load & reduced bundle size
-const HomePage = lazy(() => import('./pages/HomePage'));
-const PropertiesPage = lazy(() => import('./pages/PropertiesPage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const GalleryPage = lazy(() => import('./pages/GalleryPage'));
-const OfficesPage = lazy(() => import('./pages/OfficesPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const VenturePage = lazy(() => import('./pages/VenturePage'));
+import HomePage from './pages/HomePage';
+import PropertiesPage from './pages/PropertiesPage';
+import AboutPage from './pages/AboutPage';
+import GalleryPage from './pages/GalleryPage';
+import OfficesPage from './pages/OfficesPage';
+import ContactPage from './pages/ContactPage';
+import VenturePage from './pages/VenturePage';
+
+// SivaBot is a fixed-position floating assistant, safe to lazy load without layout shift
 const SivaBot = lazy(() => import('./components/SivaBot'));
 
 function ScrollToHashElement() {
