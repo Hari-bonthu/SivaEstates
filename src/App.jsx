@@ -63,14 +63,21 @@ export default function App() {
 
               {/* Dedicated Subpages */}
               <Route path="/properties" element={<PropertiesPage lang={lang} />} />
+              <Route path="/properties/" element={<PropertiesPage lang={lang} />} />
               <Route path="/projects" element={<PropertiesPage lang={lang} />} />
+              <Route path="/projects/" element={<PropertiesPage lang={lang} />} />
               <Route path="/about" element={<AboutPage lang={lang} />} />
+              <Route path="/about/" element={<AboutPage lang={lang} />} />
               <Route path="/gallery" element={<GalleryPage lang={lang} />} />
+              <Route path="/gallery/" element={<GalleryPage lang={lang} />} />
               <Route path="/offices" element={<OfficesPage lang={lang} />} />
+              <Route path="/offices/" element={<OfficesPage lang={lang} />} />
               <Route path="/contact" element={<ContactPage lang={lang} />} />
+              <Route path="/contact/" element={<ContactPage lang={lang} />} />
 
               {/* Individual Venture Detail Route */}
               <Route path="/venture/:id" element={<VenturePage lang={lang} />} />
+              <Route path="/venture/:id/" element={<VenturePage lang={lang} />} />
 
               {/* Catch-all fallback */}
               <Route path="*" element={<HomePage lang={lang} setLang={setLang} />} />

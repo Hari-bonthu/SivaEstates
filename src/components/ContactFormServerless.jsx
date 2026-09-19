@@ -38,24 +38,12 @@ export default function ContactFormServerless({ lang = 'en', isPage = false }) {
       });
 
       const resJson = await response.json();
-
-      if (resJson.success) {
-        setSubmitted(true);
-      } else {
-        setSubmitted(true);
-      }
+      setSubmitted(true);
     } catch (err) {
       setSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }
-
-    setTimeout(() => {
-      const waMsg = encodeURIComponent(
-        `*NEW WEBSITE INQUIRY*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Venture:* ${formData.location}\n*Message:* ${formData.message || 'Interested in booking site visit'}`
-      );
-      window.open(`https://wa.me/919851633333?text=${waMsg}`, '_blank');
-    }, 800);
   };
 
   return (
@@ -165,7 +153,9 @@ export default function ContactFormServerless({ lang = 'en', isPage = false }) {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98516 33333"
+                    pattern="[6-9][0-9]{9}"
+                    title="Please enter a valid 10-digit Indian mobile number"
+                    placeholder="9851633333"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     className="w-full px-4 py-3.5 rounded-xl bg-[#F5F0EB] border border-[#E8E2DA] text-[#1A1A1A] placeholder-[#6B6860] focus:outline-none focus:border-[#C8312A] text-sm"
@@ -246,9 +236,24 @@ export default function ContactFormServerless({ lang = 'en', isPage = false }) {
               </button>
 
               {submitted && (
-                <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center space-x-2 animate-fadeIn">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                  <span>{t.formSuccessDesc || 'Request received! Redirecting to WhatsApp consultation...'}</span>
+                <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs space-y-3 animate-fadeIn">
+                  <div className="flex items-center space-x-2 font-bold text-emerald-800 text-sm">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <span>{t.formSuccessTitle || 'Site Visit Request Submitted!'}</span>
+                  </div>
+                  <p className="text-emerald-700 leading-relaxed">
+                    {t.formSuccessDesc || 'Our team will contact you within 2 hours with venture brochures and car pickup details.'}
+                  </p>
+                  <a
+                    href={`https://wa.me/919851633333?text=${encodeURIComponent(
+                      `*NEW WEBSITE INQUIRY*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Venture:* ${formData.location}\n*Message:* ${formData.message || 'Interested in booking site visit'}`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs shadow-sm transition-colors"
+                  >
+                    <span>💬 Open WhatsApp Chat with Mr. Siva Yedida</span>
+                  </a>
                 </div>
               )}
             </form>

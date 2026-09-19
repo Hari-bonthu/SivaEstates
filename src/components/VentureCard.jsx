@@ -37,15 +37,15 @@ const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
   const description = project.description || '';
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all duration-300 group shadow-xs hover:shadow-lg font-sans flex flex-col justify-between">
+    <div className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all duration-300 group shadow-xs hover:shadow-lg font-sans flex flex-col justify-between h-full">
 
       {/* Image container */}
-      <div className="relative h-48 sm:h-52 overflow-hidden bg-[#E8E2DA]">
+      <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#E8E2DA]">
         <img
           src={project.thumbnail}
-          alt={project.title}
+          alt={`${project.title} — ${project.approval || 'Approved'} ${typeLabel} in ${project.area || project.location}`}
           width="400"
-          height="208"
+          height="250"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           decoding="async"
@@ -110,7 +110,7 @@ const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
 
             {/* Details link */}
             <Link
-              to={`/venture/${project.id}`}
+              to={`/venture/${project.id}/`}
               className="inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-[#1A1A1A] hover:bg-[#C8312A] text-white text-xs font-bold transition-colors shrink-0"
             >
               <span>Details</span>

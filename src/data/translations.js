@@ -124,7 +124,7 @@ export const translations = {
         tag: "MAIN HEADQUARTERS",
         name: "Rajahmundry HQ",
         desc: "Serving East Godavari with premier residential plot ventures, NH-16 highway layouts, and Riverview plots.",
-        address: "Lala cheruvu Rajahmundry, Andhra Pradesh - 533106",
+        address: "Lalacheruvu, Rajahmundry, Andhra Pradesh - 533106",
         phone: "+91 98516 33333",
         areas: "Morampudi, Dowleswaram, Diwancheruvu, Lalacheruvu, Hukumpeta",
         visitBtn: "Visit Rajahmundry Office"
@@ -133,7 +133,7 @@ export const translations = {
         tag: "NEWLY OPENED BRANCH",
         name: "Kakinada Branch",
         desc: "Expanding smart city opportunities with coastal open plot layouts, port corridor lands, and villa plots.",
-        address: "Atchampeta Junction, Kakinada, Andhra Pradesh - 533005",
+        address: "Achampeta Junction, Kakinada, Andhra Pradesh - 533005",
         phone: "+91 98516 33333",
         areas: "Ramanayyapeta, Samalkot Road, Sarpavaram, ADB Road, Port Belt",
         visitBtn: "Visit Kakinada Office"
@@ -183,7 +183,7 @@ export const translations = {
       explore: "Explore",
       projects: "Projects",
       contact: "Contact",
-      address: "Lala cheruvu, Rajahmundry, Andhra Pradesh 533106",
+      address: "Lalacheruvu, Rajahmundry, Andhra Pradesh - 533106",
       copyright: "© 2026 Siva Telugu Estates. All rights reserved.",
       rera: "RERA: AP/R&B/2024/50301 · RUDA layouts approved"
     },
@@ -349,8 +349,8 @@ export const translations = {
       rajahmundry: {
         tag: "ప్రధాన కార్యాలయం",
         name: "రాజమండ్రి హెచ్‌క్యూ",
-        desc: "ఎన్‌హెచ్-16 హైవే వెంచర్లు, మోరంపూడి, గోదావరి రివర్‌వ్యూ ప్లాట్లతో తూర్పు గోదావరి ప్రజలకు అందుబాటులో.",
-        address: "మెయిన్ రోడ్, మోరంపూడి జంక్షన్ వద్ద, రాజమండ్రి, ఆంధ్రప్రదేశ్ - 533107",
+        desc: "ఎన్‌హెచ్-16 హైవే వెంచర్లు, లాలాచెరువు, దివాన్‌చెరువు, గోదావరి రివర్‌వ్యూ ప్లాట్లతో తూర్పు గోదావరి ప్రజలకు అందుబాటులో.",
+        address: "లాలాచెరువు జంక్షన్, రాజమండ్రి, ఆంధ్రప్రదేశ్ - 533106",
         phone: "+91 98516 33333",
         areas: "మోరంపూడి, ధవళేశ్వరం, దివాన్‌చెరువు, లాలాచెరువు, హుకుంపేట",
         visitBtn: "రాజమండ్రి ఆఫీసును సందర్శించండి"
@@ -359,7 +359,7 @@ export const translations = {
         tag: "నూతనంగా ప్రారంభించిన బ్రాంచ్",
         name: "కాకినాడ బ్రాంచ్",
         desc: "కాకినాడ స్మార్ట్ సిటీ, పోర్ట్ రోడ్ మరియు సామర్లకోట బెల్ట్ ప్లాట్లతో సరికొత్త విస్తరణ.",
-        address: "మెయిన్ కమర్షియల్ సెంటర్, రామానయ్యపేట, కాకినాడ, ఆంధ్రప్రదేశ్ - 533003",
+        address: "అచ్చంపేట జంక్షన్, కాకినాడ, ఆంధ్రప్రదేశ్ - 533005",
         phone: "+91 98516 33333",
         areas: "రామానయ్యపేట, సామర్లకోట రోడ్, సర్పవరం, ఏడిబి రోడ్, పోర్ట్ బెల్ట్",
         visitBtn: "కాకినాడ ఆఫీసును సందర్శించండి"
@@ -409,7 +409,7 @@ export const translations = {
       explore: "విభాగములు",
       projects: "ప్రాజెక్టులు",
       contact: "సంప్రదించండి",
-      address: "దానవాయిపేట, రాజమండ్రి, ఆంధ్రప్రదేశ్ 533103",
+      address: "లాలాచెరువు, రాజమండ్రి, ఆంధ్రప్రదేశ్ - 533106",
       copyright: "© 2026 శివ తెలుగు ఎస్టేట్స్. సర్వ హక్కులు ప్రత్యేకించబడినవి.",
       rera: "RERA: AP/R&B/2024/50301 · RUDA లేఅవుట్లు ఆమోదించబడ్డాయి"
     },

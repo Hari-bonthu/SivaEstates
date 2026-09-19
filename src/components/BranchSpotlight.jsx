@@ -41,6 +41,9 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
               <img 
                 src="/images/ventures/jetty-mayfair.jpg" 
                 alt="Siva Telugu Estates Rajahmundry Headquarters – Morampudi Lalacheruvu Real Estate Office" 
+                width="600"
+                height="192"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
                 loading="lazy"
               />
@@ -105,6 +108,9 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
               <img 
                 src="/images/kakinada_branch_venture_1786442659994.jpg" 
                 alt="Siva Telugu Estates Kakinada Branch Office – Panduru Real Estate Hub" 
+                width="600"
+                height="192"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
                 loading="lazy"
               />

@@ -11,8 +11,11 @@ export default function SEOHead({
   title,
   description,
   canonicalUrl,
-  ogImage = 'https://www.sivateluguestates.com/android-chrome-512x512.png',
+  ogImage = 'https://www.sivateluguestates.com/images/siva-telugu-estates-og-banner-1200x630.jpg',
   schemaData = null,
+  geoRegion = 'IN-AP',
+  geoPlaceName = 'Rajahmundry',
+  geoPosition = '17.0005;81.8040',
 }) {
   const location = useLocation();
   const normalizedPath = location.pathname === '/' ? '/' : `${location.pathname.replace(/\/$/, '')}/`;
@@ -41,11 +44,21 @@ export default function SEOHead({
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', fullCanonical);
     setMeta('property', 'og:image', ogImage);
+    setMeta('property', 'og:image:width', '1200');
+    setMeta('property', 'og:image:height', '630');
+    setMeta('property', 'og:image:alt', title || 'Siva Telugu Estates Real Estate');
+    setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
     setMeta('name', 'twitter:image', ogImage);
 
-    // 4. Canonical link
+    // 4. Geo Meta Tags
+    setMeta('name', 'geo.region', geoRegion);
+    setMeta('name', 'geo.placename', geoPlaceName);
+    setMeta('name', 'geo.position', geoPosition);
+    setMeta('name', 'ICBM', geoPosition ? geoPosition.replace(';', ', ') : '17.0005, 81.8040');
+
+    // 5. Canonical link
     let canonicalEl = document.querySelector('link[rel="canonical"]');
     if (!canonicalEl) {
       canonicalEl = document.createElement('link');
@@ -54,7 +67,7 @@ export default function SEOHead({
     }
     canonicalEl.setAttribute('href', fullCanonical);
 
-    // 5. Dynamic JSON-LD schema injection / cleanup
+    // 6. Dynamic JSON-LD schema injection / cleanup
     let dynamicScript = document.getElementById('dynamic-page-schema');
     if (schemaData) {
       if (!dynamicScript) {
@@ -67,7 +80,7 @@ export default function SEOHead({
     } else if (dynamicScript) {
       dynamicScript.remove();
     }
-  }, [title, description, fullCanonical, ogImage, schemaData]);
+  }, [title, description, fullCanonical, ogImage, schemaData, geoRegion, geoPlaceName, geoPosition]);
 
   return null;
 }

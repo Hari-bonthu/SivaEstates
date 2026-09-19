@@ -80,7 +80,7 @@ export default function HeroSlider({ lang = 'en' }) {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 font-sans">
               <Link
-                to="/properties"
+                to="/properties/"
                 className="btn-red inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold group cursor-pointer shadow-md active:scale-95 transition-all text-center"
               >
                 <span>{t.ctaExplore}</span>
@@ -88,12 +88,32 @@ export default function HeroSlider({ lang = 'en' }) {
               </Link>
 
               <Link
-                to="/gallery"
+                to="/gallery/"
                 className="btn-outline inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold cursor-pointer active:scale-95 transition-all text-center"
               >
                 <Play className="w-3.5 h-3.5 mr-2 fill-current" aria-hidden="true" />
                 <span>{t.ctaVideos}</span>
               </Link>
+            </div>
+
+            {/* Above-the-fold Trust Ribbon */}
+            <div className="pt-3 border-t border-[#E8E2DA]/80 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] font-sans font-semibold text-[#6B6860]">
+              <span className="flex items-center gap-1 text-[#1A1A1A]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8312A]"></span>
+                RUDA &amp; KAUDA Approved
+              </span>
+              <span className="flex items-center gap-1 text-[#1A1A1A]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8312A]"></span>
+                AP RERA Certified
+              </span>
+              <span className="flex items-center gap-1 text-[#1A1A1A]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8312A]"></span>
+                100% Clear Title
+              </span>
+              <span className="flex items-center gap-1 text-[#1A1A1A]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8312A]"></span>
+                SBI / HDFC Loan Facility
+              </span>
             </div>
 
           </div>
@@ -104,7 +124,7 @@ export default function HeroSlider({ lang = 'en' }) {
             <div className="relative w-full max-w-sm sm:max-w-md rounded-3xl overflow-hidden bg-white border border-[#E8E2DA] shadow-xl group">
 
               {/* Profile Photo */}
-              <div className="relative h-[280px] sm:h-[360px] md:h-[400px] overflow-hidden bg-[#F0EDED]">
+              <div className="relative w-full aspect-[448/400] overflow-hidden bg-[#F0EDED]">
                 <img
                   src="/images/siva_yedida_professional.jpg"
                   alt="Mr. Siva Yedida - Founder & Managing Director"
@@ -156,7 +176,7 @@ export default function HeroSlider({ lang = 'en' }) {
 
                 <div className="flex items-center justify-between pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-[#E8E2DA] text-[11px] sm:text-xs font-sans text-[#6B6860]">
                   <span className="font-semibold text-[#1A1A1A]">{t.directorStats}</span>
-                  <Link to="/contact" className="hover:text-[#C8312A] font-semibold text-[#1A1A1A] transition-colors">
+                  <Link to="/contact/" className="hover:text-[#C8312A] font-semibold text-[#1A1A1A] transition-colors">
                     {t.directorMeet}
                   </Link>
                 </div>

@@ -28,7 +28,7 @@ export default function CTABanner({ lang = 'en' }) {
               {t.subheading}
             </p>
             <Link
-              to="/contact"
+              to="/contact/"
               className="btn-red inline-flex items-center justify-center px-7 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold group cursor-pointer shadow-lg active:scale-95 transition-all w-full sm:w-auto text-center"
             >
               <span>{t.button}</span>

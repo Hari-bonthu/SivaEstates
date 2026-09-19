@@ -123,7 +123,7 @@ export const properties = [
       "Ready for Immediate Registration",
       "Bank Loan Approved Layout"
     ],
-    featured: false
+    featured: true
   },
   {
     id: "sreenivasam",

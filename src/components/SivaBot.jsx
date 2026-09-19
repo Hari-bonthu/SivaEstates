@@ -81,7 +81,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="28" height="28" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[82%] bg-[#F5F0EB] border border-[#E8E2DA] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 font-sans leading-relaxed">
           {msg.text}
@@ -94,7 +94,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="28" height="28" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-[#1B1C1C] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5">
@@ -127,7 +127,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="28" height="28" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -154,7 +154,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="28" height="28" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -163,12 +163,12 @@ function BotMessage({ msg, onQuickReply }) {
           <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-3 text-xs">
             <div>
               <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Rajahmundry Head Office</p>
-              <p className="text-[#6B6860] mt-0.5">Main Road, Morampudi Junction, Rajahmundry AP.</p>
+              <p className="text-[#6B6860] mt-0.5">Lalacheruvu, Rajahmundry, Andhra Pradesh - 533106</p>
               <p className="text-[#C8312A] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 8:00 PM</p>
             </div>
             <div className="border-t border-[#E8E2DA] pt-3">
               <p className="font-bold text-[#1B1C1C] font-serif text-sm">🏢 Kakinada Branch</p>
-              <p className="text-[#6B6860] mt-0.5">Ramanayyapeta Commercial Centre, Kakinada AP.</p>
+              <p className="text-[#6B6860] mt-0.5">Achampeta Junction, Kakinada, Andhra Pradesh - 533005</p>
               <p className="text-[#C8312A] font-sans font-bold mt-0.5">Mon–Sun: 9:00 AM – 7:00 PM</p>
             </div>
           </div>
@@ -181,7 +181,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="28" height="28" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -211,7 +211,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="28" height="28" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -243,7 +243,7 @@ function BotMessage({ msg, onQuickReply }) {
     return (
       <div className="flex items-start space-x-2">
         <div className="w-7 h-7 rounded-full bg-[#C8312A] flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
-          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+          <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="28" height="28" className="w-full h-full object-contain" />
         </div>
         <div className="max-w-[88%] space-y-2">
           <div className="bg-[#F5F0EB] border border-[#E8E2DA] text-xs sm:text-sm rounded-2xl rounded-tl-sm px-4 py-2.5 text-[#1B1C1C]">
@@ -252,7 +252,7 @@ function BotMessage({ msg, onQuickReply }) {
           <div className="bg-white border border-[#E8E2DA] rounded-2xl p-3.5 space-y-3">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#E8E2DA] bg-[#F5F0EB]">
-                <img src="/images/siva_profile_cutout.png" alt="Siva Yedida" className="w-full h-full object-cover object-top" />
+                <img src="/images/siva_profile_cutout.png" alt="Siva Yedida" width="48" height="48" className="w-full h-full object-cover object-top" />
               </div>
               <div>
                 <p className="font-bold text-[#1B1C1C] font-serif text-sm">Siva Yedida</p>
@@ -353,7 +353,7 @@ export default function SivaBot() {
           <div className="bg-[#1B1C1C] text-white px-5 py-3.5 flex items-center justify-between shrink-0">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-full bg-white p-0.5 border border-white/20 overflow-hidden">
-                <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" className="w-full h-full object-contain" />
+                <img src="/images/logo/original_Logo_Siva.png" alt="SivaBot" width="32" height="32" className="w-full h-full object-contain" />
               </div>
               <div>
                 <p className="font-bold text-sm font-serif">SivaBot</p>

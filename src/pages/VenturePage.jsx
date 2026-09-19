@@ -24,7 +24,7 @@ export default function VenturePage() {
         <div className="min-h-[70vh] bg-[#F5F0EB] flex flex-col items-center justify-center text-center p-8">
           <h1 className="text-3xl font-bold text-[#1A1A1A] font-serif mb-4">Venture Not Found</h1>
           <p className="text-[#6B6860] mb-6 max-w-md">This project page doesn't exist or may have been updated. View our verified active layouts in Rajahmundry &amp; Kakinada.</p>
-          <Link to="/properties" className="btn-red px-6 py-3 rounded-xl text-white font-sans font-bold text-sm">
+          <Link to="/properties/" className="btn-red px-6 py-3 rounded-xl text-white font-sans font-bold text-sm">
             ← Back to All Ventures
           </Link>
         </div>
@@ -117,7 +117,7 @@ export default function VenturePage() {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
-            to="/properties"
+            to="/properties/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center space-x-2 text-xs font-sans font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors group cursor-pointer"
           >
@@ -132,7 +132,9 @@ export default function VenturePage() {
         {/* Hero Background Image */}
         <img
           src={property.thumbnail || gallery[0]}
-          alt={property.title}
+          alt={`${property.title} — Real Estate Venture in ${property.location}`}
+          width="1200"
+          height="460"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
         />
 
@@ -331,6 +333,10 @@ export default function VenturePage() {
                 <img
                   src={typeof img === 'string' ? img : img.src}
                   alt={`${property.title} - Site Photo ${idx + 1}`}
+                  width="300"
+                  height="300"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -352,14 +358,18 @@ export default function VenturePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherVentures.map((v) => (
             <Link
-              to={`/venture/${v.id}`}
+              to={`/venture/${v.id}/`}
               key={v.id}
-              className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all group shadow-xs hover:shadow-md flex flex-col"
+              className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all group shadow-xs hover:shadow-md flex flex-col justify-between h-full"
             >
-              <div className="h-48 overflow-hidden bg-[#F0EDED] relative">
+              <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#F0EDED]">
                 <img
                   src={v.thumbnail}
                   alt={v.title}
+                  width="400"
+                  height="250"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white text-[#1A1A1A] text-[9px] font-sans font-medium tracking-[0.2em] uppercase shadow-xs">

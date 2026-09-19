@@ -111,13 +111,17 @@ export default function YouTubeHub({ lang = 'en' }) {
               href={vid.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] cursor-pointer group flex flex-col transition-all shadow-xs hover:shadow-md"
+              className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] cursor-pointer group flex flex-col justify-between transition-all shadow-xs hover:shadow-md h-full"
             >
               {/* Thumbnail */}
-              <div className="relative h-44 overflow-hidden bg-[#F0EDED]">
+              <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#F0EDED]">
                 <img
                   src={vid.thumbnail}
                   alt={vid.title}
+                  width="400"
+                  height="225"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Dark overlay with play button */}

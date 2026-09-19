@@ -100,13 +100,16 @@ export default function GalleryPage({ lang = 'en' }) {
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all shadow-xs hover:shadow-xl group cursor-pointer active:scale-[0.99] flex flex-col justify-between"
+                className="bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all shadow-xs hover:shadow-xl group cursor-pointer active:scale-[0.99] flex flex-col justify-between h-full"
               >
                 {/* Main Card Image with overlay */}
-                <div className="relative h-52 sm:h-60 overflow-hidden bg-[#E8E2DA]">
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#E8E2DA]">
                   <img
                     src={project.thumbnail}
-                    alt={project.title}
+                    alt={`${project.title} — Real Estate Site Progress in ${project.area || project.location}`}
+                    width="400"
+                    height="250"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -184,12 +187,15 @@ export default function GalleryPage({ lang = 'en' }) {
               <div
                 key={item.id}
                 onClick={() => setSelectedSiteVisitIdx(idx)}
-                className="bg-[#F5F0EB] rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#C8312A] transition-all shadow-xs hover:shadow-lg group cursor-pointer flex flex-col justify-between"
+                className="bg-[#F5F0EB] rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#C8312A] transition-all shadow-xs hover:shadow-lg group cursor-pointer flex flex-col justify-between h-full"
               >
-                <div className="relative h-48 sm:h-52 overflow-hidden bg-[#E8E2DA]">
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#E8E2DA]">
                   <img
-                    src={item.image}
-                    alt={item.title}
+                    src={item.image ? (item.image.startsWith('.') ? item.image.replace(/^\./, '') : item.image) : ''}
+                    alt={`${item.title} — ${item.caption || 'Site Visit Inspection'} in ${item.location}`}
+                    width="300"
+                    height="188"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -307,7 +313,10 @@ export default function GalleryPage({ lang = 'en' }) {
             {/* Modal Image Display with Prev/Next Controls */}
             <div className="relative flex-1 min-h-0 bg-black flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
               <img
-                src={siteVisitsData[selectedSiteVisitIdx]?.image}
+                src={(() => {
+                  const imgPath = siteVisitsData[selectedSiteVisitIdx]?.image || '';
+                  return imgPath.startsWith('.') ? imgPath.replace(/^\./, '') : imgPath;
+                })()}
                 alt={siteVisitsData[selectedSiteVisitIdx]?.title}
                 className="max-w-full max-h-full w-auto h-auto object-contain select-none transition-all duration-200 drop-shadow-md pointer-events-none"
               />

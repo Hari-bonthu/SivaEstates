@@ -29,7 +29,7 @@ export default function ProjectTabsCatalog({ lang = 'en' }) {
           </div>
 
           <Link
-            to="/properties"
+            to="/properties/"
             className="text-sm font-semibold text-[#C8312A] hover:text-[#A82822] transition-colors flex items-center space-x-1.5 shrink-0"
           >
             <span>{t.viewAll}</span>

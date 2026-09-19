@@ -7,7 +7,7 @@ export const youtubeVideos = [
     category: "Jetty Mayfair",
     views: "45K+ Views",
     duration: "Shorts",
-    thumbnail: "./images/ventures/jetty-mayfair.jpg",
+    thumbnail: "/images/ventures/jetty-mayfair.jpg",
     url: "https://www.youtube.com/shorts/aXV1rrImN80"
   },
   {
@@ -18,7 +18,7 @@ export const youtubeVideos = [
     category: "Lake View Villas",
     views: "38K+ Views",
     duration: "Shorts",
-    thumbnail: "./images/ventures/sreenivasam-lake-view-villas.jpg",
+    thumbnail: "/images/ventures/sreenivasam-lake-view-villas.jpg",
     url: "https://www.youtube.com/shorts/rXkc9vxAhMM"
   },
   {
@@ -29,7 +29,7 @@ export const youtubeVideos = [
     category: "Villa Layout",
     views: "52K+ Views",
     duration: "Shorts",
-    thumbnail: "./images/ventures/jetty-mayfair/01.jpg",
+    thumbnail: "/images/ventures/jetty-mayfair/01.jpg",
     url: "https://www.youtube.com/shorts/PeQP-1rCT7w"
   },
   {
@@ -40,7 +40,7 @@ export const youtubeVideos = [
     category: "Highway Plots",
     views: "64K+ Views",
     duration: "Shorts",
-    thumbnail: "./images/ventures/sree-harivasam.jpg",
+    thumbnail: "/images/ventures/sree-harivasam.jpg",
     url: "https://www.youtube.com/shorts/BHJZ23brxIA"
   }
 ];

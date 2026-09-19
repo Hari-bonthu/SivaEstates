@@ -129,7 +129,7 @@ export default function AboutPage({ lang = 'en' }) {
 
               <div className="pt-2">
                 <Link
-                  to="/contact"
+                  to="/contact/"
                   className="btn-red inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold cursor-pointer shadow-sm w-full sm:w-auto text-center"
                 >
                   <span>Book Consultation With Director</span>

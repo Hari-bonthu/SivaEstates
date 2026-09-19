@@ -252,7 +252,7 @@ const ProjectGalleryModal = React.memo(function ProjectGalleryModal({ project, o
 
             {project.id && (
               <Link
-                to={`/venture/${project.id}`}
+                to={`/venture/${project.id}/`}
                 onClick={onClose}
                 className="flex-1 sm:flex-none btn-red px-4 py-2.5 text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer text-center"
               >

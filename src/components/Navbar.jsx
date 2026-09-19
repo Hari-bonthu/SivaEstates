@@ -36,11 +36,11 @@ export default function Navbar({ lang = 'en', setLang }) {
   // Determine active nav key from current path
   const getActiveKey = () => {
     const path = location.pathname;
-    if (path === '/properties' || path === '/projects' || path.startsWith('/venture/')) return 'projects';
-    if (path === '/about') return 'about';
-    if (path === '/gallery') return 'gallery';
-    if (path === '/offices') return 'offices';
-    if (path === '/contact') return 'contact';
+    if (path === '/properties' || path === '/properties/' || path === '/projects' || path === '/projects/' || path.startsWith('/venture/')) return 'projects';
+    if (path === '/about' || path === '/about/') return 'about';
+    if (path === '/gallery' || path === '/gallery/') return 'gallery';
+    if (path === '/offices' || path === '/offices/') return 'offices';
+    if (path === '/contact' || path === '/contact/') return 'contact';
     return 'home';
   };
 
@@ -48,11 +48,11 @@ export default function Navbar({ lang = 'en', setLang }) {
 
   const navLinks = [
     { label: t.home, key: 'home', path: '/' },
-    { label: t.projects, key: 'projects', path: '/properties' },
-    { label: t.about, key: 'about', path: '/about' },
-    { label: t.gallery, key: 'gallery', path: '/gallery' },
-    { label: t.offices, key: 'offices', path: '/offices' },
-    { label: t.contact, key: 'contact', path: '/contact' },
+    { label: t.projects, key: 'projects', path: '/properties/' },
+    { label: t.about, key: 'about', path: '/about/' },
+    { label: t.gallery, key: 'gallery', path: '/gallery/' },
+    { label: t.offices, key: 'offices', path: '/offices/' },
+    { label: t.contact, key: 'contact', path: '/contact/' },
   ];
 
   const handleNavClick = (path) => {
@@ -87,6 +87,8 @@ export default function Navbar({ lang = 'en', setLang }) {
               <img
                 src="/images/logo/original_Logo_Siva.png"
                 alt="Siva Telugu Estates Logo"
+                width="40"
+                height="40"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -94,9 +96,6 @@ export default function Navbar({ lang = 'en', setLang }) {
               <span className="text-[14px] sm:text-[15px] font-bold tracking-tight text-[#1A1A1A] font-sans">
                 Siva Telugu Estates
               </span>
-              {/* <span className="text-[9px] text-[#888] font-sans tracking-widest uppercase">
-                {t.region}
-              </span> */}
             </div>
           </Link>
 
@@ -119,6 +118,14 @@ export default function Navbar({ lang = 'en', setLang }) {
 
           {/* Desktop Right Controls (xl: 1200px+) */}
           <div className="hidden xl:flex items-center gap-3">
+            <a
+              href="tel:+919851633333"
+              className="hidden 2xl:flex items-center gap-1.5 text-xs font-semibold text-[#1A1A1A] hover:text-[#C8312A] transition-colors px-2 py-1"
+              title="Call Siva Telugu Estates"
+            >
+              <span className="text-[#C8312A] font-bold">📞</span> +91 98516 33333
+            </a>
+
             <button
               onClick={toggleLanguage}
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#E8E2DA] hover:border-[#C8312A] text-[#444] hover:text-[#C8312A] text-xs font-sans font-semibold transition-all cursor-pointer bg-white/70 hover:bg-[#FCECEA]/80 backdrop-blur-xs"
@@ -129,7 +136,7 @@ export default function Navbar({ lang = 'en', setLang }) {
             </button>
 
             <button
-              onClick={() => handleNavClick('/contact')}
+              onClick={() => handleNavClick('/contact/')}
               className="btn-red px-5 py-2.5 text-sm font-semibold cursor-pointer shadow-sm"
             >
               {t.bookVisit}
@@ -195,9 +202,15 @@ export default function Navbar({ lang = 'en', setLang }) {
             })}
 
             {/* Drawer Bottom CTA */}
-            <div className="p-5 bg-white/60">
+            <div className="p-5 bg-white/60 flex flex-col gap-3">
+              <a
+                href="tel:+919851633333"
+                className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-[#C8312A] text-[#C8312A] font-semibold text-sm hover:bg-[#FCECEA] transition-colors"
+              >
+                <span>📞 Call +91 98516 33333</span>
+              </a>
               <button
-                onClick={() => handleNavClick('/contact')}
+                onClick={() => handleNavClick('/contact/')}
                 className="btn-red w-full py-3.5 text-sm font-semibold cursor-pointer shadow-md flex items-center justify-center"
               >
                 {t.bookVisit}

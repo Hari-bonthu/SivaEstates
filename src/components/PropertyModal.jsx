@@ -84,7 +84,7 @@ const PropertyModal = React.memo(function PropertyModal({ property, onClose }) {
           
           {/* Hero Image Carousel with Auto-slide & Manual Arrow Buttons */}
           <div 
-            className="relative h-72 sm:h-96 bg-[#18231C] shrink-0 overflow-hidden group select-none"
+            className="relative w-full aspect-[16/9] sm:aspect-[2/1] bg-[#18231C] shrink-0 overflow-hidden group select-none"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -92,6 +92,10 @@ const PropertyModal = React.memo(function PropertyModal({ property, onClose }) {
               key={activeImg}
               src={gallery[activeImg]}
               alt={`${property.title} view ${activeImg + 1}`}
+              width="768"
+              height="384"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
             />
             
