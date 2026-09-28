@@ -111,6 +111,8 @@ const VentureCard = React.memo(function VentureCard({ project, onInspect }) {
             {/* Details link */}
             <Link
               to={`/venture/${project.id}/`}
+              title={`View ${project.title} in ${project.location} details`}
+              aria-label={`View ${project.title} in ${project.location} details`}
               className="inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-[#1A1A1A] hover:bg-[#C8312A] text-white text-xs font-bold transition-colors shrink-0"
             >
               <span>Details</span>

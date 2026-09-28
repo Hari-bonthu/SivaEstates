@@ -3,8 +3,15 @@ export const properties = [
     id: "jetty-mayfair",
     category: "ongoing",
     title: "Jetty Mayfair Luxury Villa Layout",
+    seoTitle: "Jetty Mayfair, Rajahmundry | Siva Telugu Estates",
+    h1Title: "Jetty Mayfair Luxury Villa Plots in Bommuru, Rajahmundry",
+    seoDescription: "Explore Jetty Mayfair luxury villa plots in Bommuru, Rajahmundry. RUDA approved, clear title, 150-500 sq.yd. Free AC site visit: +91 98516 33333.",
     location: "Rajahmundry",
-    area: "Rajahmundry - Bommurru",
+    area: "Bommuru, Rajahmundry",
+    geo: {
+      latitude: 16.9748,
+      longitude: 81.8080
+    },
     type: "Gated Villa Plots & RUDA Layout",
     displayType: "Villas",
     statusLabel: "ONGOING",
@@ -16,8 +23,42 @@ export const properties = [
     pricePerSqYd: "₹18,000 / Sq.Yd",
     priceDisplay: "From ₹18,000 / sq.yd",
     status: "Ongoing",
-    tagline: "Rajahmundry's Premium Gated Community",
-    description: "Jetty Mayfair Luxury Villa Layout is an exclusive gated community situated in the most sought-after Morampudi–Lalacheruvu corridor of Rajahmundry. Designed for families who want a combination of luxury living standards with 100% legal safety, this venture is proudly presented by Siva Telugu Estates.",
+    tagline: "Rajahmundry's Premium Gated Community in Bommuru",
+    description: "Jetty Mayfair Luxury Villa Layout is an exclusive gated community situated in the booming Bommuru corridor of Rajahmundry. Designed for families who want a combination of luxury living standards with 100% legal title safety, this RUDA-approved venture is proudly presented by Siva Telugu Estates.",
+    overviewParagraphs: [
+      "Jetty Mayfair Luxury Villa Layout is an exclusive, RUDA-approved gated community residential project situated in the booming Bommuru corridor of Rajahmundry, Andhra Pradesh. Developed to the highest standards of modern suburban living, Jetty Mayfair offers premium villa plots ranging from 150 to 500 square yards with East, West, and North-facing options. Promoted by Siva Telugu Estates under the leadership of Mr. Siva Yedida, the layout combines 100% legal title safety, immediate construction readiness, and high investment appreciation along the expanding Rajahmundry urban belt.",
+      "Strategically connected along the Morampudi–Bommuru corridor, Jetty Mayfair provides effortless connectivity to NH-16 (Chennai–Kolkata Highway), central Rajahmundry, and the Rajahmundry Airport at Madhurapudi. Whether you are planning to build a custom luxury villa or seeking high-growth land investment with bank loan clearance, Jetty Mayfair delivers verified clear titles with on-spot Sub-Registrar registration."
+    ],
+    connectivity: [
+      { landmark: "NH-16 National Highway (Chennai–Kolkata Bypass)", distance: "5 Mins" },
+      { landmark: "Morampudi Junction & Lalacheruvu Hub", distance: "8 Mins" },
+      { landmark: "Rajahmundry Central Railway Station", distance: "15 Mins" },
+      { landmark: "Rajahmundry Airport (Madhurapudi)", distance: "25 Mins" },
+      { landmark: "Top Reputed Schools & Engineering Colleges", distance: "10 Mins" },
+      { landmark: "Multi-Speciality Hospitals & Emergency Care", distance: "12 Mins" }
+    ],
+    faqs: [
+      {
+        q: "Where is Jetty Mayfair located in Rajahmundry?",
+        a: "Jetty Mayfair Luxury Villa Layout is situated in Bommuru, Rajahmundry, along the Morampudi–Bommuru connecting corridor with immediate connectivity to NH-16 and central Rajahmundry."
+      },
+      {
+        q: "What is the plot price per square yard at Jetty Mayfair?",
+        a: "Plot prices at Jetty Mayfair start from ₹18,000 per square yard. Clear titles and spot sub-registrar registration are guaranteed by Siva Telugu Estates."
+      },
+      {
+        q: "Is Jetty Mayfair approved by RUDA and RERA?",
+        a: "Yes, Jetty Mayfair is an approved layout under the Rajahmundry Urban Development Authority (RUDA) and complies with AP RERA norms, making it eligible for bank housing loans."
+      },
+      {
+        q: "What plot sizes are available at Jetty Mayfair in Bommuru?",
+        a: "Jetty Mayfair offers residential villa plots ranging from 150 to 500 square yards with East, West, and North-facing plot dimensions suitable for immediate duplex and triplex villa construction."
+      },
+      {
+        q: "How do I book a free site visit to Jetty Mayfair?",
+        a: "You can schedule a free site visit with complimentary AC car transportation by calling Director Mr. Siva Yedida at +91 98516 33333 or contacting Siva Telugu Estates via WhatsApp."
+      }
+    ],
     thumbnail: "/images/ventures/jetty-mayfair.jpg",
     gallery: [
       "/images/ventures/jetty-mayfair/01.jpg",

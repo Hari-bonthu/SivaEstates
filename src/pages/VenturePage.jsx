@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { properties } from '../data/properties';
-import { MapPin, PhoneCall, ShieldCheck, CheckCircle2, ArrowLeft, Maximize2, Compass, Ruler, IndianRupee, MessageCircle } from 'lucide-react';
+import { youtubeVideos } from '../data/youtubeVideos';
+import { MapPin, PhoneCall, ShieldCheck, CheckCircle2, ArrowLeft, Maximize2, Compass, Ruler, IndianRupee, MessageCircle, Navigation, Play, HelpCircle } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 export default function VenturePage() {
@@ -32,60 +33,83 @@ export default function VenturePage() {
     );
   }
 
+  const schemaGraph = [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.sivateluguestates.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ventures & Plots",
+          "item": "https://www.sivateluguestates.com/properties/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": property.title,
+          "item": `https://www.sivateluguestates.com/venture/${property.id}/`
+        }
+      ]
+    },
+    {
+      "@type": "RealEstateListing",
+      "name": property.seoTitle ? property.seoTitle.split('|')[0].trim() : property.title,
+      "description": property.description,
+      "url": `https://www.sivateluguestates.com/venture/${property.id}/`,
+      "image": property.thumbnail?.startsWith('http') ? property.thumbnail : `https://www.sivateluguestates.com${property.thumbnail?.replace('./', '/')}`,
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": property.pricePerSqYd,
+        "availability": property.status?.toLowerCase().includes('sold')
+          ? "https://schema.org/SoldOut"
+          : "https://schema.org/InStock"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": property.location,
+        "addressRegion": "Andhra Pradesh",
+        "addressCountry": "IN"
+      },
+      ...(property.geo ? {
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": property.geo.latitude,
+          "longitude": property.geo.longitude
+        }
+      } : {}),
+      "provider": {
+        "@type": "RealEstateAgent",
+        "name": "Siva Telugu Estates",
+        "telephone": "+919851633333",
+        "url": "https://www.sivateluguestates.com"
+      }
+    }
+  ];
+
+  if (property.faqs && property.faqs.length > 0) {
+    schemaGraph.push({
+      "@type": "FAQPage",
+      "mainEntity": property.faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    });
+  }
+
   const propertySchema = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.sivateluguestates.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Ventures & Plots",
-            "item": "https://www.sivateluguestates.com/properties/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": property.title,
-            "item": `https://www.sivateluguestates.com/venture/${property.id}/`
-          }
-        ]
-      },
-      {
-        "@type": "RealEstateListing",
-        "name": property.title,
-        "description": property.description,
-        "url": `https://www.sivateluguestates.com/venture/${property.id}/`,
-        "image": property.thumbnail?.startsWith('http') ? property.thumbnail : `https://www.sivateluguestates.com${property.thumbnail?.replace('./', '/')}`,
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "INR",
-          "price": property.pricePerSqYd,
-          "availability": property.status?.toLowerCase().includes('sold')
-            ? "https://schema.org/SoldOut"
-            : "https://schema.org/InStock"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": property.location,
-          "addressRegion": "Andhra Pradesh",
-          "addressCountry": "IN"
-        },
-        "provider": {
-          "@type": "RealEstateAgent",
-          "name": "Siva Telugu Estates",
-          "telephone": "+919851633333",
-          "url": "https://www.sivateluguestates.com"
-        }
-      }
-    ]
+    "@graph": schemaGraph
   };
 
   const gallery = property.gallery && property.gallery.length > 0
@@ -93,15 +117,24 @@ export default function VenturePage() {
     : [property.thumbnail];
 
   const otherVentures = properties.filter(p => p.id !== property.id).slice(0, 3);
+  const relevantVideos = youtubeVideos.filter(v =>
+    (property.id === 'jetty-mayfair' && (v.category === 'Jetty Mayfair' || v.category === 'Villa Layout')) ||
+    v.id.includes(property.id)
+  );
+
+  const pageTitle = property.seoTitle || `${property.title} | Plots for Sale in ${property.location} | Siva Telugu Estates`;
+  const metaDescription = property.seoDescription || `${property.tagline}. ${property.plotSizes} plots available in ${property.area}. ${property.approval}. Free site visit available — Call +91 98516 33333.`;
 
   return (
     <>
       <SEOHead
-        title={`${property.title} | Plots for Sale in ${property.location} | Siva Telugu Estates`}
-        description={`${property.tagline}. ${property.plotSizes} plots available in ${property.area}. ${property.approval}. Free site visit available — Call +91 98516 33333.`}
+        title={pageTitle}
+        description={metaDescription}
         canonicalUrl={`https://www.sivateluguestates.com/venture/${property.id}/`}
         ogImage={property.thumbnail?.startsWith('http') ? property.thumbnail : `https://www.sivateluguestates.com${property.thumbnail?.replace('./', '/')}`}
         schemaData={propertySchema}
+        geoPosition={property.geo ? `${property.geo.latitude};${property.geo.longitude}` : (property.location === 'Kakinada' ? '16.9890;82.2475' : '17.0005;81.8040')}
+        geoPlaceName={property.area || property.location}
       />
       <div className="min-h-screen bg-[#F5F0EB] font-sans">
 
@@ -156,7 +189,7 @@ export default function VenturePage() {
 
           {/* Large Serif Title */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white font-serif leading-tight max-w-4xl tracking-tight">
-            {property.title}
+            {property.h1Title || property.title}
           </h1>
 
           {/* Location corridor */}
@@ -187,9 +220,13 @@ export default function VenturePage() {
                 {property.tagline}
               </h2>
 
-              <p className="text-sm text-[#6B6860] leading-relaxed font-sans pt-1">
-                {property.description}
-              </p>
+              <div className="space-y-3 pt-1">
+                {(property.overviewParagraphs || [property.description]).map((para, idx) => (
+                  <p key={idx} className="text-sm sm:text-base text-[#4A4740] leading-relaxed font-sans">
+                    {para}
+                  </p>
+                ))}
+              </div>
             </div>
 
             {/* 4 Spec Cards Grid */}
@@ -245,6 +282,115 @@ export default function VenturePage() {
                 ))}
               </div>
             </div>
+
+            {/* Prime Location & Connectivity Corridor */}
+            {property.connectivity && property.connectivity.length > 0 && (
+              <div className="space-y-4 pt-6 border-t border-[#E8E2DA]">
+                <div className="flex items-center space-x-2">
+                  <Navigation className="w-4 h-4 text-[#C8312A]" aria-hidden="true" />
+                  <h3 className="text-xs font-sans font-medium text-[#1A1A1A] uppercase tracking-[0.2em]">
+                    PRIME LOCATION &amp; CONNECTIVITY CORRIDOR
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {property.connectivity.map((item, i) => (
+                    <div key={i} className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-[#E8E2DA] shadow-xs">
+                      <span className="text-xs sm:text-sm text-[#2D2D2D] font-medium font-sans flex items-center gap-2">
+                        <MapPin className="w-3.5 h-3.5 text-[#C8312A] shrink-0" aria-hidden="true" />
+                        {item.landmark}
+                      </span>
+                      <span className="text-xs font-bold text-[#C8312A] font-sans bg-[#FCECEA] px-2.5 py-1 rounded-md shrink-0 ml-2">
+                        {item.distance}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Video Walkthrough Tour if relevant videos exist */}
+            {relevantVideos.length > 0 && (
+              <div className="space-y-4 pt-6 border-t border-[#E8E2DA]">
+                <div className="flex items-center space-x-2">
+                  <Play className="w-4 h-4 text-[#C8312A]" aria-hidden="true" />
+                  <h3 className="text-xs font-sans font-medium text-[#1A1A1A] uppercase tracking-[0.2em]">
+                    VIDEO WALKTHROUGH &amp; SITE TOUR
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {relevantVideos.map((vid) => (
+                    <a
+                      key={vid.id}
+                      href={vid.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block bg-white rounded-2xl overflow-hidden border border-[#E8E2DA] hover:border-[#F5C6C4] transition-all shadow-xs hover:shadow-md"
+                    >
+                      <div className="relative aspect-video overflow-hidden bg-[#1A1A1A]">
+                        <img
+                          src={vid.thumbnail}
+                          alt={vid.title}
+                          width="350"
+                          height="197"
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-[#C8312A] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <Play className="w-5 h-5 ml-0.5 fill-current" aria-hidden="true" />
+                          </div>
+                        </div>
+                        <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-white text-[10px] font-sans">
+                          {vid.duration}
+                        </span>
+                      </div>
+                      <div className="p-4 space-y-1">
+                        <h4 className="text-xs sm:text-sm font-bold text-[#1A1A1A] font-serif line-clamp-1 group-hover:text-[#C8312A] transition-colors">
+                          {vid.title}
+                        </h4>
+                        <p className="text-[11px] text-[#6B6860] line-clamp-2 font-sans">
+                          {vid.description}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Buyer FAQs Accordion */}
+            {property.faqs && property.faqs.length > 0 && (
+              <section className="space-y-4 pt-6 border-t border-[#E8E2DA]">
+                <div className="flex items-center space-x-2">
+                  <HelpCircle className="w-4 h-4 text-[#C8312A]" aria-hidden="true" />
+                  <h3 className="text-xs font-sans font-medium text-[#1A1A1A] uppercase tracking-[0.2em]">
+                    FREQUENTLY ASKED QUESTIONS (FAQ)
+                  </h3>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] font-serif">
+                  Common Inquiries — {property.title}
+                </h2>
+                <div className="space-y-3 pt-1">
+                  {property.faqs.map((faq, idx) => (
+                    <details
+                      key={idx}
+                      className="group rounded-2xl bg-white border border-[#E8E2DA] p-4 sm:p-5 transition-all shadow-xs open:border-[#F5C6C4]"
+                    >
+                      <summary className="font-serif font-bold text-sm sm:text-base text-[#1A1A1A] cursor-pointer list-none flex items-center justify-between group-hover:text-[#C8312A] transition-colors">
+                        <span>{faq.q}</span>
+                        <span className="text-xs font-sans text-[#C8312A] ml-2 shrink-0 group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-3 text-xs sm:text-sm text-[#4A4740] font-sans leading-relaxed border-t border-[#F5F0EB] pt-3">
+                        {faq.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )}
 
           </div>
 

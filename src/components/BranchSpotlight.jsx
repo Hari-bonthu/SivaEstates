@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Building2, Navigation, Sparkles } from 'lucide-react';
 import { translations } from '../data/translations';
 
@@ -88,6 +89,15 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
                 </p>
               </div>
 
+              <div className="pt-1">
+                <Link
+                  to="/venture/jetty-mayfair/"
+                  className="inline-flex items-center space-x-1 text-xs font-bold text-[#C8312A] hover:text-[#A82822] hover:underline transition-colors"
+                >
+                  <span>Featured Layout: Jetty Mayfair in Bommuru, Rajahmundry →</span>
+                </Link>
+              </div>
+
               <div className="pt-2">
                 <a
                   href="https://wa.me/919851633333?text=Hi%20Siva%20Telugu%20Estates,%20I%20want%20to%20visit%20your%20Rajahmundry%20HQ."
@@ -154,6 +164,15 @@ export default function BranchSpotlight({ lang = 'en', isPage = false }) {
                 <p className="text-xs text-[#2D2D2D] bg-[#F5F0EB] p-3 rounded-xl border border-[#E8E2DA] font-sans">
                   {t.kakinada.areas}
                 </p>
+              </div>
+
+              <div className="pt-1">
+                <Link
+                  to="/venture/sreenivasam-lake-view/"
+                  className="inline-flex items-center space-x-1 text-xs font-bold text-[#C8312A] hover:text-[#A82822] hover:underline transition-colors"
+                >
+                  <span>Featured Layout: Sreenivasam Lake View in Kakinada →</span>
+                </Link>
               </div>
 
               <div className="pt-2">
